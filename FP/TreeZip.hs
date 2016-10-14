@@ -12,4 +12,8 @@ treezip (Node a l1 r1) (Node b l2 r2) =
     in Node (a,b) l r
 
 treeunzip Leaf = (Leaf, Leaf)
+treeunzip (Node (a,b) l r) = 
+    let (l1, l2) = treeunzip l
+        (r1, r2) = treeunzip r
+    in (Node a l1 r1, Node b l2 r2)
 

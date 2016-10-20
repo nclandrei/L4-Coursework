@@ -1,3 +1,6 @@
+import Control.Monad
+import Test.QuickCheck
+
 -- defining Tree data type
 data Tree a = Leaf | Node a (Tree a) (Tree a) deriving (Read, Show, Eq, Ord)
 

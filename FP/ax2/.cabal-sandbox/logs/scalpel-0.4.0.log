@@ -1,0 +1,67 @@
+cabal: Entering directory '/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/cabal-tmp-38744/scalpel-0.4.0'
+Configuring scalpel-0.4.0...
+Building scalpel-0.4.0...
+Preprocessing library scalpel-0.4.0...
+[1 of 7] Compiling Text.HTML.Scalpel.Internal.Select.Types ( src/Text/HTML/Scalpel/Internal/Select/Types.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/Scalpel/Internal/Select/Types.o )
+[2 of 7] Compiling Text.HTML.Scalpel.Internal.Select.Combinators ( src/Text/HTML/Scalpel/Internal/Select/Combinators.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/Scalpel/Internal/Select/Combinators.o )
+[3 of 7] Compiling Text.HTML.Scalpel.Internal.Select ( src/Text/HTML/Scalpel/Internal/Select.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/Scalpel/Internal/Select.o )
+
+src/Text/HTML/Scalpel/Internal/Select.hs:79:35: warning: [-Wunused-matches]
+    Defined but not used: ‘ctx’
+[4 of 7] Compiling Text.HTML.Scalpel.Internal.Scrape ( src/Text/HTML/Scalpel/Internal/Scrape.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/Scalpel/Internal/Scrape.o )
+[5 of 7] Compiling Text.HTML.Scalpel.Internal.Scrape.StringLike ( src/Text/HTML/Scalpel/Internal/Scrape/StringLike.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/Scalpel/Internal/Scrape/StringLike.o )
+[6 of 7] Compiling Text.HTML.Scalpel.Internal.Scrape.URL ( src/Text/HTML/Scalpel/Internal/Scrape/URL.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/Scalpel/Internal/Scrape/URL.o )
+[7 of 7] Compiling Text.HTML.Scalpel ( src/Text/HTML/Scalpel.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/Scalpel.o )
+[1 of 7] Compiling Text.HTML.Scalpel.Internal.Select.Types ( src/Text/HTML/Scalpel/Internal/Select/Types.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/Scalpel/Internal/Select/Types.p_o )
+[2 of 7] Compiling Text.HTML.Scalpel.Internal.Select.Combinators ( src/Text/HTML/Scalpel/Internal/Select/Combinators.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/Scalpel/Internal/Select/Combinators.p_o )
+[3 of 7] Compiling Text.HTML.Scalpel.Internal.Select ( src/Text/HTML/Scalpel/Internal/Select.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/Scalpel/Internal/Select.p_o )
+
+src/Text/HTML/Scalpel/Internal/Select.hs:79:35: warning: [-Wunused-matches]
+    Defined but not used: ‘ctx’
+[4 of 7] Compiling Text.HTML.Scalpel.Internal.Scrape ( src/Text/HTML/Scalpel/Internal/Scrape.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/Scalpel/Internal/Scrape.p_o )
+[5 of 7] Compiling Text.HTML.Scalpel.Internal.Scrape.StringLike ( src/Text/HTML/Scalpel/Internal/Scrape/StringLike.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/Scalpel/Internal/Scrape/StringLike.p_o )
+[6 of 7] Compiling Text.HTML.Scalpel.Internal.Scrape.URL ( src/Text/HTML/Scalpel/Internal/Scrape/URL.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/Scalpel/Internal/Scrape/URL.p_o )
+[7 of 7] Compiling Text.HTML.Scalpel ( src/Text/HTML/Scalpel.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/Scalpel.p_o )
+Running Haddock for scalpel-0.4.0...
+Preprocessing library scalpel-0.4.0...
+Warning: The documentation for the following packages are not installed. No
+links will be generated to these packages: fail-4.9.0.0
+
+src/Text/HTML/Scalpel/Internal/Select.hs:79:35: warning: [-Wunused-matches]
+    Defined but not used: ‘ctx’
+Haddock coverage:
+  45% (  5 / 11) in 'Text.HTML.Scalpel.Internal.Select.Types'
+  Missing documentation for:
+    Module header
+    checkPred (src/Text/HTML/Scalpel/Internal/Select/Types.hs:45)
+    matchKey (src/Text/HTML/Scalpel/Internal/Select/Types.hs:31)
+    SelectNode (src/Text/HTML/Scalpel/Internal/Select/Types.hs:64)
+    tagSelector (src/Text/HTML/Scalpel/Internal/Select/Types.hs:54)
+    toSelectNode (src/Text/HTML/Scalpel/Internal/Select/Types.hs:74)
+  86% (  6 /  7) in 'Text.HTML.Scalpel.Internal.Select.Combinators'
+  Missing documentation for:
+    Module header
+  83% (  5 /  6) in 'Text.HTML.Scalpel.Internal.Select'
+  Missing documentation for:
+    Module header
+  93% ( 13 / 14) in 'Text.HTML.Scalpel.Internal.Scrape'
+  Missing documentation for:
+    Module header
+  50% (  1 /  2) in 'Text.HTML.Scalpel.Internal.Scrape.StringLike'
+  Missing documentation for:
+    Module header
+  80% (  8 / 10) in 'Text.HTML.Scalpel.Internal.Scrape.URL'
+  Missing documentation for:
+    Module header
+    URL (src/Text/HTML/Scalpel/Internal/Scrape/URL.hs:32)
+  95% ( 41 / 43) in 'Text.HTML.Scalpel'
+  Missing documentation for:
+    tagSelector (src/Text/HTML/Scalpel/Internal/Select/Types.hs:54)
+    URL (src/Text/HTML/Scalpel/Internal/Scrape/URL.hs:32)
+Documentation created: dist/dist-sandbox-2c4a8482/doc/html/scalpel/index.html
+Creating package registration file:
+/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/pkgConf-scalpel-0.411538515011004844897.0
+Installing library in
+/Users/nclandrei/Desktop/level4_coursework/FP/ax2/.cabal-sandbox/lib/x86_64-osx-ghc-8.0.1/scalpel-0.4.0-4PJF8UximY66gLC1bKcGhe
+Registering scalpel-0.4.0...
+cabal: Leaving directory '/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/cabal-tmp-38744/scalpel-0.4.0'

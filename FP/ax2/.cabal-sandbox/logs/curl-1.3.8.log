@@ -1,0 +1,161 @@
+cabal: Entering directory '/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/cabal-tmp-38746/curl-1.3.8'
+Configuring curl-1.3.8...
+checking for gcc... /usr/bin/gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /usr/bin/gcc accepts -g... yes
+checking for /usr/bin/gcc option to accept ANSI C... none needed
+checking how to run the C preprocessor... /usr/bin/gcc -E
+configure: creating ./config.status
+config.status: creating curl.buildinfo
+Building curl-1.3.8...
+Preprocessing library curl-1.3.8...
+[1 of 8] Compiling Network.Curl.Debug ( Network/Curl/Debug.hs, dist/dist-sandbox-2c4a8482/build/Network/Curl/Debug.o )
+[2 of 8] Compiling Network.Curl.Code ( Network/Curl/Code.hs, dist/dist-sandbox-2c4a8482/build/Network/Curl/Code.o )
+[3 of 8] Compiling Network.Curl.Types ( Network/Curl/Types.hs, dist/dist-sandbox-2c4a8482/build/Network/Curl/Types.o )
+[4 of 8] Compiling Network.Curl.Info ( Network/Curl/Info.hs, dist/dist-sandbox-2c4a8482/build/Network/Curl/Info.o )
+[5 of 8] Compiling Network.Curl.Post ( Network/Curl/Post.hs, dist/dist-sandbox-2c4a8482/build/Network/Curl/Post.o )
+[6 of 8] Compiling Network.Curl.Opts ( Network/Curl/Opts.hs, dist/dist-sandbox-2c4a8482/build/Network/Curl/Opts.o )
+[7 of 8] Compiling Network.Curl.Easy ( Network/Curl/Easy.hs, dist/dist-sandbox-2c4a8482/build/Network/Curl/Easy.o )
+
+Network/Curl/Easy.hs:27:1: warning: [-Wtabs]
+    Tab character found here, and in two further locations.
+    Please use spaces instead.
+[8 of 8] Compiling Network.Curl     ( Network/Curl.hs, dist/dist-sandbox-2c4a8482/build/Network/Curl.o )
+
+Network/Curl.hs:278:1: warning: [-Wtabs]
+    Tab character found here, and in 8 further locations.
+    Please use spaces instead.
+[1 of 8] Compiling Network.Curl.Debug ( Network/Curl/Debug.hs, dist/dist-sandbox-2c4a8482/build/Network/Curl/Debug.p_o )
+[2 of 8] Compiling Network.Curl.Code ( Network/Curl/Code.hs, dist/dist-sandbox-2c4a8482/build/Network/Curl/Code.p_o )
+[3 of 8] Compiling Network.Curl.Types ( Network/Curl/Types.hs, dist/dist-sandbox-2c4a8482/build/Network/Curl/Types.p_o )
+[4 of 8] Compiling Network.Curl.Info ( Network/Curl/Info.hs, dist/dist-sandbox-2c4a8482/build/Network/Curl/Info.p_o )
+[5 of 8] Compiling Network.Curl.Post ( Network/Curl/Post.hs, dist/dist-sandbox-2c4a8482/build/Network/Curl/Post.p_o )
+[6 of 8] Compiling Network.Curl.Opts ( Network/Curl/Opts.hs, dist/dist-sandbox-2c4a8482/build/Network/Curl/Opts.p_o )
+[7 of 8] Compiling Network.Curl.Easy ( Network/Curl/Easy.hs, dist/dist-sandbox-2c4a8482/build/Network/Curl/Easy.p_o )
+
+Network/Curl/Easy.hs:27:1: warning: [-Wtabs]
+    Tab character found here, and in two further locations.
+    Please use spaces instead.
+[8 of 8] Compiling Network.Curl     ( Network/Curl.hs, dist/dist-sandbox-2c4a8482/build/Network/Curl.p_o )
+
+Network/Curl.hs:278:1: warning: [-Wtabs]
+    Tab character found here, and in 8 further locations.
+    Please use spaces instead.
+Running Haddock for curl-1.3.8...
+Preprocessing library curl-1.3.8...
+
+Network/Curl/Easy.hs:27:1: warning: [-Wtabs]
+    Tab character found here, and in two further locations.
+    Please use spaces instead.
+
+Network/Curl.hs:278:1: warning: [-Wtabs]
+    Tab character found here, and in 8 further locations.
+    Please use spaces instead.
+Haddock coverage:
+  50% (  1 /  2) in 'Network.Curl.Debug'
+  Missing documentation for:
+    debug (Network/Curl/Debug.hs:20)
+  33% (  1 /  3) in 'Network.Curl.Code'
+  Missing documentation for:
+    CurlCode (Network/Curl/Code.hs:20)
+    toCode (Network/Curl/Code.hs:107)
+  27% (  4 / 15) in 'Network.Curl.Types'
+  Missing documentation for:
+    CurlH (Network/Curl/Types.hs:37)
+    URLString (Network/Curl/Types.hs:39)
+    Port (Network/Curl/Types.hs:40)
+    Long (Network/Curl/Types.hs:41)
+    LLong (Network/Curl/Types.hs:42)
+    Slist_ (Network/Curl/Types.hs:43)
+    Curl (Network/Curl/Types.hs:46)
+    OptionMap (Network/Curl/Types.hs:103)
+    shareCleanup (Network/Curl/Types.hs:89)
+    runCleanup (Network/Curl/Types.hs:84)
+    updateCleanup (Network/Curl/Types.hs:95)
+  25% (  1 /  4) in 'Network.Curl.Info'
+  Missing documentation for:
+    Info (Network/Curl/Info.hs:31)
+    InfoValue (Network/Curl/Info.hs:64)
+    getInfo (Network/Curl/Info.hs:100)
+   9% (  1 / 11) in 'Network.Curl.Post'
+  Missing documentation for:
+    Header (Network/Curl/Post.hs:28)
+    HttpPost (Network/Curl/Post.hs:30)
+    Content (Network/Curl/Post.hs:40)
+    multiformString (Network/Curl/Post.hs:46)
+    sizeof_httppost (Network/Curl/Post.hs:57)
+    marshallPosts (Network/Curl/Post.hs:60)
+    marshallPost (Network/Curl/Post.hs:75)
+    curl_slist_append (Network/Curl/Post.hs:117)
+    curl_slist_free (Network/Curl/Post.hs:119)
+    curl_formfree (Network/Curl/Post.hs:122)
+   3% (  1 / 30) in 'Network.Curl.Opts'
+  Missing documentation for:
+    CurlOption (Network/Curl/Opts.hs:24)
+     (Network/Curl/Opts.hs:186)
+    HttpVersion (Network/Curl/Opts.hs:189)
+    TimeCond (Network/Curl/Opts.hs:195)
+    NetRcOption (Network/Curl/Opts.hs:202)
+    HttpAuth (Network/Curl/Opts.hs:208)
+    toHttpAuthMask (Network/Curl/Opts.hs:218)
+    SSHAuthType (Network/Curl/Opts.hs:232)
+    toSSHAuthMask (Network/Curl/Opts.hs:242)
+    WriteFunction (Network/Curl/Opts.hs:255)
+    ReadFunction (Network/Curl/Opts.hs:262)
+    ReadFunctionPrim (Network/Curl/Opts.hs:269)
+    ProgressFunction (Network/Curl/Opts.hs:277)
+    DebugFunction (Network/Curl/Opts.hs:285)
+    DebugInfo (Network/Curl/Opts.hs:293)
+    DebugFunctionPrim (Network/Curl/Opts.hs:303)
+    SSLCtxtFunction (Network/Curl/Opts.hs:313)
+    curl_readfunc_abort (Network/Curl/Opts.hs:319)
+    baseLong (Network/Curl/Opts.hs:322)
+    baseObject (Network/Curl/Opts.hs:325)
+    baseFunction (Network/Curl/Opts.hs:328)
+    baseOffT (Network/Curl/Opts.hs:331)
+    unmarshallOption (Network/Curl/Opts.hs:334)
+    Unmarshaller (Network/Curl/Opts.hs:499)
+    verboseUnmarshaller (Network/Curl/Opts.hs:519)
+    u_bool (Network/Curl/Opts.hs:543)
+    u_enum (Network/Curl/Opts.hs:546)
+    u_cptr (Network/Curl/Opts.hs:549)
+    showCurlOption (Network/Curl/Opts.hs:552)
+  20% (  2 / 10) in 'Network.Curl.Easy'
+  Missing documentation for:
+    perform (Network/Curl/Easy.hs:146)
+    setopt (Network/Curl/Easy.hs:63)
+    duphandle (Network/Curl/Easy.hs:57)
+    reset (Network/Curl/Easy.hs:54)
+    curl_global_init (Network/Curl/Easy.hs:149)
+    curl_global_cleanup (Network/Curl/Easy.hs:174)
+    curl_version_number (Network/Curl/Easy.hs:152)
+    curl_version_string (Network/Curl/Easy.hs:157)
+  67% ( 26 / 39) in 'Network.Curl'
+  Missing documentation for:
+    CurlResponse (Network/Curl.hs:232)
+    curlGetResponse (Network/Curl.hs:267)
+    curlGetString_ (Network/Curl.hs:217)
+    do_curl_ (Network/Curl.hs:325)
+    getResponseCode (Network/Curl.hs:447)
+    setDefaultSSLOpts (Network/Curl.hs:189)
+    easyWriter (Network/Curl.hs:417)
+    method_GET (Network/Curl.hs:168)
+    method_HEAD (Network/Curl.hs:174)
+    method_POST (Network/Curl.hs:171)
+    parseStatusNHeaders (Network/Curl.hs:374)
+    parseHeader (Network/Curl.hs:387)
+    concRev (Network/Curl.hs:370)
+Warning: Network.Curl.Types: could not find link destinations for:
+    Curl_
+Documentation created: dist/dist-sandbox-2c4a8482/doc/html/curl/index.html
+Creating package registration file:
+/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/pkgConf-curl-1.321463194511908194298.8
+Installing library in
+/Users/nclandrei/Desktop/level4_coursework/FP/ax2/.cabal-sandbox/lib/x86_64-osx-ghc-8.0.1/curl-1.3.8-B8AxMCtSRkiFrZLK4gerBe
+Registering curl-1.3.8...
+cabal: Leaving directory '/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/cabal-tmp-38746/curl-1.3.8'

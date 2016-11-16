@@ -1,0 +1,21 @@
+cabal: Entering directory '/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/cabal-tmp-38748/old-locale-1.0.0.7'
+Configuring old-locale-1.0.0.7...
+Building old-locale-1.0.0.7...
+Preprocessing library old-locale-1.0.0.7...
+[1 of 1] Compiling System.Locale    ( System/Locale.hs, dist/dist-sandbox-2c4a8482/build/System/Locale.o )
+[1 of 1] Compiling System.Locale    ( System/Locale.hs, dist/dist-sandbox-2c4a8482/build/System/Locale.p_o )
+Running Haddock for old-locale-1.0.0.7...
+Preprocessing library old-locale-1.0.0.7...
+Haddock coverage:
+  60% (  3 /  5) in 'System.Locale'
+  Missing documentation for:
+    TimeLocale (System/Locale.hs:36)
+    defaultTimeLocale (System/Locale.hs:49)
+Documentation created:
+dist/dist-sandbox-2c4a8482/doc/html/old-locale/index.html
+Creating package registration file:
+/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/pkgConf-old-locale-1.0.0510616708590357944.7
+Installing library in
+/Users/nclandrei/Desktop/level4_coursework/FP/ax2/.cabal-sandbox/lib/x86_64-osx-ghc-8.0.1/old-locale-1.0.0.7-6glXNhHF891B41ZfuI8hU8
+Registering old-locale-1.0.0.7...
+cabal: Leaving directory '/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/cabal-tmp-38748/old-locale-1.0.0.7'

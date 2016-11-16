@@ -1,0 +1,20 @@
+cabal: Entering directory '/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/cabal-tmp-38744/data-default-instances-containers-0.0.1'
+Configuring data-default-instances-containers-0.0.1...
+Building data-default-instances-containers-0.0.1...
+Preprocessing library data-default-instances-containers-0.0.1...
+[1 of 1] Compiling Data.Default.Instances.Containers ( Data/Default/Instances/Containers.hs, dist/dist-sandbox-2c4a8482/build/Data/Default/Instances/Containers.o )
+[1 of 1] Compiling Data.Default.Instances.Containers ( Data/Default/Instances/Containers.hs, dist/dist-sandbox-2c4a8482/build/Data/Default/Instances/Containers.p_o )
+Running Haddock for data-default-instances-containers-0.0.1...
+Preprocessing library data-default-instances-containers-0.0.1...
+Haddock coverage:
+  50% (  1 /  2) in 'Data.Default.Instances.Containers'
+  Missing documentation for:
+    Module header
+Documentation created:
+dist/dist-sandbox-2c4a8482/doc/html/data-default-instances-containers/index.html
+Creating package registration file:
+/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/pkgConf-data-default-instances-containers-0.01137623865997389814.1
+Installing library in
+/Users/nclandrei/Desktop/level4_coursework/FP/ax2/.cabal-sandbox/lib/x86_64-osx-ghc-8.0.1/data-default-instances-containers-0.0.1-B3LqdWnlDzL8N7WtQnkQ3T
+Registering data-default-instances-containers-0.0.1...
+cabal: Leaving directory '/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/cabal-tmp-38744/data-default-instances-containers-0.0.1'

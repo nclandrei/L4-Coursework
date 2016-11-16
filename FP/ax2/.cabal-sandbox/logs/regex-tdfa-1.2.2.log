@@ -1,0 +1,1156 @@
+cabal: Entering directory '/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/cabal-tmp-38750/regex-tdfa-1.2.2'
+Configuring regex-tdfa-1.2.2...
+Building regex-tdfa-1.2.2...
+Preprocessing library regex-tdfa-1.2.2...
+[ 1 of 23] Compiling Text.Regex.TDFA.NewDFA.Uncons ( Text/Regex/TDFA/NewDFA/Uncons.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/NewDFA/Uncons.o )
+[ 2 of 23] Compiling Text.Regex.TDFA.IntArrTrieSet ( Text/Regex/TDFA/IntArrTrieSet.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/IntArrTrieSet.o )
+[ 3 of 23] Compiling Paths_regex_tdfa ( dist/dist-sandbox-2c4a8482/build/autogen/Paths_regex_tdfa.hs, dist/dist-sandbox-2c4a8482/build/Paths_regex_tdfa.o )
+[ 4 of 23] Compiling Data.IntSet.EnumSet2 ( Data/IntSet/EnumSet2.hs, dist/dist-sandbox-2c4a8482/build/Data/IntSet/EnumSet2.o )
+
+Data/IntSet/EnumSet2.hs:14:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           (\\) :: Enum e => EnumSet e -> EnumSet e -> EnumSet e
+
+Data/IntSet/EnumSet2.hs:17:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           Data.IntSet.EnumSet2.null :: Enum e => EnumSet e -> Bool
+
+Data/IntSet/EnumSet2.hs:20:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           size :: Enum e => EnumSet e -> Int
+
+Data/IntSet/EnumSet2.hs:26:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           notMember :: Enum e => Int -> EnumSet e -> Bool
+
+Data/IntSet/EnumSet2.hs:29:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           isSubsetOf :: Enum e => EnumSet e -> EnumSet e -> Bool
+
+Data/IntSet/EnumSet2.hs:32:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           isProperSubsetOf :: Enum e => EnumSet e -> EnumSet e -> Bool
+
+Data/IntSet/EnumSet2.hs:35:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           empty :: Enum e => EnumSet e
+
+Data/IntSet/EnumSet2.hs:47:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           union :: Enum e => EnumSet e -> EnumSet e -> EnumSet e
+
+Data/IntSet/EnumSet2.hs:50:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           unions :: Enum e => [EnumSet e] -> EnumSet e
+
+Data/IntSet/EnumSet2.hs:53:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           difference :: Enum e => EnumSet e -> EnumSet e -> EnumSet e
+
+Data/IntSet/EnumSet2.hs:56:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           intersection :: Enum e => EnumSet e -> EnumSet e -> EnumSet e
+
+Data/IntSet/EnumSet2.hs:102:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           showTree :: Enum e => EnumSet e -> String
+
+Data/IntSet/EnumSet2.hs:105:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           showTreeWith :: Enum e => Bool -> Bool -> EnumSet e -> String
+[ 5 of 23] Compiling Data.IntMap.EnumMap2 ( Data/IntMap/EnumMap2.hs, dist/dist-sandbox-2c4a8482/build/Data/IntMap/EnumMap2.o )
+
+Data/IntMap/EnumMap2.hs:13:10: warning: [-Wredundant-constraints]
+    • Redundant constraint: Ord k
+    • In the instance declaration for ‘Monoid (EnumMap k a)’
+
+Data/IntMap/EnumMap2.hs:17:10: warning: [-Wredundant-constraints]
+    • Redundant constraint: Ord k
+    • In the instance declaration for ‘Functor (EnumMap k)’
+
+Data/IntMap/EnumMap2.hs:20:10: warning: [-Wredundant-constraints]
+    • Redundant constraint: Ord k
+    • In the instance declaration for ‘Foldable (EnumMap k)’
+
+Data/IntMap/EnumMap2.hs:26:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           (\\) :: Enum key => EnumMap key a -> EnumMap key b -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:29:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           Data.IntMap.EnumMap2.null :: Enum key => EnumMap key a -> Bool
+
+Data/IntMap/EnumMap2.hs:32:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           size :: Enum key => EnumMap key a -> Int
+
+Data/IntMap/EnumMap2.hs:48:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           empty :: Enum key => EnumMap key a
+
+Data/IntMap/EnumMap2.hs:91:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           union :: Enum key =>
+                    EnumMap key a -> EnumMap key a -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:94:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           unionWith :: Enum key =>
+                        (a -> a -> a) -> EnumMap key a -> EnumMap key a -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:101:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           unions :: Enum key => [EnumMap key a] -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:104:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           unionsWith :: Enum key =>
+                         (a -> a -> a) -> [EnumMap key a] -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:107:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           difference :: Enum key =>
+                         EnumMap key a -> EnumMap key b -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:110:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           differenceWith :: Enum key =>
+                             (a -> b -> Maybe a)
+                             -> EnumMap key a -> EnumMap key b -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:117:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           intersection :: Enum key =>
+                           EnumMap key a -> EnumMap key b -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:120:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           intersectionWith :: Enum key =>
+                               (a -> b -> a) -> EnumMap key a -> EnumMap key b -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:127:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           Data.IntMap.EnumMap2.map :: Enum key =>
+                                       (a -> b) -> EnumMap key a -> EnumMap key b
+
+Data/IntMap/EnumMap2.hs:134:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           mapAccum :: Enum key =>
+                       (a -> b -> (a, c)) -> a -> EnumMap key b -> (a, EnumMap key c)
+
+Data/IntMap/EnumMap2.hs:143:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           Data.IntMap.EnumMap2.fold :: Enum key =>
+                                        (a -> b -> b) -> b -> EnumMap key a -> b
+
+Data/IntMap/EnumMap2.hs:150:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           elems :: Enum key => EnumMap key a -> [a]
+
+Data/IntMap/EnumMap2.hs:157:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           keysSet :: Enum key => EnumMap key a -> S.EnumSet key
+
+Data/IntMap/EnumMap2.hs:192:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           Data.IntMap.EnumMap2.filter :: Enum key =>
+                                          (a -> Bool) -> EnumMap key a -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:199:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           partition :: Enum key =>
+                        (a -> Bool) -> EnumMap key a -> (EnumMap key a, EnumMap key a)
+
+Data/IntMap/EnumMap2.hs:208:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           mapMaybe :: Enum key =>
+                       (a -> Maybe b) -> EnumMap key a -> EnumMap key b
+
+Data/IntMap/EnumMap2.hs:215:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           mapEither :: Enum key =>
+                        (a -> Either b c)
+                        -> EnumMap key a -> (EnumMap key b, EnumMap key c)
+
+Data/IntMap/EnumMap2.hs:232:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           isSubmapOf :: (Enum key, Eq a) =>
+                         EnumMap key a -> EnumMap key a -> Bool
+
+Data/IntMap/EnumMap2.hs:235:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           isSubmapOfBy :: Enum key =>
+                           (a -> b -> Bool) -> EnumMap key a -> EnumMap key b -> Bool
+
+Data/IntMap/EnumMap2.hs:238:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           isProperSubmapOf :: (Enum key, Eq a) =>
+                               EnumMap key a -> EnumMap key a -> Bool
+
+Data/IntMap/EnumMap2.hs:241:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           isProperSubmapOfBy :: Enum key =>
+                                 (a -> b -> Bool) -> EnumMap key a -> EnumMap key b -> Bool
+
+Data/IntMap/EnumMap2.hs:244:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           showTree :: (Enum key, Show a) => EnumMap key a -> String
+
+Data/IntMap/EnumMap2.hs:247:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           showTreeWith :: (Enum key, Show a) =>
+                           Bool -> Bool -> EnumMap key a -> String
+[ 6 of 23] Compiling Data.IntMap.CharMap2 ( Data/IntMap/CharMap2.hs, dist/dist-sandbox-2c4a8482/build/Data/IntMap/CharMap2.o )
+[ 7 of 23] Compiling Text.Regex.TDFA.Common ( Text/Regex/TDFA/Common.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/Common.o )
+[ 8 of 23] Compiling Text.Regex.TDFA.Pattern ( Text/Regex/TDFA/Pattern.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/Pattern.o )
+[ 9 of 23] Compiling Text.Regex.TDFA.ReadRegex ( Text/Regex/TDFA/ReadRegex.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/ReadRegex.o )
+[10 of 23] Compiling Text.Regex.TDFA.CorePattern ( Text/Regex/TDFA/CorePattern.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/CorePattern.o )
+[11 of 23] Compiling Text.Regex.TDFA.NewDFA.MakeTest ( Text/Regex/TDFA/NewDFA/MakeTest.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/NewDFA/MakeTest.o )
+[12 of 23] Compiling Text.Regex.TDFA.NewDFA.Tester ( Text/Regex/TDFA/NewDFA/Tester.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/NewDFA/Tester.o )
+[13 of 23] Compiling Text.Regex.TDFA.NewDFA.Engine_FA ( Text/Regex/TDFA/NewDFA/Engine_FA.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/NewDFA/Engine_FA.o )
+
+Text/Regex/TDFA/NewDFA/Engine_FA.hs:568:1: warning: [-Wredundant-constraints]
+    • Redundant constraints: (Show i,
+                              Ix i,
+                              MArray (STUArray s) e (ST s))
+    • In the type signature for:
+           copySTU :: (Show i, Ix i, MArray (STUArray s) e (ST s)) =>
+                      STUArray s i e -> STUArray s i e -> ST s ()
+[14 of 23] Compiling Text.Regex.TDFA.NewDFA.Engine_NC ( Text/Regex/TDFA/NewDFA/Engine_NC.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/NewDFA/Engine_NC.o )
+[15 of 23] Compiling Text.Regex.TDFA.NewDFA.Engine_NC_FA ( Text/Regex/TDFA/NewDFA/Engine_NC_FA.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/NewDFA/Engine_NC_FA.o )
+[16 of 23] Compiling Text.Regex.TDFA.NewDFA.Engine ( Text/Regex/TDFA/NewDFA/Engine.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/NewDFA/Engine.o )
+
+Text/Regex/TDFA/NewDFA/Engine.hs:710:1: warning: [-Wredundant-constraints]
+    • Redundant constraints: (Show i,
+                              Ix i,
+                              MArray (STUArray s) e (ST s))
+    • In the type signature for:
+           copySTU :: (Show i, Ix i, MArray (STUArray s) e (ST s)) =>
+                      STUArray s i e -> STUArray s i e -> ST s ()
+[17 of 23] Compiling Text.Regex.TDFA.TNFA ( Text/Regex/TDFA/TNFA.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/TNFA.o )
+
+Text/Regex/TDFA/TNFA.hs:69:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Show a
+    • In the type signature for:
+           debug :: Show a => a -> s -> s
+
+Text/Regex/TDFA/TNFA.hs:394:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Show a
+    • In the type signature for:
+           addGroupResets :: Show a => [Tag] -> (TagTasks, a) -> (TagTasks, a)
+
+Text/Regex/TDFA/TNFA.hs:399:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Show a
+    • In the type signature for:
+           addGroupSets :: Show a => [Tag] -> (TagTasks, a) -> (TagTasks, a)
+[18 of 23] Compiling Text.Regex.TDFA.TDFA ( Text/Regex/TDFA/TDFA.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/TDFA.o )
+[19 of 23] Compiling Text.Regex.TDFA.String ( Text/Regex/TDFA/String.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/String.o )
+[20 of 23] Compiling Text.Regex.TDFA.ByteString ( Text/Regex/TDFA/ByteString.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/ByteString.o )
+[21 of 23] Compiling Text.Regex.TDFA.ByteString.Lazy ( Text/Regex/TDFA/ByteString/Lazy.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/ByteString/Lazy.o )
+[22 of 23] Compiling Text.Regex.TDFA.Sequence ( Text/Regex/TDFA/Sequence.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/Sequence.o )
+[23 of 23] Compiling Text.Regex.TDFA  ( Text/Regex/TDFA.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA.o )
+[ 1 of 23] Compiling Text.Regex.TDFA.NewDFA.Uncons ( Text/Regex/TDFA/NewDFA/Uncons.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/NewDFA/Uncons.p_o )
+[ 2 of 23] Compiling Text.Regex.TDFA.IntArrTrieSet ( Text/Regex/TDFA/IntArrTrieSet.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/IntArrTrieSet.p_o )
+[ 3 of 23] Compiling Paths_regex_tdfa ( dist/dist-sandbox-2c4a8482/build/autogen/Paths_regex_tdfa.hs, dist/dist-sandbox-2c4a8482/build/Paths_regex_tdfa.p_o )
+[ 4 of 23] Compiling Data.IntSet.EnumSet2 ( Data/IntSet/EnumSet2.hs, dist/dist-sandbox-2c4a8482/build/Data/IntSet/EnumSet2.p_o )
+
+Data/IntSet/EnumSet2.hs:14:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           (\\) :: Enum e => EnumSet e -> EnumSet e -> EnumSet e
+
+Data/IntSet/EnumSet2.hs:17:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           Data.IntSet.EnumSet2.null :: Enum e => EnumSet e -> Bool
+
+Data/IntSet/EnumSet2.hs:20:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           size :: Enum e => EnumSet e -> Int
+
+Data/IntSet/EnumSet2.hs:26:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           notMember :: Enum e => Int -> EnumSet e -> Bool
+
+Data/IntSet/EnumSet2.hs:29:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           isSubsetOf :: Enum e => EnumSet e -> EnumSet e -> Bool
+
+Data/IntSet/EnumSet2.hs:32:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           isProperSubsetOf :: Enum e => EnumSet e -> EnumSet e -> Bool
+
+Data/IntSet/EnumSet2.hs:35:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           empty :: Enum e => EnumSet e
+
+Data/IntSet/EnumSet2.hs:47:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           union :: Enum e => EnumSet e -> EnumSet e -> EnumSet e
+
+Data/IntSet/EnumSet2.hs:50:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           unions :: Enum e => [EnumSet e] -> EnumSet e
+
+Data/IntSet/EnumSet2.hs:53:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           difference :: Enum e => EnumSet e -> EnumSet e -> EnumSet e
+
+Data/IntSet/EnumSet2.hs:56:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           intersection :: Enum e => EnumSet e -> EnumSet e -> EnumSet e
+
+Data/IntSet/EnumSet2.hs:102:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           showTree :: Enum e => EnumSet e -> String
+
+Data/IntSet/EnumSet2.hs:105:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           showTreeWith :: Enum e => Bool -> Bool -> EnumSet e -> String
+[ 5 of 23] Compiling Data.IntMap.EnumMap2 ( Data/IntMap/EnumMap2.hs, dist/dist-sandbox-2c4a8482/build/Data/IntMap/EnumMap2.p_o )
+
+Data/IntMap/EnumMap2.hs:13:10: warning: [-Wredundant-constraints]
+    • Redundant constraint: Ord k
+    • In the instance declaration for ‘Monoid (EnumMap k a)’
+
+Data/IntMap/EnumMap2.hs:17:10: warning: [-Wredundant-constraints]
+    • Redundant constraint: Ord k
+    • In the instance declaration for ‘Functor (EnumMap k)’
+
+Data/IntMap/EnumMap2.hs:20:10: warning: [-Wredundant-constraints]
+    • Redundant constraint: Ord k
+    • In the instance declaration for ‘Foldable (EnumMap k)’
+
+Data/IntMap/EnumMap2.hs:26:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           (\\) :: Enum key => EnumMap key a -> EnumMap key b -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:29:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           Data.IntMap.EnumMap2.null :: Enum key => EnumMap key a -> Bool
+
+Data/IntMap/EnumMap2.hs:32:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           size :: Enum key => EnumMap key a -> Int
+
+Data/IntMap/EnumMap2.hs:48:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           empty :: Enum key => EnumMap key a
+
+Data/IntMap/EnumMap2.hs:91:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           union :: Enum key =>
+                    EnumMap key a -> EnumMap key a -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:94:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           unionWith :: Enum key =>
+                        (a -> a -> a) -> EnumMap key a -> EnumMap key a -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:101:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           unions :: Enum key => [EnumMap key a] -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:104:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           unionsWith :: Enum key =>
+                         (a -> a -> a) -> [EnumMap key a] -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:107:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           difference :: Enum key =>
+                         EnumMap key a -> EnumMap key b -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:110:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           differenceWith :: Enum key =>
+                             (a -> b -> Maybe a)
+                             -> EnumMap key a -> EnumMap key b -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:117:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           intersection :: Enum key =>
+                           EnumMap key a -> EnumMap key b -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:120:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           intersectionWith :: Enum key =>
+                               (a -> b -> a) -> EnumMap key a -> EnumMap key b -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:127:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           Data.IntMap.EnumMap2.map :: Enum key =>
+                                       (a -> b) -> EnumMap key a -> EnumMap key b
+
+Data/IntMap/EnumMap2.hs:134:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           mapAccum :: Enum key =>
+                       (a -> b -> (a, c)) -> a -> EnumMap key b -> (a, EnumMap key c)
+
+Data/IntMap/EnumMap2.hs:143:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           Data.IntMap.EnumMap2.fold :: Enum key =>
+                                        (a -> b -> b) -> b -> EnumMap key a -> b
+
+Data/IntMap/EnumMap2.hs:150:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           elems :: Enum key => EnumMap key a -> [a]
+
+Data/IntMap/EnumMap2.hs:157:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           keysSet :: Enum key => EnumMap key a -> S.EnumSet key
+
+Data/IntMap/EnumMap2.hs:192:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           Data.IntMap.EnumMap2.filter :: Enum key =>
+                                          (a -> Bool) -> EnumMap key a -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:199:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           partition :: Enum key =>
+                        (a -> Bool) -> EnumMap key a -> (EnumMap key a, EnumMap key a)
+
+Data/IntMap/EnumMap2.hs:208:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           mapMaybe :: Enum key =>
+                       (a -> Maybe b) -> EnumMap key a -> EnumMap key b
+
+Data/IntMap/EnumMap2.hs:215:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           mapEither :: Enum key =>
+                        (a -> Either b c)
+                        -> EnumMap key a -> (EnumMap key b, EnumMap key c)
+
+Data/IntMap/EnumMap2.hs:232:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           isSubmapOf :: (Enum key, Eq a) =>
+                         EnumMap key a -> EnumMap key a -> Bool
+
+Data/IntMap/EnumMap2.hs:235:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           isSubmapOfBy :: Enum key =>
+                           (a -> b -> Bool) -> EnumMap key a -> EnumMap key b -> Bool
+
+Data/IntMap/EnumMap2.hs:238:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           isProperSubmapOf :: (Enum key, Eq a) =>
+                               EnumMap key a -> EnumMap key a -> Bool
+
+Data/IntMap/EnumMap2.hs:241:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           isProperSubmapOfBy :: Enum key =>
+                                 (a -> b -> Bool) -> EnumMap key a -> EnumMap key b -> Bool
+
+Data/IntMap/EnumMap2.hs:244:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           showTree :: (Enum key, Show a) => EnumMap key a -> String
+
+Data/IntMap/EnumMap2.hs:247:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           showTreeWith :: (Enum key, Show a) =>
+                           Bool -> Bool -> EnumMap key a -> String
+[ 6 of 23] Compiling Data.IntMap.CharMap2 ( Data/IntMap/CharMap2.hs, dist/dist-sandbox-2c4a8482/build/Data/IntMap/CharMap2.p_o )
+[ 7 of 23] Compiling Text.Regex.TDFA.Common ( Text/Regex/TDFA/Common.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/Common.p_o )
+[ 8 of 23] Compiling Text.Regex.TDFA.Pattern ( Text/Regex/TDFA/Pattern.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/Pattern.p_o )
+[ 9 of 23] Compiling Text.Regex.TDFA.ReadRegex ( Text/Regex/TDFA/ReadRegex.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/ReadRegex.p_o )
+[10 of 23] Compiling Text.Regex.TDFA.CorePattern ( Text/Regex/TDFA/CorePattern.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/CorePattern.p_o )
+[11 of 23] Compiling Text.Regex.TDFA.NewDFA.MakeTest ( Text/Regex/TDFA/NewDFA/MakeTest.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/NewDFA/MakeTest.p_o )
+[12 of 23] Compiling Text.Regex.TDFA.NewDFA.Tester ( Text/Regex/TDFA/NewDFA/Tester.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/NewDFA/Tester.p_o )
+[13 of 23] Compiling Text.Regex.TDFA.NewDFA.Engine_FA ( Text/Regex/TDFA/NewDFA/Engine_FA.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/NewDFA/Engine_FA.p_o )
+
+Text/Regex/TDFA/NewDFA/Engine_FA.hs:568:1: warning: [-Wredundant-constraints]
+    • Redundant constraints: (Show i,
+                              Ix i,
+                              MArray (STUArray s) e (ST s))
+    • In the type signature for:
+           copySTU :: (Show i, Ix i, MArray (STUArray s) e (ST s)) =>
+                      STUArray s i e -> STUArray s i e -> ST s ()
+[14 of 23] Compiling Text.Regex.TDFA.NewDFA.Engine_NC ( Text/Regex/TDFA/NewDFA/Engine_NC.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/NewDFA/Engine_NC.p_o )
+[15 of 23] Compiling Text.Regex.TDFA.NewDFA.Engine_NC_FA ( Text/Regex/TDFA/NewDFA/Engine_NC_FA.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/NewDFA/Engine_NC_FA.p_o )
+[16 of 23] Compiling Text.Regex.TDFA.NewDFA.Engine ( Text/Regex/TDFA/NewDFA/Engine.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/NewDFA/Engine.p_o )
+
+Text/Regex/TDFA/NewDFA/Engine.hs:710:1: warning: [-Wredundant-constraints]
+    • Redundant constraints: (Show i,
+                              Ix i,
+                              MArray (STUArray s) e (ST s))
+    • In the type signature for:
+           copySTU :: (Show i, Ix i, MArray (STUArray s) e (ST s)) =>
+                      STUArray s i e -> STUArray s i e -> ST s ()
+[17 of 23] Compiling Text.Regex.TDFA.TNFA ( Text/Regex/TDFA/TNFA.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/TNFA.p_o )
+
+Text/Regex/TDFA/TNFA.hs:69:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Show a
+    • In the type signature for:
+           debug :: Show a => a -> s -> s
+
+Text/Regex/TDFA/TNFA.hs:394:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Show a
+    • In the type signature for:
+           addGroupResets :: Show a => [Tag] -> (TagTasks, a) -> (TagTasks, a)
+
+Text/Regex/TDFA/TNFA.hs:399:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Show a
+    • In the type signature for:
+           addGroupSets :: Show a => [Tag] -> (TagTasks, a) -> (TagTasks, a)
+[18 of 23] Compiling Text.Regex.TDFA.TDFA ( Text/Regex/TDFA/TDFA.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/TDFA.p_o )
+[19 of 23] Compiling Text.Regex.TDFA.String ( Text/Regex/TDFA/String.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/String.p_o )
+[20 of 23] Compiling Text.Regex.TDFA.ByteString ( Text/Regex/TDFA/ByteString.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/ByteString.p_o )
+[21 of 23] Compiling Text.Regex.TDFA.ByteString.Lazy ( Text/Regex/TDFA/ByteString/Lazy.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/ByteString/Lazy.p_o )
+[22 of 23] Compiling Text.Regex.TDFA.Sequence ( Text/Regex/TDFA/Sequence.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA/Sequence.p_o )
+[23 of 23] Compiling Text.Regex.TDFA  ( Text/Regex/TDFA.hs, dist/dist-sandbox-2c4a8482/build/Text/Regex/TDFA.p_o )
+Running Haddock for regex-tdfa-1.2.2...
+Preprocessing library regex-tdfa-1.2.2...
+
+Data/IntSet/EnumSet2.hs:14:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           (\\) :: Enum e => EnumSet e -> EnumSet e -> EnumSet e
+
+Data/IntSet/EnumSet2.hs:17:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           Data.IntSet.EnumSet2.null :: Enum e => EnumSet e -> Bool
+
+Data/IntSet/EnumSet2.hs:20:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           size :: Enum e => EnumSet e -> Int
+
+Data/IntSet/EnumSet2.hs:26:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           notMember :: Enum e => Int -> EnumSet e -> Bool
+
+Data/IntSet/EnumSet2.hs:29:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           isSubsetOf :: Enum e => EnumSet e -> EnumSet e -> Bool
+
+Data/IntSet/EnumSet2.hs:32:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           isProperSubsetOf :: Enum e => EnumSet e -> EnumSet e -> Bool
+
+Data/IntSet/EnumSet2.hs:35:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           empty :: Enum e => EnumSet e
+
+Data/IntSet/EnumSet2.hs:47:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           union :: Enum e => EnumSet e -> EnumSet e -> EnumSet e
+
+Data/IntSet/EnumSet2.hs:50:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           unions :: Enum e => [EnumSet e] -> EnumSet e
+
+Data/IntSet/EnumSet2.hs:53:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           difference :: Enum e => EnumSet e -> EnumSet e -> EnumSet e
+
+Data/IntSet/EnumSet2.hs:56:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           intersection :: Enum e => EnumSet e -> EnumSet e -> EnumSet e
+
+Data/IntSet/EnumSet2.hs:102:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           showTree :: Enum e => EnumSet e -> String
+
+Data/IntSet/EnumSet2.hs:105:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum e
+    • In the type signature for:
+           showTreeWith :: Enum e => Bool -> Bool -> EnumSet e -> String
+
+Data/IntMap/EnumMap2.hs:13:10: warning: [-Wredundant-constraints]
+    • Redundant constraint: Ord k
+    • In the instance declaration for ‘Monoid (EnumMap k a)’
+
+Data/IntMap/EnumMap2.hs:17:10: warning: [-Wredundant-constraints]
+    • Redundant constraint: Ord k
+    • In the instance declaration for ‘Functor (EnumMap k)’
+
+Data/IntMap/EnumMap2.hs:20:10: warning: [-Wredundant-constraints]
+    • Redundant constraint: Ord k
+    • In the instance declaration for ‘Foldable (EnumMap k)’
+
+Data/IntMap/EnumMap2.hs:26:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           (\\) :: Enum key => EnumMap key a -> EnumMap key b -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:29:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           Data.IntMap.EnumMap2.null :: Enum key => EnumMap key a -> Bool
+
+Data/IntMap/EnumMap2.hs:32:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           size :: Enum key => EnumMap key a -> Int
+
+Data/IntMap/EnumMap2.hs:48:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           empty :: Enum key => EnumMap key a
+
+Data/IntMap/EnumMap2.hs:91:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           union :: Enum key =>
+                    EnumMap key a -> EnumMap key a -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:94:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           unionWith :: Enum key =>
+                        (a -> a -> a) -> EnumMap key a -> EnumMap key a -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:101:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           unions :: Enum key => [EnumMap key a] -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:104:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           unionsWith :: Enum key =>
+                         (a -> a -> a) -> [EnumMap key a] -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:107:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           difference :: Enum key =>
+                         EnumMap key a -> EnumMap key b -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:110:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           differenceWith :: Enum key =>
+                             (a -> b -> Maybe a)
+                             -> EnumMap key a -> EnumMap key b -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:117:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           intersection :: Enum key =>
+                           EnumMap key a -> EnumMap key b -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:120:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           intersectionWith :: Enum key =>
+                               (a -> b -> a) -> EnumMap key a -> EnumMap key b -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:127:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           Data.IntMap.EnumMap2.map :: Enum key =>
+                                       (a -> b) -> EnumMap key a -> EnumMap key b
+
+Data/IntMap/EnumMap2.hs:134:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           mapAccum :: Enum key =>
+                       (a -> b -> (a, c)) -> a -> EnumMap key b -> (a, EnumMap key c)
+
+Data/IntMap/EnumMap2.hs:143:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           Data.IntMap.EnumMap2.fold :: Enum key =>
+                                        (a -> b -> b) -> b -> EnumMap key a -> b
+
+Data/IntMap/EnumMap2.hs:150:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           elems :: Enum key => EnumMap key a -> [a]
+
+Data/IntMap/EnumMap2.hs:157:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           keysSet :: Enum key => EnumMap key a -> S.EnumSet key
+
+Data/IntMap/EnumMap2.hs:192:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           Data.IntMap.EnumMap2.filter :: Enum key =>
+                                          (a -> Bool) -> EnumMap key a -> EnumMap key a
+
+Data/IntMap/EnumMap2.hs:199:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           partition :: Enum key =>
+                        (a -> Bool) -> EnumMap key a -> (EnumMap key a, EnumMap key a)
+
+Data/IntMap/EnumMap2.hs:208:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           mapMaybe :: Enum key =>
+                       (a -> Maybe b) -> EnumMap key a -> EnumMap key b
+
+Data/IntMap/EnumMap2.hs:215:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           mapEither :: Enum key =>
+                        (a -> Either b c)
+                        -> EnumMap key a -> (EnumMap key b, EnumMap key c)
+
+Data/IntMap/EnumMap2.hs:232:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           isSubmapOf :: (Enum key, Eq a) =>
+                         EnumMap key a -> EnumMap key a -> Bool
+
+Data/IntMap/EnumMap2.hs:235:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           isSubmapOfBy :: Enum key =>
+                           (a -> b -> Bool) -> EnumMap key a -> EnumMap key b -> Bool
+
+Data/IntMap/EnumMap2.hs:238:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           isProperSubmapOf :: (Enum key, Eq a) =>
+                               EnumMap key a -> EnumMap key a -> Bool
+
+Data/IntMap/EnumMap2.hs:241:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           isProperSubmapOfBy :: Enum key =>
+                                 (a -> b -> Bool) -> EnumMap key a -> EnumMap key b -> Bool
+
+Data/IntMap/EnumMap2.hs:244:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           showTree :: (Enum key, Show a) => EnumMap key a -> String
+
+Data/IntMap/EnumMap2.hs:247:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Enum key
+    • In the type signature for:
+           showTreeWith :: (Enum key, Show a) =>
+                           Bool -> Bool -> EnumMap key a -> String
+Haddock coverage:
+   0% (  0 /  2) in 'Text.Regex.TDFA.NewDFA.Uncons'
+  Missing documentation for:
+    Module header
+    Uncons (Text/Regex/TDFA/NewDFA/Uncons.hs:7)
+  83% (  5 /  6) in 'Text.Regex.TDFA.IntArrTrieSet'
+  Missing documentation for:
+    TrieSet (Text/Regex/TDFA/IntArrTrieSet.hs:17)
+   0% (  0 /  8) in 'Paths_regex_tdfa'
+  Missing documentation for:
+    Module header
+    version (dist/dist-sandbox-2c4a8482/build/autogen/Paths_regex_tdfa.hs:28)
+    getBinDir (dist/dist-sandbox-2c4a8482/build/autogen/Paths_regex_tdfa.hs:38)
+    getLibDir (dist/dist-sandbox-2c4a8482/build/autogen/Paths_regex_tdfa.hs:38)
+    getDataDir (dist/dist-sandbox-2c4a8482/build/autogen/Paths_regex_tdfa.hs:38)
+    getLibexecDir (dist/dist-sandbox-2c4a8482/build/autogen/Paths_regex_tdfa.hs:38)
+    getDataFileName (dist/dist-sandbox-2c4a8482/build/autogen/Paths_regex_tdfa.hs:45)
+    getSysconfDir (dist/dist-sandbox-2c4a8482/build/autogen/Paths_regex_tdfa.hs:38)
+   0% (  0 / 32) in 'Data.IntSet.EnumSet2'
+  Missing documentation for:
+    Module header
+    EnumSet (Data/IntSet/EnumSet2.hs:7)
+     (Data/IntSet/EnumSet2.hs:10)
+    \\ (Data/IntSet/EnumSet2.hs:14)
+    null (Data/IntSet/EnumSet2.hs:17)
+    size (Data/IntSet/EnumSet2.hs:20)
+    member (Data/IntSet/EnumSet2.hs:23)
+    notMember (Data/IntSet/EnumSet2.hs:26)
+    isSubsetOf (Data/IntSet/EnumSet2.hs:29)
+    isProperSubsetOf (Data/IntSet/EnumSet2.hs:32)
+    empty (Data/IntSet/EnumSet2.hs:35)
+    singleton (Data/IntSet/EnumSet2.hs:38)
+    insert (Data/IntSet/EnumSet2.hs:41)
+    delete (Data/IntSet/EnumSet2.hs:44)
+    union (Data/IntSet/EnumSet2.hs:47)
+    unions (Data/IntSet/EnumSet2.hs:50)
+    difference (Data/IntSet/EnumSet2.hs:53)
+    intersection (Data/IntSet/EnumSet2.hs:56)
+    filter (Data/IntSet/EnumSet2.hs:59)
+    partition (Data/IntSet/EnumSet2.hs:63)
+    split (Data/IntSet/EnumSet2.hs:68)
+    splitMember (Data/IntSet/EnumSet2.hs:72)
+    map (Data/IntSet/EnumSet2.hs:76)
+    fold (Data/IntSet/EnumSet2.hs:80)
+    elems (Data/IntSet/EnumSet2.hs:84)
+    toList (Data/IntSet/EnumSet2.hs:87)
+    fromList (Data/IntSet/EnumSet2.hs:90)
+    toAscList (Data/IntSet/EnumSet2.hs:93)
+    fromAscList (Data/IntSet/EnumSet2.hs:96)
+    fromDistinctAscList (Data/IntSet/EnumSet2.hs:99)
+    showTree (Data/IntSet/EnumSet2.hs:102)
+    showTreeWith (Data/IntSet/EnumSet2.hs:105)
+   0% (  0 / 71) in 'Data.IntMap.EnumMap2'
+  Missing documentation for:
+    Module header
+    EnumMap (Data/IntMap/EnumMap2.hs:10)
+     (Data/IntMap/EnumMap2.hs:13)
+     (Data/IntMap/EnumMap2.hs:17)
+     (Data/IntMap/EnumMap2.hs:20)
+    ! (Data/IntMap/EnumMap2.hs:23)
+    \\ (Data/IntMap/EnumMap2.hs:26)
+    null (Data/IntMap/EnumMap2.hs:29)
+    size (Data/IntMap/EnumMap2.hs:32)
+    member (Data/IntMap/EnumMap2.hs:35)
+    notMember (Data/IntMap/EnumMap2.hs:38)
+    lookup (Data/IntMap/EnumMap2.hs:42)
+    findWithDefault (Data/IntMap/EnumMap2.hs:45)
+    empty (Data/IntMap/EnumMap2.hs:48)
+    singleton (Data/IntMap/EnumMap2.hs:51)
+    insert (Data/IntMap/EnumMap2.hs:54)
+    insertWith (Data/IntMap/EnumMap2.hs:57)
+    insertWithKey (Data/IntMap/EnumMap2.hs:60)
+    insertLookupWithKey (Data/IntMap/EnumMap2.hs:64)
+    delete (Data/IntMap/EnumMap2.hs:69)
+    adjust (Data/IntMap/EnumMap2.hs:72)
+    adjustWithKey (Data/IntMap/EnumMap2.hs:75)
+    update (Data/IntMap/EnumMap2.hs:79)
+    updateWithKey (Data/IntMap/EnumMap2.hs:82)
+    updateLookupWithKey (Data/IntMap/EnumMap2.hs:86)
+    union (Data/IntMap/EnumMap2.hs:91)
+    unionWith (Data/IntMap/EnumMap2.hs:94)
+    unionWithKey (Data/IntMap/EnumMap2.hs:97)
+    unions (Data/IntMap/EnumMap2.hs:101)
+    unionsWith (Data/IntMap/EnumMap2.hs:104)
+    difference (Data/IntMap/EnumMap2.hs:107)
+    differenceWith (Data/IntMap/EnumMap2.hs:110)
+    differenceWithKey (Data/IntMap/EnumMap2.hs:113)
+    intersection (Data/IntMap/EnumMap2.hs:117)
+    intersectionWith (Data/IntMap/EnumMap2.hs:120)
+    intersectionWithKey (Data/IntMap/EnumMap2.hs:123)
+    map (Data/IntMap/EnumMap2.hs:127)
+    mapWithKey (Data/IntMap/EnumMap2.hs:130)
+    mapAccum (Data/IntMap/EnumMap2.hs:134)
+    mapAccumWithKey (Data/IntMap/EnumMap2.hs:138)
+    fold (Data/IntMap/EnumMap2.hs:143)
+    foldWithKey (Data/IntMap/EnumMap2.hs:146)
+    elems (Data/IntMap/EnumMap2.hs:150)
+    keys (Data/IntMap/EnumMap2.hs:153)
+    keysSet (Data/IntMap/EnumMap2.hs:157)
+    assocs (Data/IntMap/EnumMap2.hs:160)
+    toList (Data/IntMap/EnumMap2.hs:163)
+    fromList (Data/IntMap/EnumMap2.hs:166)
+    fromListWith (Data/IntMap/EnumMap2.hs:169)
+    fromListWithKey (Data/IntMap/EnumMap2.hs:172)
+    toAscList (Data/IntMap/EnumMap2.hs:176)
+    fromAscList (Data/IntMap/EnumMap2.hs:179)
+    fromAscListWith (Data/IntMap/EnumMap2.hs:182)
+    fromAscListWithKey (Data/IntMap/EnumMap2.hs:185)
+    fromDistinctAscList (Data/IntMap/EnumMap2.hs:189)
+    filter (Data/IntMap/EnumMap2.hs:192)
+    filterWithKey (Data/IntMap/EnumMap2.hs:195)
+    partition (Data/IntMap/EnumMap2.hs:199)
+    partitionWithKey (Data/IntMap/EnumMap2.hs:203)
+    mapMaybe (Data/IntMap/EnumMap2.hs:208)
+    mapMaybeWithKey (Data/IntMap/EnumMap2.hs:211)
+    mapEither (Data/IntMap/EnumMap2.hs:215)
+    mapEitherWithKey (Data/IntMap/EnumMap2.hs:219)
+    split (Data/IntMap/EnumMap2.hs:224)
+    splitLookup (Data/IntMap/EnumMap2.hs:228)
+    isSubmapOf (Data/IntMap/EnumMap2.hs:232)
+    isSubmapOfBy (Data/IntMap/EnumMap2.hs:235)
+    isProperSubmapOf (Data/IntMap/EnumMap2.hs:238)
+    isProperSubmapOfBy (Data/IntMap/EnumMap2.hs:241)
+    showTree (Data/IntMap/EnumMap2.hs:244)
+    showTreeWith (Data/IntMap/EnumMap2.hs:247)
+   0% (  0 / 71) in 'Data.IntMap.CharMap2'
+  Missing documentation for:
+    Module header
+    CharMap (Data/IntMap/CharMap2.hs:19)
+     (Data/IntMap/CharMap2.hs:21)
+     (Data/IntMap/CharMap2.hs:25)
+    Key (Data/IntMap/CharMap2.hs:28)
+    ! (Data/IntMap/CharMap2.hs:30)
+    \\ (Data/IntMap/CharMap2.hs:33)
+    null (Data/IntMap/CharMap2.hs:36)
+    size (Data/IntMap/CharMap2.hs:39)
+    member (Data/IntMap/CharMap2.hs:42)
+    notMember (Data/IntMap/CharMap2.hs:45)
+    lookup (Data/IntMap/CharMap2.hs:48)
+    findWithDefault (Data/IntMap/CharMap2.hs:51)
+    empty (Data/IntMap/CharMap2.hs:54)
+    singleton (Data/IntMap/CharMap2.hs:57)
+    insert (Data/IntMap/CharMap2.hs:60)
+    insertWith (Data/IntMap/CharMap2.hs:63)
+    insertWithKey (Data/IntMap/CharMap2.hs:66)
+    insertLookupWithKey (Data/IntMap/CharMap2.hs:70)
+    delete (Data/IntMap/CharMap2.hs:75)
+    adjust (Data/IntMap/CharMap2.hs:78)
+    adjustWithKey (Data/IntMap/CharMap2.hs:81)
+    update (Data/IntMap/CharMap2.hs:85)
+    updateWithKey (Data/IntMap/CharMap2.hs:88)
+    updateLookupWithKey (Data/IntMap/CharMap2.hs:92)
+    union (Data/IntMap/CharMap2.hs:97)
+    unionWith (Data/IntMap/CharMap2.hs:100)
+    unionWithKey (Data/IntMap/CharMap2.hs:103)
+    unions (Data/IntMap/CharMap2.hs:107)
+    unionsWith (Data/IntMap/CharMap2.hs:110)
+    difference (Data/IntMap/CharMap2.hs:113)
+    differenceWith (Data/IntMap/CharMap2.hs:116)
+    differenceWithKey (Data/IntMap/CharMap2.hs:119)
+    intersection (Data/IntMap/CharMap2.hs:123)
+    intersectionWith (Data/IntMap/CharMap2.hs:126)
+    intersectionWithKey (Data/IntMap/CharMap2.hs:129)
+    map (Data/IntMap/CharMap2.hs:133)
+    mapWithKey (Data/IntMap/CharMap2.hs:136)
+    mapAccum (Data/IntMap/CharMap2.hs:140)
+    mapAccumWithKey (Data/IntMap/CharMap2.hs:144)
+    fold (Data/IntMap/CharMap2.hs:149)
+    foldWithKey (Data/IntMap/CharMap2.hs:152)
+    elems (Data/IntMap/CharMap2.hs:156)
+    keys (Data/IntMap/CharMap2.hs:159)
+    keysSet (Data/IntMap/CharMap2.hs:162)
+    assocs (Data/IntMap/CharMap2.hs:165)
+    toList (Data/IntMap/CharMap2.hs:168)
+    fromList (Data/IntMap/CharMap2.hs:171)
+    fromListWith (Data/IntMap/CharMap2.hs:174)
+    fromListWithKey (Data/IntMap/CharMap2.hs:177)
+    toAscList (Data/IntMap/CharMap2.hs:181)
+    fromAscList (Data/IntMap/CharMap2.hs:184)
+    fromAscListWith (Data/IntMap/CharMap2.hs:187)
+    fromAscListWithKey (Data/IntMap/CharMap2.hs:190)
+    fromDistinctAscList (Data/IntMap/CharMap2.hs:194)
+    filter (Data/IntMap/CharMap2.hs:197)
+    filterWithKey (Data/IntMap/CharMap2.hs:200)
+    partition (Data/IntMap/Ch
+Text/Regex/TDFA/NewDFA/Engine_FA.hs:568:1: warning: [-Wredundant-constraints]
+    • Redundant constraints: (Show i,
+                              Ix i,
+                              MArray (STUArray s) e (ST s))
+    • In the type signature for:
+           copySTU :: (Show i, Ix i, MArray (STUArray s) e (ST s)) =>
+                      STUArray s i e -> STUArray s i e -> ST s ()
+
+Text/Regex/TDFA/NewDFA/Engine.hs:710:1: warning: [-Wredundant-constraints]
+    • Redundant constraints: (Show i,
+                              Ix i,
+                              MArray (STUArray s) e (ST s))
+    • In the type signature for:
+           copySTU :: (Show i, Ix i, MArray (STUArray s) e (ST s)) =>
+                      STUArray s i e -> STUArray s i e -> ST s ()
+
+Text/Regex/TDFA/TNFA.hs:69:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Show a
+    • In the type signature for:
+           debug :: Show a => a -> s -> s
+
+Text/Regex/TDFA/TNFA.hs:394:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Show a
+    • In the type signature for:
+           addGroupResets :: Show a => [Tag] -> (TagTasks, a) -> (TagTasks, a)
+
+Text/Regex/TDFA/TNFA.hs:399:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: Show a
+    • In the type signature for:
+           addGroupSets :: Show a => [Tag] -> (TagTasks, a) -> (TagTasks, a)
+arMap2.hs:204)
+    partitionWithKey (Data/IntMap/CharMap2.hs:208)
+    mapMaybe (Data/IntMap/CharMap2.hs:213)
+    mapMaybeWithKey (Data/IntMap/CharMap2.hs:216)
+    mapEither (Data/IntMap/CharMap2.hs:220)
+    mapEitherWithKey (Data/IntMap/CharMap2.hs:224)
+    split (Data/IntMap/CharMap2.hs:229)
+    splitLookup (Data/IntMap/CharMap2.hs:233)
+    isSubmapOf (Data/IntMap/CharMap2.hs:237)
+    isSubmapOfBy (Data/IntMap/CharMap2.hs:240)
+    isProperSubmapOf (Data/IntMap/CharMap2.hs:243)
+    isProperSubmapOfBy (Data/IntMap/CharMap2.hs:246)
+    showTree (Data/IntMap/CharMap2.hs:249)
+    showTreeWith (Data/IntMap/CharMap2.hs:252)
+  51% ( 29 / 57) in 'Text.Regex.TDFA.Common'
+  Missing documentation for:
+    look (Text/Regex/TDFA/Common.hs:24)
+    common_error (Text/Regex/TDFA/Common.hs:27)
+    on (Text/Regex/TDFA/Common.hs:31)
+    mapFst (Text/Regex/TDFA/Common.hs:48)
+    mapSnd (Text/Regex/TDFA/Common.hs:51)
+    fst3 (Text/Regex/TDFA/Common.hs:54)
+    snd3 (Text/Regex/TDFA/Common.hs:57)
+    thd3 (Text/Regex/TDFA/Common.hs:60)
+    flipOrder (Text/Regex/TDFA/Common.hs:63)
+    noWin (Text/Regex/TDFA/Common.hs:68)
+     (Text/Regex/TDFA/Common.hs:75)
+     (Text/Regex/TDFA/Common.hs:79)
+    ExecOption (Text/Regex/TDFA/Common.hs:100)
+     (Text/Regex/TDFA/Common.hs:141)
+    WinEmpty (Text/Regex/TDFA/Common.hs:160)
+    Transition (Text/Regex/TDFA/Common.hs:215)
+     (Text/Regex/TDFA/Common.hs:263)
+    Action (Text/Regex/TDFA/Common.hs:274)
+    OrbitTransformer (Text/Regex/TDFA/Common.hs:275)
+    OrbitLog (Text/Regex/TDFA/Common.hs:276)
+     (Text/Regex/TDFA/Common.hs:278)
+     (Text/Regex/TDFA/Common.hs:283)
+    showQT (Text/Regex/TDFA/Common.hs:286)
+     (Text/Regex/TDFA/Common.hs:300)
+    indent (Text/Regex/TDFA/Common.hs:302)
+    showDT (Text/Regex/TDFA/Common.hs:305)
+    seeDTrans (Text/Regex/TDFA/Common.hs:349)
+     (Text/Regex/TDFA/Common.hs:358)
+  67% ( 10 / 15) in 'Text.Regex.TDFA.Pattern'
+  Missing documentation for:
+    PatternSet (Text/Regex/TDFA/Pattern.hs:92)
+    PatternSetCharacterClass (Text/Regex/TDFA/Pattern.hs:117)
+    PatternSetCollatingElement (Text/Regex/TDFA/Pattern.hs:119)
+    PatternSetEquivalenceClass (Text/Regex/TDFA/Pattern.hs:121)
+    starTrans' (Text/Regex/TDFA/Pattern.hs:168)
+ 100% (  2 /  2) in 'Text.Regex.TDFA.ReadRegex'
+  23% (  3 / 13) in 'Text.Regex.TDFA.CorePattern'
+  Missing documentation for:
+    Q (Text/Regex/TDFA/CorePattern.hs:74)
+    P (Text/Regex/TDFA/CorePattern.hs:59)
+    Wanted (Text/Regex/TDFA/CorePattern.hs:117)
+    TestInfo (Text/Regex/TDFA/CorePattern.hs:84)
+    SetTestInfo (Text/Regex/TDFA/CorePattern.hs:88)
+    NullView (Text/Regex/TDFA/CorePattern.hs:101)
+    patternToQ (Text/Regex/TDFA/CorePattern.hs:299)
+    cleanNullView (Text/Regex/TDFA/CorePattern.hs:185)
+    cannotAccept (Text/Regex/TDFA/CorePattern.hs:237)
+    mustAccept (Text/Regex/TDFA/CorePattern.hs:231)
+   0% (  0 /  3) in 'Text.Regex.TDFA.NewDFA.MakeTest'
+  Missing documentation for:
+    Module header
+    test_singleline (Text/Regex/TDFA/NewDFA/MakeTest.hs:10)
+    test_multiline (Text/Regex/TDFA/NewDFA/MakeTest.hs:10)
+  50% (  1 /  2) in 'Text.Regex.TDFA.NewDFA.Tester'
+  Missing documentation for:
+    matchTest (Text/Regex/TDFA/NewDFA/Tester.hs:22)
+  50% (  1 /  2) in 'Text.Regex.TDFA.NewDFA.Engine_FA'
+  Missing documentation for:
+    execMatch (Text/Regex/TDFA/NewDFA/Engine_FA.hs:68)
+  50% (  1 /  2) in 'Text.Regex.TDFA.NewDFA.Engine_NC'
+  Missing documentation for:
+    execMatch (Text/Regex/TDFA/NewDFA/Engine_NC.hs:47)
+  50% (  1 /  2) in 'Text.Regex.TDFA.NewDFA.Engine_NC_FA'
+  Missing documentation for:
+    execMatch (Text/Regex/TDFA/NewDFA/Engine_NC_FA.hs:34)
+  50% (  1 /  2) in 'Text.Regex.TDFA.NewDFA.Engine'
+  Missing documentation for:
+    execMatch (Text/Regex/TDFA/NewDFA/Engine.hs:77)
+  83% (  5 /  6) in 'Text.Regex.TDFA.TNFA'
+  Missing documentation for:
+    patternToNFA (Text/Regex/TDFA/TNFA.hs:79)
+  43% (  3 /  7) in 'Text.Regex.TDFA.TDFA'
+  Missing documentation for:
+    patternToRegex (Text/Regex/TDFA/TDFA.hs:159)
+    examineDFA (Text/Regex/TDFA/TDFA.hs:175)
+    nfaToDFA (Text/Regex/TDFA/TDFA.hs:50)
+    dfaMap (Text/Regex/TDFA/TDFA.hs:162)
+  64% (  7 / 11) in 'Text.Regex.TDFA.String'
+  Missing documentation for:
+    ExecOption (Text/Regex/TDFA/Common.hs:100)
+    compile (Text/Regex/TDFA/String.hs:40)
+    execute (Text/Regex/TDFA/String.hs:53)
+    regexec (Text/Regex/TDFA/String.hs:58)
+  43% (  3 /  7) in 'Text.Regex.TDFA.ByteString'
+  Missing documentation for:
+    ExecOption (Text/Regex/TDFA/Common.hs:100)
+    compile (Text/Regex/TDFA/ByteString.hs:57)
+    execute (Text/Regex/TDFA/ByteString.hs:66)
+    regexec (Text/Regex/TDFA/ByteString.hs:71)
+  43% (  3 /  7) in 'Text.Regex.TDFA.ByteString.Lazy'
+  Missing documentation for:
+    ExecOption (Text/Regex/TDFA/Common.hs:100)
+    compile (Text/Regex/TDFA/ByteString/Lazy.hs:73)
+    execute (Text/Regex/TDFA/ByteString/Lazy.hs:82)
+    regexec (Text/Regex/TDFA/ByteString/Lazy.hs:87)
+  43% (  3 /  7) in 'Text.Regex.TDFA.Sequence'
+  Missing documentation for:
+    ExecOption (Text/Regex/TDFA/Common.hs:100)
+    compile (Text/Regex/TDFA/Sequence.hs:62)
+    execute (Text/Regex/TDFA/Sequence.hs:71)
+    regexec (Text/Regex/TDFA/Sequence.hs:76)
+  83% (  5 /  6) in 'Text.Regex.TDFA'
+  Missing documentation for:
+    getVersion_Text_Regex_TDFA (Text/Regex/TDFA.hs:70)
+Documentation created:
+dist/dist-sandbox-2c4a8482/doc/html/regex-tdfa/index.html
+Creating package registration file:
+/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/pkgConf-regex-tdfa-1.27537995051102246882.2
+Installing library in
+/Users/nclandrei/Desktop/level4_coursework/FP/ax2/.cabal-sandbox/lib/x86_64-osx-ghc-8.0.1/regex-tdfa-1.2.2-LDYuZzgAOSyEWjn2RXfRbs
+Registering regex-tdfa-1.2.2...
+cabal: Leaving directory '/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/cabal-tmp-38750/regex-tdfa-1.2.2'

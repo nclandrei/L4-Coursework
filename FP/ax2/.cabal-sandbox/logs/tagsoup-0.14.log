@@ -1,0 +1,109 @@
+cabal: Entering directory '/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/cabal-tmp-38749/tagsoup-0.14'
+Configuring tagsoup-0.14...
+Building tagsoup-0.14...
+Preprocessing library tagsoup-0.14...
+[ 1 of 13] Compiling Text.HTML.TagSoup.Entity ( Text/HTML/TagSoup/Entity.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Entity.o )
+[ 2 of 13] Compiling Text.StringLike  ( Text/StringLike.hs, dist/dist-sandbox-2c4a8482/build/Text/StringLike.o )
+[ 3 of 13] Compiling Text.HTML.TagSoup.Type ( Text/HTML/TagSoup/Type.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Type.o )
+[ 4 of 13] Compiling Text.HTML.TagSoup.Match ( Text/HTML/TagSoup/Match.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Match.o )
+[ 5 of 13] Compiling Text.HTML.TagSoup.Options ( Text/HTML/TagSoup/Options.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Options.o )
+[ 6 of 13] Compiling Text.HTML.TagSoup.Implementation ( Text/HTML/TagSoup/Implementation.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Implementation.o )
+[ 7 of 13] Compiling Text.HTML.TagSoup.Specification ( Text/HTML/TagSoup/Specification.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Specification.o )
+[ 8 of 13] Compiling Text.HTML.TagSoup.Manual ( Text/HTML/TagSoup/Manual.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Manual.o )
+[ 9 of 13] Compiling Text.HTML.TagSoup.Generated ( Text/HTML/TagSoup/Generated.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Generated.o )
+[10 of 13] Compiling Text.HTML.TagSoup.Render ( Text/HTML/TagSoup/Render.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Render.o )
+[11 of 13] Compiling Text.HTML.TagSoup.Parser ( Text/HTML/TagSoup/Parser.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Parser.o )
+[12 of 13] Compiling Text.HTML.TagSoup ( Text/HTML/TagSoup.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup.o )
+[13 of 13] Compiling Text.HTML.TagSoup.Tree ( Text/HTML/TagSoup/Tree.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Tree.o )
+[ 1 of 13] Compiling Text.HTML.TagSoup.Entity ( Text/HTML/TagSoup/Entity.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Entity.p_o )
+[ 2 of 13] Compiling Text.StringLike  ( Text/StringLike.hs, dist/dist-sandbox-2c4a8482/build/Text/StringLike.p_o )
+[ 3 of 13] Compiling Text.HTML.TagSoup.Type ( Text/HTML/TagSoup/Type.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Type.p_o )
+[ 4 of 13] Compiling Text.HTML.TagSoup.Match ( Text/HTML/TagSoup/Match.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Match.p_o )
+[ 5 of 13] Compiling Text.HTML.TagSoup.Options ( Text/HTML/TagSoup/Options.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Options.p_o )
+[ 6 of 13] Compiling Text.HTML.TagSoup.Implementation ( Text/HTML/TagSoup/Implementation.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Implementation.p_o )
+[ 7 of 13] Compiling Text.HTML.TagSoup.Specification ( Text/HTML/TagSoup/Specification.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Specification.p_o )
+[ 8 of 13] Compiling Text.HTML.TagSoup.Manual ( Text/HTML/TagSoup/Manual.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Manual.p_o )
+[ 9 of 13] Compiling Text.HTML.TagSoup.Generated ( Text/HTML/TagSoup/Generated.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Generated.p_o )
+[10 of 13] Compiling Text.HTML.TagSoup.Render ( Text/HTML/TagSoup/Render.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Render.p_o )
+[11 of 13] Compiling Text.HTML.TagSoup.Parser ( Text/HTML/TagSoup/Parser.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Parser.p_o )
+[12 of 13] Compiling Text.HTML.TagSoup ( Text/HTML/TagSoup.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup.p_o )
+[13 of 13] Compiling Text.HTML.TagSoup.Tree ( Text/HTML/TagSoup/Tree.hs, dist/dist-sandbox-2c4a8482/build/Text/HTML/TagSoup/Tree.p_o )
+Running Haddock for tagsoup-0.14...
+Preprocessing library tagsoup-0.14...
+Haddock coverage:
+ 100% (  7 /  7) in 'Text.HTML.TagSoup.Entity'
+  75% (  3 /  4) in 'Text.StringLike'
+  Missing documentation for:
+    fromString
+  82% ( 23 / 28) in 'Text.HTML.TagSoup.Type'
+  Missing documentation for:
+    Position (Text/HTML/TagSoup/Type.hs:39)
+    tagPosition (Text/HTML/TagSoup/Type.hs:53)
+    nullPosition (Text/HTML/TagSoup/Type.hs:41)
+    positionChar (Text/HTML/TagSoup/Type.hs:47)
+    positionString (Text/HTML/TagSoup/Type.hs:44)
+ 100% ( 20 / 20) in 'Text.HTML.TagSoup.Match'
+  83% (  5 /  6) in 'Text.HTML.TagSoup.Options'
+  Missing documentation for:
+    Module header
+   0% (  0 / 34) in 'Text.HTML.TagSoup.Implementation'
+  Missing documentation for:
+    Module header
+    Out (Text/HTML/TagSoup/Implementation.hs:17)
+    errSeen (Text/HTML/TagSoup/Implementation.hs:35)
+    errWant (Text/HTML/TagSoup/Implementation.hs:36)
+    S (Text/HTML/TagSoup/Implementation.hs:38)
+    expand (Text/HTML/TagSoup/Implementation.hs:48)
+    Outable (Text/HTML/TagSoup/Implementation.hs:65)
+     (Text/HTML/TagSoup/Implementation.hs:66)
+     (Text/HTML/TagSoup/Implementation.hs:67)
+    ampChar (Text/HTML/TagSoup/Implementation.hs:68)
+    ampOut (Text/HTML/TagSoup/Implementation.hs:69)
+    state (Text/HTML/TagSoup/Implementation.hs:72)
+    output (Text/HTML/TagSoup/Implementation.hs:79)
+    entityChr (Text/HTML/TagSoup/Implementation.hs:145)
+    isEof (Text/HTML/TagSoup/Implementation.hs:151)
+    isChar (Text/HTML/TagSoup/Implementation.hs:152)
+    isTag (Text/HTML/TagSoup/Implementation.hs:153)
+    isTagShut (Text/HTML/TagSoup/Implementation.hs:154)
+    isAttName (Text/HTML/TagSoup/Implementation.hs:155)
+    isAttVal (Text/HTML/TagSoup/Implementation.hs:156)
+    isTagEnd (Text/HTML/TagSoup/Implementation.hs:157)
+    isTagEndClose (Text/HTML/TagSoup/Implementation.hs:158)
+    isComment (Text/HTML/TagSoup/Implementation.hs:159)
+    isCommentEnd (Text/HTML/TagSoup/Implementation.hs:160)
+    isEntityName (Text/HTML/TagSoup/Implementation.hs:161)
+    isEntityNumHex (Text/HTML/TagSoup/Implementation.hs:162)
+    isEntityNum (Text/HTML/TagSoup/Implementation.hs:163)
+    isEntityHex (Text/HTML/TagSoup/Implementation.hs:164)
+    isEntityEnd (Text/HTML/TagSoup/Implementation.hs:165)
+    isWarn (Text/HTML/TagSoup/Implementation.hs:166)
+    fromChr (Text/HTML/TagSoup/Implementation.hs:168)
+    fromWarn (Text/HTML/TagSoup/Implementation.hs:169)
+    getEntityEnd (Text/HTML/TagSoup/Implementation.hs:171)
+    tagTextMerge (Text/HTML/TagSoup/Implementation.hs:175)
+   0% (  0 /  2) in 'Text.HTML.TagSoup.Specification'
+  Missing documentation for:
+    Module header
+    parse (Text/HTML/TagSoup/Specification.hs:34)
+   0% (  0 /  2) in 'Text.HTML.TagSoup.Manual'
+  Missing documentation for:
+    Module header
+    parseTagsOptions (Text/HTML/TagSoup/Manual.hs:11)
+   0% (  0 /  2) in 'Text.HTML.TagSoup.Generated'
+  Missing documentation for:
+    Module header
+    parseTagsOptions (Text/HTML/TagSoup/Manual.hs:11)
+ 100% (  6 /  6) in 'Text.HTML.TagSoup.Render'
+  86% (  6 /  7) in 'Text.HTML.TagSoup.Parser'
+  Missing documentation for:
+    Module header
+ 100% ( 40 / 40) in 'Text.HTML.TagSoup'
+ 100% ( 12 / 12) in 'Text.HTML.TagSoup.Tree'
+Documentation created: dist/dist-sandbox-2c4a8482/doc/html/tagsoup/index.html
+Creating package registration file:
+/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/pkgConf-tagsoup-0500782188657821123.14
+Installing library in
+/Users/nclandrei/Desktop/level4_coursework/FP/ax2/.cabal-sandbox/lib/x86_64-osx-ghc-8.0.1/tagsoup-0.14-71C7lSrbgF3A9hxDTqWzC2
+Registering tagsoup-0.14...
+cabal: Leaving directory '/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/cabal-tmp-38749/tagsoup-0.14'

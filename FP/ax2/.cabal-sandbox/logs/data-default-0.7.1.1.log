@@ -1,0 +1,20 @@
+cabal: Entering directory '/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/cabal-tmp-38744/data-default-0.7.1.1'
+Configuring data-default-0.7.1.1...
+Building data-default-0.7.1.1...
+Preprocessing library data-default-0.7.1.1...
+[1 of 1] Compiling Data.Default     ( Data/Default.hs, dist/dist-sandbox-2c4a8482/build/Data/Default.o )
+[1 of 1] Compiling Data.Default     ( Data/Default.hs, dist/dist-sandbox-2c4a8482/build/Data/Default.p_o )
+Running Haddock for data-default-0.7.1.1...
+Preprocessing library data-default-0.7.1.1...
+Haddock coverage:
+  67% (  2 /  3) in 'Data.Default'
+  Missing documentation for:
+    Module header
+Documentation created:
+dist/dist-sandbox-2c4a8482/doc/html/data-default/index.html
+Creating package registration file:
+/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/pkgConf-data-default-0.7.115810301051557810404.1
+Installing library in
+/Users/nclandrei/Desktop/level4_coursework/FP/ax2/.cabal-sandbox/lib/x86_64-osx-ghc-8.0.1/data-default-0.7.1.1-5uix4eIzBY9IcVb4V2HbW3
+Registering data-default-0.7.1.1...
+cabal: Leaving directory '/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/cabal-tmp-38744/data-default-0.7.1.1'

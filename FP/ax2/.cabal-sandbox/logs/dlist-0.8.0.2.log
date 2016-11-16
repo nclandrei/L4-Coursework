@@ -1,0 +1,19 @@
+cabal: Entering directory '/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/cabal-tmp-38745/dlist-0.8.0.2'
+Configuring dlist-0.8.0.2...
+Building dlist-0.8.0.2...
+Preprocessing library dlist-0.8.0.2...
+[1 of 1] Compiling Data.DList       ( Data/DList.hs, dist/dist-sandbox-2c4a8482/build/Data/DList.o )
+[1 of 1] Compiling Data.DList       ( Data/DList.hs, dist/dist-sandbox-2c4a8482/build/Data/DList.p_o )
+Running Haddock for dlist-0.8.0.2...
+Preprocessing library dlist-0.8.0.2...
+Haddock coverage:
+ 100% ( 20 / 20) in 'Data.DList'
+Warning: Data.DList: could not find link destinations for:
+    ~
+Documentation created: dist/dist-sandbox-2c4a8482/doc/html/dlist/index.html
+Creating package registration file:
+/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/pkgConf-dlist-0.8.0571540977194847408.2
+Installing library in
+/Users/nclandrei/Desktop/level4_coursework/FP/ax2/.cabal-sandbox/lib/x86_64-osx-ghc-8.0.1/dlist-0.8.0.2-GWAMmbX9rLg3tqrbOizHGv
+Registering dlist-0.8.0.2...
+cabal: Leaving directory '/var/folders/9p/f4g3l2px6f1bxqkqzfx27ntw0000gn/T/cabal-tmp-38745/dlist-0.8.0.2'

@@ -4,15 +4,14 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.UUID;
 
-public class AuctionUserImpl extends UnicastRemoteObject implements AuctionUser {
+public class AuctionParticipantImpl extends UnicastRemoteObject implements AuctionParticipant {
 
-    private static final long serialVersionUID = 1L;
-
+    private static final long serialVersionUID = -2806330933785406583L;
     private UUID id;
     private String name;
     private boolean isAdmin;
 
-    public AuctionUserImpl (String name, boolean isAdmin) throws RemoteException {
+    public AuctionParticipantImpl(String name, boolean isAdmin) throws RemoteException {
         this.name = name;
         this.isAdmin = isAdmin;
         this.id = UUID.randomUUID();
@@ -34,7 +33,7 @@ public class AuctionUserImpl extends UnicastRemoteObject implements AuctionUser 
     }
 
     @Override
-    public void inform(String info) throws RemoteException {
+    public void notify(String info) throws RemoteException {
         System.out.println("INFO --> " + info);
     }
 }

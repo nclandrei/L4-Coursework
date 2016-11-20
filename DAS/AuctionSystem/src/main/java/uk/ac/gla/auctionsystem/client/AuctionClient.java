@@ -1,8 +1,8 @@
 package uk.ac.gla.auctionsystem.client;
 
 import uk.ac.gla.auctionsystem.common.AuctionManager;
-import uk.ac.gla.auctionsystem.common.AuctionUser;
-
+import uk.ac.gla.auctionsystem.common.AuctionParticipant;
+import uk.ac.gla.auctionsystem.common.AuctionParticipantImpl;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.util.Scanner;
@@ -16,7 +16,7 @@ public class AuctionClient {
             "bid      -->    Place bid for a specific item" +
             "restore  -->    Restore system to last save's state" +
             "save     -->    Save system state" +
-            "info     -->    Get info regarding specific auction" +
+            "display  -->    Get information regarding specific auction" +
             "quit     -->    Quit";
 
     private static final Scanner SCANNER = new Scanner (System.in);
@@ -25,28 +25,62 @@ public class AuctionClient {
         System.out.println (COMMANDS_LIST);
     }
 
-    private static void performCreate (AuctionUser user, AuctionManager manager) {
-
+    private static void performCreate (AuctionParticipant user, AuctionManager manager) throws RemoteException {
+        System.out.print ("Please insert a title for the item \n >> ");
+        String itemTitle = SCANNER.next();
+        System.out.print ("Please insert the starting value for your item \n >> ");
+        double startingValue = SCANNER.nextDouble();
+        System.out.print ("Please insert the closing time of the auction in the format (2016-11-20T02:55) \n >> ");
+        String closingTime = SCANNER.next();
+        long auctionId = manager.createAuction(itemTitle, startingValue, closingTime, user);
+        if (auctionId == -1) {
+            System.out.println ("Unfortunately, auction could not be created! Please try again.");
+        }
+        else {
+            System.out.println ("Auction with ID " + auctionId + " has just been created! Hoping for the best!");
+        }
     }
 
-    private static void performList (AuctionManager manager) {
-
+    private static void performList (AuctionManager manager) throws RemoteException {
+        System.out.println (manager.getAllAuctions());
     }
 
-    private static void performBid (AuctionUser user, AuctionManager manager) {
-
+    private static void performBid (AuctionParticipant user, AuctionManager manager) throws RemoteException {
+        System.out.print ("Please insert the auction ID you want to bid for \n >> ");
+        String idToString = SCANNER.next();
+        Scanner scanId = new Scanner(idToString);
+        long auctionId = scanId.nextLong();
+        scanId.close();
+        System.out.print ("Please insert the amount you would like to bid \n >> ");
+        String valueToString = SCANNER.next();
+        Scanner scanValue = new Scanner(valueToString);
+        double bidAmount = scanValue.nextDouble();
+        scanValue.close();
+        manager.placeBid(user, auctionId, bidAmount);
     }
 
-    private static void performRestore (AuctionUser user) {
-
+    private static void performRestore (AuctionParticipant user, AuctionManager manager) throws RemoteException {
+        manager.restoreState(user);
     }
 
-    private static void performSave (AuctionUser user) {
-
+    private static void performSave (AuctionParticipant user, AuctionManager manager) throws RemoteException {
+        manager.saveState(user);
     }
 
-    private static void performInfo (AuctionManager manager) {
+    private static void performDisplay (AuctionManager manager) throws RemoteException {
+        System.out.print ("Please insert the ID of the auction you would like to see \n >> ");
+        String idToString = SCANNER.next();
+        Scanner scanId = new Scanner(idToString);
+        long id = scanId.nextLong();
+        scanId.close();
 
+        String auctionDisplayInfo = manager.getAuctionDetails(id);
+        if (auctionDisplayInfo == null) {
+            System.out.println ("Unfortunately, auction with ID " + id + " could not be retrieved.");
+        }
+        else {
+            System.out.println (auctionDisplayInfo);
+        }
     }
 
     private static void performQuit () {
@@ -55,7 +89,7 @@ public class AuctionClient {
     }
 
     public static void main (String[] args) {
-        AuctionUser auctionUser = null;
+        AuctionParticipant auctionParticipant = null;
         AuctionManager auctionManager = null;
 
         if (args.length < 1) {
@@ -69,8 +103,8 @@ public class AuctionClient {
             String name = SCANNER.next();
             System.out.println("Great, " + name + "! Could you please tell me if you're an admin?");
             boolean isAdmin = SCANNER.nextBoolean();
-            auctionUser = new AuctionUser(name, isAdmin);
-            auctionManager = (AuctionManager) Naming.lookup("rmi://" + args[0] + "/AuctionManagerService");
+            auctionParticipant = new AuctionParticipantImpl(name, isAdmin);
+            auctionManager = (AuctionManager) Naming.lookup("rmi://" + args[0] + "/AuctionServer");
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -79,39 +113,35 @@ public class AuctionClient {
         System.out.println ("Welcome to the most awesome Auction System ever implemented in " +
                             "Java RMI!\n Please type help to find out what can you do! Enjoy!");
 
-        while (true) {
-            System.out.print(">> ");
-            String command = SCANNER.next();
+        try {
+            while (true) {
+                System.out.print(">> ");
+                String command = SCANNER.next();
 
-            if (command.startsWith("help")) {
-                performHelp();
-            }
-            else if (command.startsWith("create")) {
-                performCreate(auctionUser, auctionManager);
-            }
-            else if (command.startsWith("list")) {
-                performList(auctionManager);
-            }
-            else if (command.startsWith("bid")) {
-                performBid(auctionUser, auctionManager);
-            }
-            else if (command.startsWith("restore")) {
-                performRestore(auctionUser);
-            }
-            else if (command.startsWith("save")) {
-                performSave(auctionUser);
-            }
-            else if (command.startsWith("info")) {
-                performInfo(auctionManager);
-            }
-            else if (command.startsWith("quit")) {
-                performQuit();
-            }
-            else {
-                System.err.println("Wrong command typed... If you forgot available commands, " +
-                                   "please type help!");
+                if (command.startsWith("help")) {
+                    performHelp();
+                } else if (command.startsWith("create")) {
+                    performCreate(auctionParticipant, auctionManager);
+                } else if (command.startsWith("list")) {
+                    performList(auctionManager);
+                } else if (command.startsWith("bid")) {
+                    performBid(auctionParticipant, auctionManager);
+                } else if (command.startsWith("restore")) {
+                    performRestore(auctionParticipant, auctionManager);
+                } else if (command.startsWith("save")) {
+                    performSave(auctionParticipant, auctionManager);
+                } else if (command.startsWith("display")) {
+                    performDisplay(auctionManager);
+                } else if (command.startsWith("quit")) {
+                    performQuit();
+                } else {
+                    System.err.println("Wrong command typed... If you forgot available commands, " +
+                            "please type help!");
+                }
             }
         }
+        catch (RemoteException ex) {
+            System.err.println ("Could not perform operation...");
+        }
     }
-
 }

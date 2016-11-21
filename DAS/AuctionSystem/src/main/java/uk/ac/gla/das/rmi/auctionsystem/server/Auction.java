@@ -1,8 +1,12 @@
-package uk.ac.gla.auctionsystem.common;
+package uk.ac.gla.das.rmi.auctionsystem.server;
 
+
+import uk.ac.gla.das.rmi.auctionsystem.api.AuctionParticipant;
+import uk.ac.gla.das.rmi.auctionsystem.common.DateUtility;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,12 +45,12 @@ public class Auction implements Serializable {
         }
     }
 
-    public synchronized void setTimer () {
+    private synchronized void setTimer () {
         if (this.closingTime.before(new Date())) {
-            this.isClosed = true;
+            this.isClosed = false;
         }
         else {
-            this.isClosed = false;
+            this.isClosed = true;
             (new Timer(true)).schedule(new TimerTask() {
                 @Override
                 public void run() {
@@ -59,16 +63,17 @@ public class Auction implements Serializable {
     }
 
     public synchronized String getShortDisplayInfo () {
-        return String.format("%d,%s,%.2f,%s,%s", id, itemTitle,
-                itemValue, closingTime, Boolean.toString(!isClosed));
+        return String.format("%d, %s, %.2f, %s, %s", id, itemTitle,
+                itemValue, closingTime, Boolean.toString(isClosed));
     }
 
     public synchronized String getFullDisplayInfo () {
         StringBuilder sb = new StringBuilder();
+        SimpleDateFormat dateFormat = DateUtility.getDateFormat();
         sb.append ("ID -- " + this.id + "\n");
         sb.append ("Item Title -- " + this.itemTitle + "\n");
         sb.append ("Item Value -- " + this.itemValue + "\n");
-        sb.append ("Closing Time -- " + this.closingTime + "\n");
+        sb.append ("Closing Time -- " + dateFormat.format(this.closingTime) + "\n");
         if (this.biddersMap.size() > 0) {
             try {
                 sb.append("Highest Bidder -- " + this.highestBidder.getName() + "\n");

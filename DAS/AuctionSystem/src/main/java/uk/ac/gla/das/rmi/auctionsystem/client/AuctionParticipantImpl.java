@@ -1,4 +1,6 @@
-package uk.ac.gla.auctionsystem.common;
+package uk.ac.gla.das.rmi.auctionsystem.client;
+
+import uk.ac.gla.das.rmi.auctionsystem.api.AuctionParticipant;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -29,7 +31,7 @@ public class AuctionParticipantImpl extends UnicastRemoteObject implements Aucti
 
     @Override
     public boolean isAdmin() throws RemoteException {
-        return false;
+        return this.isAdmin;
     }
 
     @Override

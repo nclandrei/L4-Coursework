@@ -1,4 +1,4 @@
-package uk.ac.gla.auctionsystem.common;
+package uk.ac.gla.das.rmi.auctionsystem.api;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

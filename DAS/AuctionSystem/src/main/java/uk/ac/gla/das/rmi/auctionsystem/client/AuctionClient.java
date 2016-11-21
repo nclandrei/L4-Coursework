@@ -1,8 +1,8 @@
-package uk.ac.gla.auctionsystem.client;
+package uk.ac.gla.das.rmi.auctionsystem.client;
 
-import uk.ac.gla.auctionsystem.common.AuctionManager;
-import uk.ac.gla.auctionsystem.common.AuctionParticipant;
-import uk.ac.gla.auctionsystem.common.AuctionParticipantImpl;
+import uk.ac.gla.das.rmi.auctionsystem.api.AuctionManager;
+import uk.ac.gla.das.rmi.auctionsystem.api.AuctionParticipant;
+
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.util.Scanner;
@@ -10,14 +10,14 @@ import java.util.Scanner;
 public class AuctionClient {
 
     private static final String COMMANDS_LIST =
-            "help     -->    Show available commands \n" +
+            "\n" + "help     -->    Show available commands \n" +
             "create   -->    Create a specific auction item \n" +
             "list     -->    List all auctions \n" +
-            "bid      -->    Place bid for a specific item" +
-            "restore  -->    Restore system to last save's state" +
-            "save     -->    Save system state" +
-            "display  -->    Get information regarding specific auction" +
-            "quit     -->    Quit";
+            "bid      -->    Place bid for a specific item \n" +
+            "restore  -->    Restore system to last save's state \n" +
+            "save     -->    Save system state \n" +
+            "display  -->    Get information regarding specific auction \n" +
+            "quit     -->    Quit \n";
 
     private static final Scanner SCANNER = new Scanner (System.in);
 
@@ -26,18 +26,21 @@ public class AuctionClient {
     }
 
     private static void performCreate (AuctionParticipant user, AuctionManager manager) throws RemoteException {
-        System.out.print ("Please insert a title for the item \n >> ");
-        String itemTitle = SCANNER.next();
-        System.out.print ("Please insert the starting value for your item \n >> ");
-        double startingValue = SCANNER.nextDouble();
-        System.out.print ("Please insert the closing time of the auction in the format (2016-11-20T02:55) \n >> ");
-        String closingTime = SCANNER.next();
+        System.out.print ("Please insert a title for the item \n ");
+        String itemTitle = SCANNER.nextLine();
+        System.out.print ("Please insert the starting value for your item \n ");
+        String startingValueString = SCANNER.nextLine();
+        Scanner startingValueScanner = new Scanner(startingValueString);
+        double startingValue = startingValueScanner.nextDouble();
+        startingValueScanner.close();
+        System.out.print ("Please insert the closing time of the auction in the format (20-11-2016T02:55) \n ");
+        String closingTime = SCANNER.nextLine();
         long auctionId = manager.createAuction(itemTitle, startingValue, closingTime, user);
         if (auctionId == -1) {
             System.out.println ("Unfortunately, auction could not be created! Please try again.");
         }
         else {
-            System.out.println ("Auction with ID " + auctionId + " has just been created! Hoping for the best!");
+            System.out.println ("Auction with ID " + auctionId + " has just been created!");
         }
     }
 
@@ -46,13 +49,13 @@ public class AuctionClient {
     }
 
     private static void performBid (AuctionParticipant user, AuctionManager manager) throws RemoteException {
-        System.out.print ("Please insert the auction ID you want to bid for \n >> ");
-        String idToString = SCANNER.next();
+        System.out.print ("Please insert the auction ID you want to bid for \n ");
+        String idToString = SCANNER.nextLine();
         Scanner scanId = new Scanner(idToString);
         long auctionId = scanId.nextLong();
         scanId.close();
-        System.out.print ("Please insert the amount you would like to bid \n >> ");
-        String valueToString = SCANNER.next();
+        System.out.print ("Please insert the amount you would like to bid \n ");
+        String valueToString = SCANNER.nextLine();
         Scanner scanValue = new Scanner(valueToString);
         double bidAmount = scanValue.nextDouble();
         scanValue.close();
@@ -68,8 +71,8 @@ public class AuctionClient {
     }
 
     private static void performDisplay (AuctionManager manager) throws RemoteException {
-        System.out.print ("Please insert the ID of the auction you would like to see \n >> ");
-        String idToString = SCANNER.next();
+        System.out.print ("Please insert the ID of the auction you would like to see \n ");
+        String idToString = SCANNER.nextLine();
         Scanner scanId = new Scanner(idToString);
         long id = scanId.nextLong();
         scanId.close();
@@ -100,23 +103,29 @@ public class AuctionClient {
 
         try {
             System.out.println("Hi, nice to meet you! Could you please tell me your name?");
-            String name = SCANNER.next();
-            System.out.println("Great, " + name + "! Could you please tell me if you're an admin?");
-            boolean isAdmin = SCANNER.nextBoolean();
+            String name = SCANNER.nextLine();
+            System.out.println("Great, " + name + "! Could you please tell me if you're an admin? (Yes or No)");
+            String isUserAdmin = SCANNER.nextLine();
+            boolean isAdmin;
+            if (isUserAdmin.equalsIgnoreCase("Yes")) {
+                isAdmin = true;
+            }
+            else {
+                isAdmin = false;
+            }
             auctionParticipant = new AuctionParticipantImpl(name, isAdmin);
-            auctionManager = (AuctionManager) Naming.lookup("rmi://" + args[0] + "/AuctionServer");
+            auctionManager = (AuctionManager) Naming.lookup("rmi://" + args[0] + ":1099/AuctionServerService");
         }
         catch (Exception ex) {
             ex.printStackTrace();
         }
 
         System.out.println ("Welcome to the most awesome Auction System ever implemented in " +
-                            "Java RMI!\n Please type help to find out what can you do! Enjoy!");
+                            "Java RMI!\nPlease type help to find out what can you do! Enjoy!");
 
         try {
             while (true) {
-                System.out.print(">> ");
-                String command = SCANNER.next();
+                String command = SCANNER.nextLine();
 
                 if (command.startsWith("help")) {
                     performHelp();

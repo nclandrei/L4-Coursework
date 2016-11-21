@@ -45,12 +45,12 @@ public class Auction implements Serializable {
         }
     }
 
-    private synchronized void setTimer () {
+    public synchronized void setTimer () {
         if (this.closingTime.before(new Date())) {
-            this.isClosed = false;
+            this.isClosed = true;
         }
         else {
-            this.isClosed = true;
+            this.isClosed = false;
             (new Timer(true)).schedule(new TimerTask() {
                 @Override
                 public void run() {

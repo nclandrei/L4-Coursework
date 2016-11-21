@@ -4,6 +4,15 @@ import uk.ac.gla.das.rmi.auctionsystem.api.AuctionManager;
 import uk.ac.gla.das.rmi.auctionsystem.api.AuctionParticipant;
 import uk.ac.gla.das.rmi.auctionsystem.common.DateUtility;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.text.ParseException;
@@ -18,15 +27,16 @@ import java.util.Map;
 public class AuctionManagerImpl extends UnicastRemoteObject implements AuctionManager {
 
     private static final long serialVersionUID = 2974850963457238618L;
-    private static final String LAST_STATE_FILENAME = "last_state.bin";
+    private static final String STORAGE_LOCATION =
+            String.format("%s/src/main/resources", new File(".").getAbsolutePath());
     private static final int STORAGE_MINUTES = 30;
 
     private Long nextAuctionId;
-    private Map<Long, Auction> auctionMap;
+    private Map<Long, Auction> auctionsMap;
 
     public AuctionManagerImpl () throws RemoteException {
         super();
-        this.auctionMap = new HashMap<>();
+        this.auctionsMap = new HashMap<>();
         nextAuctionId = 0L;
     }
 
@@ -47,13 +57,9 @@ public class AuctionManagerImpl extends UnicastRemoteObject implements AuctionMa
             return -1;
         }
 
-        if (closingTimeDate.before(new Date())) {
-            return -1;
-        }
-
         Auction auction = new Auction(itemTitle, itemMinVal, closingTimeDate, id, user);
         System.out.println("Auction with ID " + id + " has just been created.");
-        auctionMap.put(id, auction);
+        auctionsMap.put(id, auction);
         return id;
     }
 
@@ -62,23 +68,23 @@ public class AuctionManagerImpl extends UnicastRemoteObject implements AuctionMa
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Item-ID\tItem-Title\tItem-Value\tClosing-Time\tIs-Closed\n\n");
         Calendar calendar = new GregorianCalendar();
-        for (Map.Entry<Long, Auction> entry : auctionMap.entrySet()) {
+        for (Map.Entry<Long, Auction> entry : auctionsMap.entrySet()) {
             Long id = entry.getKey();
             Auction auction = entry.getValue();
             calendar.setTime(auction.getClosingTime());
             calendar.add(GregorianCalendar.MINUTE, STORAGE_MINUTES);
             if ((new GregorianCalendar().after(calendar))) {
-                auctionMap.remove(id);
+                auctionsMap.remove(id);
                 continue;
             }
-            stringBuilder.append(auction.getShortDisplayInfo() + "\n");
+            stringBuilder.append(auction.getShortDisplayInfo()).append("\n");
         }
         return stringBuilder.toString();
     }
 
     @Override
     public boolean placeBid(AuctionParticipant user, long auctionId, double bidAmount) throws RemoteException {
-        Auction auction = auctionMap.get(auctionId);
+        Auction auction = auctionsMap.get(auctionId);
         if (auction == null) {
             user.notify("Sorry, the specified ID is not correct.");
             return false;
@@ -89,7 +95,7 @@ public class AuctionManagerImpl extends UnicastRemoteObject implements AuctionMa
 
     @Override
     public String getAuctionDetails(long id) throws RemoteException {
-        Auction auction = auctionMap.get(id);
+        Auction auction = auctionsMap.get(id);
         if (auction == null) {
             return null;
         }
@@ -99,12 +105,57 @@ public class AuctionManagerImpl extends UnicastRemoteObject implements AuctionMa
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public boolean restoreState(AuctionParticipant user) throws RemoteException {
-        return false;
+        try {
+            String userNameWithoutSpaces = user.getName().replaceAll("\\s+","").toLowerCase();
+            ObjectInputStream fileReader = new ObjectInputStream(
+                    new BufferedInputStream(
+                            new FileInputStream(
+                                    String.format("%s/%s_last_state.bin", STORAGE_LOCATION, userNameWithoutSpaces))));
+            this.auctionsMap = (Map<Long, Auction>) fileReader.readObject();
+            this.nextAuctionId = (Long) fileReader.readObject();
+        }
+        catch (ClassNotFoundException ex) {
+            System.err.println ("File could not be reached.");
+            ex.printStackTrace();
+            return false;
+        }
+        catch (IOException ex) {
+            System.err.println ("Could not write to file.");
+            ex.printStackTrace();
+            return false;
+        }
+        this.auctionsMap.values().forEach(Auction::setTimer);
+        System.out.println("User " + user.getName() + " restored last state from file.");
+        user.notify("Your state has been restored from file.");
+        return true;
     }
 
     @Override
     public boolean saveState(AuctionParticipant user) throws RemoteException {
-        return false;
+        try {
+            String userNameWithoutSpaces = user.getName().replaceAll("\\s+","").toLowerCase();
+            ObjectOutputStream fileWriter = new ObjectOutputStream(
+                    new BufferedOutputStream(
+                            new FileOutputStream(
+                                    String.format("%s/%s_last_state.bin", STORAGE_LOCATION, userNameWithoutSpaces))));
+            fileWriter.writeObject(auctionsMap);
+            fileWriter.writeObject(nextAuctionId);
+            fileWriter.close();
+            System.out.println("State for user " + user.getName() + " saved to resources folder.");
+            user.notify("Your state has been saved to resources folder.");
+            return true;
+        }
+        catch (FileNotFoundException ex) {
+            System.err.println ("File could not be reached.");
+            ex.printStackTrace();
+            return false;
+        }
+        catch (IOException ex) {
+            System.err.println ("Could not write to file.");
+            ex.printStackTrace();
+            return false;
+        }
     }
 }

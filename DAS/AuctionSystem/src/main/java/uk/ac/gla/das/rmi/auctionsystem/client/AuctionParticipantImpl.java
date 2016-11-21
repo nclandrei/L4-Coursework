@@ -11,11 +11,9 @@ public class AuctionParticipantImpl extends UnicastRemoteObject implements Aucti
     private static final long serialVersionUID = -2806330933785406583L;
     private UUID id;
     private String name;
-    private boolean isAdmin;
 
-    public AuctionParticipantImpl(String name, boolean isAdmin) throws RemoteException {
+    public AuctionParticipantImpl(String name) throws RemoteException {
         this.name = name;
-        this.isAdmin = isAdmin;
         this.id = UUID.randomUUID();
     }
 
@@ -27,11 +25,6 @@ public class AuctionParticipantImpl extends UnicastRemoteObject implements Aucti
     @Override
     public String getId() throws RemoteException {
         return this.id.toString();
-    }
-
-    @Override
-    public boolean isAdmin() throws RemoteException {
-        return this.isAdmin;
     }
 
     @Override

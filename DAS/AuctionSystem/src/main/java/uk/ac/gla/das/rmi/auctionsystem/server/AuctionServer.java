@@ -1,18 +1,15 @@
 package uk.ac.gla.das.rmi.auctionsystem.server;
 
-
 import uk.ac.gla.das.rmi.auctionsystem.api.AuctionManager;
-
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 
 public class AuctionServer {
 
     public static void main (String[] args) {
         try {
-            Registry registry = LocateRegistry.createRegistry(1099);
+            LocateRegistry.createRegistry(1099);
         }
         catch (RemoteException ex) {
             ex.printStackTrace();

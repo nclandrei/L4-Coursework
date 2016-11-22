@@ -18,14 +18,12 @@ import java.rmi.server.ExportException;
  */
 public class SmokeTest {
 
-    private String hostName;
-    private int portNumber;
     private AuctionManager auctionManager;
 
     @Before
     public void init() throws Exception {
-        hostName = "localhost";
-        portNumber = 1099;
+        String hostName = "localhost";
+        int portNumber = 1099;
         try {
             LocateRegistry.createRegistry(1099);
         }

@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class ManagerTest {
+public class ClientTest {
 
     private static final int NUMBER_OF_USERS = 5;
     private static final int INITIAL_AUCTIONS_COUNT = 20;
@@ -29,8 +29,8 @@ public class ManagerTest {
     private static final int PERFORM_BID_COUNT = 30;
     private static final int PERFORM_LIST_COUNT = 45;
     private static final int PERFORM_DISPLAY_COUNT = 25;
-    private static final String RESOURCES_FOLDER_PATH =
-            String.format("%s/src/main/resources", new File(".").getAbsolutePath());
+    private static final String STATE_STORAGE_PATH =
+            String.format("%s/src/main/resources/last_state.bin", new File(".").getAbsolutePath());
 
     private static final String[] CLOSING_DATES =
             new String[]{"01-01-2017T12:00", "02-04-2017T15:50", "03-05-2017T09:09", "06-07-2017T16:30"};
@@ -116,7 +116,7 @@ public class ManagerTest {
     public void testPerformSaveState() throws RemoteException {
         AuctionParticipant participant = new AuctionParticipantImpl("TestUser");
         auctionManager.saveState(participant);
-        File stateBinFile = new File(String.format("%s/testuser_last_state.bin", RESOURCES_FOLDER_PATH));
+        File stateBinFile = new File(STATE_STORAGE_PATH);
         assertTrue(stateBinFile.exists());
     }
 
@@ -129,10 +129,7 @@ public class ManagerTest {
 
     @After
     public void tearDown() {
-        File resourcesFolder = new File(RESOURCES_FOLDER_PATH);
-        File[] binFiles = resourcesFolder.listFiles();
-        for (File stateFile : binFiles) {
-            stateFile.delete();
-        }
+        File lastStateFile = new File(STATE_STORAGE_PATH);
+        lastStateFile.delete();
     }
 }

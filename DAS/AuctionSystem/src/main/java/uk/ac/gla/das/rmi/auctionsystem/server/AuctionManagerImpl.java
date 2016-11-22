@@ -28,7 +28,9 @@ public class AuctionManagerImpl extends UnicastRemoteObject implements AuctionMa
     private static final long serialVersionUID = 2974850963457238618L;
     private static final String STATE_STORAGE_LOCATION =
             String.format("%s/src/main/resources/last_state.bin", new File(".").getAbsolutePath());
-    private static final int STORAGE_MINUTES = 30;
+    private static final int STORAGE_TIME_AMOUNT = 30;
+    private static final int STORAGE_TIME_UNIT_TYPE = GregorianCalendar.MINUTE;
+
 
     private Long nextAuctionId;
     private Map<Long, Auction> auctionsMap;
@@ -74,7 +76,7 @@ public class AuctionManagerImpl extends UnicastRemoteObject implements AuctionMa
             Long id = entry.getKey();
             Auction auction = entry.getValue();
             calendar.setTime(auction.getClosingTime());
-            calendar.add(GregorianCalendar.MINUTE, STORAGE_MINUTES);
+            calendar.add(STORAGE_TIME_UNIT_TYPE, STORAGE_TIME_AMOUNT);
             if ((new GregorianCalendar().after(calendar))) {
                 auctionsMap.remove(id);
                 continue;

@@ -106,21 +106,6 @@ public class AuctionClient {
         System.exit(0);
     }
 
-    private static boolean doesUserHaveSavedState(String name) {
-        String userNameWithoutSpaces = name.replaceAll("\\s+", "").toLowerCase();
-        File resourcesFolder =
-                new File(String.format("%s/src/main/resources", new File(".").getAbsolutePath()));
-        File[] savedStates = resourcesFolder.listFiles();
-        assert savedStates != null;
-        for (File state : savedStates) {
-            String fileName = state.getName();
-            if (fileName.startsWith(userNameWithoutSpaces)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public static void main(String[] args) {
         AuctionParticipant auctionParticipant = null;
         AuctionManager auctionManager = null;
@@ -138,13 +123,6 @@ public class AuctionClient {
             auctionParticipant = new AuctionParticipantImpl(name);
             auctionManager = (AuctionManager)
                     Naming.lookup(String.format("rmi://%s:%s/AuctionServerService", args[0], args[1]));
-            if (doesUserHaveSavedState(name)) {
-                System.out.println("I found a state you saved previously. Would you like to restore it? (Yes or No)");
-                String restore = SCANNER.nextLine();
-                if (restore.equalsIgnoreCase("yes")) {
-                    performRestore(auctionParticipant, auctionManager);
-                }
-            }
 
             // network failure detector - pings server every 5 seconds on empty method
             // if nothing back, reports server failure and quits client

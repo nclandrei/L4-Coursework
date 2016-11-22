@@ -17,6 +17,7 @@ public class AuctionServer {
         if (System.getSecurityManager() == null) {
             System.setSecurityManager(new SecurityManager());
         }
+        System.setProperty("java.rmi.server.hostname", "localhost");
         try {
             AuctionManager auctionManager = new AuctionManagerImpl();
             Naming.rebind("rmi://localhost:1099/AuctionServerService", auctionManager);

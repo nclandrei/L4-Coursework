@@ -1,14 +1,11 @@
 package client;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 import uk.ac.gla.das.rmi.auctionsystem.api.AuctionManager;
 import uk.ac.gla.das.rmi.auctionsystem.api.AuctionParticipant;
 import uk.ac.gla.das.rmi.auctionsystem.client.AuctionParticipantImpl;
@@ -24,7 +21,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-@RunWith(JUnit4.class)
 public class ManagerTest {
 
     private static final int NUMBER_OF_USERS = 5;

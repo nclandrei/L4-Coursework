@@ -17,4 +17,6 @@ public interface AuctionManager extends Remote {
     boolean restoreState (AuctionParticipant user) throws RemoteException;
 
     boolean saveState (AuctionParticipant user) throws RemoteException;
+
+    void serverFailureDetector () throws RemoteException;
 }

@@ -160,4 +160,7 @@ public class AuctionManagerImpl extends UnicastRemoteObject implements AuctionMa
             return false;
         }
     }
+
+    @Override
+    public void serverFailureDetector () {}
 }

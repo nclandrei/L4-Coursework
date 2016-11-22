@@ -4,30 +4,46 @@ import uk.ac.gla.das.rmi.auctionsystem.api.AuctionManager;
 import uk.ac.gla.das.rmi.auctionsystem.api.AuctionParticipant;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.server.RMISocketFactory;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 public class AuctionClient {
 
     private static final String COMMANDS_LIST =
             "\n" + "help     -->    Show available commands \n" +
-            "create   -->    Create a specific auction item \n" +
-            "list     -->    List all auctions \n" +
-            "bid      -->    Place bid for a specific item \n" +
-            "restore  -->    Restore system to last save's state \n" +
-            "save     -->    Save system state \n" +
-            "display  -->    Get information regarding specific auction \n" +
-            "quit     -->    Quit \n";
+                    "create   -->    Create a specific auction item \n" +
+                    "list     -->    List all auctions \n" +
+                    "bid      -->    Place bid for a specific item \n" +
+                    "restore  -->    Restore system to last save's state \n" +
+                    "save     -->    Save system state \n" +
+                    "display  -->    Get information regarding specific auction \n" +
+                    "quit     -->    Quit \n";
 
-    private static final Scanner SCANNER = new Scanner (System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
-    private static void performHelp () {
-        System.out.println (COMMANDS_LIST);
+    private static void performHelp() {
+        System.out.println(COMMANDS_LIST);
     }
 
-    private static void performCreate (AuctionParticipant user, AuctionManager manager) throws RemoteException {
+    private static void performCreate(AuctionParticipant user, AuctionManager manager) throws RemoteException {
         try {
             System.out.println("Please insert a title for the item:");
             String itemTitle = SCANNER.nextLine();
@@ -44,17 +60,16 @@ public class AuctionClient {
             } else {
                 System.out.println("Auction with ID " + auctionId + " has just been created!");
             }
-        }
-        catch (InputMismatchException ex) {
-            System.err.println ("You typed a wrong input. Please try again!");
+        } catch (InputMismatchException ex) {
+            System.err.println("You typed a wrong input. Please try again!");
         }
     }
 
-    private static void performList (AuctionManager manager) throws RemoteException {
-        System.out.println (manager.getAllAuctions());
+    private static void performList(AuctionManager manager) throws RemoteException {
+        System.out.println(manager.getAllAuctions());
     }
 
-    private static void performBid (AuctionParticipant user, AuctionManager manager) throws RemoteException {
+    private static void performBid(AuctionParticipant user, AuctionManager manager) throws RemoteException {
         try {
             System.out.println("Please insert the auction ID you want to bid for:");
             String idToString = SCANNER.nextLine();
@@ -67,21 +82,20 @@ public class AuctionClient {
             double bidAmount = scanValue.nextDouble();
             scanValue.close();
             manager.placeBid(user, auctionId, bidAmount);
-        }
-        catch (InputMismatchException ex) {
-            System.err.println ("You typed a wrong input. Please try again!");
+        } catch (InputMismatchException ex) {
+            System.err.println("You typed a wrong input. Please try again!");
         }
     }
 
-    private static void performRestore (AuctionParticipant user, AuctionManager manager) throws RemoteException {
+    private static void performRestore(AuctionParticipant user, AuctionManager manager) throws RemoteException {
         manager.restoreState(user);
     }
 
-    private static void performSave (AuctionParticipant user, AuctionManager manager) throws RemoteException {
+    private static void performSave(AuctionParticipant user, AuctionManager manager) throws RemoteException {
         manager.saveState(user);
     }
 
-    private static void performDisplay (AuctionManager manager) throws RemoteException {
+    private static void performDisplay(AuctionManager manager) throws RemoteException {
         try {
             System.out.println("Please insert the ID of the auction you would like to see:");
             String idToString = SCANNER.nextLine();
@@ -95,21 +109,20 @@ public class AuctionClient {
             } else {
                 System.out.println(auctionDisplayInfo);
             }
-        }
-        catch (InputMismatchException ex) {
-            System.err.println ("You typed a wrong input. Please try again!");
+        } catch (InputMismatchException ex) {
+            System.err.println("You typed a wrong input. Please try again!");
         }
     }
 
-    private static void performQuit () {
-        System.err.println ("Stopping client...");
+    private static void performQuit() {
+        System.err.println("Stopping client...");
         System.exit(0);
     }
 
-    private static boolean doesUserHaveSavedState (String name) {
-        String userNameWithoutSpaces = name.replaceAll("\\s+","").toLowerCase();
+    private static boolean doesUserHaveSavedState(String name) {
+        String userNameWithoutSpaces = name.replaceAll("\\s+", "").toLowerCase();
         File resourcesFolder =
-                new File (String.format("%s/src/main/resources", new File(".").getAbsolutePath()));
+                new File(String.format("%s/src/main/resources", new File(".").getAbsolutePath()));
         File[] savedStates = resourcesFolder.listFiles();
         for (File state : savedStates) {
             String fileName = state.getName();
@@ -120,13 +133,13 @@ public class AuctionClient {
         return false;
     }
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         AuctionParticipant auctionParticipant = null;
         AuctionManager auctionManager = null;
 
         if (args.length < 2) {
-            System.err.println ("Server IP address and port need to be specified as arguments in the form: " +
-                                String.format("%s %s", "192.168.1.1", "1099") + "\n ! Please try again...");
+            System.err.println("Server IP address and port need to be specified as arguments in the form: " +
+                    String.format("%s %s", "192.168.1.1", "1099") + "\n ! Please try again...");
             System.exit(-1);
         }
 
@@ -144,13 +157,26 @@ public class AuctionClient {
                     performRestore(auctionParticipant, auctionManager);
                 }
             }
-        }
-        catch (Exception ex) {
+            
+            ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
+            AuctionManager finalAuctionManager = auctionManager;
+            exec.scheduleAtFixedRate(() -> {
+                try {
+                    finalAuctionManager.serverFailureDetector();
+                }
+                 catch (RemoteException e) {
+                    System.err.println("Server failed... Shutting down client.");
+                     performQuit();
+                    e.printStackTrace();
+                }
+            }, 0, 5, TimeUnit.SECONDS);
+
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
 
-        System.out.println ("Welcome to the most awesome Auction System ever implemented in " +
-                            "Java RMI!\nPlease type help to find out what can you do! Enjoy!");
+        System.out.println("Welcome to the most awesome Auction System ever implemented in " +
+                "Java RMI!\nPlease type help to find out what can you do! Enjoy!");
 
         try {
             while (true) {
@@ -176,9 +202,8 @@ public class AuctionClient {
                             "please type help!");
                 }
             }
-        }
-        catch (RemoteException ex) {
-            System.err.println ("Could not perform operation...");
+        } catch (RemoteException ex) {
+            System.err.println("Could not perform operation... Shutting down client.");
         }
     }
 }

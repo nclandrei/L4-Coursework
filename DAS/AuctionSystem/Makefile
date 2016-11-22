@@ -10,9 +10,19 @@ TEST-CLIENT=test/java/client
 TEST-SERVER=test/java/server
 TEST-SMOKE=test/java/smoke
 
-all: create-jars
+all: init create-jars
 
 create-jars: jar-api jar-common jar-server jar-client jar-test-client jar-test-server jar-test-smoke
+
+init:
+	@mkdir -p out/api
+	@mkdir -p out/common
+	@mkdir -p out/client
+	@mkdir -p out/server
+	@mkdir -p out/test-client
+	@mkdir -p out/test-server
+	@mkdir -p out/test-smoke
+	@mkdir -p bin
 
 jar-api: compile-api
 	jar -cf $(JAR)/api.jar -C $(BUILD)/api/ .
@@ -57,4 +67,4 @@ compile-test-smoke: $(SRC)/$(TEST-SMOKE)/*.java
 	javac -cp $(BUILD)/api/:$(BUILD)/common/:$(BUILD)/client/:$(BUILD)/server/:$(LIBS)/junit-4.12.jar $(SRC)/$(TEST-SMOKE)/*.java -d $(BUILD)/test-smoke/
 
 clean:
-	rm -rf $(BUILD)/api/* $(BUILD)/common/* $(BUILD)/server/* $(BUILD)/client/* $(JAR)/*
+	rm -rf $(BUILD) $(JAR)

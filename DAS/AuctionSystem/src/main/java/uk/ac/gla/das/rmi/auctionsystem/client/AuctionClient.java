@@ -4,26 +4,13 @@ import uk.ac.gla.das.rmi.auctionsystem.api.AuctionManager;
 import uk.ac.gla.das.rmi.auctionsystem.api.AuctionParticipant;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.UnknownHostException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.server.RMISocketFactory;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 public class AuctionClient {
 
@@ -88,7 +75,7 @@ public class AuctionClient {
     }
 
     private static void performRestore(AuctionParticipant user, AuctionManager manager) throws RemoteException {
-        manager.restoreState(user);
+        manager.userRestoreState(user);
     }
 
     private static void performSave(AuctionParticipant user, AuctionManager manager) throws RemoteException {
@@ -124,6 +111,7 @@ public class AuctionClient {
         File resourcesFolder =
                 new File(String.format("%s/src/main/resources", new File(".").getAbsolutePath()));
         File[] savedStates = resourcesFolder.listFiles();
+        assert savedStates != null;
         for (File state : savedStates) {
             String fileName = state.getName();
             if (fileName.startsWith(userNameWithoutSpaces)) {
@@ -157,7 +145,9 @@ public class AuctionClient {
                     performRestore(auctionParticipant, auctionManager);
                 }
             }
-            
+
+            // network failure detector - pings server every 5 seconds on empty method
+            // if nothing back, reports server failure and quits client
             ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
             AuctionManager finalAuctionManager = auctionManager;
             exec.scheduleAtFixedRate(() -> {
@@ -179,7 +169,7 @@ public class AuctionClient {
                 "Java RMI!\nPlease type help to find out what can you do! Enjoy!");
 
         try {
-            while (true) {
+            while (SCANNER.hasNext()) {
                 String command = SCANNER.nextLine();
                 if (command.startsWith("help")) {
                     performHelp();

@@ -124,7 +124,7 @@ public class ManagerTest {
     public void testPerformRestoreState() throws RemoteException {
         AuctionParticipant participant = new AuctionParticipantImpl("TestUser");
         auctionManager.saveState(participant);
-        assertTrue(auctionManager.restoreState(participant));
+        assertTrue(auctionManager.restoreState());
     }
 
     @After

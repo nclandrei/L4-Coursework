@@ -26,8 +26,8 @@ import java.util.Map;
 public class AuctionManagerImpl extends UnicastRemoteObject implements AuctionManager {
 
     private static final long serialVersionUID = 2974850963457238618L;
-    private static final String STORAGE_LOCATION =
-            String.format("%s/src/main/resources", new File(".").getAbsolutePath());
+    private static final String STATE_STORAGE_LOCATION =
+            String.format("%s/src/main/resources/last_state.bin", new File(".").getAbsolutePath());
     private static final int STORAGE_MINUTES = 30;
 
     private Long nextAuctionId;
@@ -108,45 +108,44 @@ public class AuctionManagerImpl extends UnicastRemoteObject implements AuctionMa
 
     @Override
     @SuppressWarnings("unchecked")
-    public boolean restoreState(AuctionParticipant user) throws RemoteException {
+    public boolean restoreState() throws RemoteException {
         try {
-            String userNameWithoutSpaces = user.getName().replaceAll("\\s+","").toLowerCase();
             ObjectInputStream fileReader = new ObjectInputStream(
                     new BufferedInputStream(
-                            new FileInputStream(
-                                    String.format("%s/%s_last_state.bin", STORAGE_LOCATION, userNameWithoutSpaces))));
+                            new FileInputStream(STATE_STORAGE_LOCATION)));
             this.auctionsMap = (Map<Long, Auction>) fileReader.readObject();
             this.nextAuctionId = (Long) fileReader.readObject();
         }
         catch (ClassNotFoundException ex) {
-            System.err.println ("File could not be reached.");
-            ex.printStackTrace();
             return false;
         }
         catch (IOException ex) {
-            System.err.println ("Could not write to file.");
-            ex.printStackTrace();
             return false;
         }
         this.auctionsMap.values().forEach(Auction::setTimer);
-        System.out.println("User " + user.getName() + " restored last state from file.");
-        user.notify("Your state has been restored from file.");
+        System.out.println("Last state available has been restored.");
+        return true;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public boolean userRestoreState(AuctionParticipant user) throws RemoteException {
+        this.restoreState();
+        user.notify("You have just restored the last state available on permanent storage.");
         return true;
     }
 
     @Override
     public boolean saveState(AuctionParticipant user) throws RemoteException {
         try {
-            String userNameWithoutSpaces = user.getName().replaceAll("\\s+","").toLowerCase();
             ObjectOutputStream fileWriter = new ObjectOutputStream(
                     new BufferedOutputStream(
-                            new FileOutputStream(
-                                    String.format("%s/%s_last_state.bin", STORAGE_LOCATION, userNameWithoutSpaces))));
+                            new FileOutputStream(STATE_STORAGE_LOCATION)));
             fileWriter.writeObject(auctionsMap);
             fileWriter.writeObject(nextAuctionId);
             fileWriter.close();
-            System.out.println("State for user " + user.getName() + " saved to resources folder.");
-            user.notify("Your state has been saved to resources folder.");
+            System.out.println(String.format("Last state has been saved to resources folder by %s.", user.getName()));
+            user.notify("You have just saved state on permanent storage.");
             return true;
         }
         catch (FileNotFoundException ex) {

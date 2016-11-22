@@ -21,6 +21,10 @@ public class AuctionServer {
             AuctionManager auctionManager = new AuctionManagerImpl();
             Naming.rebind("rmi://localhost:1099/AuctionServerService", auctionManager);
             System.out.println ("Welcome to the most awesome Auction System ever implemented in Java RMI!");
+            boolean canRestore = auctionManager.restoreState();
+            if (canRestore) {
+                System.out.println ("Bootstrapped from state saved to permanent storage.");
+            }
         }
         catch (Exception ex) {
             System.err.println ("Could not launch server... Please try again.");

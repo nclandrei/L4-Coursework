@@ -14,7 +14,9 @@ public interface AuctionManager extends Remote {
 
     String getAuctionDetails (long id) throws RemoteException;
 
-    boolean restoreState (AuctionParticipant user) throws RemoteException;
+    boolean restoreState () throws RemoteException;
+
+    boolean userRestoreState (AuctionParticipant user) throws RemoteException;
 
     boolean saveState (AuctionParticipant user) throws RemoteException;
 

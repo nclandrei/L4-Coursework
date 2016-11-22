@@ -41,11 +41,6 @@ public class AuctionManagerImpl extends UnicastRemoteObject implements AuctionMa
 
     @Override
     public long createAuction(String itemTitle, double itemMinVal, String closingTime, AuctionParticipant user) throws RemoteException {
-        long id;
-        synchronized (nextAuctionId) {
-            id = this.nextAuctionId;
-            this.nextAuctionId++;
-        }
         Date closingTimeDate;
         try {
             SimpleDateFormat dateFormat = DateUtility.getDateFormat();
@@ -54,6 +49,14 @@ public class AuctionManagerImpl extends UnicastRemoteObject implements AuctionMa
         catch (ParseException ex) {
             user.notify("Sorry, the closing time could not be parsed.");
             return -1;
+        }
+        if (closingTimeDate.before(new Date())) {
+            return -1;
+        }
+        long id;
+        synchronized (nextAuctionId) {
+            id = this.nextAuctionId;
+            this.nextAuctionId++;
         }
 
         Auction auction = new Auction(itemTitle, itemMinVal, closingTimeDate, id, user);

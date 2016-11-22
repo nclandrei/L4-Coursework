@@ -54,11 +54,10 @@ public class Auction implements Serializable {
             (new Timer(true)).schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    System.out.println("Auction has begun!");
+                    System.out.println("Timer started!");
                     Auction.this.closeAuction();
                 }
             }, closingTime);
-            System.out.println("Timer has been set!");
         }
     }
 
@@ -125,11 +124,11 @@ public class Auction implements Serializable {
             bidder.notify(String.format("Your bid of %.2f has been accepted!", bidAmount));
         }
         catch (RemoteException ex) {
-
+            ex.printStackTrace();
         }
     }
 
-    public synchronized void closeAuction () {
+    private synchronized void closeAuction () {
         System.out.println ("Trying to close auction with ID " + this.id);
         this.isClosed = true;
         try {

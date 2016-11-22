@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import uk.ac.gla.das.rmi.auctionsystem.api.AuctionManager;
 import uk.ac.gla.das.rmi.auctionsystem.client.AuctionParticipantImpl;
+import uk.ac.gla.das.rmi.auctionsystem.server.AuctionManagerImpl;
 
 import java.rmi.Naming;
 import java.rmi.RemoteException;
@@ -30,8 +31,8 @@ public class SmokeTest {
         catch (ExportException ex) {
             LocateRegistry.getRegistry(1099);
         }
-        auctionManager = (AuctionManager) Naming.lookup
-                (String.format("rmi://%s:%d/AuctionServerService", hostName, portNumber));
+        auctionManager = new AuctionManagerImpl();
+        Naming.rebind("rmi://localhost:1099/AuctionServerService", auctionManager);
     }
 
     @Test

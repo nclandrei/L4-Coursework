@@ -73,14 +73,6 @@ public class Auction implements Serializable {
         sb.append ("Item Title -- " + this.itemTitle + "\n");
         sb.append ("Item Value -- " + this.itemValue + "\n");
         sb.append ("Closing Time -- " + dateFormat.format(this.closingTime) + "\n");
-        if (this.biddersMap.size() > 0) {
-            try {
-                sb.append("Highest Bidder -- " + this.highestBidder.getName() + "\n");
-            }
-            catch (RemoteException ex) {
-                ex.printStackTrace();
-            }
-        }
         sb.append ("Number of Bidders -- " + this.biddersMap.size() + "\n");
         if (this.isClosed) {
             try {
@@ -113,12 +105,12 @@ public class Auction implements Serializable {
                 bidder.notify("Sorry, auction with ID " + this.id + " has been closed!");
                 return;
             }
-            biddersMap.put(bidder.getId(), bidder);
             if (bidAmount <= this.itemValue) {
                 bidder.notify(String.format("You have not met current value of %.2f. Please bid higher!",
                         this.itemValue));
                 return;
             }
+            biddersMap.put(bidder.getId(), bidder);
             this.highestBidder = bidder;
             this.itemValue = bidAmount;
             bidder.notify(String.format("Your bid of %.2f has been accepted!", bidAmount));

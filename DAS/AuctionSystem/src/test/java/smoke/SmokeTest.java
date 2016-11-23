@@ -23,8 +23,6 @@ public class SmokeTest {
 
     @Before
     public void init() throws Exception {
-        String hostName = "localhost";
-        int portNumber = 1099;
         try {
             LocateRegistry.createRegistry(1099);
         }

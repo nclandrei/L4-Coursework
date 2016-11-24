@@ -19,7 +19,6 @@ public class AuctionClient {
                     "create   -->    Create a specific auction item \n" +
                     "list     -->    List all auctions \n" +
                     "bid      -->    Place bid for a specific item \n" +
-                    "restore  -->    Restore system to last save's state \n" +
                     "save     -->    Save system state \n" +
                     "display  -->    Get information regarding specific auction \n" +
                     "quit     -->    Quit \n";
@@ -72,10 +71,6 @@ public class AuctionClient {
         } catch (InputMismatchException ex) {
             System.err.println("You typed a wrong input. Please try again!");
         }
-    }
-
-    private static void performRestore(AuctionParticipant user, AuctionManager manager) throws RemoteException {
-        manager.userRestoreState(user);
     }
 
     private static void performSave(AuctionParticipant user, AuctionManager manager) throws RemoteException {
@@ -157,8 +152,6 @@ public class AuctionClient {
                     performList(auctionManager);
                 } else if (command.startsWith("bid")) {
                     performBid(auctionParticipant, auctionManager);
-                } else if (command.startsWith("restore")) {
-                    performRestore(auctionParticipant, auctionManager);
                 } else if (command.startsWith("save")) {
                     performSave(auctionParticipant, auctionManager);
                 } else if (command.startsWith("display")) {

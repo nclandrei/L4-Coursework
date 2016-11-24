@@ -118,22 +118,11 @@ public class AuctionManagerImpl extends UnicastRemoteObject implements AuctionMa
             this.auctionsMap = (Map<Long, Auction>) fileReader.readObject();
             this.nextAuctionId = (Long) fileReader.readObject();
         }
-        catch (ClassNotFoundException ex) {
-            return false;
-        }
-        catch (IOException ex) {
+        catch (ClassNotFoundException | IOException ex) {
             return false;
         }
         this.auctionsMap.values().forEach(Auction::setTimer);
         System.out.println("Last state available has been restored.");
-        return true;
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    public boolean userRestoreState(AuctionParticipant user) throws RemoteException {
-        this.restoreState();
-        user.notify("You have just restored the last state available on permanent storage.");
         return true;
     }
 

@@ -1,4 +1,4 @@
-package uk.ac.gla.das.rmi.auctionsystem.benchmark;
+package benchmark;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -22,41 +22,38 @@ import java.util.Random;
 public class EvaluatePerformance extends Application {
     private final static String createColumn = "Create";
     private final static String bidColumn = "Bid";
-    private final static String displayColumn = "Display";
-    private final static String listAllColumn = "ListAll";
-    private final static String saveStateColumn = "SaveState";
-    private final static String restoreStateColumn = "RestoreState";
+    private final static String listAllColumn = "Display All Auctions";
+    private final static String saveStateColumn = "Save State";
     private static AuctionManager auctionManager;
     private static Random randomizer;
     private static int numberOfExecutions;
 
     @Override
+    @SuppressWarnings("unchecked")
     public void start(Stage stage) {
+        double averageCreateExecutionTime = benchmarkCreation(numberOfExecutions);
+        double averageBidExecutionTime = benchmarkBidding(numberOfExecutions);
+        double averageDisplayAllExecutionTime = benchmarkDisplayingAll(numberOfExecutions);
+        double averageSaveStateExecutionTime = benchmarkSavingState(numberOfExecutions);
+
         stage.setTitle("Benchmarking Auction System");
         final CategoryAxis xAxis = new CategoryAxis();
         final NumberAxis yAxis = new NumberAxis();
         final BarChart<String,Number> bc =
                 new BarChart<>(xAxis,yAxis);
-        bc.setTitle("Average Execution Times for Methods");
+        bc.setTitle(
+                String.format("Average Execution Times for Methods Remotely\nCreate: %.2f\tBid: %.2f\tDisplay: %.2f\tSave: %.2f",
+                        averageCreateExecutionTime, averageBidExecutionTime,
+                        averageDisplayAllExecutionTime, averageSaveStateExecutionTime));
         xAxis.setLabel("Methods");
         yAxis.setLabel("Milliseconds");
-
-        double averageBidExecutionTime = benchmarkBidding(numberOfExecutions);
-        double averageCreateExecutionTime = benchmarkCreation(numberOfExecutions);
-        double averageDisplayExecutionTime = benchmarkDisplaying(numberOfExecutions);
-        double averageDisplayAllExecutionTime = benchmarkDisplayingAll(numberOfExecutions);
-        double averageSaveStateExecutionTime = benchmarkSavingState(numberOfExecutions);
-        double averageRestoreStateExecutionTime = benchmarkRestoringState(numberOfExecutions);
-
 
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("Average Execution Time");
         series1.getData().add(new XYChart.Data(createColumn, averageCreateExecutionTime));
         series1.getData().add(new XYChart.Data(bidColumn, averageBidExecutionTime));
-        series1.getData().add(new XYChart.Data(displayColumn, averageDisplayExecutionTime));
         series1.getData().add(new XYChart.Data(listAllColumn, averageDisplayAllExecutionTime));
         series1.getData().add(new XYChart.Data(saveStateColumn, averageSaveStateExecutionTime));
-        series1.getData().add(new XYChart.Data(restoreStateColumn, averageRestoreStateExecutionTime));
 
         Scene scene  = new Scene(bc,800,600);
         bc.getData().addAll(series1);
@@ -91,28 +88,11 @@ public class EvaluatePerformance extends Application {
             for (int i = 0; i < numberOfExecutions; ++i) {
                 AuctionParticipant bidder = new AuctionParticipantImpl("TestUser" + randomizer.nextInt());
                 long startTime = System.nanoTime();
-                auctionManager.placeBid(bidder, 0, bidAmount++);
+                auctionManager.placeBid(bidder, i, bidAmount++);
                 long endTime = System.nanoTime();
                 biddingExecutionTimesSum += (endTime - startTime) / 1000000;
             }
             return ((double) biddingExecutionTimesSum / numberOfExecutions);
-        }
-        catch (RemoteException ex) {
-            return -1;
-        }
-    }
-
-    private static double benchmarkDisplaying (int numberOfExecutions) {
-        try {
-            long displayExecutionTimesSum = 0L;
-            int counter = 0;
-            for (int i = 0; i < numberOfExecutions * numberOfExecutions; ++i) {
-                long startTime = System.nanoTime();
-                auctionManager.getAuctionDetails(counter++);
-                long endTime = System.nanoTime();
-                displayExecutionTimesSum += (endTime - startTime) / 1000000;
-            }
-            return ((double) displayExecutionTimesSum / numberOfExecutions);
         }
         catch (RemoteException ex) {
             return -1;
@@ -145,22 +125,6 @@ public class EvaluatePerformance extends Application {
                 savingStateExecutionTimesSum += (endTime - startTime) / 1000000;
             }
             return ((double) savingStateExecutionTimesSum / numberOfExecutions);
-        }
-        catch (RemoteException ex) {
-            return -1;
-        }
-    }
-
-    private static double benchmarkRestoringState (int numberOfExecutions) {
-        try {
-            long restoreStateExecutionTimesSum = 0L;
-            for (int i = 0; i < numberOfExecutions; ++i) {
-                long startTime = System.nanoTime();
-                auctionManager.restoreState();
-                long endTime = System.nanoTime();
-                restoreStateExecutionTimesSum += (endTime - startTime) / 1000000;
-            }
-            return ((double) restoreStateExecutionTimesSum / numberOfExecutions);
         }
         catch (RemoteException ex) {
             return -1;

@@ -4,6 +4,7 @@
 \usepackage{titlesec}
 \usepackage{graphicx}
 \usepackage{titling}
+\usepackage{wrapfig}
 
 \setlength{\droptitle}{-19mm}
 \posttitle{\begin{center}\par\end{center}\vspace{-5mm}}
@@ -47,7 +48,7 @@
  
  I have created also created a network failure detector which is a single thread running continuously that will call a dummy method on the server and, if the timeout reaches 5 seconds, it will assume that the server is down and it will stop the client automatically.
  
- Coming back to the core functionality of the client, I have made it look-up the address and port specified by the user as arguments when running the class. It will try to see if there is an Auction Manager bound to that address (using \texttt{Naming.lookup()} method) and, if so, it will start waiting for commands from the user. As stated before, the user can choose to do one of the following: bid, create auction, display specific auction, display all auctions, save state, restore state, quit the client as well as display all possible commands via help.
+ Coming back to the core functionality of the client, I have made it look-up the address and port specified by the user as arguments when running the class. It will try to see if there is an Auction Manager bound to that address (using \texttt{Naming.lookup()} method) and, if so, it will start waiting for commands from the user. As stated before, the user can choose to do one of the following: bid, create auction, display specific auction, display all auctions, save state, quit the client as well as display all possible commands via help.
  
  \subsection{\texttt{AuctionServer}}
  The server class is relatively simple. Firstly, it will create an RMI Registry via \\ \texttt{LocateRegistry.createRegistry(portNumber)} method call. This will make that registry available on the port specified inside. Then, it will create a new \texttt{AuctionManager} object that will handle all the processing and it will bind the object to address \texttt{rmi://localhost:1099/AuctionServerService}.
@@ -85,18 +86,40 @@
  \end{itemize}
 
 \section*{Performance}
+	As I've mentioned, I have tested the system both locally and remotely. They provided quite interesting and valuable input to my testing and performance analysis.
+	
+	I have deployed a simple testing interface that uses \texttt{JavaFX} to build a basic bar chart. There, I have outputted average execution times for Manager methods (create, bid, display auctions and save state) for a certain number of runs. Everything can be configurable by the user (host name, port number and number of executions). The class that implements this functionality is called \texttt{EvaluatePerformance}.
+	
+	\begin{center}
+		\includegraphics[scale=0.4]{local_performance.png}
+	\end{center}
 
+	\vspace{0.25cm}
+	
+	As we can see in Figure 1, the numbers are rather small for this scenario. Everything performs fast, apart from the last two. However, this slow execution is normal due to both writing the state to disk and outputting an increasing list of auctions with all their details.
+	
+	\vspace{0.25cm}
+	
+	\begin{center}
+		\includegraphics[scale=0.4]{remote_performance.png}
+	\end{center}
+	
+	\vspace{0.25cm}
+	
+	However, in the second image you can notify the rather significant increase in execution times. The methods that were called took a much longer time due to machines being spread across the network. It is true that the load on each machine counted towards these results, but after multiple tests the execution times were always much higher than running everything on local.
+	
+\pagebreak
 
 \section*{Testing the System}
  In order to test the system, please refer to the following instructions:
  \begin{itemize}
-     \item[\$] \texttt{tar -xvzf 2147392n.tar.gz}
-     \item[\$] \texttt{cd 2147392n}
+     \item[\$] \texttt{tar -xvzf 2147392.tar.gz}
+     \item[\$] \texttt{cd 2147392}
      \item[\$] \texttt{make}
      \item[\$] \texttt{chmod +x *.sh}
      \item[\$] \texttt{./run-server.sh}
-     \item[\$] \texttt{./run-client.sh}
-     \item[\$] \texttt{./run-all-tests.sh}
+     \item[\$] \texttt{./run-client.sh} (in another Terminal tab)
+     \item[\$] \texttt{./run-all-tests.sh} (in another Terminal tab)
      \item[\$] \texttt{make clean}     
  \end{itemize}
 

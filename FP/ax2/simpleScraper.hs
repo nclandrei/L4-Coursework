@@ -2,16 +2,15 @@
 
 import Text.HTML.Scalpel
 
+
 main :: IO ()
 main = do
     personsList <- scrapeURL "http://www.gla.ac.uk/schools/computing/staff/" scrapeList 
     case personsList of
         Just list -> do
                         print list
-                        print (getURLs list)
+                        print (map getURLs list)
         Nothing -> print "Text could not be retrieved!"
-    print personsList
-    
 
 scrapeList :: Scraper String [[(String, String)]]
 scrapeList = 
@@ -36,6 +35,6 @@ scrapeNumber = do
     num <- text $ "p"
     return num
 
-getURLs :: [[(String, String)]] -> [[String]]
-getURLs [[]] = [[]]
-getURLs (_, url) : xs = url
+getURLs :: [(String, String)] -> [String]
+getURLs [] = []
+getURLs ((_, url) : xs) = ("http://www.gla.ac.uk/schools/computing/staff" ++ url) : (getURLs xs)

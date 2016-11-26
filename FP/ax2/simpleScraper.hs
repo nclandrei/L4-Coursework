@@ -37,4 +37,5 @@ scrapeNumber = do
     return num
 
 getURLs :: [[(String, String)]] -> [[String]]
-getURLs [[(_, url)]] = [[url]]
+getURLs [[]] = [[]]
+getURLs (_, url) : xs = url

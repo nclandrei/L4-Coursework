@@ -8,19 +8,19 @@ import Data.Maybe
 
 main :: IO ()
 main = do
-    researchPersonsList <- scrapeURL "http://www.gla.ac.uk/schools/computing/staff/" scrapeResearchList
-    managementPersonsList <- scrapeURL "http://www.gla.ac.uk/schools/computing/staff/" scrapeManagementList
-    affiliatePersonsList <- scrapeURL "http://www.gla.ac.uk/schools/computing/staff/" scrapeAffiliateList
-    honoraryPersonsList <- scrapeURL "http://www.gla.ac.uk/schools/computing/staff/" scrapeHonoraryList
+    let universityURL = "http://www.gla.ac.uk/schools/computing/staff/"
+    researchPersonsList <- scrapeURL universityURL scrapeResearchList
+    managementPersonsList <- scrapeURL universityURL scrapeManagementList
+    affiliatePersonsList <- scrapeURL universityURL scrapeAffiliateList
+    honoraryPersonsList <- scrapeURL universityURL scrapeHonoraryList
     let validResearchPersonsList = fromMaybe [] researchPersonsList
     let validManagementPersonsList = fromMaybe [] managementPersonsList
     let validAffiliatePersonsList = fromMaybe [] affiliatePersonsList
     let validHonoraryPersonsList = fromMaybe [] honoraryPersonsList
     let fullValidList = (validResearchPersonsList !! 0) ++ (validManagementPersonsList !! 0) ++ (validAffiliatePersonsList !! 0) ++ (validHonoraryPersonsList !! 0)
     let l = sortBy compare fullValidList
-    let urls = map (\(x,y) -> y) l
-    let names = map (\(x,y) -> x) l
-    let contacts = map scrapeURLs l
+    let noDuplicatesList = removeDuplicates l
+    let contacts = map scrapeContactURL noDuplicatesList
     mapM_ (\x -> (x>>=(print))) contacts
 
 scrapeResearchList :: Scraper String [[(String, String)]]
@@ -59,7 +59,10 @@ scrapeNumber = do
     num <- text $ "p"
     return num
 
-scrapeURLs (x,y) = do
+scrapeContactURL (x,y) = do
     phoneNumber <- scrapeURL y scrapePerson
     let validPhoneNumber = fromMaybe [""] phoneNumber
     return (x, validPhoneNumber)
+
+removeDuplicates :: (Ord a) => [a] -> [a]
+removeDuplicates = map head . group . sort

@@ -8,19 +8,36 @@ import Data.Maybe
 
 main :: IO ()
 main = do
-    personsList <- scrapeURL "http://www.gla.ac.uk/schools/computing/staff/" scrapeList 
-    case personsList of
-        Just list -> do
-            let l = sortBy compare list
-            let urls = map (\(x,y) -> y) (head l)
-            let names = map (\(x,y) -> x) (head l)
-            let contacts = map scrapeURLs (head l)
-            mapM_ (\x -> (x>>=(print))) contacts
-        Nothing -> print "Text could not be retrieved!"
+    researchPersonsList <- scrapeURL "http://www.gla.ac.uk/schools/computing/staff/" scrapeResearchList
+    managementPersonsList <- scrapeURL "http://www.gla.ac.uk/schools/computing/staff/" scrapeManagementList
+    affiliatePersonsList <- scrapeURL "http://www.gla.ac.uk/schools/computing/staff/" scrapeAffiliateList
+    honoraryPersonsList <- scrapeURL "http://www.gla.ac.uk/schools/computing/staff/" scrapeHonoraryList
+    let validResearchPersonsList = fromMaybe [] researchPersonsList
+    let validManagementPersonsList = fromMaybe [] managementPersonsList
+    let validAffiliatePersonsList = fromMaybe [] affiliatePersonsList
+    let validHonoraryPersonsList = fromMaybe [] honoraryPersonsList
+    let fullValidList = (validResearchPersonsList !! 0) ++ (validManagementPersonsList !! 0) ++ (validAffiliatePersonsList !! 0) ++ (validHonoraryPersonsList !! 0)
+    let l = sortBy compare fullValidList
+    let urls = map (\(x,y) -> y) l
+    let names = map (\(x,y) -> x) l
+    let contacts = map scrapeURLs l
+    mapM_ (\x -> (x>>=(print))) contacts
 
-scrapeList :: Scraper String [[(String, String)]]
-scrapeList = 
+scrapeResearchList :: Scraper String [[(String, String)]]
+scrapeResearchList = 
     chroots ("div" @: ["id" @= "research-teaching"]) scrapeUl
+
+scrapeManagementList :: Scraper String [[(String, String)]]
+scrapeManagementList =
+    chroots ("div" @: ["id" @= "management-support"]) scrapeUl
+
+scrapeAffiliateList :: Scraper String [[(String, String)]]
+scrapeAffiliateList =
+    chroots ("div" @: ["id" @= "affiliate"]) scrapeUl
+
+scrapeHonoraryList :: Scraper String [[(String, String)]]
+scrapeHonoraryList =
+    chroots ("div" @: ["id" @= "honorary-visiting"]) scrapeUl
 
 scrapeUl :: Scraper String [(String, String)]
 scrapeUl =
@@ -44,4 +61,5 @@ scrapeNumber = do
 
 scrapeURLs (x,y) = do
     phoneNumber <- scrapeURL y scrapePerson
-    return (x, phoneNumber)
+    let validPhoneNumber = fromMaybe [""] phoneNumber
+    return (x, validPhoneNumber)

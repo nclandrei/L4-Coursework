@@ -130,3 +130,192 @@ dependencies: base-4.9.0.0 bytestring-0.10.8.1 containers-0.5.7.1
 install-outcome: InstallOk
 docs-outcome: Ok
 tests-outcome: NotTried
+
+package: HaTeX-3.17.0.2
+os: osx
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: QuickCheck-2.8.2 base-4.9.0.0 bytestring-0.10.8.1
+              containers-0.5.7.1 matrix-0.3.5.0 parsec-3.1.9 text-1.2.2.1
+              transformers-0.5.2.0 wl-pprint-extras-3.5.0.5
+install-outcome: InstallOk
+docs-outcome: Ok
+tests-outcome: NotTried
+
+package: base-orphans-0.5.4
+os: osx
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0 ghc-prim-0.5.0.0
+install-outcome: InstallOk
+docs-outcome: Ok
+tests-outcome: NotTried
+
+package: bifunctors-5.4.1
+os: osx
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: tagged semigroups
+dependencies: base-4.9.0.0 base-orphans-0.5.4 comonad-5
+              containers-0.5.7.1 semigroups-0.18.2 tagged-0.8.5
+              template-haskell-2.11.0.0 transformers-0.5.2.0
+              transformers-compat-0.5.1.4
+install-outcome: InstallOk
+docs-outcome: Ok
+tests-outcome: NotTried
+
+package: comonad-5
+os: osx
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: test-doctests distributive contravariant containers
+dependencies: base-4.9.0.0 containers-0.5.7.1 contravariant-1.4
+              distributive-0.5.0.2 semigroups-0.18.2 tagged-0.8.5
+              transformers-0.5.2.0 transformers-compat-0.5.1.4
+install-outcome: InstallOk
+docs-outcome: Ok
+tests-outcome: NotTried
+
+package: contravariant-1.4
+os: osx
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: tagged statevar semigroups -safe
+dependencies: StateVar-1.1.0.4 base-4.9.0.0 semigroups-0.18.2
+              transformers-0.5.2.0 transformers-compat-0.5.1.4 void-0.7.1
+install-outcome: InstallOk
+docs-outcome: Ok
+tests-outcome: NotTried
+
+package: distributive-0.5.0.2
+os: osx
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: tagged
+dependencies: base-4.9.0.0 base-orphans-0.5.4 tagged-0.8.5
+              transformers-0.5.2.0 transformers-compat-0.5.1.4
+install-outcome: InstallOk
+docs-outcome: Ok
+tests-outcome: NotTried
+
+package: loop-0.3.0
+os: osx
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0
+install-outcome: InstallOk
+docs-outcome: Ok
+tests-outcome: NotTried
+
+package: matrix-0.3.5.0
+os: osx
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0 deepseq-1.4.2.0 loop-0.3.0
+              primitive-0.6.1.0 vector-0.11.0.0
+install-outcome: InstallOk
+docs-outcome: Ok
+tests-outcome: NotTried
+
+package: nats-1.1.1
+os: osx
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: template-haskell hashable binary
+install-outcome: InstallOk
+docs-outcome: Failed
+tests-outcome: NotTried
+
+package: semigroupoids-5.1
+os: osx
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: tagged doctests distributive contravariant containers
+       comonad
+dependencies: base-4.9.0.0 base-orphans-0.5.4 bifunctors-5.4.1
+              comonad-5 containers-0.5.7.1 contravariant-1.4 distributive-0.5.0.2
+              semigroups-0.18.2 tagged-0.8.5 transformers-0.5.2.0
+              transformers-compat-0.5.1.4
+install-outcome: InstallOk
+docs-outcome: Ok
+tests-outcome: NotTried
+
+package: semigroups-0.18.2
+os: osx
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: unordered-containers transformers text tagged hashable
+       deepseq containers bytestring-builder bytestring binary
+dependencies: base-4.9.0.0
+install-outcome: InstallOk
+docs-outcome: Ok
+tests-outcome: NotTried
+
+package: tagged-0.8.5
+os: osx
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: transformers deepseq
+dependencies: base-4.9.0.0 deepseq-1.4.2.0
+              template-haskell-2.11.0.0 transformers-0.5.2.0
+              transformers-compat-0.5.1.4
+install-outcome: InstallOk
+docs-outcome: Ok
+tests-outcome: NotTried
+
+package: transformers-compat-0.5.1.4
+os: osx
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: -two -three mtl
+dependencies: base-4.9.0.0 ghc-prim-0.5.0.0 transformers-0.5.2.0
+install-outcome: InstallOk
+docs-outcome: Ok
+tests-outcome: NotTried
+
+package: utf8-string-1.0.1.1
+os: osx
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0 bytestring-0.10.8.1
+install-outcome: InstallOk
+docs-outcome: Ok
+tests-outcome: NotTried
+
+package: void-0.7.1
+os: osx
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: -safe
+dependencies: base-4.9.0.0 deepseq-1.4.2.0 ghc-prim-0.5.0.0
+              hashable-1.2.4.0 semigroups-0.18.2
+install-outcome: InstallOk
+docs-outcome: Ok
+tests-outcome: NotTried
+
+package: wl-pprint-extras-3.5.0.5
+os: osx
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0 containers-0.5.7.1 nats-1.1.1
+              semigroupoids-5.1 semigroups-0.18.2 text-1.2.2.1
+              utf8-string-1.0.1.1
+install-outcome: InstallOk
+docs-outcome: Ok
+tests-outcome: NotTried

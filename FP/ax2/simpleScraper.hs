@@ -9,7 +9,7 @@ main = do
     case personsList of
         Just list -> do
                         print list
-                        print (map getURLs list)
+                        print personsNumbers
         Nothing -> print "Text could not be retrieved!"
 
 scrapeList :: Scraper String [[(String, String)]]
@@ -37,4 +37,4 @@ scrapeNumber = do
 
 getURLs :: [(String, String)] -> [String]
 getURLs [] = []
-getURLs ((_, url) : xs) = ("http://www.gla.ac.uk/schools/computing/staff" ++ url) : (getURLs xs)
+getURLs ((_, url) : xs) = ("http://www.gla.ac.uk" ++ url) : (getURLs xs)

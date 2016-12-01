@@ -9,6 +9,8 @@ main = do
     case personsList of
         Just list -> do
                         print list
+                        let l = list !! 0
+                        personsNumbers <- scrapeURL (getURLs (l !! 1)) scrapePerson
                         print personsNumbers
         Nothing -> print "Text could not be retrieved!"
 
@@ -35,6 +37,5 @@ scrapeNumber = do
     num <- text $ "p"
     return num
 
-getURLs :: [(String, String)] -> [String]
-getURLs [] = []
-getURLs ((_, url) : xs) = ("http://www.gla.ac.uk" ++ url) : (getURLs xs)
+getURLs :: (String, String) -> String
+getURLs (_, url) = ("http://www.gla.ac.uk" ++ url)

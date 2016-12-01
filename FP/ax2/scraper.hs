@@ -5,6 +5,8 @@ import Text.LaTeX
 import Data.Function
 import Data.List
 import Data.Maybe
+import Control.Monad
+import Control.Conditional
 
 main :: IO ()
 main = do
@@ -21,6 +23,7 @@ main = do
     let l = sortBy compare fullValidList
     let noDuplicatesList = removeDuplicates l
     let contacts = map scrapeContactURL noDuplicatesList
+    contactsWithPhoneNumbers <- filterM (\(x, y) -> (ifM (y ==: []) (False) (True))) contacts
     mapM_ (\x -> (x>>=(print))) contacts
 
 scrapeResearchList :: Scraper String [[(String, String)]]
@@ -66,3 +69,10 @@ scrapeContactURL (x,y) = do
 
 removeDuplicates :: (Ord a) => [a] -> [a]
 removeDuplicates = map head . group . sort
+
+removePeopleWithoutNumbers (a, b) 
+    | (null b) = False
+    | otherwise = True
+
+(==:) :: ( Eq a,Monad m) => m a -> m a -> m Bool
+(==:) = liftM2 (==)

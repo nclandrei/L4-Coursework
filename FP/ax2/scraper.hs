@@ -6,7 +6,6 @@ import Data.Function
 import Data.List
 import Data.Maybe
 import Control.Monad
-import Control.Conditional
 
 main :: IO ()
 main = do
@@ -22,9 +21,9 @@ main = do
     let fullValidList = (validResearchPersonsList !! 0) ++ (validManagementPersonsList !! 0) ++ (validAffiliatePersonsList !! 0) ++ (validHonoraryPersonsList !! 0)
     let l = sortBy compare fullValidList
     let noDuplicatesList = removeDuplicates l
-    let contacts = map scrapeContactURL noDuplicatesList
-    contactsWithPhoneNumbers <- filterM (\(x, y) -> (ifM (y ==: []) (False) (True))) contacts
-    mapM_ (\x -> (x>>=(print))) contacts
+    contacts <- mapM scrapeContactURL noDuplicatesList
+    let contactsWithPhoneNumbers = filter removePeopleWithoutNumbers contacts
+    print contactsWithPhoneNumbers
 
 scrapeResearchList :: Scraper String [[(String, String)]]
 scrapeResearchList = 
@@ -73,6 +72,3 @@ removeDuplicates = map head . group . sort
 removePeopleWithoutNumbers (a, b) 
     | (null b) = False
     | otherwise = True
-
-(==:) :: ( Eq a,Monad m) => m a -> m a -> m Bool
-(==:) = liftM2 (==)

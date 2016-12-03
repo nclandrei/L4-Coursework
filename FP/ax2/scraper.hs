@@ -2,8 +2,9 @@
 
 import Text.HTML.Scalpel
 import Text.LaTeX
-import Data.Function
 import Data.List
+import Data.Function
+import Data.List.Split
 import Data.Maybe
 import Control.Monad
 
@@ -23,7 +24,12 @@ main = do
     let noDuplicatesList = removeDuplicates l
     contacts <- mapM scrapeContactURL noDuplicatesList
     let contactsWithPhoneNumbers = filter removePeopleWithoutNumbers contacts
-    print contactsWithPhoneNumbers
+    let finalContacts = map removePhoneNumberList contactsWithPhoneNumbers
+    let ccc = filter (\(x,y) -> (isInfixOf "telephone" y)) finalContacts
+    let fff = map getPhoneNumberFromString ccc
+    let r = fff
+    text <- execLaTeXT (buildHatex r)
+    renderFile "directory.tex" text
 
 scrapeResearchList :: Scraper String [[(String, String)]]
 scrapeResearchList = 
@@ -72,3 +78,27 @@ removeDuplicates = map head . group . sort
 removePeopleWithoutNumbers (a, b) 
     | (null b) = False
     | otherwise = True
+
+removePhoneNumberList :: (String, [String]) -> (String, String)
+removePhoneNumberList (x,y) = (x, (head y))
+
+getPhoneNumberFromString :: (String, String) -> (String, String)
+getPhoneNumberFromString (x,y) = (x, (splitOn " " (head (filter (\x -> (isInfixOf "telephone" x)) (splitOn "\n" y)))) !! 1)
+
+buildHatex :: Monad m => [(String, String)] -> LaTeXT_ m
+buildHatex sortedStaffProfiles = do
+    documentclass [] article
+    author "Andrei-Mihai Nicolae (2147392n)"
+    title "Telephone Directory"
+    document (texBody sortedStaffProfiles)
+
+texBody :: Monad m => [(String, String)] -> LaTeXT_ m
+texBody sortedStaffProfiles = do
+    maketitle
+    bigskip
+    center $ textbf "Contacts"
+    mapM_ (\(name, phone) -> do
+        textbf (fromString name)
+        hfill
+        fromString phone
+        lnbk) sortedStaffProfiles

@@ -2,6 +2,9 @@
 
 import Text.HTML.Scalpel
 import Text.LaTeX
+import Text.Regex
+import Text.Regex.Base
+import Text.Regex.Posix
 import Data.List
 import Data.Function
 import Data.List.Split
@@ -20,16 +23,15 @@ main = do
     let validAffiliatePersonsList = fromMaybe [] affiliatePersonsList
     let validHonoraryPersonsList = fromMaybe [] honoraryPersonsList
     let fullValidList = (validResearchPersonsList !! 0) ++ (validManagementPersonsList !! 0) ++ (validAffiliatePersonsList !! 0) ++ (validHonoraryPersonsList !! 0)
-    let l = sortBy compare fullValidList
-    let noDuplicatesList = removeDuplicates l
-    contacts <- mapM scrapeContactURL noDuplicatesList
+    let sortedAndNoDuplicatesList = removeDuplicates fullValidList
+    contacts <- mapM scrapeContactURL sortedAndNoDuplicatesList
     let contactsWithPhoneNumbers = filter removePeopleWithoutNumbers contacts
-    let finalContacts = map removePhoneNumberList contactsWithPhoneNumbers
-    let ccc = filter (\(x,y) -> (isInfixOf "telephone" y)) finalContacts
-    let fff = map getPhoneNumberFromString ccc
-    let r = fff
-    text <- execLaTeXT (buildHatex r)
-    renderFile "directory.tex" text
+    let contactsWithHeadOfList = map removePhoneNumberList contactsWithPhoneNumbers
+    let contactsWithTelephone = filter (\(x,y) -> (isInfixOf "telephone" y)) contactsWithHeadOfList
+    let finalContacts = map getPhoneNumberFromString contactsWithTelephone
+    let records = finalContacts
+    body <- execLaTeXT (constructDocument records)
+    renderFile "directory.tex" body
 
 scrapeResearchList :: Scraper String [[(String, String)]]
 scrapeResearchList = 
@@ -83,22 +85,22 @@ removePhoneNumberList :: (String, [String]) -> (String, String)
 removePhoneNumberList (x,y) = (x, (head y))
 
 getPhoneNumberFromString :: (String, String) -> (String, String)
-getPhoneNumberFromString (x,y) = (x, (splitOn " " (head (filter (\x -> (isInfixOf "telephone" x)) (splitOn "\n" y)))) !! 1)
+getPhoneNumberFromString (x,y)  = (x, (y =~ ("telephone(.*)\n" :: String)))
 
-buildHatex :: Monad m => [(String, String)] -> LaTeXT_ m
-buildHatex sortedStaffProfiles = do
+constructDocument :: Monad m => [(String, String)] -> LaTeXT_ m
+constructDocument records = do
     documentclass [] article
     author "Andrei-Mihai Nicolae (2147392n)"
     title "Telephone Directory"
-    document (texBody sortedStaffProfiles)
+    document (constructDocumentBody records)
 
-texBody :: Monad m => [(String, String)] -> LaTeXT_ m
-texBody sortedStaffProfiles = do
+constructDocumentBody :: Monad m => [(String, String)] -> LaTeXT_ m
+constructDocumentBody records = do
     maketitle
     bigskip
-    center $ textbf "Contacts"
+    center $ textbf "Records"
     mapM_ (\(name, phone) -> do
         textbf (fromString name)
         hfill
         fromString phone
-        lnbk) sortedStaffProfiles
+        lnbk) records

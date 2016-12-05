@@ -25,8 +25,8 @@ main = do
     let fullValidList = (validResearchPersonsList !! 0) ++ (validManagementPersonsList !! 0) ++ (validAffiliatePersonsList !! 0) ++ (validHonoraryPersonsList !! 0)
     let sortedAndNoDuplicatesList = removeDuplicates fullValidList
     contacts <- mapM scrapeContactURL sortedAndNoDuplicatesList
-    let contactsWithPhoneNumbers = filter removePeopleWithoutNumbers contacts
-    let contactsWithHeadOfList = map removePhoneNumberList contactsWithPhoneNumbers
+    let peopleWithoutEmptyInfo = filter removePeopleWithoutNumbers contacts
+    let contactsWithHeadOfList = map removePhoneNumberList peopleWithoutEmptyInfo
     let contactsWithTelephone = filter (\(x,y) -> (isInfixOf "telephone" y)) contactsWithHeadOfList
     let finalContacts = map getPhoneNumberFromString contactsWithTelephone
     let records = finalContacts
@@ -85,7 +85,7 @@ removePhoneNumberList :: (String, [String]) -> (String, String)
 removePhoneNumberList (x,y) = (x, (head y))
 
 getPhoneNumberFromString :: (String, String) -> (String, String)
-getPhoneNumberFromString (x,y)  = (x, (y =~ ("telephone(.*)\n" :: String)))
+getPhoneNumberFromString (x,y)  = (x, (y =~ ("(telephone: ).*" :: String)))
 
 constructDocument :: Monad m => [(String, String)] -> LaTeXT_ m
 constructDocument records = do

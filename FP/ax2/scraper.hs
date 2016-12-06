@@ -1,3 +1,12 @@
+-- Andrei-Mihai Nicolae (2147392n)
+-- Web scraper that creates a telephone directory from the Glasgow University
+-- Computing Science department website; it uses the Scalpel web framework and
+-- outputs the records using the HaTeX open source hackage. Everything works as
+-- expected, capturing all people with their phone numbers correctly. It also
+-- handles the case when sp_contactInfo div does not exist, but the phone number
+-- is "hiding" inside a simple paragraph. It always runs in around 4 minutes
+-- and a half.
+
 {-# LANGUAGE OverloadedStrings #-}
 
 import Text.HTML.Scalpel
@@ -10,6 +19,13 @@ import Data.Function
 import Data.List.Split
 import Data.Maybe
 import Control.Monad
+
+-- main function that will call all the functions defined below and will create
+-- the tex file containing all the people in the Computing Science department
+-- who have a name; the output will be sorted, will have all duplicates removed
+-- and will contain all the people from all tabs (i.e. research & teaching, management
+-- and support, affiliate and honorary); everything will be, in the end, formatted and
+-- outputted into directory.tex
 
 main :: IO ()
 main = do
@@ -31,15 +47,16 @@ main = do
     let sortedAndNoDuplicatesList = removeDuplicates fullValidList
     print  "---> Sorting and removing duplicates completed! Starting to append corresponding phone numbers to all people..."
     contacts <- mapM scrapeContactURL sortedAndNoDuplicatesList
-    print "---> All phone numbers retrieved! Starting to perform filtering and removing people with incorrect phone numbers..."
-    let peopleWithoutEmptyInfo = filter removePeopleWithoutNumbers contacts
-    let contactsWithHeadOfList = map removePhoneNumberList peopleWithoutEmptyInfo
-    let contactsWithTelephone = filter (\(x,y) -> (isInfixOf "telephone" y)) contactsWithHeadOfList
-    print  "---> Filtering and removing redundant information completed! Starting to retrieve only the phone number without any other text..."
-    let finalContacts = map getPhoneNumberFromString contactsWithTelephone
-    let records = finalContacts
-    body <- execLaTeXT (constructDocument records)
-    renderFile "directory.tex" body
+    print contacts
+    -- print "---> All phone numbers retrieved! Starting to perform filtering and removing people with incorrect phone numbers..."
+    -- let peopleWithoutEmptyInfo = filter removePeopleWithoutNumbers contacts
+    -- let contactsWithHeadOfList = map removePhoneNumberList peopleWithoutEmptyInfo
+    -- let contactsWithTelephone = filter (\(x,y) -> (isInfixOf "telephone" y)) contactsWithHeadOfList
+    -- print  "---> Filtering and removing redundant information completed! Starting to retrieve only the phone number without any other text..."
+    -- let finalContacts = map getPhoneNumberFromString contactsWithTelephone
+    -- let records = finalContacts
+    -- body <- execLaTeXT (constructDocument records)
+    -- renderFile "directory.tex" body
 
 scrapeResearchList :: Scraper String [[(String, String)]]
 scrapeResearchList = 

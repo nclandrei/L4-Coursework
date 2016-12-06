@@ -64,6 +64,11 @@ scrapePerson :: Scraper String [String]
 scrapePerson = 
     chroots ("div" @: ["id" @= "sp_contactInfo"]) scrapeNumber
 
+scrapePersonTwo :: Scraper String String
+scrapePersonTwo = do
+    content <- text $ "p" @: ["style" @= "margin: 0 0 10px 25px; padding: 5px; color: ##333;"]
+    return content
+
 scrapeNumber :: Scraper String String
 scrapeNumber = do
     num <- text $ "p"
@@ -71,8 +76,16 @@ scrapeNumber = do
 
 scrapeContactURL (x,y) = do
     phoneNumber <- scrapeURL y scrapePerson
-    let validPhoneNumber = fromMaybe [""] phoneNumber
-    return (x, validPhoneNumber)
+    case phoneNumber of
+        Just number -> do
+            return (x, number)
+        Nothing -> do
+            print "am ajuns aici"
+            alternativeNumber <- scrapeURL y scrapePersonTwo
+            let validPhoneNumber = fromMaybe "" alternativeNumber
+            return (x, [validPhoneNumber])
+--    let validPhoneNumber = fromMaybe [""] phoneNumber
+--    return (x, validPhoneNumber)
 
 removeDuplicates :: (Ord a) => [a] -> [a]
 removeDuplicates = map head . group . sort
@@ -85,7 +98,7 @@ removePhoneNumberList :: (String, [String]) -> (String, String)
 removePhoneNumberList (x,y) = (x, (head y))
 
 getPhoneNumberFromString :: (String, String) -> (String, String)
-getPhoneNumberFromString (x,y)  = (x, (y =~ ("(telephone: ).*" :: String)))
+getPhoneNumberFromString (x,y)  = (x, (y =~ ("[ +()]*[0-9][ +()0-9]*" :: String)))
 
 constructDocument :: Monad m => [(String, String)] -> LaTeXT_ m
 constructDocument records = do

@@ -26,7 +26,6 @@ import Control.Monad
 -- and will contain all the people from all tabs (i.e. research & teaching, management
 -- and support, affiliate and honorary); everything will be, in the end, formatted and
 -- outputted into directory.tex
-
 main :: IO ()
 main = do
     let universityURL = "http://www.gla.ac.uk/schools/computing/staff/"
@@ -43,20 +42,20 @@ main = do
     let validManagementPersonsList = fromMaybe [] managementPersonsList
     let validAffiliatePersonsList = fromMaybe [] affiliatePersonsList
     let validHonoraryPersonsList = fromMaybe [] honoraryPersonsList
-    let fullValidList = (validResearchPersonsList !! 0) ++ (validManagementPersonsList !! 0) ++ (validAffiliatePersonsList !! 0) ++ (validHonoraryPersonsList !! 0)
+    let fullValidList = (validResearchPersonsList !! 0) ++ (validManagementPersonsList !! 0) ++ 
+                        (validAffiliatePersonsList !! 0) ++ (validHonoraryPersonsList !! 0)
     let sortedAndNoDuplicatesList = removeDuplicates fullValidList
     print  "---> Sorting and removing duplicates completed! Starting to append corresponding phone numbers to all people..."
     contacts <- mapM scrapeContactURL sortedAndNoDuplicatesList
-    print contacts
-    -- print "---> All phone numbers retrieved! Starting to perform filtering and removing people with incorrect phone numbers..."
-    -- let peopleWithoutEmptyInfo = filter removePeopleWithoutNumbers contacts
-    -- let contactsWithHeadOfList = map removePhoneNumberList peopleWithoutEmptyInfo
-    -- let contactsWithTelephone = filter (\(x,y) -> (isInfixOf "telephone" y)) contactsWithHeadOfList
-    -- print  "---> Filtering and removing redundant information completed! Starting to retrieve only the phone number without any other text..."
-    -- let finalContacts = map getPhoneNumberFromString contactsWithTelephone
-    -- let records = finalContacts
-    -- body <- execLaTeXT (constructDocument records)
-    -- renderFile "directory.tex" body
+    print "---> All phone numbers retrieved! Starting to perform filtering and removing people with incorrect phone numbers..."
+    let peopleWithoutEmptyInfo = filter removePeopleWithoutNumbers contacts
+    let contactsWithHeadOfList = map removePhoneNumberList peopleWithoutEmptyInfo
+    let contactsWithTelephone = filter (\(x,y) -> (isInfixOf "telephone" y)) contactsWithHeadOfList
+    print  "---> Filtering and removing redundant information completed! Starting to retrieve only the phone number without any other text..."
+    let finalContacts = map getPhoneNumberFromString contactsWithTelephone
+    let records = finalContacts
+    body <- execLaTeXT (constructDocument records)
+    renderFile "directory.tex" body
 
 scrapeResearchList :: Scraper String [[(String, String)]]
 scrapeResearchList = 
@@ -82,16 +81,20 @@ scrapeLi :: Scraper String (String, String)
 scrapeLi = do
     personName <- text $ "a"
     url <- attr "href" $ "a"
-    let fullurl = "http://www.gla.ac.uk" ++ url
-    return (personName, fullurl)
+    if (isInfixOf "/computing/staff" url) then return (personName, "http://www.gla.ac.uk" ++ url)
+        else return (personName, "http://www.gla.ac.uk/schools/computing/staff/" ++ url)
 
 scrapePerson :: Scraper String [String]
 scrapePerson = 
     chroots ("div" @: ["id" @= "sp_contactInfo"]) scrapeNumber
 
 scrapePersonTwo :: Scraper String [String]
-scrapePersonTwo = do
-    content <- texts $ "p" @: ["style" @= "margin: 0 0 10px 25px; padding: 5px; color: ##333;"]
+scrapePersonTwo =
+    chroots ("div" @: ["id" @= "mainContent"]) scrapeNumberTwo
+
+scrapeNumberTwo :: Scraper String String
+scrapeNumberTwo = do
+    content <- text $ "p" @: ["style" @= "margin: 0 0 10px 25px; padding: 5px; color: ##333;"]
     return content
 
 scrapeNumber :: Scraper String String
@@ -102,12 +105,11 @@ scrapeNumber = do
 scrapeContactURL :: (String, URL) -> IO (String, [String])
 scrapeContactURL (x,y) = do
     phoneNumber <- scrapeURL y scrapePerson
+    phoneNumberTwo <- scrapeURL y scrapePersonTwo
     let validPhoneNumber = fromMaybe [""] phoneNumber
-    if (validPhoneNumber /= []) then return (x, validPhoneNumber)
-        else do
-            secondPhoneNumber <- scrapeURL y scrapePersonTwo
-            let validSecondPhoneNumber = fromMaybe [""] secondPhoneNumber
-            return (x, validSecondPhoneNumber)
+    let validPhoneNumberTwo = fromMaybe [""] phoneNumberTwo 
+    if (length (validPhoneNumber) /= 0) then return (x, validPhoneNumber)
+        else return (x, validPhoneNumberTwo)
 
 removeDuplicates :: (Ord a) => [a] -> [a]
 removeDuplicates = map head . group . sort
@@ -120,7 +122,7 @@ removePhoneNumberList :: (String, [String]) -> (String, String)
 removePhoneNumberList (x,y) = (x, (head y))
 
 getPhoneNumberFromString :: (String, String) -> (String, String)
-getPhoneNumberFromString (x,y)  = (x, (y =~ ("[ +()]*[0-9][ +()0-9]*" :: String)))
+getPhoneNumberFromString (x,y) = (x, (y =~ ("[ +()]*[0-9][ +()0-9]*" :: String)))
 
 constructDocument :: Monad m => [(String, String)] -> LaTeXT_ m
 constructDocument records = do

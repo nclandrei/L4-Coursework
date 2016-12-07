@@ -1,11 +1,13 @@
--- Andrei-Mihai Nicolae (2147392n)
+-- Name: Andrei-Mihai Nicolae
+-- Email address: 2147392n@student.gla.ac.uk
+
 -- Web scraper that creates a telephone directory from the Glasgow University
 -- Computing Science department website; it uses the Scalpel web framework and
 -- outputs the records using the HaTeX open source hackage. Everything works as
 -- expected, capturing all people with their phone numbers correctly. It also
 -- handles the case when sp_contactInfo div does not exist, but the phone number
--- is "hiding" inside a simple paragraph. It always runs in around 4 minutes
--- and a half.
+-- is "hiding" inside a simple paragraph. It always runs in ~5 minutes as the
+-- specification did not require a multi-threaded version.
 
 {-# LANGUAGE OverloadedStrings #-}
 
@@ -54,29 +56,46 @@ main = do
     print  "---> Filtering and removing redundant information completed! Starting to retrieve only the phone number without any other text..."
     let finalContacts = map getPhoneNumberFromString contactsWithTelephone
     let records = finalContacts
+    print "---> Computed final contacts! Starting to write them to tex file..."
     body <- execLaTeXT (constructDocument records)
     renderFile "directory.tex" body
+    print "---> Program finished executing! Output is located inside directory.tex."
 
+-- scraper that scrapes the url for a div with the id research-teaching
+-- used for getting all the research and teaching people in the department
 scrapeResearchList :: Scraper String [[(String, String)]]
 scrapeResearchList = 
     chroots ("div" @: ["id" @= "research-teaching"]) scrapeUl
 
+-- scraper that scrapes the url for a div with the id management-support
+-- used for getting all the management and support people in the department
 scrapeManagementList :: Scraper String [[(String, String)]]
 scrapeManagementList =
     chroots ("div" @: ["id" @= "management-support"]) scrapeUl
 
+-- scraper that scrapes the url for a div with the id affiliate
+-- used for getting all the affiliate people in the department
 scrapeAffiliateList :: Scraper String [[(String, String)]]
 scrapeAffiliateList =
     chroots ("div" @: ["id" @= "affiliate"]) scrapeUl
 
+-- scraper that scrapes the url for a div with the id honorary-visiting
+-- used for getting all the honorary and visiting people in the department
 scrapeHonoraryList :: Scraper String [[(String, String)]]
 scrapeHonoraryList =
     chroots ("div" @: ["id" @= "honorary-visiting"]) scrapeUl
 
+-- scraper that scrapes inside a div to get the li element which will
+-- contain the list of people
 scrapeUl :: Scraper String [(String, String)]
 scrapeUl =
     chroots "li" scrapeLi
 
+-- scraper that gets the person name and url from the a element
+-- the text is the name, and the href attribute is the url to his/her
+-- personal page; we need to check if the url contains the computing/staff
+-- suffix - if not, we need to append it as for some people the url is in the
+-- form of ?action=person..., thus giving us an invalid address
 scrapeLi :: Scraper String (String, String)
 scrapeLi = do
     personName <- text $ "a"
@@ -84,24 +103,37 @@ scrapeLi = do
     if (isInfixOf "/computing/staff" url) then return (personName, "http://www.gla.ac.uk" ++ url)
         else return (personName, "http://www.gla.ac.uk/schools/computing/staff/" ++ url)
 
+-- first out of two scrapers that get the phone number out of a page;
+-- this is the one where the person's personal page has a div with the id
+-- sp_contactInfo
 scrapePerson :: Scraper String [String]
 scrapePerson = 
     chroots ("div" @: ["id" @= "sp_contactInfo"]) scrapeNumber
 
+-- second scraper for getting the phone number: this is used when the person
+-- does not have an sp_contactInfo div; if so, we look for a paragraph inside
+-- the mainContent div with a certain style and retrieve the number from there 
 scrapePersonTwo :: Scraper String [String]
 scrapePersonTwo =
     chroots ("div" @: ["id" @= "mainContent"]) scrapeNumberTwo
 
+-- this gets the actual number from inside the paragraph inside the mainContent div
 scrapeNumberTwo :: Scraper String String
 scrapeNumberTwo = do
-    content <- text $ "p" @: ["style" @= "margin: 0 0 10px 25px; padding: 5px; color: ##333;"]
-    return content
+    number <- text $ "p" @: ["style" @= "margin: 0 0 10px 25px; padding: 5px; color: ##333;"]
+    return number
 
+-- this gets the number from the paragraph when we have an sp_contactInfo div
 scrapeNumber :: Scraper String String
 scrapeNumber = do
     num <- text $ "p"
     return num
 
+-- function that gets as input the name of a person and its personal url
+-- and then scrapes that address using the 2 above-mentioned scrapers; if the first
+-- one gets some output, then we return a tuple (name, number); if not, then we
+-- retrieve the name and the number taken from the mainContent div; we also used
+-- fromMaybe in order to work with Just values
 scrapeContactURL :: (String, URL) -> IO (String, [String])
 scrapeContactURL (x,y) = do
     phoneNumber <- scrapeURL y scrapePerson
@@ -111,19 +143,29 @@ scrapeContactURL (x,y) = do
     if (length (validPhoneNumber) /= 0) then return (x, validPhoneNumber)
         else return (x, validPhoneNumberTwo)
 
+-- function that sorts and removes all the duplicates from the full list
+-- of people retrieved from all tabs
 removeDuplicates :: (Ord a) => [a] -> [a]
 removeDuplicates = map head . group . sort
 
+-- function that used to filter out people with empty personal information
 removePeopleWithoutNumbers (a, b) 
     | (null b) = False
     | otherwise = True
 
+-- function that is mapped in the main function in order to retrieve
+-- only the head of the personal information list (i.e. that contains the 
+-- phone number)
 removePhoneNumberList :: (String, [String]) -> (String, String)
 removePhoneNumberList (x,y) = (x, (head y))
 
+-- POSIX regex that is used to retrieve only the phone number from inside
+-- the whole paragraph containing that person's email, telephone etc. 
 getPhoneNumberFromString :: (String, String) -> (String, String)
 getPhoneNumberFromString (x,y) = (x, (y =~ ("[ +()]*[0-9][ +()0-9]*" :: String)))
 
+-- function that creates the basic info for the LaTeX document and calls
+-- the constructDocumentBody function to write all the records collected previously
 constructDocument :: Monad m => [(String, String)] -> LaTeXT_ m
 constructDocument records = do
     documentclass [] article
@@ -131,6 +173,7 @@ constructDocument records = do
     title "Telephone Directory"
     document (constructDocumentBody records)
 
+-- function that nicely outputs all phone directory records to the tex file
 constructDocumentBody :: Monad m => [(String, String)] -> LaTeXT_ m
 constructDocumentBody records = do
     maketitle

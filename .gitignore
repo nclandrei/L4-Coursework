@@ -3,12 +3,6 @@
 .AppleDouble
 .LSOverride
 
-# FP Latex part output not included
-*.pdf
-*.log
-*.aux
-*.tex
-
 # Icon must end with two \r
 Icon
 # Thumbnails

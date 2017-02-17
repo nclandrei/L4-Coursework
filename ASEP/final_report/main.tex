@@ -2,6 +2,8 @@
 
 \usepackage[a4paper,margin=20mm]{geometry}
 
+\usepackage{graphicx}
+
 \usepackage{natbib}
 
 \usepackage{titling}
@@ -138,18 +140,21 @@ Finally, we believe that the process improvement activity we chose was a success
 \subsection*{Summary of Implementation}
 
 \par
-The process improvement activity we chose was user stories as we came to the conclusion that better knowledge on how to write them properly and efficiently would be the most beneficial for the team.
-
-\par
     In our previous Process Improvement Activity Plan, we suggested two activities that we wanted to conduct with the team in the following areas: Retrospectives, Requirements Engineering and Ticket Management. Following the feedback that we received from the course coordinator, we decided that implementing both activities and monitoring their effects would not be feasible given the amount of time allocated for this exercise and we agreed to focus on retrospectives. During the first weeks of the second semester we had several meetings with team H, as follows:
 
 \begin{itemize}
-\item In the second week of the semester we had our initial meeting with team H. During this meeting we discussed our suggestion regarding the improvement of their retrospectives and we looked again at their codebase to see if the warm-up exercise had any effect. This is when we noticed that, despite several improvements, they still weren't following a well established work-flow in regards to requirements gathering and ticket management. For example, they didn't have any user stories in their Issue/Ticket board. We found out that this was because they kept their user stories in a separate file and had them broken down into tasks in yet another file. On the board, there were only numbered tasks and the only way to connect them with a user story was to manually search for that particular number through the separate user stories file. Another issue that we found was that after their last client meeting (before Christmas break) they didn't write any new user stories but instead they jumped straight into assigning tasks for the new requirements gathered during that meeting. Faced with the problems that we identified, we realized that they might greatly affect the overall work-flow of the project and decided that it is better focus on these areas in our PIA instead of retrospectives.
+\item In the second week of the semester we had our initial meeting with team H. During this meeting we discussed our suggestion regarding the improvement of their retrospectives and we looked again at their codebase to see if the warm-up exercise had any effect. This is when we noticed that, despite several improvements, they still weren't following a well established work-flow in regards to requirements gathering and ticket management. For example, they didn't have any user stories in their Issue/Ticket board. We found out that this was because they kept their user stories in a separate file and had them broken down into tasks in yet another file. On the board, there were only numbered tasks and the only way to connect them with a user story was to manually search for that particular number through the separate user stories file. Another issue that we found was that after their last client meeting (before Christmas break) they didn't write any new user stories but instead they jumped straight into assigning tasks for the new requirements gathered during that meeting. Faced with the problems that we identified, we realized that they might greatly affect the overall work-flow of the project and decided that it is better to focus on these areas in our PIA instead of retrospectives.
 
-\item In the third week we conducted two workshops in two different days. The first workshop was focused on requirements engineering and it was similar to the warm-up exercise activity. We created a hypothetical situation in which we were their customer and simulated a customer meeting. We assigned roles for each of team H's members: main questioner, prototype demonstrator, note taker, observer (\citet[Chapter~4]{softengbook}). Since this was a simulation, we used a basic app prototype 
+\item In the third week we conducted two workshops in two different days. The first workshop was focused on requirements engineering and it was similar to the warm-up exercise activity. We created a hypothetical situation in which we were their customer and simulated a customer meeting. We assigned roles for each of team H's members: main questioner, prototype demonstrator, note taker, observer (\citet[Chapter~4]{softengbook}). We used a basic app prototype in order to give the impression that this wasn't an initial meeting but a subsequent one and that we are giving our feedback on the design and proposing other features. The simulated customer meeting went well, the main questioner did her job properly and was able to identify key requirements and also to clarify things that were not fully understood. At the end, using the notes that they took, the team, aided by us, was able to come up with a couple of user stories for the new requirements.
+\item The second workshop that we conducted in the third week was focused on ticket management. Using the user stories produced by the simulated client meeting, we helped the team split them into tasks while explaining the advantages of this practice (e.g. makes estimation easier, multiple team members can work on the same user story etc.).  The next step was to introduce these tasks into their ticket management system (GitLab in this case). Since GitLab allows the creation of labels, we suggested that a reasonable way of linking a task with a user story was to create a separate label for each user story and then assign that label to the respective ticket (for example, a user story label could have as title "User story" and as description the actual text of the user story in the appropriate format: "As a ... I want to... So that"). This way, the user stories will be part of the ticket management system and can be looked right away as opposed to them being in a separate file. We explained that the newly created user stories should be placed in the backlog (they were already doing this) and prioritized by importance (this will make it easier to see which ones should be implemented next). We also introduced introduced the idea of Epics (\citet{epics}) which are used to manage large user stories by furthermore breaking them into several smaller user stories. At the end of the workshop we introduced them to planning poker (\citet{agile-estimating}) as a technique to estimate the time taken to complete a particular task.
+
+\item During the following weeks we monitored their progress by having regular meetings and by investigating their GitLab repository. The results of the PIA are presented in the following section. 
 \end{itemize}
 
 \subsection*{Results}
+
+\par 
+In this section we will present the results of the Process Improvement Activity implementation. As mentioned in the planning phase of the exercise, in order to asses the efficiency of the PIA, qualitative and quantitative data should be collected at the beginning and throughout the process. In our initial meeting, in the second week of the semester, we gathered the following quantitative data: the time taken for a client meeting to be completed, how many team members had well-established roles during the client meetings, the number of user stories the team creates after a client meeting, the number of new tickets introduced into GitLab following a client meeting, the number of tickets they assign  
 
 \par
 
@@ -161,6 +166,7 @@ We have tried to be as drastical as possible when interpreting the results in or
 \subsection*{Successes}
 
 \begin{itemize}
+
 \item The most important outcome we encountered while running the activites was the improved knowledge on requirements gathering, project planning and writing user stories in general. Being able to estimate their tasks as a result of small, valuable user stories, they started completing issues much faster. 
 
 During the workshops, we taught them how to write user stories based on the INVEST methodology (\citet{invest}). They lacked abilities in accomplishing most (if not all) principles of a good user story thus, when we compared how they did them in the beginning and now, we saw drastic improvements. See below an excerpt from a discussion during one of the workshop:
@@ -168,25 +174,67 @@ During the workshops, we taught them how to write user stories based on the INVE
 \texttt{Demonstrator: Let's say I will be your client today. I would like to have an app that allows people to always be up-to-date with my bar. Let's start simple: I want my users to be able to register on the website. How would you write a user story for this use case?\\
 Team H (after a couple of minutes): Allow user to register on website with user and password to be able to access contents, modify password, maybe change profile picture etc.}
 
-First of all, this user story was too verbose and it did not follow the well-estabilished format "As a \dots, I want to \dots, So that \dots". It was clear to us that they did not possess enough knowledge to implement the INVEST methodology into their practices. After several meetings, we repeated the process and simulated another client, asking them again to reproduce several user stories. One of them is shown below as an excerpt from the discussion:
+First of all, this user story was too verbose and it did not follow the well-estabilished format "As a \dots, I want to \dots, So that \dots". It was clear to us that they did not possess enough knowledge to implement the INVEST methodology into their practices. Also, in order to help them even further, we tried to make them visualize user stories in different other ways. In the end, they decided to use the "Card, Conversation and Confirmation" mental model (\citet{primer}). 
+
+After several meetings, we repeated the process and simulated another client, asking them again to reproduce several user stories. One of them is shown below as an excerpt from the discussion:
 
 \texttt{Demonstrator: I am a client running a factory and I want a system that allows the workers to input their hours. Give me the first user story that comes into your head.
 \\
 Team H: Does this sound good? As a worker, I want to be able to input my hours into some physical/virtual system, So that there is a way to keep track of my progress.}
 
-We definitely saw a huge progress. Even though we tried to make them visualize user stories in different other ways, they eventually chose to use the "Card, Conversation and Confirmation" mental model (\citet{primer}). 
+We definitely saw a huge progress and we considered this as a great success of our activity.
+
+\item Another great success was their improvement in estimating tasks due to better written user stories. Being able to break a valuable story into smaller chunks/tasks, they could easily use the planning poker technique (\citet{agile-estimating}). Here are two other excerpts from their discussions (before learning how to efficiently use planning poker and after):
+
+\begin{itemize}
+\item 
+\texttt{
+Demonstrator: We have the following user story: as a user, I want to be able to view my transactions, so that I can keep track of what's going on with my account. How long do you think this would take? \\
+Team H member 1: Well 2 days? I can definitely do it in 2 days.\\
+Team H member 2: Maybe 3 days for me, but yes, can be done in 2 days.\\
+(Whole team agreed on this without any further discussion)
+}
+\item
+\texttt{
+Demonstrator: We have user story x. How do we proceed in estimating it?
+(Team H starts playing planning poker with the cards they brought and, after several rounds of negotiating, came to an agreement)
+}
+\end{itemize}
+
+After the planning poker workshop, everyone was much more comfortable with the tasks they were facing as now they could freely express their concerns when someone else said they could complete the task in much less time than themselves.
+
+\item Another success was the great impact our changes had on their knowledge and software engineering practices in general. As seen below, 5 out of the 6 members thought the changes will influence the project on a long term, while only one responded with short term (not at all - no response, so great feedback).
+
+\includegraphics[scale=0.5]{impact}
 
 \end{itemize}
+
+\subsection*{Failures}
+
+\begin{itemize}
+\item The failure we believe we faced during our PIA was the lack of time. Because client meetings are quite far away from each other, the students did not have enough time to actually put the acquired knowledge in practice. This can be seen in the following piechart generated after their feedback.
+
+\includegraphics[scale=0.5]{failure}
+
+We believe that if we would have met the team in the beginning of the year and talked with them more often, the process would have been more successful. However, apart from the lack of time, we did not encounter any other problems during the activity.
+
+\end{itemize}
+
 
 \subsection*{Future PIA Recommendation}
 
 \par
+After several weeks of inspecting their codebase and software practices, we concluded that in the future we could undertake retrospectives and project planning improvements. 
 
+\par
+As discussed above, we saw flaws in the way they were planning their tasks, identifying risks on a long-term perspective, monitoring progress, as well as having constructive retrospectives. We also suggested reading a very interesting article (\citet{software-fails}) where they could see that project planning mistakes can lead to catastrophic consequences. They concluded that they need to plan better ahead from now on, at least until the project has been finished.
 
-
+\par
+During one of the workshops we also tried to learn them about how a proper retrospective should be conducted. We applied several techniques throughout the process, including Triple Nickels, SMART Goals or +/Delta (\citet{agile-retrospectives}).
 
 
 \bibliographystyle{plainnat}
 \bibliography{bibliography}
 
 \end{document}
+

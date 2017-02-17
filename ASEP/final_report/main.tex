@@ -1,0 +1,182 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=20mm]{geometry}
+
+\usepackage{natbib}
+
+\usepackage{titling}
+
+\setlength{\droptitle}{-19mm}
+%\setlength{\dropauthor}{-10mm}
+\posttitle{\par\end{center}\vspace{-5mm}}
+
+\renewcommand\abstractname{Overview}
+
+\begin{document}
+
+\title{Process Improvement Report}
+
+\author{Andrei-Mihai Nicolae (2147392), Bogdan Tufescu (2092257), Adrian Musat (2088959)}
+
+\maketitle
+
+\section*{Overview}
+
+  After spending time in the laboratory with Team H and examining their codebase, we have identified some flaws in their process. The purpose of the this report is to show what are the problems we identified. For one of these problems, we will suggest possible improvements. We will explain what were our objectives for the second semester. Another important aspect about the improvement activity is the methods used to improve the team's workflow.
+  
+  \par
+  In the second part of the report, we will discussed about the implementation of the process improvement activity.We will outline the results gained through monitoring the progress of Team H. Based on the dialog with team H, we will suggest further process improvement activities that could have been done.
+
+\section*{Plan}
+\subsection*{Issues Identified}
+
+In this section, we will discuss about the issues that we identified in Team H's process. For every flaw, we will argue what is the  nature of the problem and how it might prevent the process from running the way it should be. Team H had a few problems which slowed down their Agile process. If they don't solve them in time, they may cause delay to their project in the future.
+
+\par
+One of the problems we identified is that they were making confusions between retrospectives and scrum  meetings. During their first retrospective, the team members discussed about the project progress. Also, they discussed about what they finished and what they should do for the next time. Because of this, team H was not doing the retrospectives correctly. Retrospectives are important as they allow teams to improve their working practices. Another reason that retrospectives are important is the fact that they improve the relations between team members. People within the same team get to know each other better. They can understand what the process problems might be and they can adjust their working practices to match the team's characteristics (\citet{scrumalliance}).
+
+\par
+Another problem was with their ticket management practices. After getting the user stories, Team H had problems prioritising the most import requirements and scheduling them for the next sprint.(\citet{prioritise}) The team should be using the backlog for storing all the user stories and for every sprint getting some user stories and breaking them into tasks. Instead of doing that, they use the backlog for keeping track of the user stories and moving them from one stage to the other (Assigned,Under testing, Completed). By not breaking down the user stories into tasks, the workload is harder to estimate (\citet[Chapter~4]{softengbook}). Planning is important for a software project. If the team would be breaking the stories into simple tasks, more planning would be done and tasks would be assigned to the right team members.
+
+\par
+Finally, the client meetings had some problems. There were aspects that needed to be improved. The members did not assume roles during their first meeting. They tried to get the requirements from the clients and then add them to the backlog. The priorities of the stories were not set because the team did not discuss with the clients what are the most important requirements. The team did not prepare a list of important questions in advance. Thus, it was harder for them to plan completing the minimum working product and harder to produce prototypes. Another important aspect is that the team did not separate the functional requirements from the non-functional requirements.
+
+
+\subsection*{Underlying Causes}
+\par
+After analysing the team's weaknesses, we identified a few causes that needed to be addressed during the second semester. Of course, the fact that the team does not have experience played an important role here. For example, it is hard to get a retrospective right from the first time. There are also other causes for the team's problems. 
+
+\par
+Another problem is that the team did not have a good understanding of how they should conduct a meeting with the clients. During the first semester, they did not understand the importance of assigning roles to the members during the meetings. Also, they had problems because they did not prepare questions in advance.
+
+\par
+Ticket management is very important for a software project. Because the team did not create a board for every sprint and break down stories into small tasks, the members have difficulties estimating the duration of implementing requirements and assigning tasks.
+
+\par
+In the following sections, we will discuss about a process improvement activity in order  to fix as many problems as possible. For our proposal, we will describe our objectives and the way we monitored the progress of the team while implementing the changes we proposed.
+
+
+\subsection*{Proposed Process Improvement Activity}
+
+\par
+In this section, we will discuss about our proposed process improvement activity. This activity was carried out in the second semester. The proposed activity is derived from the problems and issues identified above.
+
+\par
+We chose to focus on the user stories. Our activity was aimed to substantially improve the team's understanding of why they are useful and how they should be created efficiently. Furthermore, by mastering this process, the overall management of the project should improve. This should lead to a better, more robust end product.
+
+\par
+We considered the user stories to be an area which needed immediate improvement. As previously mentioned, the team did not use a backlog to store all their user stories. Also, the team did not create the user stories by following the INVEST scheme. In their GitLab repository, they did not store the user stories themselves. Instead, they wrote the tasks directly broke down. The user stories were stored in a separate document. For each task, they did not know to which user story it belongs.
+
+\subsection*{Activity stages}
+
+\par
+The process improvement we chose to conduct is a cyclical process. It involves three sub-processes (\citet[Chapter~26]{softengbook}):
+\begin{enumerate}
+    \item \textit{Process measurement} Attributes of the project and the product are measured. The aim is to improve the measures according to the goals of the proposed activities. This forms a baseline that helps decide if the process improvements have been effective.
+    
+    \item \textit{Process analysis} The current process is assessed, and process weaknesses and bottlenecks are identified. The analysis is focused by considering process characteristics such as rapidity and robustness.
+    
+    \item \textit{Process change} Process changes are proposed to address some of the identified process weaknesses. These are introduced and the cycle resumes to collect data about the effectiveness of the changes.
+\end{enumerate} 
+
+\subsection*{PIA Implementation}
+
+\par
+In order to help the team develop good user stories and improve their ticket management system, multiple workshops were planned to be conducted with the team:
+
+\begin{itemize}
+    \item \textit{Requirements engineering Workshops} \\
+    These workshops will be focused on techniques for gathering requirements during client meetings and techniques for specifying and estimating them. The expected outcome is that the team will gain more experience in conducting client meetings and will get a better understanding of various topics and techniques such as interviews, walkthroughs, stakeholders, functional and non-functional requirements, user stories, planning poker. Furthermore, in order to improve customer meetings and make them more efficient, customer meetings will be simulated and each team member will be assigned a role: main questioner, prototype demonstrator, note taker, observer (\citet[Chapter~4]{softengbook}). This way, the team will be able to prepare their questions, the prototype and will get hands-on experience by practicing the interview.     
+    
+    \item \textit{Ticket management Workshops} \\
+    These workshops will be focused on the practical and technical aspects of creating tickets from user stories, prioritizing tickets for each sprint, assigning each ticket to a team member and creating milestones. They are intended to improve the team's ability to create, prioritize, assign and manage their tickets more efficiently.
+\end{itemize}
+
+
+\subsection*{Objectives}
+
+For the process improvement activity, we set a list of objectives that should be met during the second semester. They are the following:
+
+\begin{itemize}
+ 
+    \item Improve the requirements gathering process during client meetings. The team should be able to prepare for client meetings in advance, assign roles and should be comfortable using various requirements gathering techniques such as interviews and walkthroughs.
+    \item Improve the team's ability to create user stories 
+    \item Improve the team's ability to use GitLab, in order to manage their user requirements.
+    \item Improve the team's ability to create, prioritize, assign and manage their user stories more efficiently.
+\end{itemize}
+
+
+\subsection*{Monitoring methods}
+
+\par
+In order to assess the efficiency of the proposed process improvement activities, qualitative and quantitative data should be collected at the beginning and throughout the activities. Without data on a process or the software developed using that process, it is impossible to assess the value of process improvement \citet[Chapter~26]{softengbook}. 
+
+\par
+The quantitative methods will provide an evidence of the improvements brought by the PIA. We will monitor their GitLab repository to see if they will implement any change to their project. If they will refactor the tasks on GitLab and will mark the user story for each task, then we will know that they followed our advice. 
+\par
+In order to monitor if their workflow improved, a simple way would be to check the number of commits.   If the number increases, it means the team is finishing work faster. Another way would be to check if the members share the tasks equally. By learning about user stories, the members of Team H should split work more easily.
+
+\par
+Furthermore, some quantitative data should be collected in the initial phase of the process improvement activities: the time taken for a particular process (client meeting, retrospective) to be completed, the resources required for a particular process, the number of requirements the team gathers during a client meeting, the number of user stories they create, the number of tickets they finish in a sprint. By collecting this data at the beginning and at the end of the process improvement period, the efficiency of the proposed process improvement activities can be assessed. 
+
+\par
+
+\section*{Evaluation}
+
+\par
+After careful consideration, as mentioned above, we thought that user stories was the utmost important aspect of the team's software engineering practices that needed extensive review and improvement. They still had client meetings ahead, thus we wanted to prepare them ahead and, subsequently, make them more productive on the long term. 
+
+\par
+We followed their progress constantly and saw a drastic improvement in their workflow after writing correct and useful user stories. They added them to their GitLab account, being able to both estimate them properly (as the user stories were following the INVEST methodology now) and devise them into smaller tasks which were eventually assigned to members to work on.
+
+\par
+In terms of evidence, we have captured both discussions and screenshots from their GitLab account in order to demonstrate how the changes we implemented together benefited their project.
+
+\par
+Finally, we believe that the process improvement activity we chose was a success considering both the results we gathered as well as the team members' feedback. 
+
+\subsection*{Summary of Implementation}
+
+\par
+The process improvement activity we chose was user stories as we came to the conclusion that better knowledge on how to write them properly and efficiently would be the most beneficial for the team.
+
+\par
+    In our previous Process Improvement Activity Plan, we suggested two activities that we wanted to conduct with the team in the following areas: Retrospectives, Requirements Engineering and Ticket Management. Following the feedback that we received from the course coordinator, we decided that implementing both activities and monitoring their effects would not be feasible given the amount of time allocated for this exercise and we agreed to focus on retrospectives. During the first weeks of the second semester we had several meetings with team H, as follows:
+
+\begin{itemize}
+\item In the second week of the semester we had our initial meeting with team H. During this meeting we discussed our suggestion regarding the improvement of their retrospectives and we looked again at their codebase to see if the warm-up exercise had any effect. This is when we noticed that, despite several improvements, they still weren't following a well established work-flow in regards to requirements gathering and ticket management. For example, they didn't have any user stories in their Issue/Ticket board. We found out that this was because they kept their user stories in a separate file and had them broken down into tasks in yet another file. On the board, there were only numbered tasks and the only way to connect them with a user story was to manually search for that particular number through the separate user stories file. Another issue that we found was that after their last client meeting (before Christmas break) they didn't write any new user stories but instead they jumped straight into assigning tasks for the new requirements gathered during that meeting. Faced with the problems that we identified, we realized that they might greatly affect the overall work-flow of the project and decided that it is better focus on these areas in our PIA instead of retrospectives.
+
+\item 
+\end{itemize}
+
+\subsection*{Results}
+
+\par
+
+\subsection*{Critical Analysis}
+
+\par
+We have tried to be as drastical as possible when interpreting the results in order to decide whether the process improvement activity was a success or not. We have based our conclusion on both evidence from the activities and workshops as well as the team members' feedback.
+
+\subsection*{Successes}
+
+\begin{itemize}
+\item The most important outcome we encountered while running the activites was the improved productivity of the team members. Being able to estimate their tasks as a result of small, valuable user stories, they started completing issues much faster. 
+
+During the workshops, we taught them how to write user stories based on the INVEST methodology (\citet{invest}). They lacked abilities in accomplishing most (if not all) principles of a good user story thus, when we evaluated their asd
+
+\end{itemize}
+
+\subsection*{Future PIA Recommendation}
+
+\par
+
+
+
+
+
+\bibliographystyle{plainnat}
+\bibliography{bibliography}
+
+\end{document}
+

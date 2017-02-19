@@ -1,4 +1,4 @@
-package main.java.uk.ac.glasgow.bd;
+package main.java.uk.ac.glasgow.bd.reader;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataInputStream;

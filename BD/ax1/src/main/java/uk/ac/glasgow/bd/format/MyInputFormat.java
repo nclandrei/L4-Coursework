@@ -1,6 +1,7 @@
-package main.java.uk.ac.glasgow.bd;
+package main.java.uk.ac.glasgow.bd.format;
 
 
+import main.java.uk.ac.glasgow.bd.reader.MyRecordReader;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.RecordReader;

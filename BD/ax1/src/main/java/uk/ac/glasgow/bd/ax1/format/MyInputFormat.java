@@ -1,4 +1,4 @@
-package main.java.uk.ac.glasgow.bd.format;
+package main.java.uk.ac.glasgow.bd.ax1.format;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;

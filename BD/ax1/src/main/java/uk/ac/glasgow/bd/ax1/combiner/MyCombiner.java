@@ -1,4 +1,4 @@
-package main.java.uk.ac.glasgow.bd.combiner;
+package main.java.uk.ac.glasgow.bd.ax1.combiner;
 
 
 import org.apache.hadoop.io.IntWritable;

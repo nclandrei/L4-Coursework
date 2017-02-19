@@ -1,4 +1,4 @@
-package main.java.uk.ac.glasgow.bd.mapper;
+package main.java.uk.ac.glasgow.bd.ax1.mapper;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;

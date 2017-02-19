@@ -1,4 +1,4 @@
-package main.java.uk.ac.glasgow.bd.partitioner;
+package main.java.uk.ac.glasgow.bd.ax1.partitioner;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;

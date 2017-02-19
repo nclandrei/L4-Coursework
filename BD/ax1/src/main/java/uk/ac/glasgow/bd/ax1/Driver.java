@@ -1,10 +1,10 @@
-package main.java.uk.ac.glasgow.bd;
+package main.java.uk.ac.glasgow.bd.ax1;
 
-import main.java.uk.ac.glasgow.bd.combiner.MyCombiner;
-import main.java.uk.ac.glasgow.bd.format.MyInputFormat;
-import main.java.uk.ac.glasgow.bd.mapper.LineMapper;
-import main.java.uk.ac.glasgow.bd.partitioner.MyPartitioner;
-import main.java.uk.ac.glasgow.bd.reducer.MyReducer;
+import main.java.uk.ac.glasgow.bd.ax1.combiner.MyCombiner;
+import main.java.uk.ac.glasgow.bd.ax1.format.MyInputFormat;
+import main.java.uk.ac.glasgow.bd.ax1.mapper.LineMapper;
+import main.java.uk.ac.glasgow.bd.ax1.partitioner.MyPartitioner;
+import main.java.uk.ac.glasgow.bd.ax1.reducer.MyReducer;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;

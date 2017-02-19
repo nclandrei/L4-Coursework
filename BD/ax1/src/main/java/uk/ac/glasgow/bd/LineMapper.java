@@ -3,7 +3,6 @@ package main.java.uk.ac.glasgow.bd;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapred.MapOutputCollector;
 import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
@@ -12,11 +11,11 @@ import java.util.StringTokenizer;
 /**
  * Created by 2147392n on 19/02/17.
  */
-public class LineMapper {
+public class LineMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
     enum Counters { NUM_RECORDS, NUM_LINES, NUM_BYTES }
     private Text _key = new Text();
     private IntWritable _value = new IntWritable();
-    protected void map(LongWritable key, Text value, Mapper.Context context) throws IOException, InterruptedException {
+    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         StringTokenizer tokenizer = new StringTokenizer(value.toString(), "\n");
         while (tokenizer.hasMoreTokens()) {
             String line = tokenizer.nextToken(); int sep = line.indexOf(' '); _key.set((sep == -1) ? line : line.substring(0, line.indexOf(' ')));

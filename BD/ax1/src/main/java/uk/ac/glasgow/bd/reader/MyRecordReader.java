@@ -44,21 +44,30 @@ public class MyRecordReader extends RecordReader<LongWritable, Text> {
         while (true) {
             if ((b = fsin.read()) == -1)
                 return false;
-            if (withinBlock)
+            if (withinBlock) {
                 buffer.write(b);
-            if (b == recordSeparator[i]) { if (++i == recordSeparator.length)
-                return fsin.getPos() < end;
-            } else
+            }
+            if (b == recordSeparator[i]) {
+                if (++i == recordSeparator.length) {
+                    return fsin.getPos() < end;
+                }
+            }
+            else {
                 i = 0;
+            }
         }
     }
 
     @Override
     public boolean nextKeyValue() throws IOException, InterruptedException {
-        if (!stillInChunk)
-            return false; boolean status = readRecord(true); value = new Text();
+        if (!stillInChunk) {
+            return false;
+        }
+        boolean status = readRecord(true);
+        value = new Text();
         value.set(buffer.getData(), 0, buffer.getLength());
-        key.set(fsin.getPos()); buffer.reset();
+        key.set(fsin.getPos());
+        buffer.reset();
         if (!status)
             stillInChunk = false;
         return true;

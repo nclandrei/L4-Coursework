@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="154f97f8-c821-4c35-9d49-88bbf04df920" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/uk/ac/glasgow/bd/MyReducer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/uk/ac/glasgow/bd/MyMRDriver.java" afterPath="$PROJECT_DIR$/src/main/java/uk/ac/glasgow/bd/Driver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/uk/ac/glasgow/bd/LineMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ax1.iws" />
@@ -26,7 +25,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uk/ac/glasgow/bd/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
@@ -34,6 +33,28 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LineMapper.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/uk/ac/glasgow/bd/LineMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mapper.class" pinned="false" current-in-tab="false">
+        <entry file="jar:///local/bd4/bd4-hadoop-ug/lib/avro-tools-1.7.6-cdh5.9.0.jar!/org/apache/hadoop/mapreduce/Mapper.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -74,6 +95,8 @@
         <option value="$PROJECT_DIR$/src/main/java/uk/ac/glasgow/bd/MyMRDriver.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/ac/glasgow/bd/Reducer.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/ac/glasgow/bd/Driver.java" />
+        <option value="/local/bd4/bd4-hadoop-ug/lib/avro-tools-1.7.6-cdh5.9.0.jar!/org/apache/hadoop/mapreduce/Mapper.class" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/ac/glasgow/bd/LineMapper.java" />
       </list>
     </option>
   </component>
@@ -466,6 +489,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///local/bd4/bd4-hadoop-ug/lib/avro-tools-1.7.6-cdh5.9.0.jar!/org/apache/hadoop/mapreduce/Mapper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/ac/glasgow/bd/LineMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

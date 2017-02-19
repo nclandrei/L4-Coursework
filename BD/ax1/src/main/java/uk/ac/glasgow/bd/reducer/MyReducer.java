@@ -7,8 +7,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 import java.io.IOException;
 import java.util.Iterator;
 
-public class MyReducer extends Reducer<Text, IntWritable, Text,
-        IntWritable> {
+public class MyReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
     private IntWritable _value = new IntWritable(); protected void reduce(Text key, Iterable<IntWritable> values, Context
             context) throws IOException, InterruptedException { int sum = 0;
         for (Iterator<IntWritable> it = values.iterator(); it.hasNext();)

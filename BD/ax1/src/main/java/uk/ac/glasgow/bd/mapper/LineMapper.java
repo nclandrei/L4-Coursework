@@ -8,9 +8,6 @@ import org.apache.hadoop.mapreduce.Mapper;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-/**
- * Created by 2147392n on 19/02/17.
- */
 public class LineMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
     enum Counters { NUM_RECORDS, NUM_LINES, NUM_BYTES }
     private Text _key = new Text();

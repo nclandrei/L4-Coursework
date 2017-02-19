@@ -22,6 +22,7 @@ public class Driver extends Configured implements Tool {
     public int run(String[] args) throws Exception {
         Configuration conf = new Configuration();
         conf.addResource(new Path("/local/bd4/bd4-hadoop-ug/conf/core-site.xml"));
+        conf.set("mapred.jar", "/users/level4/2147392n/nclandrei/L4-Coursework/BD/ax1/out/artifacts/ax1_jar/ax1.jar");
         conf.set("startDate", args[0]);
         conf.set("endDate", args[1]);
         conf.set("k", args[2]);
@@ -38,7 +39,7 @@ public class Driver extends Configured implements Tool {
         job.setCombinerClass(MyReducer.class);
         job.setNumReduceTasks(1);
         FileInputFormat.setInputPaths(job, "/user/bd4-ae1/enwiki-20080103-perftest.txt");
-        FileOutputFormat.setOutputPath(job, new Path("user/2147392n/bd4-output"));
+        FileOutputFormat.setOutputPath(job, new Path("/user/2147392n/bd4-output2"));
         job.submit();
         return job.waitForCompletion(true) ? 0 : 1;
     }

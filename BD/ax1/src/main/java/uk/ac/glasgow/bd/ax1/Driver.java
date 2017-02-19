@@ -37,7 +37,7 @@ public class Driver extends Configured implements Tool {
         job.setCombinerClass(MyCombiner.class);
         job.setNumReduceTasks(1);
         FileInputFormat.setInputPaths(job, "/user/bd4-ae1/enwiki-20080103-perftest.txt");
-        FileOutputFormat.setOutputPath(job, new Path("/user/2147392n/bd4-output2"));
+        FileOutputFormat.setOutputPath(job, new Path("/user/2147392n/bd4-output3"));
         job.submit();
         return job.waitForCompletion(true) ? 0 : 1;
     }

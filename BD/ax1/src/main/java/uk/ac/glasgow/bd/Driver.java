@@ -1,5 +1,6 @@
 package main.java.uk.ac.glasgow.bd;
 
+import main.java.uk.ac.glasgow.bd.combiner.MyCombiner;
 import main.java.uk.ac.glasgow.bd.format.MyInputFormat;
 import main.java.uk.ac.glasgow.bd.mapper.LineMapper;
 import main.java.uk.ac.glasgow.bd.partitioner.MyPartitioner;
@@ -36,7 +37,7 @@ public class Driver extends Configured implements Tool {
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(IntWritable.class);
         job.setReducerClass(MyReducer.class);
-        job.setCombinerClass(MyReducer.class);
+        job.setCombinerClass(MyCombiner.class);
         job.setNumReduceTasks(1);
         FileInputFormat.setInputPaths(job, "/user/bd4-ae1/enwiki-20080103-perftest.txt");
         FileOutputFormat.setOutputPath(job, new Path("/user/2147392n/bd4-output2"));

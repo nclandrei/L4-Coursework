@@ -2,7 +2,7 @@ package main.java.uk.ac.glasgow.bd.ax1;
 
 import main.java.uk.ac.glasgow.bd.ax1.combiner.MyCombiner;
 import main.java.uk.ac.glasgow.bd.ax1.format.MyInputFormat;
-import main.java.uk.ac.glasgow.bd.ax1.mapper.LineMapper;
+import main.java.uk.ac.glasgow.bd.ax1.mapper.MyMapper;
 import main.java.uk.ac.glasgow.bd.ax1.reducer.MyReducer;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
@@ -30,7 +30,7 @@ public class Driver extends Configured implements Tool {
         job.setJarByClass(Driver.class);
         job.setInputFormatClass(MyInputFormat.class);
         job.setOutputFormatClass(TextOutputFormat.class);
-        job.setMapperClass(LineMapper.class);
+        job.setMapperClass(MyMapper.class);
         job.setMapOutputKeyClass(IntWritable.class);
         job.setMapOutputValueClass(IntWritable.class);
         job.setReducerClass(MyReducer.class);

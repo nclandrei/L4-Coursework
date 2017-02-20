@@ -10,7 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class LineMapper extends Mapper<LongWritable, Text, IntWritable, IntWritable> {
+public class MyMapper extends Mapper<LongWritable, Text, IntWritable, IntWritable> {
 
     private IntWritable _key = new IntWritable();
     private IntWritable _value = new IntWritable();

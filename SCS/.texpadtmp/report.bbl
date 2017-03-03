@@ -1,15 +1,29 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{3}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Mannino(2015)]{ai-risks}
+\bibitem[Mannino(2015)]{uber-red-light}
 Adriano Mannino.
 \newblock Artificial intelligence: Opportunities and risks.
 \newblock 2015.
 \newblock URL
   \url{https://foundational-research.org/wp-content/uploads/2016/06/AI-Policy-Paper.pdf}.
+
+\bibitem[Silver(2016)]{deepmind}
+David Silver.
+\newblock Mastering the game of go with deep neural networks and tree search,
+  2016.
+\newblock URL \url{https://gogameguru.com/i/2016/03/deepmind-mastering-go.pdf}.
+
+\bibitem[Wakabayashi(2015)]{ai-risks}
+Daisuke Wakabayashi.
+\newblock Ny times - a lawsuit against uber highlights the rush to conquer
+  driverless cars.
+\newblock 2015.
+\newblock URL
+  \url{https://www.nytimes.com/2017/02/24/technology/anthony-levandowski-waymo-uber-google-lawsuit.html}.
 
 \end{thebibliography}

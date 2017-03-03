@@ -3,46 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: /Users/nclandrei/Code/github/L4-Coursework/SCS/.texpadtmp/report.aux
 The style file: plainnat.bst
 Database file #1: ../bibliography.bib
+Warning--empty journal in uber-red-light
 Warning--empty journal in ai-risks
-You've used 1 entry,
+You've used 3 entries,
             2773 wiz_defined-function locations,
-            597 strings with 5110 characters,
-and the built_in function-call counts, 344 in all, are:
-= -- 28
-> -- 10
-< -- 1
-+ -- 4
-- -- 3
-* -- 19
-:= -- 61
-add.period$ -- 4
-call.type$ -- 1
-change.case$ -- 4
-chr.to.int$ -- 1
-cite$ -- 3
-duplicate$ -- 19
-empty$ -- 31
-format.name$ -- 4
-if$ -- 65
+            606 strings with 5467 characters,
+and the built_in function-call counts, 952 in all, are:
+= -- 82
+> -- 30
+< -- 3
++ -- 12
+- -- 9
+* -- 51
+:= -- 157
+add.period$ -- 11
+call.type$ -- 3
+change.case$ -- 12
+chr.to.int$ -- 3
+cite$ -- 8
+duplicate$ -- 53
+empty$ -- 93
+format.name$ -- 12
+if$ -- 193
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 1
-newline$ -- 14
-num.names$ -- 4
-pop$ -- 10
+missing$ -- 2
+newline$ -- 25
+num.names$ -- 12
+pop$ -- 32
 preamble$ -- 1
-purify$ -- 3
+purify$ -- 9
 quote$ -- 0
-skip$ -- 14
+skip$ -- 41
 stack$ -- 0
-substring$ -- 2
-swap$ -- 0
+substring$ -- 6
+swap$ -- 1
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 11
-warning$ -- 1
-while$ -- 3
+type$ -- 33
+warning$ -- 2
+while$ -- 9
 width$ -- 0
-write$ -- 20
-(There was 1 warning)
+write$ -- 45
+(There were 2 warnings)

@@ -137,7 +137,11 @@ As such, a technique such as Model Checking would automatically check all possib
 There are many cases in the technology world where manufacturers and government bodies adopted Model Checking for AI-driven systems, thus making me more inclined in having confidence in the technique's effectiveness. \\
 
 \par
-One such example is how NASA used SPIN the Model Checker to implement autonomous planning systems. In their case, such a system would decide what a rover or spacecraft should perform next (\citet{nasa-spin}). 
+One such example is how NASA used a SPIN-based Model Checker to verify the safety properties of autonomous planning systems. In their case, such an APS  would decide what a rover or spacecraft should perform next (\citet{nasa-spin}). Therefore, they needed to assure that the APS would always pick a safe choice that would not require human supervision eventually. Therefore, they came up with a solution that would replace the current empirical testing at that time (proven inefficient) with a Model Checker SPIN implementation using the Promela programming language. It proved to be very successful, being able to develop over 3 billion plans for their finite-state system. Even though this is very time-consuming and it is not optimal, as anyone can imagine, the decision a rover or a spacecraft system makes is of crucial importance, thus we can sacrifice cost for the benefit of confidence in the machine's abilities to perform the task correctly. \\
+
+\par
+Another good example is coming from the aviation field: Rockwell Collins is an important avionics and IT company that delivers safety critical systems to governmental agencies and various aircraft manufacturers. They developed a system called ADGS-2100 Adaptive Display and Guidance System Window Manager - it was designed to provide pilots with heads up and down displays, as well as display management software. After considering various techniques to assess and mitigate risk as early and efficiently as possible, they ended up with using Model Checking (\citet{rockwell-collins}).
+
 
 %------------------------------------------------
 

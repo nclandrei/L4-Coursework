@@ -181,23 +181,26 @@ Coming to a conclusion, recent studies and developments show that there are many
 \subsection{Case Study}
 
 \par
-Add images here and talk about a detailed use case (linking to other studies showing that model checking is used throughout the world)
+A specific case study that I came up with is 
 
 %------------------------------------------------
 
 \subsection{Implementation of the Tool}
 
 \par
-Show how the tool was implemented and explain why design is appropriate for the task.
+The idea I came up with was easy to implement and very efficient. As web tools are gaining more popularity among developers as days go by, the Electron framework developed by GitHub was a choice that stood out (\citet{electron}).\\
 
-%------------------------------------------------
+\par
+Therefore, I used only web languages (JavaScript, HTML, CSS) to build a native application on all three major OS families (macOS, Windows, Linux). This was a very important design choice because I believe that websites are not such a good choice for assessing and mitigating risks in safety critical systems. This is because of a variety of reasons:
 
-\subsection{Example of list (enumerate)}
-\begin{enumerate}
-	\item First item in a list 
-	\item Second item in a list 
-	\item Third item in a list
-\end{enumerate}
+\begin{itemize}
+	\item Security: having an offline application that cannot (if developed so) require an Internet connection eliminates the risks of man-in-the-middle attacks and many other techniques that might threaten the checking process and valuable information
+	\item Familiarity: having an app that performs natively regardless of the specific operating system will make the developers "feel at home", becoming more productive
+	\item System calls: the developers can take benefit from the system calls that can be used from within Electron 
+	\item Reduced costs: as websites require server-side power and hosting, they are not a valuable option for such a tool because there would be huge costs (before we mentioned how NASA had more than 3 billion plans when running the Model Checking); however, with a standalone app, we can reduce the costs drastically as we can include the whole "server" inside the app and the local machine's resources would be used to power up the huge number of plans
+\end{itemize}
+
+
 
 %----------------------------------------------------------------------------------------
 %	Evaluation

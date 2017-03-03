@@ -5,7 +5,7 @@
 \usepackage[english]{babel} % English language/hyphenation
 \usepackage{amsmath,amsfonts,amsthm} % Math packages
 
-\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{breakcites}
 
 \usepackage{natbib}
 
@@ -74,7 +74,7 @@ The importance of introducing AI into a field with safety as a top priority is c
 
 \begin{itemize}
 	\item Transportation (driverless cars, subways)
-	\item Game playing machines (Deepmind's Go playing machine that beat the en-titre champion) \citet{deepmind}
+	\item Game playing machines (Deepmind's Go playing machine that beat the en-titre champion) \cite{deepmind}
 	\item Medical robotics
 	\item Manufacturing machines
 	\item Education
@@ -91,13 +91,13 @@ As the list can go on, we can see how AI spans throughout most of the major aspe
 Going past the many fields driven by Artificial Intelligence nowadays, we need to also take a close look at how many technologies have proven to be very prone to failure. \\
 
 \par
-One interesting case is something that happened only a few months ago with an Uber driverless car going through a red light in front of San Francisco's Museum of Modern Art (\citet{uber-red-light}).
+One interesting case is something that happened only a few months ago with an Uber driverless car going through a red light in front of San Francisco's Museum of Modern Art (\cite{uber-red-light}).
 
 \par
 As it was recorded on camera, the car just rushes through a busy street on red light. This is a clear sign of how developers are not placing enough testing and robust checks before launching such a safety critical systems into an open environment. \\
 
 \par
-We can see that the cause of the previous example could have been harmful for us humans. However, there have been cases where AI was involved and it was even deadly. Such an event is the killing of a Volkswagen employee who was grabbed and killed by one of the manufacturing robots in the plant (\citet{volkswagen}). Moreover, a robot in one Silicon Valley mall struck a child on the head by mistake (\citet{knightscope}). \\
+We can see that the cause of the previous example could have been harmful for us humans. However, there have been cases where AI was involved and it was even deadly. Such an event is the killing of a Volkswagen employee who was grabbed and killed by one of the manufacturing robots in the plant (\cite{volkswagen}). Moreover, a robot in one Silicon Valley mall struck a child on the head by mistake (\cite{knightscope}). \\
 
 \par
 In conclusion, after discussing various developments in the Artificial Intelligence world and how these safety critical systems can fail drastically, a tool for assessing and mitigating such risks will be presented in the rest of this report.
@@ -126,7 +126,7 @@ Firstly, it's needed to be pointed out that various techniques (e.g. Fault Tree 
 Because of the relatively young age of AI and ML in mainstream technology, there is quite a significant amount of improvements needed to be implemented. As shown before, there are many cases where they failed and lead to possible catastrophic outcomes. \\
 
 \par
-Model Checking is a solution to the problem: having a model system, check automatically (and exhaustively) if that particular system meets some given specification. I believe this is a very good approach to the tool needed to be implemented because the model checking applies to finite state systems (\citet{wiley-encyclopedia}). As AI is young, we need to make sure (even at the cost of time and not so optimal design decisions) that the system behaves correctly and gives the correct output regardless of the situation.
+Model Checking is a solution to the problem: having a model system, check automatically (and exhaustively) if that particular system meets some given specification. I believe this is a very good approach to the tool needed to be implemented because the model checking applies to finite state systems (\cite{wiley-encyclopedia}). As AI is young, we need to make sure (even at the cost of time and not so optimal design decisions) that the system behaves correctly and gives the correct output regardless of the situation.
 
 \par
 As such, a technique such as Model Checking would automatically check all possible combinations and determine whether the system is prepared to use AI/ML safely or not.
@@ -139,7 +139,7 @@ As such, a technique such as Model Checking would automatically check all possib
 There are many cases in the technology world where manufacturers and government bodies adopted Model Checking for AI-driven systems, thus making me more inclined in having confidence in the technique's effectiveness. \\
 
 \par
-One such example is how NASA used a SPIN-based Model Checker to verify the safety properties of autonomous planning systems. In their case, such an APS  would decide what a rover or spacecraft should perform next (\citet{nasa-spin}). Therefore, they needed to assure that the APS would always pick a safe choice that would not require human supervision eventually. Therefore, they came up with a solution that would replace the current empirical testing at that time (proven inefficient) with a Model Checker SPIN implementation using the Promela programming language. It proved to be very successful, being able to develop over 3 billion plans for their finite-state system. Even though this is very time-consuming and it is not optimal, as anyone can imagine, the decision a rover or a spacecraft system makes is of crucial importance, thus we can sacrifice cost for the benefit of confidence in the machine's abilities to perform the task correctly. \\
+One such example is how NASA used a SPIN-based Model Checker to verify the safety properties of autonomous planning systems. In their case, such an APS  would decide what a rover or spacecraft should perform next (\cite{nasa-spin}). Therefore, they needed to assure that the APS would always pick a safe choice that would not require human supervision eventually. Therefore, they came up with a solution that would replace the current empirical testing at that time (proven inefficient) with a Model Checker SPIN implementation using the Promela programming language. It proved to be very successful, being able to develop over 3 billion plans for their finite-state system. Even though this is very time-consuming and it is not optimal, as anyone can imagine, the decision a rover or a spacecraft system makes is of crucial importance, thus we can sacrifice cost for the benefit of confidence in the machine's abilities to perform the task correctly. \\
 
 \par
 Another good example is coming from the aviation field: Rockwell Collins is an important avionics and IT company that delivers safety critical systems to governmental agencies and various aircraft manufacturers. They developed 2 systems of interest to us in this report: one is called ADGS-2100 Adaptive Display and Guidance System Window Manager - it was designed to provide pilots with heads up and down displays, as well as display management software, while the other one is FCS 5000 - a new family of Flight Control Systems. \\
@@ -150,7 +150,7 @@ Another good example is coming from the aviation field: Rockwell Collins is an i
     \caption{Pilot Display Panels}
 \end{figure}
 
-After considering various techniques to assess and mitigate risk as early and efficiently as possible, they ended up with using Model Checking (\citet{rockwell-collins}) for both applications. The systems are crucial, such that whichever would fail during a flight it would impose great risks to both pilots and other travellers. Therefore, they have imposed a Simulink specification using only Boolean and enum types (\citet{acm-model-checking}). The company has been very pleased with the approach, having 5 autonomous components which had, in turn, 563 properties developed and checked altogether. This revealed around 100 errors in early versions of the window manager. By the end of the project, however, the developers were checking properties after the design change, reporting that they were very satisfied with the new technique for assessing and mitigating risk.
+After considering various techniques to assess and mitigate risk as early and efficiently as possible, they ended up with using Model Checking (\cite{rockwell-collins}) for both applications. The systems are crucial, such that whichever would fail during a flight it would impose great risks to both pilots and other travellers. Therefore, they have imposed a Simulink specification using only Boolean and enum types (\cite{acm-model-checking}). The company has been very pleased with the approach, having 5 autonomous components which had, in turn, 563 properties developed and checked altogether. This revealed around 100 errors in early versions of the window manager. By the end of the project, however, the developers were checking properties after the design change, reporting that they were very satisfied with the new technique for assessing and mitigating risk.
 
 
 %------------------------------------------------
@@ -168,7 +168,7 @@ Such an example is the above-mentioned SPIN.
     \caption{SPIN Model Checking}
 \end{figure}
 
-Not only that the model received the extremely prestigious ACM System Software Award in 2001, but it also has annual conferences held specifically for this technique. The systems need to be described in Promela language, while the properties that need to be verified are expressed as LTL (Linear Temporal Logic) formulas (\citet{spin}). \\
+Not only that the model received the extremely prestigious ACM System Software Award in 2001, but it also has annual conferences held specifically for this technique. The systems need to be described in Promela language, while the properties that need to be verified are expressed as LTL (Linear Temporal Logic) formulas (\cite{spin}). \\
 
 \par 
 Apart from SPIN, NASA also made its verification tool using the Model Checking technique for the highly popular programming language Java. \\
@@ -188,7 +188,7 @@ A specific case study that I came up with is
 \subsection{Implementation of the Tool}
 
 \par
-The idea I came up with was easy to implement and very efficient. As web tools are gaining more popularity among developers as days go by, the Electron framework developed by GitHub was a choice that stood out (\citet{electron}).\\
+The idea I came up with was easy to implement and very efficient. As web tools are gaining more popularity among developers as days go by, the Electron framework developed by GitHub was a choice that stood out (\cite{electron}).\\
 
 \begin{figure}[!ht]
     \centering
@@ -213,7 +213,7 @@ As we showed why a website wouldn't have been such a good idea for implementing 
 In terms of using SPIN in my application, I have created the Electron app to give the user a visual interface where he/she could press buttons, customise variables and afterwards Promela models would be created and test systems that would be selected from local storage by the developer. My app is in a very raw form for demonstration purposes as it was not required to build a fully fledged app. \\
 
 \par 
-In terms of risk assessment warnings, I have selected a colour palette that would make the developer pay attention regarding the current status: vivid red, orange and green colours would denote various levels of risk. Furthermore, I have also spent extensive research into automating my app and I have found a very interesting paper (\citet{spin-uml}). I believe that it sounds promising and it would bring great performance and overall improved user experience to the tool. \\
+In terms of risk assessment warnings, I have selected a colour palette that would make the developer pay attention regarding the current status: vivid red, orange and green colours would denote various levels of risk. Furthermore, I have also spent extensive research into automating my app and I have found a very interesting paper (\cite{spin-uml}). I believe that it sounds promising and it would bring great performance and overall improved user experience to the tool. \\
 
 \par 
 Taking all these into account, I believe that the electronic tool I developed needs to be extended and further developer to become a viable option for software engineers mitigating and assessing risk, but this is a promising start. 

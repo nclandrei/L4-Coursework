@@ -104,7 +104,7 @@ In conclusion, after discussing various developments in the Artificial Intellige
 %	Tool
 %----------------------------------------------------------------------------------------
 
-\section{Developed Tool}
+\section{Tool}
 
 \par
 After extensive research, I came to the conclusion that for such an application the best technique that should be used is Model Checking adapted specifically for AI systems. \\
@@ -116,9 +116,36 @@ After extensive research, I came to the conclusion that for such an application 
 \par
 Firstly, it's needed to be pointed out that various techniques (e.g. Fault Tree Analysis, Effects and Criticality Analysis) work as well for some sub-fields of AI-driven systems, but I believe that Model Checking is eventually the optimal choice. This is because of various reasons which will be exposed below.
 
-\subsubsection{}
+\subsubsection{AI is Young}
+
+\par
+Because of the relatively young age of AI and ML in mainstream technology, there is quite a significant amount of improvements needed to be implemented. As shown before, there are many cases where they failed and lead to possible catastrophic outcomes. \\
+
+\par
+Model Checking is a solution to the problem: having a model system, check automatically (and exhaustively) if that particular system meets some given specification. I believe this is a very good approach to the tool needed to be implemented because the model checking applies to finite state systems (\citet{wiley-encyclopedia}). As AI is young, we need to make sure (even at the cost of time and not so optimal design decisions) that the system behaves correctly and gives the correct output regardless of the situation.
+
+\par
+As such, a technique such as Model Checking would automatically check all possible combinations and determine whether the system is prepared to use AI/ML safely or not.
+
+\subsubsection{State of the Art Usage of the Model}
+
+\par
+Mention here about NASA and SPIN (slides are in Downloads folder)
+
+\subsubsection{Large Number of Tools}
+
+\par
+Talk about the large number of tools available for implementing model checking
 
 %------------------------------------------------
+
+\subsection{Case Study}
+
+\par
+Add images here and talk about a detailed use case (linking to other studies showing that model checking is used throughout the world)
+%------------------------------------------------
+
+\subsection{Case Study}
 
 \subsection{Example of list (enumerate)}
 \begin{enumerate}
@@ -128,6 +155,28 @@ Firstly, it's needed to be pointed out that various techniques (e.g. Fault Tree 
 \end{enumerate}
 
 %----------------------------------------------------------------------------------------
+%	Evaluation
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+
+\section{Evaluation}
+
+%----------------------------------------------------------------------------------------
+%	Results
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+
+\section{Results}
+
+%----------------------------------------------------------------------------------------
+%	Conclusion
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+
+\section{Conclusion}
 
 \bibliographystyle{plainnat}
 \bibliography{bibliography}

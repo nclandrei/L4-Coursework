@@ -120,7 +120,7 @@ Firstly, it's needed to be pointed out that various techniques (e.g. Fault Tree 
 
 %------------------------------------------------
 
-\subsubsection{AI is Young}
+\subsection{AI is Young}
 
 \par
 Because of the relatively young age of AI and ML in mainstream technology, there is quite a significant amount of improvements needed to be implemented. As shown before, there are many cases where they failed and lead to possible catastrophic outcomes. \\
@@ -133,7 +133,7 @@ As such, a technique such as Model Checking would automatically check all possib
 
 %------------------------------------------------
 
-\subsubsection{State of the Art Usages of the Model}
+\subsection{State of the Art Usages of the Model}
 
 \par
 There are many cases in the technology world where manufacturers and government bodies adopted Model Checking for AI-driven systems, thus making me more inclined in having confidence in the technique's effectiveness. \\
@@ -148,18 +148,27 @@ Another good example is coming from the aviation field: Rockwell Collins is an i
     \centering
     \includegraphics[width=0.8\textwidth]{display-panels.jpg}
     \caption{Pilot Display Panels}
-    \label{fig:awesome_image}
 \end{figure}
 
-After considering various techniques to assess and mitigate risk as early and efficiently as possible, they ended up with using Model Checking (\citet{rockwell-collins}) for both applications. The systems are crucial, such that whichever would fail during a flight it would impose great risks to both pilots and other travellers. Therefore, they have imposed a Simulink specification using only Boolean and enum types (\citet{acm-model-checking}).
+After considering various techniques to assess and mitigate risk as early and efficiently as possible, they ended up with using Model Checking (\citet{rockwell-collins}) for both applications. The systems are crucial, such that whichever would fail during a flight it would impose great risks to both pilots and other travellers. Therefore, they have imposed a Simulink specification using only Boolean and enum types (\citet{acm-model-checking}). The company has been very pleased with the approach, having 5 autonomous components which had, in turn, 563 properties developed and checked altogether. This revealed around 100 errors in early versions of the window manager. By the end of the project, however, the developers were checking properties after the design change, reporting that they were very satisfied with the new technique for assessing and mitigating risk.
 
 
 %------------------------------------------------
 
-\subsubsection{Available Tools}
+\subsection{Available Tools}
 
 \par
-Talk about the large number of tools available for implementing model checking
+After showing how the tool is used by large companies and governmental agencies throughout the globe, there is a need to discuss about available tools to get started when applying the Model Checking technique. Because such systems where AI is becoming more involved are taking over the technology field, people need fast, reliable and easy to get started tools.
+
+Such an example is the above-mentioned SPIN.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{spin.jpg}
+    \caption{SPIN Model Checking}
+\end{figure}
+
+Not only that the model received the extremely prestigious ACM System Software Award in 2001, but it also has annual conferences held specifically for this technique. The systems need to be described in Promela language, while the properties that need to be verified are expressed as LTL (Linear Temporal Logic) formulas (\citet{spin}).
 
 %------------------------------------------------
 

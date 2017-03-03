@@ -6,45 +6,45 @@ Database file #1: ../bibliography.bib
 Warning--empty journal in volkswagen
 Warning--empty journal in ai-risks
 Warning--empty journal in uber-red-light
-You've used 4 entries,
+You've used 5 entries,
             2773 wiz_defined-function locations,
-            610 strings with 5575 characters,
-and the built_in function-call counts, 1263 in all, are:
-= -- 110
-> -- 40
-< -- 4
-+ -- 16
-- -- 12
-* -- 68
-:= -- 208
-add.period$ -- 15
-call.type$ -- 4
-change.case$ -- 16
-chr.to.int$ -- 4
-cite$ -- 11
-duplicate$ -- 72
-empty$ -- 123
-format.name$ -- 16
-if$ -- 257
+            614 strings with 5775 characters,
+and the built_in function-call counts, 1560 in all, are:
+= -- 136
+> -- 50
+< -- 5
++ -- 20
+- -- 15
+* -- 83
+:= -- 253
+add.period$ -- 18
+call.type$ -- 5
+change.case$ -- 20
+chr.to.int$ -- 5
+cite$ -- 13
+duplicate$ -- 87
+empty$ -- 155
+format.name$ -- 20
+if$ -- 321
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 3
-newline$ -- 31
-num.names$ -- 16
-pop$ -- 42
+newline$ -- 36
+num.names$ -- 20
+pop$ -- 54
 preamble$ -- 1
-purify$ -- 12
+purify$ -- 15
 quote$ -- 0
-skip$ -- 54
+skip$ -- 68
 stack$ -- 0
-substring$ -- 8
-swap$ -- 1
+substring$ -- 10
+swap$ -- 2
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 44
+type$ -- 55
 warning$ -- 3
-while$ -- 12
+while$ -- 15
 width$ -- 0
-write$ -- 58
+write$ -- 70
 (There were 3 warnings)

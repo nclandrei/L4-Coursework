@@ -12,7 +12,6 @@ public class DiffAvgPosProximityFeatureDSM extends DependenceScoreModifier {
 	@Override
 	protected double calculateDependence(IterablePosting[] postings, boolean[] checks,
 										 double[] phraseTermWeights, boolean SD) {
-		int numberOfQueryTerms = checks.length;
 		int numberOfPairs = 0;
 		double score = 0.0d;
 		int len = postings.length;
@@ -32,18 +31,13 @@ public class DiffAvgPosProximityFeatureDSM extends DependenceScoreModifier {
 		}
 		
 		for (int i = 0; i < avgPosList.size() - 1;  i++) {
-			for (int j=i+1; j< avgPosList.size(); j++) {
-				numberOfPairs +=1;
-				score += Math.abs(avgPosList.get(j)-avgPosList.get(i));
+			for (int j = i + 1; j < avgPosList.size(); j++) {
+				numberOfPairs += 1;
+				score += Math.abs(avgPosList.get(j) - avgPosList.get(i));
 			}
 		}
-		
-		if (numberOfPairs == 0) {
-			return 0.0d;
-		}
-		
-		score /= numberOfPairs;	
-		return score;
+
+		return (numberOfPairs == 0) ? 0.0d : score / numberOfPairs;
 	}
 
 	@Override

@@ -31,8 +31,20 @@ public class TestDiffAvgPosProximityFeatureDSM extends ApplicationSetupBasedTest
 		System.out.println("Positions of term 'jumps'="+ Arrays.toString( ((BlockPosting)ips[1]).getPositions()));
 
 		DiffAvgPosProximityFeatureDSM diffAvgPosProximityFeatureDSM = new DiffAvgPosProximityFeatureDSM();
-        double score = diffAvgPosProximityFeatureDSM.calculateDependence(ips, new boolean[]{true,true},
+
+        IterablePosting[] testIps = new IterablePosting[1];
+        testIps[0] = ips[0];
+
+        double score = diffAvgPosProximityFeatureDSM.calculateDependence(testIps, new boolean[]{true},
+                new double[]{1d}, false);
+        assertEquals(0.0d, score, 0.0d);
+
+        score = diffAvgPosProximityFeatureDSM.calculateDependence(ips, new boolean[]{true,true},
                 new double[]{1d,1d}, false);
 		System.out.println(score);
+
+		assertEquals(2/3.0, score, 0.0d);
+
+
 	}
 }

@@ -2,7 +2,7 @@ package uk.ac.gla.dcs.models;
 
 import org.terrier.matching.models.WeightingModel;
 
-public class SimpleModel extends WeightingModel {
+public class SimpleTFIDFModel extends WeightingModel {
 
     public String getInfo() {
         return this.getClass().getSimpleName();

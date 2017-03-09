@@ -7,6 +7,10 @@ import org.terrier.structures.postings.BlockPosting;
 import org.terrier.structures.postings.IterablePosting;
 import org.terrier.matching.dsms.DependenceScoreModifier;
 
+/**
+ * This class implements the 
+ * @author 2147392n
+ */
 public class DiffAvgPosProximityFeatureDSM extends DependenceScoreModifier {
 
 	@Override

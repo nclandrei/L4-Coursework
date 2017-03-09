@@ -74,7 +74,7 @@ public class MinDistProximityFeatureDSM extends DependenceScoreModifier {
 
 	@Override
 	public String getName() {
-		return "ProxFeatureDSM_MYFUNCTION";
+		return "MDPF_DSM";
 	}
 	
 }

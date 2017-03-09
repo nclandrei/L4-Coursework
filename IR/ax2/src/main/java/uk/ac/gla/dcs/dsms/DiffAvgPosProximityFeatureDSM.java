@@ -17,21 +17,21 @@ public class DiffAvgPosProximityFeatureDSM extends DependenceScoreModifier {
 	@Override
 	protected double calculateDependence(IterablePosting[] ips, boolean[] okToUse,
 										 double[] phraseTermWeights, boolean SD) {
-		int numberOfPairs = 0;
 		double finalScore = 0.0d;
 		int len = ips.length;
+        int pairCounter = 0;
 		List<Double> avgPosList = new ArrayList<>();
 
 		for (int i = 0; i < len; i++) {
 			if (okToUse[i]) {
 				BlockPosting blockPosting = (BlockPosting) ips[i];
 				int[] positionsList = blockPosting.getPositions();
-				double avg_pos = 0;
+				double averagePosition = 0;
 				for (int pos : positionsList) {
-					avg_pos += pos;
+					averagePosition += pos;
 				}
-				avg_pos /= positionsList.length;
-				avgPosList.add(avg_pos);
+				averagePosition /= positionsList.length;
+				avgPosList.add(averagePosition);
 			}
 		}
 
@@ -39,12 +39,12 @@ public class DiffAvgPosProximityFeatureDSM extends DependenceScoreModifier {
 		
 		for (int i = 0; i < avgPosListSize - 1;  i++) {
 			for (int j = i + 1; j < avgPosListSize; j++) {
-				numberOfPairs += 1;
+				pairCounter += 1;
 				finalScore += Math.abs(avgPosList.get(j) - avgPosList.get(i));
 			}
 		}
 
-		return (numberOfPairs == 0) ? 0.0d : finalScore / numberOfPairs;
+		return (pairCounter == 0) ? 0.0d : finalScore / pairCounter;
 	}
 
 	@Override
@@ -52,10 +52,9 @@ public class DiffAvgPosProximityFeatureDSM extends DependenceScoreModifier {
 		throw new UnsupportedOperationException();
 	}
 
-
 	@Override
 	public String getName() {
-		return "DAPPF_DSM";
+		return "Diff_Avg_Pos_Proximity_Feature_DSM";
 	}
 	
 }

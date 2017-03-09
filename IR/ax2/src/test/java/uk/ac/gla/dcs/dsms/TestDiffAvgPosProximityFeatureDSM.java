@@ -12,17 +12,14 @@ import org.terrier.structures.postings.IterablePosting;
 import org.terrier.tests.ApplicationSetupBasedTest;
 import org.terrier.utility.ApplicationSetup;
 
-public class TestSampleProxFeatureDSM extends ApplicationSetupBasedTest
-{
-	@Test public void testOneDocTwoTerms() throws Exception {
-
-		//make an index with a single sample document
+public class TestDiffAvgPosProximityFeatureDSM extends ApplicationSetupBasedTest {
+	@Test
+    public void testOneDocTwoTerms() throws Exception {
 		ApplicationSetup.setProperty("termpipelines", "");
 		Index index = IndexTestUtils.makeIndexBlocks(
 				new String[]{"doc1"}, 
 				new String[]{"The quick brown fox jumps over the lazy dog"});
 
-		//get posting iterators for two terms 'fox' and 'jumps'
 		IterablePosting[] ips = new IterablePosting[2];
 		ips[0] = index.getInvertedIndex().getPostings(index.getLexicon().getLexiconEntry("fox"));
 		ips[1] = index.getInvertedIndex().getPostings(index.getLexicon().getLexiconEntry("jumps"));
@@ -33,14 +30,9 @@ public class TestSampleProxFeatureDSM extends ApplicationSetupBasedTest
 		System.out.println("Positions of term 'fox'="+ Arrays.toString( ((BlockPosting)ips[0]).getPositions()));
 		System.out.println("Positions of term 'jumps'="+ Arrays.toString( ((BlockPosting)ips[1]).getPositions()));
 
-		SampleProxFeatureDSM sample = new SampleProxFeatureDSM();
-		double score = sample.calculateDependence(
-            ips, //posting lists
-            new boolean[]{true,true},  //is this posting list on the correct document?
-            new double[]{1d,1d}, false//doesnt matter
-		);
+		DiffAvgPosProximityFeatureDSM diffAvgPosProximityFeatureDSM = new DiffAvgPosProximityFeatureDSM();
+        double score = diffAvgPosProximityFeatureDSM.calculateDependence(ips, new boolean[]{true,true},
+                new double[]{1d,1d}, false);
 		System.out.println(score);
-		//TODO: make your assertion about what the score should be
-		//assertEquals(XXX, score, 0.0d);
 	}
 }

@@ -5,17 +5,16 @@ import org.terrier.structures.postings.IterablePosting;
 
 import org.terrier.matching.dsms.DependenceScoreModifier;
 
-public class MinDistProxFeatureDSM extends DependenceScoreModifier {
+public class MinDistProximityFeatureDSM extends DependenceScoreModifier {
 
 	@Override
 	protected double calculateDependence(
-			IterablePosting[] ips, //posting lists
-			boolean[] okToUse,  //is this posting list on the correct document?
-			double[] phraseTermWeights, boolean SD //not needed
+			IterablePosting[] ips,
+			boolean[] okToUse,
+			double[] phraseTermWeights, boolean SD
 		) 
 	{
 		
-		final int numberOfQueryTerms = okToUse.length;
 		int numberOfPairs = 0;
 
 
@@ -41,7 +40,6 @@ public class MinDistProxFeatureDSM extends DependenceScoreModifier {
 
 		}
 		
-		// if there are no pairs i.e. only 1 query term then return 0
 		if (numberOfPairs == 0)
 		{
 			return 0.0d;

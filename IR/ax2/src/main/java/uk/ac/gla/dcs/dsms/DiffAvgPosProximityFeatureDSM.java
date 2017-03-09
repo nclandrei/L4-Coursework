@@ -8,7 +8,8 @@ import org.terrier.structures.postings.IterablePosting;
 import org.terrier.matching.dsms.DependenceScoreModifier;
 
 /**
- * This class implements the 
+ * This class implements the diff_avg_pos (a, b, D) from the proximity measures
+ * section in Ronan Cummins and Colm O'Riordan's paper.
  * @author 2147392n
  */
 public class DiffAvgPosProximityFeatureDSM extends DependenceScoreModifier {
@@ -33,9 +34,11 @@ public class DiffAvgPosProximityFeatureDSM extends DependenceScoreModifier {
 				avgPosList.add(avg_pos);
 			}
 		}
+
+		int avgPosListSize = avgPosList.size();
 		
-		for (int i = 0; i < avgPosList.size() - 1;  i++) {
-			for (int j = i + 1; j < avgPosList.size(); j++) {
+		for (int i = 0; i < avgPosListSize - 1;  i++) {
+			for (int j = i + 1; j < avgPosListSize; j++) {
 				numberOfPairs += 1;
 				finalScore += Math.abs(avgPosList.get(j) - avgPosList.get(i));
 			}

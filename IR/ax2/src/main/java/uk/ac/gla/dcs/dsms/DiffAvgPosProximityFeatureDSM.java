@@ -10,22 +10,22 @@ import org.terrier.matching.dsms.DependenceScoreModifier;
 public class DiffAvgPosProximityFeatureDSM extends DependenceScoreModifier {
 
 	@Override
-	protected double calculateDependence(IterablePosting[] postings, boolean[] checks,
+	protected double calculateDependence(IterablePosting[] ips, boolean[] okToUse,
 										 double[] phraseTermWeights, boolean SD) {
 		int numberOfPairs = 0;
-		double score = 0.0d;
-		int len = postings.length;
+		double finalScore = 0.0d;
+		int len = ips.length;
 		List<Double> avgPosList = new ArrayList<>();
 
 		for (int i = 0; i < len; i++) {
-			if (checks[i]) {
-				BlockPosting blockPosting = (BlockPosting) postings[i]; 
-				int[] posList = blockPosting.getPositions();
+			if (okToUse[i]) {
+				BlockPosting blockPosting = (BlockPosting) ips[i];
+				int[] positionsList = blockPosting.getPositions();
 				double avg_pos = 0;
-				for (int pos : posList) {
+				for (int pos : positionsList) {
 					avg_pos += pos;
 				}
-				avg_pos /= posList.length;
+				avg_pos /= positionsList.length;
 				avgPosList.add(avg_pos);
 			}
 		}
@@ -33,11 +33,11 @@ public class DiffAvgPosProximityFeatureDSM extends DependenceScoreModifier {
 		for (int i = 0; i < avgPosList.size() - 1;  i++) {
 			for (int j = i + 1; j < avgPosList.size(); j++) {
 				numberOfPairs += 1;
-				score += Math.abs(avgPosList.get(j) - avgPosList.get(i));
+				finalScore += Math.abs(avgPosList.get(j) - avgPosList.get(i));
 			}
 		}
 
-		return (numberOfPairs == 0) ? 0.0d : score / numberOfPairs;
+		return (numberOfPairs == 0) ? 0.0d : finalScore / numberOfPairs;
 	}
 
 	@Override

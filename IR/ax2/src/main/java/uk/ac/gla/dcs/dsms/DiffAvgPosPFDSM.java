@@ -7,7 +7,7 @@ import org.terrier.structures.postings.BlockPosting;
 import org.terrier.structures.postings.IterablePosting;
 import org.terrier.matching.dsms.DependenceScoreModifier;
 
-public class DiffAvgPosProxFeatureDSM extends DependenceScoreModifier {
+public class DiffAvgPosPFDSM extends DependenceScoreModifier {
 
 	@Override
 	protected double calculateDependence(IterablePosting[] postings, boolean[] checks, double[] phraseTermWeights, boolean SD) {

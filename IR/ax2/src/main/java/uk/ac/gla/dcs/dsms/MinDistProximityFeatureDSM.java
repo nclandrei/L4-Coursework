@@ -24,10 +24,10 @@ public class MinDistProximityFeatureDSM extends DependenceScoreModifier {
                     if (okToUse[j]) {
                         pairCounter +=1;
                         BlockPosting firstBlockPosting = (BlockPosting) ips[i];
-                        int[] firstPosList = firstBlockPosting.getPositions();
+                        int[] firstBlockPostingPositionsList = firstBlockPosting.getPositions();
                         BlockPosting secondBlockPosting = (BlockPosting) ips[j];
-                        int[] secondPosList = secondBlockPosting.getPositions();
-                        finalScore += getMinDistBetweenPostingLists(firstPosList, secondPosList);
+                        int[] secondBlockPostingPositionsList = secondBlockPosting.getPositions();
+                        finalScore += getMinDistance(firstBlockPostingPositionsList, secondBlockPostingPositionsList);
                     }
                 }
             }
@@ -49,20 +49,18 @@ public class MinDistProximityFeatureDSM extends DependenceScoreModifier {
         return "Min_Dist_Proximity_Feature_DSM";
     }
 
-    private double getMinDistBetweenPostingLists(int[]firstPosList, int[]secondPosList) {
+    private double getMinDistance(int[] firstBlockPostingPositionsList, int[] secondBlockPostingPositionsList) {
         double min = Double.MAX_VALUE;
 
-        for (int k=0; k< firstPosList.length;  k++) {
-            for (int l=0; l< secondPosList.length; l++) {
-                double dist = Math.abs(secondPosList[l]-firstPosList[k]);
-                if (min > dist) {
-                    min = dist;
+        for (int firstElem : firstBlockPostingPositionsList) {
+            for (int secondElem : secondBlockPostingPositionsList) {
+                double distance = Math.abs(firstElem - secondElem);
+                if (min > distance) {
+                    min = distance;
                 }
             }
         }
 
         return min;
     }
-
-
 }

@@ -7,10 +7,11 @@ import org.terrier.structures.postings.BlockPosting;
 import org.terrier.structures.postings.IterablePosting;
 import org.terrier.matching.dsms.DependenceScoreModifier;
 
-public class DiffAvgPosPFDSM extends DependenceScoreModifier {
+public class DiffAvgPosProximityFeatureDSM extends DependenceScoreModifier {
 
 	@Override
-	protected double calculateDependence(IterablePosting[] postings, boolean[] checks, double[] phraseTermWeights, boolean SD) {
+	protected double calculateDependence(IterablePosting[] postings, boolean[] checks,
+										 double[] phraseTermWeights, boolean SD) {
 		int numberOfQueryTerms = checks.length;
 		int numberOfPairs = 0;
 		double score = 0.0d;

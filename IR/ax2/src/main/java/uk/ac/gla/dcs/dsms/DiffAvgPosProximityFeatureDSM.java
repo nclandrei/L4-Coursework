@@ -20,7 +20,7 @@ public class DiffAvgPosProximityFeatureDSM extends DependenceScoreModifier {
 		double finalScore = 0.0d;
 		int len = ips.length;
         int pairCounter = 0;
-		List<Double> avgPosList = new ArrayList<>();
+		List<Double> averagePositionsList = new ArrayList<>();
 
 		for (int i = 0; i < len; i++) {
 			if (okToUse[i]) {
@@ -31,16 +31,16 @@ public class DiffAvgPosProximityFeatureDSM extends DependenceScoreModifier {
 					averagePosition += pos;
 				}
 				averagePosition /= positionsList.length;
-				avgPosList.add(averagePosition);
+				averagePositionsList.add(averagePosition);
 			}
 		}
 
-		int avgPosListSize = avgPosList.size();
+		int avgPosListSize = averagePositionsList.size();
 		
 		for (int i = 0; i < avgPosListSize - 1;  i++) {
 			for (int j = i + 1; j < avgPosListSize; j++) {
 				pairCounter += 1;
-				finalScore += Math.abs(avgPosList.get(j) - avgPosList.get(i));
+				finalScore += Math.abs(averagePositionsList.get(j) - averagePositionsList.get(i));
 			}
 		}
 

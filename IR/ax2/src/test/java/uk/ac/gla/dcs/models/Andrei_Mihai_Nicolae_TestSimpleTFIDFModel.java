@@ -9,7 +9,11 @@ import org.terrier.structures.Index;
 import org.terrier.tests.ApplicationSetupBasedTest;
 import org.terrier.utility.ApplicationSetup;
 
-public class TestSimpleTFIDFModel extends ApplicationSetupBasedTest {
+/**
+ * Unit test for the simple TF*IDF model implemented
+ * @author 2147392n (Andrei-Mihai Nicolae)
+ */
+public class Andrei_Mihai_Nicolae_TestSimpleTFIDFModel extends ApplicationSetupBasedTest {
 
 	@Test
 	public void testModel() throws Exception {
@@ -19,7 +23,7 @@ public class TestSimpleTFIDFModel extends ApplicationSetupBasedTest {
 				new String[]{"The quick brown fox jumps over the lazy dog", 
 					"Exploring the zoo, we saw every kangaroo jump and quite a few carried babies."});
 		
-		WeightingModel wm = new SimpleTFIDFModel();
+		WeightingModel wm = new Andrei_Mihai_Nicolae_SimpleTFIDFModel();
 		wm.setCollectionStatistics(index.getCollectionStatistics());
 		assertEquals(2, index.getCollectionStatistics().getNumberOfDocuments());
 		

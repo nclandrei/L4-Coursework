@@ -14,9 +14,9 @@ import org.terrier.utility.ApplicationSetup;
 
 /**
  * Test class for the min_dist proximity feature DSM
- * @author 2147392n
+ * @author 2147392n (Andrei-Mihai Nicolae)
  */
-public class TestMinDistProximityFeatureDSM extends ApplicationSetupBasedTest {
+public class Andrei_Mihai_Nicolae_TestMinDistProximityFeatureDSM extends ApplicationSetupBasedTest {
 	@Test
     public void testOneDocTwoTerms() throws Exception {
         ApplicationSetup.setProperty("termpipelines", "");
@@ -46,16 +46,16 @@ public class TestMinDistProximityFeatureDSM extends ApplicationSetupBasedTest {
         System.out.println("Positions of term 'jumps'="+ Arrays.toString( ((BlockPosting)ips[1]).getPositions()));
 		System.out.println("Positions of term 'lazy'="+ Arrays.toString( ((BlockPosting)ips[2]).getPositions()));
 
-		MinDistProximityFeatureDSM minDistProximityFeatureDSM = new MinDistProximityFeatureDSM();
+		Andrei_Mihai_Nicolae_MinDistProximityFeatureDSM andreiMihaiNicolaeMinDistProximityFeatureDSM = new Andrei_Mihai_Nicolae_MinDistProximityFeatureDSM();
 
         IterablePosting[] testSingleIPList = new IterablePosting[1];
 		testSingleIPList[0] = ips[0];
 
-		double score = minDistProximityFeatureDSM.calculateDependence(testSingleIPList, new boolean[]{true},
+		double score = andreiMihaiNicolaeMinDistProximityFeatureDSM.calculateDependence(testSingleIPList, new boolean[]{true},
                 new double[]{1d}, false);
 		assertEquals(0.0d, score, 0.0d);
 
-		score = minDistProximityFeatureDSM.calculateDependence(ips, new boolean[]{true,true,true},
+		score = andreiMihaiNicolaeMinDistProximityFeatureDSM.calculateDependence(ips, new boolean[]{true,true,true},
                 new double[]{1d, 1d, 1d}, false);
 		assertEquals(2.0d, score, 0.0d);
 	}

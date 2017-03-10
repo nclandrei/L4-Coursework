@@ -14,9 +14,9 @@ import org.terrier.utility.ApplicationSetup;
 
 /**
  * Test class for the diff_avg_pos proximity feature DSM
- * @author 2147392n
+ * @author 2147392n (Andrei-Mihai Nicolae)
  */
-public class TestDiffAvgPosProximityFeatureDSM extends ApplicationSetupBasedTest {
+public class Andrei_Mihai_Nicolae_TestDiffAvgPosProximityFeatureDSM extends ApplicationSetupBasedTest {
 	@Test
     public void testOneDocTwoTerms() throws Exception {
 		ApplicationSetup.setProperty("termpipelines", "");
@@ -42,16 +42,16 @@ public class TestDiffAvgPosProximityFeatureDSM extends ApplicationSetupBasedTest
 		System.out.println("Positions of term 'jumps'="+ Arrays.toString( ((BlockPosting)ips[1]).getPositions()));
         System.out.println("Positions of term 'lazy'="+ Arrays.toString( ((BlockPosting)ips[2]).getPositions()));
 
-		DiffAvgPosProximityFeatureDSM diffAvgPosProximityFeatureDSM = new DiffAvgPosProximityFeatureDSM();
+		Andrei_Mihai_Nicolae_DiffAvgPosProximityFeatureDSM andreiMihaiNicolaeDiffAvgPosProximityFeatureDSM = new Andrei_Mihai_Nicolae_DiffAvgPosProximityFeatureDSM();
 
         IterablePosting[] testSingleIPList = new IterablePosting[1];
         testSingleIPList[0] = ips[0];
 
-        double score = diffAvgPosProximityFeatureDSM.calculateDependence(testSingleIPList, new boolean[]{true},
+        double score = andreiMihaiNicolaeDiffAvgPosProximityFeatureDSM.calculateDependence(testSingleIPList, new boolean[]{true},
                 new double[]{1d}, false);
         assertEquals(0.0d, score, 0.0d);
 
-        score = diffAvgPosProximityFeatureDSM.calculateDependence(ips, new boolean[]{true, true, true},
+        score = andreiMihaiNicolaeDiffAvgPosProximityFeatureDSM.calculateDependence(ips, new boolean[]{true, true, true},
                 new double[]{1d, 1d, 1d}, false);
 		assertEquals(2/3.0, score, 0.0d);
 	}

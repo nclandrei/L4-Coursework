@@ -10,9 +10,9 @@ import org.terrier.matching.dsms.DependenceScoreModifier;
 /**
  * This class implements the diff_avg_pos (a, b, D) from the proximity measures
  * section in Ronan Cummins and Colm O'Riordan's paper.
- * @author 2147392n
+ * @author 2147392n (Andrei-Mihai Nicolae)
  */
-public class DiffAvgPosProximityFeatureDSM extends DependenceScoreModifier {
+public class Andrei_Mihai_Nicolae_DiffAvgPosProximityFeatureDSM extends DependenceScoreModifier {
 
 	@Override
 	protected double calculateDependence(IterablePosting[] ips, boolean[] okToUse,

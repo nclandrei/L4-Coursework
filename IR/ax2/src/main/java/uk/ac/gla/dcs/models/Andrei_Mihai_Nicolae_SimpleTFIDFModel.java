@@ -2,6 +2,10 @@ package uk.ac.gla.dcs.models;
 
 import org.terrier.matching.models.WeightingModel;
 
+/**
+ * Simple TF*IDF model implemented
+ * @author 2147392n (Andrei-Mihai Nicolae)
+ */
 public class Andrei_Mihai_Nicolae_SimpleTFIDFModel extends WeightingModel {
 
     public String getInfo() {

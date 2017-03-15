@@ -16,8 +16,8 @@ import org.apache.hadoop.util.ToolRunner;
 
 public class MainTaskTwo extends Configured implements Tool {
 
-    public static final String outputPath = "hdfs:///user/2147392n/ax2_task2";
-	public static final String inputPath = "BD4:enwiki-perftest";
+    private static final String outputPath = "hdfs:///user/2147392n/ax2_task2";
+	private static final String inputPath = "BD4:enwiki-perftest";
 
 	@Override
 	public int run(String[] args) throws Exception {
@@ -33,7 +33,7 @@ public class MainTaskTwo extends Configured implements Tool {
 		scan.setCacheBlocks(false);
 		scan.addFamily(Bytes.toBytes("WD"));
 		TableMapReduceUtil.initTableMapperJob(inputPath, scan, MapperTaskTwo.class,
-                LongWritable.class, RevisionTimestampPair.class, job);
+                LongWritable.class, UtilityPairRevisionTimestamp.class, job);
 		job.setOutputFormatClass(TextOutputFormat.class);
 		job.setReducerClass(ReducerTaskTwo.class);
 		FileOutputFormat.setOutputPath(job, new Path(outputPath));

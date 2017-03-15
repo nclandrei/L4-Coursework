@@ -8,26 +8,25 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ReducerTaskTwo extends Reducer<LongWritable, RevisionTimestampPair, LongWritable, Text> {
-	public void reduce(LongWritable key,Iterable<RevisionTimestampPair> values, Context context) throws IOException,InterruptedException {
+public class ReducerTaskTwo extends Reducer<LongWritable, UtilityPairRevisionTimestamp, LongWritable, Text> {
+	public void reduce(LongWritable key,Iterable<UtilityPairRevisionTimestamp> values, Context context)
+            throws IOException,InterruptedException {
 		Text _value = new Text();
-		
-		long mostRecentTimestamp = 0;
-		long mostRecentRevisionID = 0;
+        long resultRevision = 0;
+		long resultTimestamp = 0;
 
-        for (RevisionTimestampPair rev : values) {
+        for (UtilityPairRevisionTimestamp rev : values) {
             long timestamp = rev.getTimestamp().get();
-
-            if (timestamp > mostRecentTimestamp) {
-                mostRecentTimestamp = timestamp;
-                mostRecentRevisionID = rev.getRevisionID().get();
+            if (timestamp > resultTimestamp) {
+                resultTimestamp = timestamp;
+                resultRevision = rev.getRevisionID().get();
             }
         }
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append(mostRecentRevisionID).append(" ");
+		sb.append(resultRevision).append(" ");
 		
-		Date timestampDate = new Date(mostRecentTimestamp);
+		Date timestampDate = new Date(resultTimestamp);
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
 		sb.append(df.format(timestampDate));
 	

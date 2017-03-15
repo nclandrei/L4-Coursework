@@ -9,25 +9,25 @@ import org.apache.hadoop.io.LongWritable;
 
 import java.io.IOException;
 
-public class MapperTaskTwo extends TableMapper<LongWritable, RevisionTimestampPair> {
+public class MapperTaskTwo extends TableMapper<LongWritable, UtilityPairRevisionTimestamp> {
 	private LongWritable _key = new LongWritable();
-	long currentTimestamp;
+	private long currentTimestamp;
 	
 	protected void setup(Context context) {
 		Configuration conf = context.getConfiguration();
 		String timestamp = conf.get("args");
-		currentTimestamp = javax.xml.bind.DatatypeConverter.parseDateTime(timestamp).getTime().getTime();
+		this.currentTimestamp = javax.xml.bind.DatatypeConverter.parseDateTime(timestamp).getTime().getTime();
 	}
 	
 	public void map(ImmutableBytesWritable key, Result value, Context context) throws IOException, InterruptedException {
-		long articleID = Bytes.toLong(key.get(), 0);
-		long revisionID = Bytes.toLong(key.get(), 8);
-		long timestamp = value.rawCells()[0].getTimestamp();
-		
+        long revision = Bytes.toLong(key.get(), 8);
+        long timestamp = value.rawCells()[0].getTimestamp();
+		long article = Bytes.toLong(key.get(), 0);
+
 		if (timestamp <= currentTimestamp) {
-			_key.set(articleID);
-			RevisionTimestampPair compositeValue = new RevisionTimestampPair(revisionID, timestamp);
-			context.write(_key, compositeValue);
+			_key.set(article);
+			UtilityPairRevisionTimestamp pairVal = new UtilityPairRevisionTimestamp(revision, timestamp);
+			context.write(_key, pairVal);
 		}
 	}
 }

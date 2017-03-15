@@ -10,12 +10,10 @@ import java.io.IOException;
 
 public class RevisionTimestampPair implements Writable, WritableComparable<RevisionTimestampPair> {
 	
-	private LongWritable revisionID = new LongWritable();
-	private LongWritable timestamp = new LongWritable();
+	private LongWritable revisionID;
+	private LongWritable timestamp;
 	
-	public RevisionTimestampPair() {}
-	
-	public RevisionTimestampPair(long revisionID, long timestamp) {
+	RevisionTimestampPair(long revisionID, long timestamp) {
 		this.revisionID = new LongWritable(revisionID);
 		this.timestamp = new LongWritable(timestamp);
 	}
@@ -32,37 +30,17 @@ public class RevisionTimestampPair implements Writable, WritableComparable<Revis
 		out.writeLong(timestamp.get());
 		
 	}
-	
-	@Override
-	public String toString() {
-		return "RevisionID: " + revisionID.toString() + " - Timestamp: " + timestamp.toString();
-	}
 
-
-	public LongWritable getRevisionID() {
+	LongWritable getRevisionID() {
 		return revisionID;
 	}
 
-	public void setRevisionID(LongWritable revisionID) {
-		this.revisionID = revisionID;
-	}
-
-	public LongWritable getTimestamp() {
+	LongWritable getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(LongWritable timestamp) {
-		this.timestamp = timestamp;
-	}
-
-	@Override
-	public int compareTo(RevisionTimestampPair o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	
-
-	
-
+    @Override
+    public int compareTo(RevisionTimestampPair o) {
+        return 0;
+    }
 }

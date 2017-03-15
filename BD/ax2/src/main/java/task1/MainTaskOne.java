@@ -16,8 +16,8 @@ import org.apache.hadoop.util.ToolRunner;
 
 public class MainTaskOne extends Configured implements Tool {
 
-	public static final String outputPath = "hdfs:///user/2147392n/ax2_task1";
-	public static final String inputPath = "BD4:enwiki-perftest";
+	private static final String outputPath = "hdfs:///user/2147392n/ax2_task1";
+	private static final String inputPath = "BD4:enwiki-perftest";
 	
 	@Override
 	public int run(String[] args) throws Exception {

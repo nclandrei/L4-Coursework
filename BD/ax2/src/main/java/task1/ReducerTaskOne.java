@@ -3,7 +3,6 @@ package task1;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -13,10 +12,10 @@ public class ReducerTaskOne extends Reducer<LongWritable, LongWritable, LongWrit
 	public void reduce(LongWritable key,Iterable<LongWritable> values, Context context)
             throws IOException,InterruptedException {
         Text _value = new Text();
-		List<Long> revisionsList = new ArrayList<Long>();
+		List<Long> revisionsList = new ArrayList<>();
 
-		for (Iterator<LongWritable> it = values.iterator(); it.hasNext();) {
-			revisionsList.add(it.next().get());
+		for (LongWritable value : values) {
+			revisionsList.add(value.get());
 		}
 		
 		Collections.sort(revisionsList);
@@ -25,7 +24,7 @@ public class ReducerTaskOne extends Reducer<LongWritable, LongWritable, LongWrit
 		sb.append(revisionsList.size());
 
 		for(Long rev: revisionsList){
-			sb.append(" " + rev);
+			sb.append(" ").append(rev);
 		}
 
 		_value.set(sb.toString());

@@ -16,8 +16,8 @@ public class MapperTaskOne extends TableMapper<LongWritable, LongWritable> {
 	protected void setup(Context context) {
 		Configuration conf = context.getConfiguration();
 		String[] args = conf.getStrings("args");
-		startTimestamp = javax.xml.bind.DatatypeConverter.parseDateTime(args[0]).getTime().getTime();
-		endTimestamp = javax.xml.bind.DatatypeConverter.parseDateTime(args[1]).getTime().getTime();
+		startTimestamp = javax.xml.bind.DatatypeConverter.parseDateTime(args[2]).getTime().getTime();
+		endTimestamp = javax.xml.bind.DatatypeConverter.parseDateTime(args[3]).getTime().getTime();
 	}
 	
 	public void map(ImmutableBytesWritable key, Result value, Context context)

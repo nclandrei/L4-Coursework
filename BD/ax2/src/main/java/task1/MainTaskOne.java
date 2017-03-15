@@ -24,7 +24,7 @@ public class MainTaskOne extends Configured implements Tool {
 		Configuration conf = HBaseConfiguration.create(getConf());
 		conf.addResource(new Path("/local/bd4/bd4-hadoop-ug/conf/core-site.xml"));
 		conf.set("mapred.jar", "ax2_task1.jar");
-		conf.setStrings("args", args[0], args[1]);
+		conf.setStrings("args", args[0], args[1], args[2], args[3]);
 		Job job = Job.getInstance(conf);
 		job.setJarByClass(MainTaskOne.class);
 		job.setJobName("BD4-AX2-TASK1-2147392n");
@@ -32,11 +32,11 @@ public class MainTaskOne extends Configured implements Tool {
 		scan.setCaching(100);
 		scan.setCacheBlocks(false);
 		scan.addFamily(Bytes.toBytes("WD"));
-		TableMapReduceUtil.initTableMapperJob(inputPath, scan, MapperTaskOne.class,
+		TableMapReduceUtil.initTableMapperJob(args[0], scan, MapperTaskOne.class,
                 LongWritable.class, LongWritable.class, job);
 		job.setOutputFormatClass(TextOutputFormat.class);
 		job.setReducerClass(ReducerTaskOne.class);
-		FileOutputFormat.setOutputPath(job, new Path(outputPath));
+		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 		job.setNumReduceTasks(1);
 		job.submit();
 		return job.waitForCompletion(true) ? 0 : 1;

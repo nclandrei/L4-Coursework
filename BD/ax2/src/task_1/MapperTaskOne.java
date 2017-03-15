@@ -8,7 +8,7 @@ import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 
-public class CustomMapper extends TableMapper<LongWritable, LongWritable> {
+public class MapperTaskOne extends TableMapper<LongWritable, LongWritable> {
 	private LongWritable _key = new LongWritable();
 	private LongWritable _value = new LongWritable();
 	long startTimestamp, endTimestamp;
@@ -32,8 +32,5 @@ public class CustomMapper extends TableMapper<LongWritable, LongWritable> {
 			_value.set(revisionID);
 			context.write(_key, _value);
 		}
-		
-		
-		
 	}
 }

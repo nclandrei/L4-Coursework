@@ -15,44 +15,35 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-public class Main extends Configured implements Tool {
+public class MainTaskOne extends Configured implements Tool {
 
-	public static final String inputFile = "BD4:enwiki-perftest";
-	public static final String outputFile = "hdfs:///user/2088959m/ax2";
+	public static final String outputPath = "hdfs:///user/2147392n/ax2";
+	public static final String inputPath = "BD4:enwiki-perftest";
 	
 	@Override
 	public int run(String[] args) throws Exception {
 		Configuration conf = HBaseConfiguration.create(getConf());
 		conf.addResource(new Path("/local/bd4/bd4-hadoop-ug/conf/core-site.xml"));
-		conf.set("mapred.jar", "file:///users/level4/2088959m/workspace/bd/bd4ae2.jar");
+		conf.set("mapred.jar", "ax2_task1.jar");
 		conf.setStrings("arguments", args[0], args[1]);
-		
 		Job job = Job.getInstance(conf);
-		job.setJarByClass(Main.class);
-		
-		
+		job.setJarByClass(MainTaskOne.class);
+		job.setJobName("BD4-AX2-TASK1-2147392n");
 		Scan scan = new Scan();
 		scan.setCaching(100);
 		scan.setCacheBlocks(false);
 		scan.addFamily(Bytes.toBytes("WD"));
-		
 		TableMapReduceUtil.initTableMapperJob(inputFile, scan, CustomMapper.class, LongWritable.class, LongWritable.class, job);
-		
 		job.setOutputFormatClass(TextOutputFormat.class);
 		job.setReducerClass(CustomReducer.class);
-		
 		FileOutputFormat.setOutputPath(job, new Path(outputFile));
-		
 		job.setNumReduceTasks(1);
-		
 		job.submit();
-		
 		return job.waitForCompletion(true) ? 0 : 1;
 		
 	}
 
 	public static void main(String[] args) throws Exception {
-		System.exit(ToolRunner.run(new Main(), args));
+		System.exit(ToolRunner.run(new MainTaskOne(), args));
 	}
-
 }

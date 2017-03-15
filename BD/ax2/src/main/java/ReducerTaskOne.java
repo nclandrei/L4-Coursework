@@ -3,14 +3,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class CustomReducer extends Reducer<LongWritable, LongWritable, LongWritable, Text> {
-
-	
+public class ReducerTaskOne extends Reducer<LongWritable, LongWritable, LongWritable, Text> {
 	public void reduce(LongWritable key,Iterable<LongWritable> values, Context context) throws IOException,InterruptedException {
 		List<Long> revisions = new ArrayList<Long>();
 		Text _value = new Text();

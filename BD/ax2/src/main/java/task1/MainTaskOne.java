@@ -15,10 +15,6 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
 public class MainTaskOne extends Configured implements Tool {
-
-	private static final String outputPath = "hdfs:///user/2147392n/ax2_task1";
-	private static final String inputPath = "BD4:enwiki-perftest";
-	
 	@Override
 	public int run(String[] args) throws Exception {
 		Configuration conf = HBaseConfiguration.create(getConf());

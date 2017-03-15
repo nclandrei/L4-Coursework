@@ -27,8 +27,8 @@ public class ReducerTaskTwo extends Reducer<LongWritable, UtilityPairRevisionTim
 		sb.append(resultRevision).append(" ");
 		
 		Date timestampDate = new Date(resultTimestamp);
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-		sb.append(df.format(timestampDate));
+		DateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+		sb.append(simpleDateFormat.format(timestampDate));
 	
 		_value.set(sb.toString());
 		context.write(key, _value);

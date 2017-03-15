@@ -5,13 +5,10 @@ import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.Scan;
-import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
 import org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil;
 import org.apache.hadoop.hbase.util.Bytes;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.mapreduce.Job;
-import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
@@ -35,11 +32,11 @@ public class MainTaskOne extends Configured implements Tool {
 		scan.setCaching(100);
 		scan.setCacheBlocks(false);
 		scan.addFamily(Bytes.toBytes("WD"));
-		TableMapReduceUtil.initTableMapperJob(inputFile, scan, MapperTaskOne.class,
+		TableMapReduceUtil.initTableMapperJob(inputPath, scan, MapperTaskOne.class,
                 LongWritable.class, LongWritable.class, job);
 		job.setOutputFormatClass(TextOutputFormat.class);
 		job.setReducerClass(ReducerTaskOne.class);
-		FileOutputFormat.setOutputPath(job, new Path(outputFile));
+		FileOutputFormat.setOutputPath(job, new Path(outputPath));
 		job.setNumReduceTasks(1);
 		job.submit();
 		return job.waitForCompletion(true) ? 0 : 1;

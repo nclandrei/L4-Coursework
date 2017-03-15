@@ -1,12 +1,13 @@
-import java.io.IOException;
+package task2;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
 import org.apache.hadoop.hbase.mapreduce.TableMapper;
 import org.apache.hadoop.hbase.util.Bytes;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
+
+import java.io.IOException;
 
 public class MapperTaskTwo extends TableMapper<LongWritable, RevisionTimestampPair> {
 	private LongWritable _key = new LongWritable();
@@ -14,9 +15,8 @@ public class MapperTaskTwo extends TableMapper<LongWritable, RevisionTimestampPa
 	
 	protected void setup(Context context) {
 		Configuration conf = context.getConfiguration();
-		String timestamp = conf.get("arguments");
+		String timestamp = conf.get("args");
 		currentTimestamp = javax.xml.bind.DatatypeConverter.parseDateTime(timestamp).getTime().getTime();
-		
 	}
 	
 	public void map(ImmutableBytesWritable key, Result value, Context context) throws IOException, InterruptedException {

@@ -16,6 +16,8 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+import static com.oracle.jrockit.jfr.ContentType.Bytes;
+
 public class Main extends Configured implements Tool {
 
 	public static final String inputFile = "BD4:enwiki-perftest";

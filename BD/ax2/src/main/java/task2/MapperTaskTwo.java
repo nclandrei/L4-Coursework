@@ -15,8 +15,8 @@ public class MapperTaskTwo extends TableMapper<LongWritable, UtilityPairRevision
 	
 	protected void setup(Context context) {
 		Configuration conf = context.getConfiguration();
-		String timestamp = conf.get("args");
-		this.currentTimestamp = javax.xml.bind.DatatypeConverter.parseDateTime(timestamp).getTime().getTime();
+		String[] args = conf.getStrings("args");
+		this.currentTimestamp = javax.xml.bind.DatatypeConverter.parseDateTime(args[2]).getTime().getTime();
 	}
 	
 	public void map(ImmutableBytesWritable key, Result value, Context context) throws IOException, InterruptedException {

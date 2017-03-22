@@ -100,6 +100,17 @@ The rest of the report will analyze the background of animators and why they wer
 
 %==============================================================================
 
+\chapter{Planning}
+\label{planning}
+
+\section{Agile}
+
+\subsection{Kanban Board}
+
+\subsection{Issues \& Bug Tracking}
+
+%==============================================================================
+
 \chapter{Design}
 \label{design}
 
@@ -121,28 +132,6 @@ The rest of the report will analyze the background of animators and why they wer
 \label{implementation}
 
 \section{High-Level Overview}
-The implementation of the system is based heavily upon a Model-View-Controller architecture. The model portion of the system provides 
-a collection of algorithms with methods allowing them to be run, giving the ability to integrate the algorithms into a range of front-ends. 
-This allows the user interface to be implemented independently of the algorithms, enabling a new interface to be placed on top of the algorithms 
-and negating the need to re-implement any of the underlying algorithms specifically for a new user interface. Java's Swing GUI classes 
-provide both the view and controller aspects of the architecture. The visualisation classes provide the view, while the control object classes, 
-such as \texttt{JButton}, combined with \texttt{ActionListener} classes provide the control over the application. Although Swing is used for 
-the front-end implementation in this project, the nature of the MVC architecture means that an interface developed in any language could be 
-used, as long as it is able to communicate with the Java methods defined by the algorithms.
-
-\subsection{Problem Instance Representation}
-To represent the problem instances, a \texttt{TSPInstance} class is used. This class represents a fully connected graph 
-of \texttt{AbstractCity} objects, where each city has a unique integer identifier, starting from 0, and can calculate the 
-distance from itself to every other city in the instance. As several different distance calculations are used within the 
-application, such as Eulerian distances, concrete classes extending \texttt{AbstractCity} must implement their own distance calculation function.
-
-While the distance calculations could be performed on-the-fly, this gives a high constant-time cost for executing the large amount 
-of distance calculations required by every algorithm. Since distances are represented as floating-point values by the application, 
-which are approximations of values, there is the chance that on-the-fly calculations could yield differing distances between the same 
-two cities. In the application, a distance matrix is used to store the distances between any two given cities, where the rows of the 
-matrix are distributed out to the subclasses of \texttt{AbstractCity} so that each city is able to know the distance from itself to 
-every other city. The use of a distance matrix ensures that there is a low constant-time cost for distance lookups, and that subsequent 
-distance lookups will always have yield the same value.
 
 %==============================================================================
 

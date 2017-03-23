@@ -2,6 +2,9 @@
 
 \usepackage{url}
 \usepackage{fancyvrb}
+\usepackage{caption}
+\usepackage{placeins}
+
 \usepackage[final]{pdfpages}
 
 \begin{document}
@@ -28,9 +31,30 @@ algorithms.
 \label{intro}
 \pagenumbering{arabic}
 
+Firstly, the starting point should be defining what an algorithm is.
 
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.5]{algorithm}
+\caption{Algorithm definition taken from the Oxford English Dictionary.}
+\label{fig:algorithm}
+\end{figure}
+
+As we can see above, it is a "process or set of rules" followed by a computer when trying to solve a problem. As a machine is, at its core, composed of 1s and 0s, a human being needs to visualise what is going under the hood in order to comprehend the steps that are undertaken. In a study conducted by Cristopher D. Hundhausen et al.~\cite{av}, it was proven that even though algorithm visualisation is not the "perfect" solution, it is definitely effective in teaching students and experienced developers.
+
+There are many tools out there that already provide this functionality, but one thing was a key factor in deciding how to proceed with planning the whole software process: there are barely any standalone applications. Even though one can find many websites which let people visualise algorithms' steps (e.g. a great example is VisuAlgo ~\cite{visualgo}), this is not such a good solution as the user cannot use the application at his/her commodity, an Internet connection being required.
+
+Therefore, the plan was to create an app that can be run offline and would feel natural to the user regardless of the operating system of choice. There are many Java implementations (i.e. resulting in jar executables), but one of the main drawbacks is the lack of proper GUI tools that can build native-feeling applications. 
+
+As such, the decision was made to use the Electron framework originally built by the team behind the Atom text editor. This framework uses only web tools to generate executables for all 3 main OS families (i.e. macOS, Windows and Linux) that provide the user with a native, modern and responsive feel. 
+
+The planning was made using the best agile practices~\cite{agile-methodologies}, eventually deciding on following a variation of XP programming. Designing and coming up with an architectural plan was a major milestone to be reached as it took a considerable amount of time to be put in place. However, as it will be discussed in future chapters, the implementation of the animation engine was a crucial and time consuming challenge that required the highest amount of effort.
+
+The report also presents how the app was test in many various ways, as well as how it was evaluated using potential end users. In the end, we shall discuss about the roadmap of the project, why open source is and will be vital for the development of the animator as well as some final thoughts and lessons learned throughout the process.
 
 \section{Aims}
+
+
 
 \section{Motivation}
 
@@ -43,6 +67,7 @@ The rest of the report will analyze the background of animators and why they wer
 \item Chapter~\ref{background} covers work related to the purpose of algorithm animators and why they are useful 
 \item Chapter~\ref{requirements} goes into how the problem was analyzed and what requirements were gathered through
 	project meetings and discussions with Algorithmics students.
+\item Chapter~\ref{planning} shows the steps undertaken to follow the best agile methodology principles.
 \item Chapter~\ref{design} explains the design decisions behind the tool and illustrates various lessons learned and
 	problems faced along the way.
 \item Chapter~\ref{implementation} goes into the implementation details of the animator.

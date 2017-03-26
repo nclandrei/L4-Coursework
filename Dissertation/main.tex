@@ -13,21 +13,21 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 \lstdefinestyle{code-style}{
-    backgroundcolor=\color{backcolour},   
+    backgroundcolor=\color{backcolour},
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
     basicstyle=\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,
     tabsize=2
 }
 \lstset{style=code-style}
@@ -35,19 +35,19 @@
 
 
 \begin{document}
-\title{Algorithm Animator}
+\title{Palgo - Algorithm Animator}
 \author{Andrei-Mihai Nicolae}
 \maketitle
 
 \begin{abstract}
 Understanding algorithms is both very common and hard for developers in general,
 regardless of their level of expertise. Even the fundamental ones, such as Dijkstra's algorithm
-for finding the shortest path between two nodes in a graph, are quite complicated to grasp. Many 
+for finding the shortest path between two nodes in a graph, are quite complicated to grasp. Many
 studies show that visualizing an algorithm and its steps make understanding it much easier. In
-this report, we will present an Algorithm Animator built specifically for solving this problem 
+this report, we will present an Algorithm Animator built specifically for solving this problem
 in a modern, responsive and efficient manner. Among others, we will also show why certain design decisions (e.g. making it a native
 desktop app instead of a basic jar, using material design for the user interface), the implementation choices and the
-evaluation results make this tool a viable option for software engineers when it comes to learning different kinds of 
+evaluation results make this tool a viable option for software engineers when it comes to learning different kinds of
 algorithms.
 \end{abstract}
 
@@ -72,9 +72,9 @@ As we can see above, it is a "process or set of rules" followed by a computer wh
 
 There are many tools out there that already provide this functionality, but one thing was a key factor in deciding how to proceed with planning the whole software process: there are barely any standalone applications. Even though one can find many websites which let people visualise algorithms' steps (e.g. a great example is VisuAlgo ~\cite{visualgo}), this is not such a good solution as the user cannot use the application at his/her commodity, an Internet connection being required.
 
-Therefore, the plan was to create an app that can be run offline and would feel natural to the user regardless of the operating system of choice. There are many Java implementations (i.e. resulting in jar executables), but one of the main drawbacks is the lack of proper GUI tools that can build native-feeling applications. 
+Therefore, the plan was to create an app that can be run offline and would feel natural to the user regardless of the operating system of choice. There are many Java implementations (i.e. resulting in jar executables), but one of the main drawbacks is the lack of proper GUI tools that can build native-feeling applications.
 
-As such, the decision was made to use the Electron framework originally built by the team behind the Atom text editor. This framework uses only web tools to generate executables for all 3 main OS families (i.e. macOS, Windows and Linux) that provide the user with a native, modern and responsive feel. 
+As such, the decision was made to use the Electron framework originally built by the team behind the Atom text editor. This framework uses only web tools to generate executables for all 3 main OS families (i.e. macOS, Windows and Linux) that provide the user with a native, modern and responsive feel.
 
 The planning was made using the best agile practices~\cite{agile-methodologies}, eventually deciding on following a variation of XP programming. Designing and coming up with an architectural plan was a major milestone to be reached as it took a considerable amount of time to be put in place. However, as it will be discussed in future chapters, the implementation of the animation engine was a crucial and time consuming challenge that required the highest amount of effort.
 
@@ -82,7 +82,7 @@ The report also presents how the app was test in many various ways, as well as h
 
 \section{Aims}
 
-The goals of the project were set and subsequently refined throughout many project meetings, as well as meeting with some fellow classmates to get feedback along the way. 
+The goals of the project were set and subsequently refined throughout many project meetings, as well as meeting with some fellow classmates to get feedback along the way.
 
 The main aims of the Algorithm Animator, however, have always been:
 \begin{itemize}
@@ -100,7 +100,7 @@ The main aims of the Algorithm Animator, however, have always been:
 
 Even if we have previously mentioned that visualising algorithms is one of the best ways of understanding how they perform, there are also other key motivational aspects behind the need of building an animator.
 
-One such motivation is the increasing demand of software engineers throughout the industry as well as the rise in level of expertise. Developers, and students in particular, will benefit tremendously from a good grasp on how to implement correct and optimal algorithms when applying for a new job. Thus, an algorithm animator would be a good component in one's tool belt. 
+One such motivation is the increasing demand of software engineers throughout the industry as well as the rise in level of expertise. Developers, and students in particular, will benefit tremendously from a good grasp on how to implement correct and optimal algorithms when applying for a new job. Thus, an algorithm animator would be a good component in one's tool belt.
 
 Another major aspect was the opportunity to create a modern tool that would make users enjoy working with it. At the moment, one of the most popular animator toolkits is the one presented in John Morris' paper~\cite{animator-toolkit}.  Below a screenshot was taken from the app. \newpage
 
@@ -135,10 +135,10 @@ This report serves to deliver certain main contributions:
 
 
 \section{Report Content}
-The rest of the report will analyse the background of animators and why they were proven useful, as well as cover all the steps in gathering requirements, designing, implementing, testing and evaluating the tool. 
+The rest of the report will analyse the background of animators and why they were proven useful, as well as cover all the steps in gathering requirements, designing, implementing, testing and evaluating the tool.
 
 \begin{itemize}
-\item Chapter~\ref{background} covers work related to the purpose of algorithm animators and why they are useful 
+\item Chapter~\ref{background} covers work related to the purpose of algorithm animators and why they are useful
 \item Chapter~\ref{requirements} goes into how the problem was analysed and what requirements were gathered through
 	project meetings and discussions with Algorithmics students.
 \item Chapter~\ref{planning} shows the steps undertaken to follow the best agile methodology principles.
@@ -185,11 +185,11 @@ As one might observe, this is not trivial to grasp. Therefore, many solutions ha
 
 This was featured on many websites and gained enormous traction among computer science enthusiasts. However, a more traditional approach that is adopted formally in universities as well is the use of animators.
 
-Firstly, let's define what an animator is. Again, taking the definition from the Oxford dictionary~\cite{oxford-dict}, it is "a person who makes animated films". In our case, the person is the computer and the film is the sequence of steps required to produce an output after feeding input to an algorithm. 
+Firstly, let's define what an animator is. Again, taking the definition from the Oxford dictionary~\cite{oxford-dict}, it is "a person who makes animated films". In our case, the person is the computer and the film is the sequence of steps required to produce an output after feeding input to an algorithm.
 
-Usually, most algorithm animators are divided into 2 sections: one side will contain the graphics in order to represent the data structures used (e.g. in graph traversal algorithms the nodes and edges comprising the graph will be drawn) while the other side will have the code lines, the actual rules the computer needs to follow in order to produce the desired output. In general the current code line that is executed at a certain moment is highlighted, while the data structure visualized (e.g. some box that represents an array's element) changes and the user can see the output visually and immediately, making a mental connection between the code line and the change it produces. 
+Usually, most algorithm animators are divided into 2 sections: one side will contain the graphics in order to represent the data structures used (e.g. in graph traversal algorithms the nodes and edges comprising the graph will be drawn) while the other side will have the code lines, the actual rules the computer needs to follow in order to produce the desired output. In general the current code line that is executed at a certain moment is highlighted, while the data structure visualized (e.g. some box that represents an array's element) changes and the user can see the output visually and immediately, making a mental connection between the code line and the change it produces.
 
-But why an animator precisely? There are many studies that show visualization in any area can enhance learning capabilities drastically. Brenda Parker and Ian Mitchell's work~\cite{parker-mitchell} shows clearly how seeing the steps can greatly improve a student's understanding of what is happening "behind the scenes". On the other hand, even if animations were proven to be generally useful and beneficial for the learner, the need for seeing algorithms animated declines over time, as the study shows. 
+But why an animator precisely? There are many studies that show visualization in any area can enhance learning capabilities drastically. Brenda Parker and Ian Mitchell's work~\cite{parker-mitchell} shows clearly how seeing the steps can greatly improve a student's understanding of what is happening "behind the scenes". On the other hand, even if animations were proven to be generally useful and beneficial for the learner, the need for seeing algorithms animated declines over time, as the study shows.
 
 Another study by Susan Palmiter and Jay Elkerton~\cite{palmiter-elkerton} tried to find out which method was the most effective in learning new computer-based tasks. Even though animations for complex mechanisms were found not to be as effective as for some easier one (e.g. parallel programming vs. graph traversal), they are very helpful for the algorithms generally taught at university courses or used most often.
 
@@ -204,28 +204,28 @@ Having discussed methods of learning new algorithms better and why animators are
 \label{fig:galant}
 \end{figure}
 
-Here we can see one of the 2 main approaches of building an animator, which is a standalone JAR application. Thus, it is written completely in Java and, as the language is pre-installed on most electronic devices, it can run on the major operating systems families. 
+Here we can see one of the 2 main approaches of building an animator, which is a standalone JAR application. Thus, it is written completely in Java and, as the language is pre-installed on most electronic devices, it can run on the major operating systems families.
 
 There are obvious advantages to this approach:
 \begin{itemize}
-	\item End product can run on a variety of machines with only one codebase
-	\item Large number of Java libraries facilitate an easy development workflow
-    \item Many tutorials and resources available
-    \item Java is taught at most universities in introductory courses, making it easier for newcomers to create their own application rapidly
+	\item end product can run on a variety of machines with only one codebase
+	\item large number of Java libraries facilitate an easy development workflow
+    \item many tutorials and resources available
+    \item java is taught at most universities in introductory courses, making it easier for newcomers to create their own application rapidly
     	\begin{figure}[!ht]
 		\centering
 		\includegraphics[scale=0.8]{java-uni}
 		\caption{Languages used in introductory courses at top US universities.}
 		\label{fig:java-uni}
-		\end{figure}    
+		\end{figure}
 \end{itemize}
 
 \pagebreak
 
 However, there are also drawbacks:
 \begin{itemize}
-\item The most popular Java libraries for producing standalone graphical JAR applications output old-fashioned user interface
-\item The code for drawing on the canvas and animating in Java (using Swing or JavaFX) can become extremely verbose and unreadable
+\item the most popular Java libraries for producing standalone graphical JAR applications output old-fashioned user interface
+\item the code for drawing on the canvas and animating in Java (using Swing or JavaFX) can become extremely verbose and unreadable
 \end{itemize}
 
 On the other hand, we also have the web approach to building animators, one of them being D. Galles' application~\cite{galles}.
@@ -241,33 +241,56 @@ Some advantages of this solution are the following:
 \begin{itemize}
 \item the developer can use a wide variety of JavaScript tools (e.g. drawing directly on HTML5 canvas, VisJs, SigmaJs) to draw and animate objects
 \item the app can have a very modern and responsive feel which can make users enjoy the product
-\item virtually all users have at least a browser installed on their machine, thus making the animator available to everyone 
+\item virtually all users have at least a browser installed on their machine, thus making the animator available to everyone
 \end{itemize}
 
 However, the main drawback is that it is still a website, thus it need to be hosted (which implies additional costs) and it cannot be reached by anyone at all times due to the fact that not everyone has constant Internet access.
 
-
-
-
-
-
-
-
-
-
+We have covered all the necessary background and related work before diving into how Palgo was designed and implemented. We believe that our solution is a combination of the two main approaches listed above, merging the benefits of both into a single tool.
 
 %==============================================================================
 
 \chapter{Requirements}
 \label{requirements}
 
+As for every software built with best practices, requirements need to be gathered, defined, analyzed and then prioritized. As we tried to follow an Agile structure, the requirements have changed every week through student-supervisor weekly as well as end user meet-ups.
+
 \section{Problem Analysis}
+
+We have analyzed the problem systematically, devising it into multiple main questions to be answered:
+\begin{itemize}
+\item who are our target users?
+\item what type of format will the application have (i.e. web/desktop)?
+\item what algorithms should be animated?
+\item how would the main layout be structured?
+\end{itemize}
+
+We have gathered requirements and split them into functional and non-functional ones, dividing them further into smaller tasks to be implemented. At the end, we were left with user stories that could be translated directly into work tasks.
 
 \section{Requirements Gathering}
 
+As mentioned above, the requirements gathering was a continuous process that lasted from first week of 4th year up until the end of the project's development lifecycle. Not only that we had the weekly regular student-supervisor meetings were we could add or refine requirements, but there were also meetings with possible end users.
+
+Every two or three weeks there were meetings scheduled with a couple of classmates from University of Glasgow's Computer Science course that would give continuous feedback after testing the newest version of the application. We met in one of the laboratories in Boyd Orr building where they were provided with an executable that could be run on their personal laptops. They were given around 15 minutes to try the features and, afterwards, they provided invaluable feedback without which the animator would not perform as efficiently as it does today.
+
 \section{Functional Requirements}
 
+
+
 \section{Non-Functional Requirements}
+
+The main non-functional requirements were rather set from the beginning. We decided to have an algorithm animator that will:
+
+\begin{itemize}
+\item be easy to use and let the users familiarize rapidly
+\item make users enjoy playing with the product
+\item be efficient and not consume excessive resources
+\item would be installed/fetched with ease
+\end{itemize}
+
+
+
+
 
 %==============================================================================
 

@@ -188,6 +188,15 @@ INPUT ./galles.png
 INPUT trello-functional-requirements.png
 INPUT ./trello-functional-requirements.png
 INPUT ./trello-functional-requirements.png
+INPUT burndown.png
+INPUT ./burndown.png
+INPUT ./burndown.png
+INPUT recent-burndown.png
+INPUT ./recent-burndown.png
+INPUT ./recent-burndown.png
+INPUT circleci.png
+INPUT ./circleci.png
+INPUT ./circleci.png
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm

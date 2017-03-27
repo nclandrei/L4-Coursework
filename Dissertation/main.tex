@@ -367,7 +367,31 @@ Summing up, following all the good practices of XP has brought us great benefits
 
 \section{Continuous Integration}
 
-We have used another great tool heavily promoted by Agile methodologies which is Continuous Integration. CI means merging all working copies of everyone who is developing on the project to a shared mainline multiple times a day~\cite{continuous-integration}. This is an amazing tool for 
+We have used another great tool heavily promoted by Agile methodologies which is Continuous Integration. CI means
+merging all working copies of everyone who is developing on the project to a shared mainline multiple times a
+day~\cite{continuous-integration}. This is an amazing tool for checking that the builds do not break regardless of the
+changes made and that quality is of primary importance.
+
+In our case, we have used CircleCI~\cite{circleci} as the tool for CI. It was configured such that after every
+commit, the code would be merged into the main branch, tested to see it everything is working as expetec and, only
+after, the code would be pushed. 
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.5]{circleci}
+\caption{CircleCI status showing red/green depending if the build was successful on GitHub.}
+\label{fig:circleci}
+\end{figure}
+
+As it can be seen above, there is a small green check (or a red x if the build did not pass) on the GitHub repository
+of the project telling the developers if anything went wrong. This was a great asset to the development lifecycle,
+informing us whether we needed to add some bugs to our tracking system to be solved later or everything performed
+exactly as it should have.
+
+Not only that we applied continuous integration to our workflow, but we also used it properly: as
+mentioned above, the definition of CI means the developers should push their local changes to the main repository
+multiple times a day. Every day of development meant multiple commits and multiple pushes such that we made sure the
+builds were all passing and that our code was not broken. 
 
 \section{Refactoring \& Incremental Planning}
 

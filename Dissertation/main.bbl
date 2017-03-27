@@ -5,11 +5,21 @@ Kent Beck.
 \newblock {Embracing change with extreme programming.}
 \newblock {\em Computer}, 32(10):70--77, 1999.
 
+\bibitem{continuous-integration}
+Grady Booch.
+\newblock {\em {Object Oriented Design: With Applications.}}
+\newblock Benjamin/Cummings, 1991.
+
 \bibitem{agile-methodologies}
 Bharat Choudhary and Shanu~K Rakesh.
 \newblock {An Approach using Agile Method for Software Development}.
 \newblock {\em Innovation and Challenges in Cyber Security (ICICCS-INBUSH)},
   2016.
+
+\bibitem{circleci}
+CircleCI.
+\newblock {CircleCI Website}.
+\newblock \url{https://circleci.com}.
 
 \bibitem{moscow-requirements}
 Dai Clegg and Richard Barker.

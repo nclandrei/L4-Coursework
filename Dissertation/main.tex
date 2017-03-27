@@ -141,7 +141,7 @@ The rest of the report will analyse the background of animators and why they wer
 \item Chapter~\ref{background} covers work related to the purpose of algorithm animators and why they are useful 
 \item Chapter~\ref{requirements} goes into how the problem was analysed and what requirements were gathered through
 	project meetings and discussions with Algorithmics students.
-\item Chapter~\ref{planning} shows the steps undertaken to follow the best agile methodology principles.
+\item Chapter~\ref{project-management} shows the steps undertaken to follow the best agile methodology principles.
 \item Chapter~\ref{design} explains the design decisions behind the tool and illustrates various lessons learned and
 	problems faced along the way.
 \item Chapter~\ref{implementation} goes into the implementation details of the animator.
@@ -273,12 +273,17 @@ We also tried to follow the MoSCoW~\cite{moscow-requirements} guideline for prio
 \section{Problem Analysis}
 
 We have analyzed the problem systematically, devising it into multiple main questions to be answered:
+
 \begin{itemize}
 \item who are our target users?
 \item what type of format will the application have (i.e. web/desktop)?
 \item what algorithms should be animated?
 \item how would the main layout be structured?
 \end{itemize}
+
+During the analysis, we needed to take into account various factors, including how much experience with algorithms and computer science in general will our users have or what algorithms would need visualization the most. As previous animators built under the supervision of Dr. Norman are used for educational purposes in the level 3 Algorithmics I course, we believe that having mainly graph and tree algorithms would benefit the project the most. However, we tried to keep the structure simple and the codebase easy-to-maintain such that other families of algorithms will be straightforward to implement. Because we want to project to be continued in the open source space, users other than students can use the animator, thus we tried to keep the requirements more general.
+
+Also, there was much discussion around whether to use a web or a desktop approach. For reasons explained above, we resumed to implementing a desktop application using the technologies mentioned in the subsequent chapters.
 
 We have gathered requirements and split them into functional and non-functional ones, dividing them further into smaller tasks to be implemented. At the end, we were left with user stories that could be translated directly into work tasks.
 
@@ -314,17 +319,35 @@ A non-functional requirement is a type of requirements that judges the system as
 \item be maintainable and scalable (i.e. let future possible contributors add algorithms easily)
 \end{itemize}
 
-
 %==============================================================================
 
-\chapter{Planning}
-\label{planning}
+\chapter{Project Development}
+\label{project-management}
 
-\section{Agile}
+Good software practices are key to successful projects. We have followed Agile methodologies, especially what was taught last year in the Professional Software Development class, as well as through Ian Sommerville's "Software Engineering" book~\cite{software-engineering}. 
 
-\subsection{Kanban Board}
+\section{Extreme Programming}
 
-\subsection{Issues \& Bug Tracking}
+We have followed the approach first coined by Kent Beck called Extreme Programming~\cite{extreme-programming}. It is an Agile technique through which good practices are most times pushed to "extreme" levels. XP has proven to be very effective as many companies in the industry use it in their development lifecycle. Some principles it promotes which we have followed are:
+
+\begin{itemize}
+\item frequent releases based on requirements gathered incrementally in meetings (e.g. supervisor-student meetings)
+\item constant refactoring to promote simplicity
+\item customer involvement throughout the whole process
+\item people over processes, which means collective ownership of the code as well as avoiding exhausting long working hours
+\end{itemize}
+
+
+
+
+
+\section{Planning}
+
+\section{Continuous Integration}
+
+\section{Refactoring \& Incremental Planning}
+
+\section{Issues \& Bug Tracking}
 
 %==============================================================================
 

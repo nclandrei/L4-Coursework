@@ -141,7 +141,7 @@ The rest of the report will analyse the background of animators and why they wer
 \item Chapter~\ref{background} covers work related to the purpose of algorithm animators and why they are useful 
 \item Chapter~\ref{requirements} goes into how the problem was analysed and what requirements were gathered through
 	project meetings and discussions with Algorithmics students.
-\item Chapter~\ref{project-management} shows the steps undertaken to follow the best agile methodology principles.
+\item Chapter~\ref{agile-software-development} shows the steps undertaken to follow the best agile methodology principles.
 \item Chapter~\ref{design} explains the design decisions behind the tool and illustrates various lessons learned and
 	problems faced along the way.
 \item Chapter~\ref{implementation} goes into the implementation details of the animator.
@@ -321,8 +321,8 @@ A non-functional requirement is a type of requirements that judges the system as
 
 %==============================================================================
 
-\chapter{Project Development}
-\label{project-management}
+\chapter{Agile Software Development}
+\label{agile-software-development}
 
 Good software practices are key to successful projects. We have followed Agile methodologies, especially what was taught last year in the Professional Software Development class, as well as through Ian Sommerville's "Software Engineering" book~\cite{software-engineering}. 
 
@@ -333,15 +333,41 @@ We have followed the approach first coined by Kent Beck called Extreme Programmi
 \begin{itemize}
 \item frequent releases based on requirements gathered incrementally in meetings (e.g. supervisor-student meetings)
 \item constant refactoring to promote simplicity
-\item customer involvement throughout the whole process
+\item customer involvement throughout the whole process (i.e. getting feedback every 2-3 weeks from students that might use the application)
 \item people over processes, which means collective ownership of the code as well as avoiding exhausting long working hours
 \end{itemize}
 
+Burndown charts are another great tool used by people using XP in their schedule to track down progress. You start off by defining the number of user stories you want to complete in an iteration and, then, divide that number by the number of days the sprint has (in our case it was 7 days). Therefore each day you should implement a certain number of user stories, constantly, such that at the end of the iteration you are left with none. That is the most productive outcome. Also, because this was a student project, we will count weekend days as working days.
 
+\pagebreak
+
+During the entire process we tried to monitor the progress and see how we are performing. Below you can see a burndown chart from one of the November weekly iterations.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.6]{burndown}
+\caption{November iteration burndown chart.}
+\label{fig:burndown-february}
+\end{figure}
+
+As one can notice, there is quite a discrepancy between the desired number of user stories per day and what we actually completed. This was because of lack of consistency, shown in the graph between days 23 and 26, where there were no user stories finished. However, this is a burndown chart corresponding to one of the last iterations of the project.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.6]{recent-burndown}
+\caption{February-March iteration burndown chart.}
+\label{fig:burndown-february}
+\end{figure}
+
+There are noticeable difference between the 2 iterations: firstly, we started with fewer user stories to be completed in the latter sprint which was much more feasible to finish and it didn't make us work extra hours (like in the first burndown chart example), thus violating one of the extreme programing principles. Moreover, there was only a slight discrepancy from the schedule on March 3rd where there were no user stories completed. However, this is relatively minor and we believe that for a two people project, this was an amazing achievement that could only be reached gradually.
+
+Summing up, following all the good practices of XP has brought us great benefits and a working schedule that allowed us to implement all the requirements gathered in user and supervisor meetings.
 
 \section{Planning}
 
 \section{Continuous Integration}
+
+We have used another great tool heavily promoted by Agile methodologies which is Continuous Integration. CI means merging all working copies of everyone who is developing on the project to a shared mainline multiple times a day~\cite{continuous-integration}. This is an amazing tool for 
 
 \section{Refactoring \& Incremental Planning}
 

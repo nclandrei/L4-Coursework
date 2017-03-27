@@ -1,0 +1,63 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: plain.bst
+Database file #1: l4proj.bib
+Name 1 in "Parker, Brenda, and Ian Mitchell" has a comma at the end for entry parker-mitchell
+while executing---line 1049 of file plain.bst
+Name 1 in "Palmiter, Susan, and Jay Elkerton" has a comma at the end for entry palmiter-elkerton
+while executing---line 1049 of file plain.bst
+Name 1 in "Mannion, Mike, and Barry Keepence" has a comma at the end for entry smart-requirements
+while executing---line 1049 of file plain.bst
+Name 1 in "Clegg, Dai, and Richard Barker" has a comma at the end for entry moscow-requirements
+while executing---line 1049 of file plain.bst
+Name 1 in "Clegg, Dai, and Richard Barker" has a comma at the end for entry moscow-requirements
+while executing---line 1090 of file plain.bst
+Name 1 in "Mannion, Mike, and Barry Keepence" has a comma at the end for entry smart-requirements
+while executing---line 1090 of file plain.bst
+Name 1 in "Palmiter, Susan, and Jay Elkerton" has a comma at the end for entry palmiter-elkerton
+while executing---line 1090 of file plain.bst
+Name 1 in "Parker, Brenda, and Ian Mitchell" has a comma at the end for entry parker-mitchell
+while executing---line 1090 of file plain.bst
+You've used 17 entries,
+            2118 wiz_defined-function locations,
+            590 strings with 5857 characters,
+and the built_in function-call counts, 4117 in all, are:
+= -- 392
+> -- 155
+< -- 0
++ -- 63
+- -- 46
+* -- 206
+:= -- 724
+add.period$ -- 51
+call.type$ -- 17
+change.case$ -- 71
+chr.to.int$ -- 0
+cite$ -- 17
+duplicate$ -- 166
+empty$ -- 375
+format.name$ -- 46
+if$ -- 867
+int.to.chr$ -- 0
+int.to.str$ -- 17
+missing$ -- 15
+newline$ -- 88
+num.names$ -- 34
+pop$ -- 94
+preamble$ -- 1
+purify$ -- 57
+quote$ -- 0
+skip$ -- 127
+stack$ -- 0
+substring$ -- 178
+swap$ -- 17
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 62
+warning$ -- 0
+while$ -- 39
+width$ -- 19
+write$ -- 173
+(There were 8 error messages)

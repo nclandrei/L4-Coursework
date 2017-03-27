@@ -1,0 +1,92 @@
+\begin{thebibliography}{10}
+
+\bibitem{extreme-programming}
+Kent Beck.
+\newblock {Embracing change with extreme programming.}
+\newblock {\em Computer}, 32(10):70--77, 1999.
+
+\bibitem{agile-methodologies}
+Bharat Choudhary and Shanu~K Rakesh.
+\newblock {An Approach using Agile Method for Software Development}.
+\newblock {\em Innovation and Challenges in Cyber Security (ICICCS-INBUSH)},
+  2016.
+
+\bibitem{moscow-requirements}
+Dai Clegg and Richard Barker.
+\newblock {\em {Case method fast-track: a RAD approach.}}
+\newblock Addison-Wesley Longman Publishing Co., Inc, 1994.
+
+\bibitem{av}
+Sarah A.~Douglas Cristopher D.~Hundhausen and John~T. Stasko.
+\newblock {A Meta-Study of Algorithm Visualization E¡ectiveness}.
+\newblock {\em Journal of Visual Languages and Computing}, 13:259--290, 2002.
+
+\bibitem{oxford-dict}
+Oxford Dictionaries.
+\newblock {\em Oxford English Dictionary}.
+\newblock OUP Oxford, 2012.
+
+\bibitem{dijkstra-shortest-path}
+E.~W. Dijkstra.
+\newblock {A note on two problems in connexion with graphs}.
+\newblock {\em Numerische Mathematik}, 1:269--271, 1959.
+
+\bibitem{electron}
+Electron.
+\newblock {Electron Website}.
+\newblock \url{https://electron.atom.io}.
+
+\bibitem{galles}
+David Galles.
+\newblock {David Galles Algorithm Animator}.
+\newblock \url{https://www.cs.usfca.edu/~galles/visualization/Algorithms.html}.
+
+\bibitem{visualgo}
+Steven et~al. Halim.
+\newblock {VisuAlgo Website}.
+\newblock \url{http://visualgo.net}.
+
+\bibitem{smart-requirements}
+Mike Mannion and Barry Keepence.
+\newblock {SMART Requirements.}
+\newblock {\em ACM SIGSOFT Software Engineering Notes}, 20(2):42--47, 1995.
+
+\bibitem{animator-toolkit}
+John Morris.
+\newblock {A toolkit for algorithm animation.}
+\newblock {\em Proceedings AEESEAP}, 2004.
+
+\bibitem{palmiter-elkerton}
+Susan Palmiter and Jay Elkerton.
+\newblock {An evaluation of animated demonstrations of learning computer-based
+  tasks.}
+\newblock {\em Proceedings of the SIGCHI conference on Human Factors in
+  Computing Systems}, 1991.
+
+\bibitem{parker-mitchell}
+Brenda Parker and Ian Mitchell.
+\newblock {Effective methods for learning: a study in visualization.}
+\newblock {\em Journal of Computing Sciences in Colleges}, 22(2):176--182,
+  2006.
+
+\bibitem{software-engineering}
+Ian Sommerville.
+\newblock {\em {Software Engineering.}}
+\newblock Pearson, 2015.
+
+\bibitem{galant}
+Matthias~F Stallmann.
+\newblock {Algorithm Animation with Galant.}
+\newblock {\em IEEE Computer Graphics and Applications}, 37(1), 2017.
+
+\bibitem{trello}
+Trello.
+\newblock {Trello Website}.
+\newblock \url{https://trello.com}.
+
+\bibitem{visjs}
+VisJS.
+\newblock {VisJs Website}.
+\newblock \url{http://visjs.org}.
+
+\end{thebibliography}

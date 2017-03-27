@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1490639540 "main.aux" "main.bbl" "main" 1490642243
+["bibtex main"] 1490649825 "main.aux" "main.bbl" "main" 1490649825
   "/usr/local/texlive/2015/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "l4proj.bib" 1490619065 4584 5680779c8ed6ecb642919a025135598c ""
-  "main.aux" 1490642165 7583 50ad8305d5bf0208903bf293b6c51624 ""
+  "l4proj.bib" 1490648531 4801 c7f0b21d048a932b22c5dea1bd46d43a ""
+  "main.aux" 1490649825 7759 83ae171ba032cbb586bebef1d659d313 ""
   "main.bcf" 0 -1 0 ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1490642243 "main.tex" "main.pdf" "main" 1490642243
+["pdflatex"] 1490649822 "main.tex" "main.pdf" "main" 1490649822
   "./algo-animator.png" 1490609862 298610 64e16d6d6998e82692bca4b8950cf614 ""
   "./algorithm.png" 1490609862 47442 31820362b5af71ca3783062985520115 ""
   "./animator-toolkit.png" 1490609862 100390 fe27e49e3d57ae7c30977f283ce96cec ""
@@ -17,6 +17,7 @@
   "./galant.png" 1490609862 2016909 946d3fb372f20bae60df3d705176e6c2 ""
   "./galles.png" 1490609860 256425 94ba76d7eb3b8f89ff5397096201d4b9 ""
   "./images/CompSci_colour.pdf" 1490609862 28075 c76557abb17c39d627f34723eeeb3731 ""
+  "./issue-tracking.png" 1490646953 216166 26b95ea4fc10c0e732b8406dd71183c9 ""
   "./java-uni.png" 1490609860 89592 ef6f075afd983f73e3635fd0986420d6 ""
   "./quicksort.jpg" 1490609862 13097 01166a616844a3ba59070192d43bf61a ""
   "./recent-burndown.png" 1490611762 72274 244fd244a063dcc61df127cf12e50875 ""
@@ -117,17 +118,18 @@
   "galant.png" 1490609862 2016909 946d3fb372f20bae60df3d705176e6c2 ""
   "galles.png" 1490609860 256425 94ba76d7eb3b8f89ff5397096201d4b9 ""
   "images/CompSci_colour.pdf" 1490609862 28075 c76557abb17c39d627f34723eeeb3731 ""
+  "issue-tracking.png" 1490646953 216166 26b95ea4fc10c0e732b8406dd71183c9 ""
   "java-uni.png" 1490609860 89592 ef6f075afd983f73e3635fd0986420d6 ""
   "l4proj.cls" 1490609860 2825 d698c6362cdc757b8ab1719dea98f0cc ""
-  "main.aux" 1490642165 7583 50ad8305d5bf0208903bf293b6c51624 ""
-  "main.bbl" 1490639541 2917 e3e4c66e1faf02b0fcdd805e760ae77e "bibtex main"
-  "main.tex" 1490642241 29695 1874dc22ec1e96d5411066ce384da043 ""
-  "main.toc" 1490642165 2595 afd1a7f354501ebf4168d8b66fbae296 ""
+  "main.aux" 1490649723 7759 6f7d8c45e98ebafb50b078f33f061f24 ""
+  "main.bbl" 1490649724 3102 d2947bcec94b827ef57c72082baef69f "bibtex main"
+  "main.tex" 1490649820 33261 c671a1bf95f8f85131da542a7d07c6ea ""
+  "main.toc" 1490649723 2537 f69d4bc30d23631699444eb6447127ea ""
   "quicksort.jpg" 1490609862 13097 01166a616844a3ba59070192d43bf61a ""
   "recent-burndown.png" 1490611762 72274 244fd244a063dcc61df127cf12e50875 ""
   "trello-functional-requirements.png" 1490609860 466837 b48f8b1c01c27cc39ae72937a32cbf05 ""
   (generated)
   "main.aux"
+  "main.pdf"
   "main.log"
   "main.toc"
-  "main.pdf"

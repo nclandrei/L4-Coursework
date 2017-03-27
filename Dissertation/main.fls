@@ -200,6 +200,9 @@ INPUT ./circleci.png
 INPUT commits-week.png
 INPUT ./commits-week.png
 INPUT ./commits-week.png
+INPUT issue-tracking.png
+INPUT ./issue-tracking.png
+INPUT ./issue-tracking.png
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm

@@ -51,6 +51,12 @@ David Galles.
 \newblock {David Galles Algorithm Animator}.
 \newblock \url{https://www.cs.usfca.edu/~galles/visualization/Algorithms.html}.
 
+\bibitem{planning-poker}
+James Grenning.
+\newblock {Planning poker or how to avoid analysis paralysis while release
+  planning.}
+\newblock {\em Renaissance Software Consulting}, 2002.
+
 \bibitem{visualgo}
 Steven et~al. Halim.
 \newblock {VisuAlgo Website}.

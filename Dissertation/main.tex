@@ -326,6 +326,20 @@ A non-functional requirement is a type of requirements that judges the system as
 
 Good software practices are key to successful projects. We have followed Agile methodologies, especially what was taught last year in the Professional Software Development class, as well as through Ian Sommerville's "Software Engineering" book~\cite{software-engineering}. 
 
+We eventually decided to follow an Extreme Programming path and we implemented the best advice taken from industry
+experts. Some of the key principles we implemented throughout the whole process are:
+\begin{itemize}
+    \item good planning strategy that would allow us to follow a schedule; our cost estimation efficiency improved with every iteration
+    \item frequent commits and releases that would generate continuous feedback from our potential end users
+    \item customer involvement (i.e. student meetings every couple of weeks as well as weekly student-supervisor meetings)
+    \item heavy refactoring as opportunity arose
+    \item emphasis on simplicity in design and implementation
+    \item tracking bugs and issues in general allowed us to be always informed and include necessary items for specific milestones so that the quality would always have high standards
+\end{itemize}
+
+All these ensured a good workflow with results that could be remarked immediately. We believe that a major part of the
+success of the project was embracing the above Agile methodologies.
+
 \section{Extreme Programming}
 
 We have followed the approach first coined by Kent Beck called Extreme Programming~\cite{extreme-programming}. It is an Agile technique through which good practices are most times pushed to "extreme" levels. XP has proven to be very effective as many companies in the industry use it in their development lifecycle. Some principles it promotes which we have followed are:
@@ -338,8 +352,6 @@ We have followed the approach first coined by Kent Beck called Extreme Programmi
 \end{itemize}
 
 Burndown charts are another great tool used by people using XP in their schedule to track down progress. You start off by defining the number of user stories you want to complete in an iteration and, then, divide that number by the number of days the sprint has (in our case it was 7 days). Therefore each day you should implement a certain number of user stories, constantly, such that at the end of the iteration you are left with none. That is the most productive outcome. Also, because this was a student project, we will count weekend days as working days.
-
-\pagebreak
 
 During the entire process we tried to monitor the progress and see how we are performing. Below you can see a burndown chart from one of the November weekly iterations.
 
@@ -364,6 +376,21 @@ There are noticeable difference between the 2 iterations: firstly, we started wi
 Summing up, following all the good practices of XP has brought us great benefits and a working schedule that allowed us to implement all the requirements gathered in user and supervisor meetings.
 
 \section{Planning}
+
+Planning is a vital part of every Agile project - it involves setting deadlines for tasks needed to be implemented by
+developers. However, as some tasks are not trivial to estimate, multiple strategies have been invented so that team
+members can effectively set number of days (or other units of work) for every user story.
+
+In our case we adapted the most effective Agile method, which is
+Planning Poker~\cite{planning-poker}. In this practice, all developers are given decks of cards and when a user story
+is brought up, every developer shows a card which has a value. That value will represent the number of units of work
+needed to complete the story. Then, after everyone shows their estimation, discussions emerge among the developers
+until a consensus is reached. In our situation, we did not use a deck of cards during the student-supervisor meetings,
+but we both estimated the number of days needed to implement a feature and, if our opinions diverged, we discussed
+until we had the same duration in mind. 
+
+This method was very effective and as we gained more experience after several iterations, we would come to a conclusion
+much faster and the user story cost estimations became more accurate. 
 
 \section{Continuous Integration}
 
@@ -393,8 +420,6 @@ mentioned above, the definition of CI means the developers should push their loc
 multiple times a day. Every day of development meant multiple commits and multiple pushes such that we made sure the
 builds were all passing and that our code was not broken. 
 
-\pagebreak
-
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.5]{commits-week}
@@ -406,14 +431,15 @@ This figure shows the commit frequency per week for the last 10 iterations. As i
 the university semester just started, the number of commits was very high every sprint, thus following the practice of
 committing and testing the quality of our product often. 
 
-\section{Refactoring}
-
-
-
 \section{Issues \& Bug Tracking}
 
-In terms of issues and bug tracking, we have kept a custom database on GitHub in order to be always up-to-date with what
-is going on and where we lack quality and efficiency. We have made use of the custom labels GitHub already provides,
+Issues and bugs occur all the time in every piece of software. Because the userbase was rather limited, I updated the
+database manually from what we (i.e. Dr. Norman and myself) found not working as expected and what the students marked as
+functionality not working properly or wanted features. This was a very useful practice to follow because it also
+promoted continuous feedback on changes from potential end users, thus implementing the Agile manifesto properly.
+
+Talking about actual implementation, we have kept a custom database on GitHub in order to be always up-to-date with what
+is going on and spots where we lack quality and efficiency. We have made use of the custom labels GitHub already provides,
 among which the most used ones have been:
 
 \begin{itemize}
@@ -422,6 +448,7 @@ among which the most used ones have been:
 	requirements gatherings previously mentioned that ended up as multiple user stories eventually
     \item question - these were marked for research purposes - one example might be: can we change the shape of nodes
 	dynamically as the algorithm animation makes progress?
+\end{itemize}
 
 As an example, the following figure will show how issues were continuously tracked throughout the software process.
 This screenshot was taken during one of the iterations.
@@ -429,11 +456,14 @@ This screenshot was taken during one of the iterations.
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.5]{issue-tracking}
-\caption{CircleCI status showing red/green depending if the build was successful on GitHub.}
+\caption{Example of issue and bug tracking in the GitHub provided Issues page.}
 \label{fig:issue-tracking}
 \end{figure}
 
-\end{itemize}
+As it can be seen in the image, there is also a milestone tab assigned to each issue. Because the screenshot is
+from an earlier sprint, there were not milestones attached, but since January every issue had one so that we
+would plan effectively and reach all goals by the negotiated deadline.
+
 %==============================================================================
 
 \chapter{Design}

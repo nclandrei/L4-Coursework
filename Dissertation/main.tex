@@ -362,7 +362,11 @@ During the entire process we tried to monitor the progress and see how we are pe
 \label{fig:burndown-february}
 \end{figure}
 
-As one can notice, there is quite a discrepancy between the desired number of user stories per day and what we actually completed. This was because of lack of consistency, shown in the graph between days 23 and 26, where there were no user stories finished. However, this is a burndown chart corresponding to one of the last iterations of the project.
+As one can notice, there is quite a discrepancy between the desired number of user stories per day and what we actually
+completed. This was because of lack of consistency, shown in the graph between days 23 and 26, where there were no user
+stories finished. However, below is a burndown chart corresponding to one of the last iterations of the project.
+
+\pagebreak
 
 \begin{figure}[!ht]
 \centering
@@ -382,12 +386,20 @@ developers. However, as some tasks are not trivial to estimate, multiple strateg
 members can effectively set number of days (or other units of work) for every user story.
 
 In our case we adapted the most effective Agile method, which is
-Planning Poker~\cite{planning-poker}. In this practice, all developers are given decks of cards and when a user story
-is brought up, every developer shows a card which has a value. That value will represent the number of units of work
-needed to complete the story. Then, after everyone shows their estimation, discussions emerge among the developers
-until a consensus is reached. In our situation, we did not use a deck of cards during the student-supervisor meetings,
-but we both estimated the number of days needed to implement a feature and, if our opinions diverged, we discussed
-until we had the same duration in mind. 
+Planning Poker~\cite{planning-poker}. In this practice, all developers are given decks of cards and when a user story is brought up, every developer shows a card which has a value. That value will represent the number of units of work
+needed to complete the story. Then, after everyone shows their estimation, discussions emerge among the developers until a consensus is reached. In our situation, we did not use a deck of cards during the student-supervisor meetings, but we both estimated the number of days needed to implement a feature and, if our opinions diverged, we discussed until we had the same duration in mind. 
+
+Below it can be observed how we kept track of all the user stories using Trello cards. We added the estimation in the description, as well as a description using the popular format "As a.../I want to.../So that..."~\cite{user-story-format} to always know the
+rationale behind every implemented feature.
+
+\pagebreak
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.5]{estimation}
+\caption{Trello card for estimating a user story.}
+\label{fig:estimation}
+\end{figure}
 
 This method was very effective and as we gained more experience after several iterations, we would come to a conclusion
 much faster and the user story cost estimations became more accurate. 
@@ -404,10 +416,10 @@ commit, the code would be merged into the main branch, tested to see it everythi
 after, the code would be pushed. 
 
 \begin{figure}[!ht]
-\centering
-\includegraphics[scale=0.5]{circleci}
-\caption{CircleCI status showing red/green depending if the build was successful on GitHub.}
-\label{fig:circleci}
+    \centering
+    \includegraphics[scale=0.5]{circleci}
+    \caption{CircleCI status showing red/green depending if the build was successful on GitHub.}
+    \label{fig:circleci}
 \end{figure}
 
 As it can be seen above, there is a small green check (or a red x if the build did not pass) on the GitHub repository
@@ -421,10 +433,10 @@ multiple times a day. Every day of development meant multiple commits and multip
 builds were all passing and that our code was not broken. 
 
 \begin{figure}[!ht]
-\centering
-\includegraphics[scale=0.5]{commits-week}
-\caption{Commit frequency in the last 10 sprints.}
-\label{fig:commits-week}
+    \centering
+    \includegraphics[scale=0.5]{commits-week}
+    \caption{Commit frequency in the last 10 sprints.}
+    \label{fig:commits-week}
 \end{figure}
 
 This figure shows the commit frequency per week for the last 10 iterations. As it can be observed, apart from first week when
@@ -454,10 +466,10 @@ As an example, the following figure will show how issues were continuously track
 This screenshot was taken during one of the iterations.
 
 \begin{figure}[!ht]
-\centering
-\includegraphics[scale=0.5]{issue-tracking}
-\caption{Example of issue and bug tracking in the GitHub provided Issues page.}
-\label{fig:issue-tracking}
+    \centering
+    \includegraphics[scale=0.5]{issue-tracking}
+    \caption{Example of issue and bug tracking in the GitHub provided Issues page.}
+    \label{fig:issue-tracking}
 \end{figure}
 
 As it can be seen in the image, there is also a milestone tab assigned to each issue. Because the screenshot is
@@ -469,9 +481,18 @@ would plan effectively and reach all goals by the negotiated deadline.
 \chapter{Design}
 \label{design}
 
+This chapter will cover the design decisions taken throughout the software process. It will delve into why the main
+technologies were chosen eventually (e.g. Electron, Vis.Js) and why they proved to be the most effective to achieving
+our purposes.
+
 \section{Architecture}
 
-\subsection{EDA (Event-driven Architecture)}
+Because we would have a wide variety of users (students, experienced developers, university lecturers, enthusiasts) one
+needs to take into account a range of different perspectives. Therefore, architectural design and focus on simplicity is vital to the success of every software. We have tried to use UML
+diagrams in order to visualize the system as well as possible before proceeding with the implementation. Here is our
+final candidate for the component diagram.
+
+
 
 \section{Native Desktop App vs. Jar}
 

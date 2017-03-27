@@ -19,45 +19,45 @@ Name 1 in "Palmiter, Susan, and Jay Elkerton" has a comma at the end for entry p
 while executing---line 1090 of file plain.bst
 Name 1 in "Parker, Brenda, and Ian Mitchell" has a comma at the end for entry parker-mitchell
 while executing---line 1090 of file plain.bst
-You've used 20 entries,
+You've used 21 entries,
             2118 wiz_defined-function locations,
-            602 strings with 6147 characters,
-and the built_in function-call counts, 4740 in all, are:
-= -- 450
-> -- 176
+            606 strings with 6288 characters,
+and the built_in function-call counts, 4944 in all, are:
+= -- 469
+> -- 183
 < -- 0
-+ -- 72
-- -- 52
-* -- 227
-:= -- 835
-add.period$ -- 60
-call.type$ -- 20
-change.case$ -- 82
++ -- 75
+- -- 54
+* -- 232
+:= -- 869
+add.period$ -- 63
+call.type$ -- 21
+change.case$ -- 86
 chr.to.int$ -- 0
-cite$ -- 20
-duplicate$ -- 195
-empty$ -- 436
-format.name$ -- 52
-if$ -- 999
+cite$ -- 21
+duplicate$ -- 202
+empty$ -- 458
+format.name$ -- 54
+if$ -- 1044
 int.to.chr$ -- 0
-int.to.str$ -- 20
+int.to.str$ -- 21
 missing$ -- 18
-newline$ -- 103
-num.names$ -- 40
-pop$ -- 114
+newline$ -- 108
+num.names$ -- 42
+pop$ -- 122
 preamble$ -- 1
-purify$ -- 66
+purify$ -- 69
 quote$ -- 0
-skip$ -- 148
+skip$ -- 156
 stack$ -- 0
-substring$ -- 193
-swap$ -- 20
+substring$ -- 198
+swap$ -- 21
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
+type$ -- 76
 warning$ -- 0
-while$ -- 45
-width$ -- 22
-write$ -- 202
+while$ -- 47
+width$ -- 23
+write$ -- 211
 (There were 8 error messages)

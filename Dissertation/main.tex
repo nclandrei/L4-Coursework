@@ -406,10 +406,34 @@ This figure shows the commit frequency per week for the last 10 iterations. As i
 the university semester just started, the number of commits was very high every sprint, thus following the practice of
 committing and testing the quality of our product often. 
 
-\section{Refactoring \& Incremental Planning}
+\section{Refactoring}
+
+
 
 \section{Issues \& Bug Tracking}
 
+In terms of issues and bug tracking, we have kept a custom database on GitHub in order to be always up-to-date with what
+is going on and where we lack quality and efficiency. We have made use of the custom labels GitHub already provides,
+among which the most used ones have been:
+
+\begin{itemize}
+    \item bug - here we marked flaws in the system (or the students who have been providing constant feedback) 
+    \item enhancement - we added here the features most wanted by our users or by ourselves; this was refined from the
+	requirements gatherings previously mentioned that ended up as multiple user stories eventually
+    \item question - these were marked for research purposes - one example might be: can we change the shape of nodes
+	dynamically as the algorithm animation makes progress?
+
+As an example, the following figure will show how issues were continuously tracked throughout the software process.
+This screenshot was taken during one of the iterations.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.5]{issue-tracking}
+\caption{CircleCI status showing red/green depending if the build was successful on GitHub.}
+\label{fig:issue-tracking}
+\end{figure}
+
+\end{itemize}
 %==============================================================================
 
 \chapter{Design}

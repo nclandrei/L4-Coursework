@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1490639096 "main.aux" "main.bbl" "main" 1490639515
+["bibtex main"] 1490639540 "main.aux" "main.bbl" "main" 1490642243
   "/usr/local/texlive/2015/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "l4proj.bib" 1490619065 4584 5680779c8ed6ecb642919a025135598c ""
-  "main.aux" 1490639515 7607 9998e40b2ac544b85fa158bd22d65d05 ""
+  "main.aux" 1490642165 7583 50ad8305d5bf0208903bf293b6c51624 ""
   "main.bcf" 0 -1 0 ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1490639513 "main.tex" "main.pdf" "main" 1490639515
+["pdflatex"] 1490642243 "main.tex" "main.pdf" "main" 1490642243
   "./algo-animator.png" 1490609862 298610 64e16d6d6998e82692bca4b8950cf614 ""
   "./algorithm.png" 1490609862 47442 31820362b5af71ca3783062985520115 ""
   "./animator-toolkit.png" 1490609862 100390 fe27e49e3d57ae7c30977f283ce96cec ""
@@ -119,10 +119,10 @@
   "images/CompSci_colour.pdf" 1490609862 28075 c76557abb17c39d627f34723eeeb3731 ""
   "java-uni.png" 1490609860 89592 ef6f075afd983f73e3635fd0986420d6 ""
   "l4proj.cls" 1490609860 2825 d698c6362cdc757b8ab1719dea98f0cc ""
-  "main.aux" 1490639515 7607 9998e40b2ac544b85fa158bd22d65d05 ""
-  "main.bbl" 1490639096 2917 e3e4c66e1faf02b0fcdd805e760ae77e "bibtex main"
-  "main.tex" 1490639512 29093 885c51cfbeca3c9fdbba4b544822b7dc ""
-  "main.toc" 1490639515 2619 b6b3fef1814e861e9662f96130cc3357 ""
+  "main.aux" 1490642165 7583 50ad8305d5bf0208903bf293b6c51624 ""
+  "main.bbl" 1490639541 2917 e3e4c66e1faf02b0fcdd805e760ae77e "bibtex main"
+  "main.tex" 1490642241 29695 1874dc22ec1e96d5411066ce384da043 ""
+  "main.toc" 1490642165 2595 afd1a7f354501ebf4168d8b66fbae296 ""
   "quicksort.jpg" 1490609862 13097 01166a616844a3ba59070192d43bf61a ""
   "recent-burndown.png" 1490611762 72274 244fd244a063dcc61df127cf12e50875 ""
   "trello-functional-requirements.png" 1490609860 466837 b48f8b1c01c27cc39ae72937a32cbf05 ""

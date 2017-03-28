@@ -11,6 +11,8 @@ Name 1 in "Mannion, Mike, and Barry Keepence" has a comma at the end for entry s
 while executing---line 1049 of file plain.bst
 Name 1 in "Clegg, Dai, and Richard Barker" has a comma at the end for entry moscow-requirements
 while executing---line 1049 of file plain.bst
+Name 1 in "Rößling, Guido, Markus Schüer, and Bernd Freisleben" has a comma at the end for entry animal-algo-animation
+while executing---line 1049 of file plain.bst
 Name 1 in "Clegg, Dai, and Richard Barker" has a comma at the end for entry moscow-requirements
 while executing---line 1090 of file plain.bst
 Name 1 in "Mannion, Mike, and Barry Keepence" has a comma at the end for entry smart-requirements
@@ -19,45 +21,47 @@ Name 1 in "Palmiter, Susan, and Jay Elkerton" has a comma at the end for entry p
 while executing---line 1090 of file plain.bst
 Name 1 in "Parker, Brenda, and Ian Mitchell" has a comma at the end for entry parker-mitchell
 while executing---line 1090 of file plain.bst
-You've used 21 entries,
+Name 1 in "Rößling, Guido, Markus Schüer, and Bernd Freisleben" has a comma at the end for entry animal-algo-animation
+while executing---line 1090 of file plain.bst
+You've used 22 entries,
             2118 wiz_defined-function locations,
-            606 strings with 6288 characters,
-and the built_in function-call counts, 4944 in all, are:
-= -- 469
-> -- 183
+            611 strings with 6424 characters,
+and the built_in function-call counts, 5193 in all, are:
+= -- 493
+> -- 196
 < -- 0
-+ -- 75
-- -- 54
-* -- 232
-:= -- 869
-add.period$ -- 63
-call.type$ -- 21
-change.case$ -- 86
++ -- 80
+- -- 58
+* -- 248
+:= -- 915
+add.period$ -- 66
+call.type$ -- 22
+change.case$ -- 91
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 202
-empty$ -- 458
-format.name$ -- 54
-if$ -- 1044
+cite$ -- 22
+duplicate$ -- 212
+empty$ -- 476
+format.name$ -- 58
+if$ -- 1094
 int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 18
-newline$ -- 108
-num.names$ -- 42
-pop$ -- 122
+int.to.str$ -- 22
+missing$ -- 19
+newline$ -- 113
+num.names$ -- 44
+pop$ -- 125
 preamble$ -- 1
-purify$ -- 69
+purify$ -- 73
 quote$ -- 0
-skip$ -- 156
+skip$ -- 165
 stack$ -- 0
-substring$ -- 198
-swap$ -- 21
+substring$ -- 203
+swap$ -- 22
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 76
+type$ -- 80
 warning$ -- 0
-while$ -- 47
-width$ -- 23
-write$ -- 211
-(There were 8 error messages)
+while$ -- 49
+width$ -- 24
+write$ -- 222
+(There were 10 error messages)

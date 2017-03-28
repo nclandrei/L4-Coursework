@@ -90,6 +90,11 @@ Brenda Parker and Ian Mitchell.
 \newblock {\em Journal of Computing Sciences in Colleges}, 22(2):176--182,
   2006.
 
+\bibitem{animal-algo-animation}
+Markus~Schüer Rößling, Guido and Bernd Freisleben.
+\newblock {The ANIMAL algorithm animation tool.}
+\newblock {\em ACM SIGCSE Bulletin}, 32(3), 2000.
+
 \bibitem{software-engineering}
 Ian Sommerville.
 \newblock {\em {Software Engineering.}}

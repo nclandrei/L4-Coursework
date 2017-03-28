@@ -1,15 +1,17 @@
 # Fdb version 3
-["bibtex main"] 1490656602 "main.aux" "main.bbl" "main" 1490656800
+["bibtex main"] 1490660301 "main.aux" "main.bbl" "main" 1490660437
   "/usr/local/texlive/2015/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "l4proj.bib" 1490650852 5008 28f4bad89dd9ed17c9d232a3b97ec568 ""
-  "main.aux" 1490656800 7883 7b38a19232a78057be5a3d0bf0e84c7f ""
+  "l4proj.bib" 1490660071 5283 2a9af36c1cd67f6460d37422309a78a5 ""
+  "main.aux" 1490660437 8292 62bbfcf2839a767ba8418a95ee3ae12d ""
   "main.bcf" 0 -1 0 ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1490656797 "main.tex" "main.pdf" "main" 1490656800
+["pdflatex"] 1490660434 "main.tex" "main.pdf" "main" 1490660437
+  "./UML_component_diagram.png" 1490657845 20565 4f16f7b5d9305f27441b4aa72e2ac3b4 ""
   "./algo-animator.png" 1490609862 298610 64e16d6d6998e82692bca4b8950cf614 ""
   "./algorithm.png" 1490609862 47442 31820362b5af71ca3783062985520115 ""
+  "./animal-algo-animator.png" 1490659856 412250 411f584dbf26117b14511810b4108648 ""
   "./animator-toolkit.png" 1490609862 100390 fe27e49e3d57ae7c30977f283ce96cec ""
   "./burndown.png" 1490611046 79840 0f2f07fbf3625cff80ddf91818ce7253 ""
   "./circleci.png" 1490619176 138249 d2cc2510d00e8fdd612298110c4276eb ""
@@ -110,8 +112,10 @@
   "/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1432479641 1764542 91654ba72bdb667e84ea24f076ae16d8 ""
   "/usr/local/texlive/2015/texmf-var/web2c/pdftex/pdflatex.fmt" 1432479681 3849859 39a7d258195bde2394e244961601fbc5 ""
   "/usr/local/texlive/2015/texmf.cnf" 1432479636 577 0d611272082f3cdb8e80e09a3c69cf07 ""
+  "UML_component_diagram.png" 1490657845 20565 4f16f7b5d9305f27441b4aa72e2ac3b4 ""
   "algo-animator.png" 1490609862 298610 64e16d6d6998e82692bca4b8950cf614 ""
   "algorithm.png" 1490609862 47442 31820362b5af71ca3783062985520115 ""
+  "animal-algo-animator.png" 1490659856 412250 411f584dbf26117b14511810b4108648 ""
   "animator-toolkit.png" 1490609862 100390 fe27e49e3d57ae7c30977f283ce96cec ""
   "burndown.png" 1490611046 79840 0f2f07fbf3625cff80ddf91818ce7253 ""
   "circleci.png" 1490619176 138249 d2cc2510d00e8fdd612298110c4276eb ""
@@ -123,10 +127,10 @@
   "issue-tracking.png" 1490646953 216166 26b95ea4fc10c0e732b8406dd71183c9 ""
   "java-uni.png" 1490609860 89592 ef6f075afd983f73e3635fd0986420d6 ""
   "l4proj.cls" 1490609860 2825 d698c6362cdc757b8ab1719dea98f0cc ""
-  "main.aux" 1490656800 7883 7b38a19232a78057be5a3d0bf0e84c7f ""
-  "main.bbl" 1490656602 3281 6af6f796b3c81c61fa2069bff9dfbd70 "bibtex main"
-  "main.tex" 1490656796 34469 46e7d48eff73962f358ceb59e3581ed1 ""
-  "main.toc" 1490656800 2454 12c3e6355bf7cdda18d1a1a2e0097dc4 ""
+  "main.aux" 1490660437 8292 62bbfcf2839a767ba8418a95ee3ae12d ""
+  "main.bbl" 1490660302 3467 8a1f736f2d915181d35a308bef206c89 "bibtex main"
+  "main.tex" 1490660434 37075 c847b5f200593f57165133dc87a87cbb ""
+  "main.toc" 1490660437 2444 045580c6361ffd379ff04bf1cb006f84 ""
   "quicksort.jpg" 1490609862 13097 01166a616844a3ba59070192d43bf61a ""
   "recent-burndown.png" 1490611762 72274 244fd244a063dcc61df127cf12e50875 ""
   "trello-functional-requirements.png" 1490609860 466837 b48f8b1c01c27cc39ae72937a32cbf05 ""

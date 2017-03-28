@@ -215,6 +215,12 @@ INPUT ./animal-algo-animator.png
 INPUT stack-overflow-languages.png
 INPUT ./stack-overflow-languages.png
 INPUT ./stack-overflow-languages.png
+INPUT v8-benchmark.png
+INPUT ./v8-benchmark.png
+INPUT ./v8-benchmark.png
+INPUT google-trends-electron.png
+INPUT ./google-trends-electron.png
+INPUT ./google-trends-electron.png
 INPUT main.bbl
 INPUT main.bbl
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm

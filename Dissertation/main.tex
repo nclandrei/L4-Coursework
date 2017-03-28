@@ -563,9 +563,33 @@ Thus, we ended up with using a web approach. There are many options available, r
 
 However, one very important aspect that we were concerned about was the core underlying principle of the internet, which is that it requires a permanent internet connection. What if our users would not have access to internet a couple of days before an algorithmics exam? What if our potential user would want to play around with algorithms at his/her own pace without needing to have a wired or wireless connection? 
 
-Also, another thing we had to think about was UI and UX engineering. Having maybe too many resources available, we could have ended up with choosing one that would not fit a part of our users. 
+Also, another thing we had to think about was UI and UX engineering. Having maybe too many resources available, we could have ended up with choosing one that would not fit a part of our users. How can we make sure that the framework we would decide on will make all users feel familiar?
 
-Therefore, the best approach would be to have an animator that is implemented using web tools but it can function as a standalone desktop application. 
+Therefore, the best approach would be to have an animator that is implemented using web tools but it can function as a standalone desktop application. Thus, by being native, it would make all users feel familiar in any their operating system of choice. At this point, we had to research different alternatives to create cross-platform native apps with web tools. The one that was most popular and had the largest library of resources was Electron, which we chose in the end.
+
+Electron is a framework built by engineers at GitHub and then released as an open source project on their platform. It is in fact a Chromium backend that serves webpages inside windows which act as native regardless of the platform of choice. Therefore, the developer can use any web tools available to develop his/her applications benefiting at the same time from features such as system calls.
+
+Because it is using Chromium under the hood, we are automatically taking advantage of using the V8 engine~\cite{v8-chrome} which powers the Google Chrome browser. Efficiency was primordial to us and such we wanted to check if such a candidate would produce exptected output in a reasonable time, so we checked benchmarks available for various JavaScript engines.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.35]{v8-benchmark}
+    \caption{Benchmarks for various JavaScript libraries as of 28/03/2017.}
+    \label{fig:v8-benchmark}
+\end{figure}
+
+As we can see above, the V8 ranks extremely good, being at the lowest points of execution times starting almost from its inception.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.35]{google-trends-electron}
+    \caption{Electron trending on Google in the past 5 years.}
+    \label{fig:google-trends-electron}
+\end{figure}
+
+We can clearly observe that apart from the big spike when the framework became the underlying engine behind many important desktop apps such as Slack somewhere at the end of 2015, Electron has had an constant ascension throughout the years. Also, researching the internet for resources, we could find many tutorials and demo apps where we could draw inspiration from.
+
+Summing up, Electron was a natural choice after careful thinking about advantages and caveats. It proved to allow us implement absolutely any JavaScript library as if it were a 
 
 \section{Vis.js}
 

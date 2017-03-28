@@ -56,6 +56,11 @@ David Galles.
 \newblock {David Galles Algorithm Animator}.
 \newblock \url{https://www.cs.usfca.edu/~galles/visualization/Algorithms.html}.
 
+\bibitem{v8-chrome}
+Google.
+\newblock {Google Chrome V8 Engine Website}.
+\newblock \url{https://developers.google.com/v8/}.
+
 \bibitem{planning-poker}
 James Grenning.
 \newblock {Planning poker or how to avoid analysis paralysis while release

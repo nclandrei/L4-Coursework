@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1490718267 "main.aux" "main.bbl" "main" 1490732527
+["bibtex main"] 1490734651 "main.aux" "main.bbl" "main" 1490734750
   "/usr/local/texlive/2015/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "l4proj.bib" 1490717476 5625 ab2b1ad234da1ffa806e9e905711fc0f ""
-  "main.aux" 1490732527 8979 ffb4177578943d4f121ebfa1cedb250e ""
+  "main.aux" 1490734750 9184 a117ead5f14796d68c05f191b5eb6a63 ""
   "main.bcf" 0 -1 0 ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1490732523 "main.tex" "main.pdf" "main" 1490732527
+["pdflatex"] 1490734746 "main.tex" "main.pdf" "main" 1490734750
   "./UML_component_diagram.png" 1490657845 20565 4f16f7b5d9305f27441b4aa72e2ac3b4 ""
   "./algo-animator.png" 1490609862 298610 64e16d6d6998e82692bca4b8950cf614 ""
   "./algorithm.png" 1490609862 47442 31820362b5af71ca3783062985520115 ""
@@ -28,6 +28,7 @@
   "./stack-overflow-languages.png" 1490711685 151040 36db9782c924a906c019f0490f6d8856 ""
   "./trello-functional-requirements.png" 1490609860 466837 b48f8b1c01c27cc39ae72937a32cbf05 ""
   "./v8-benchmark.png" 1490717826 256221 0ed95d8f6c49664767eec7a178b4e519 ""
+  "/Users/nclandrei/Library/texlive/2015/texmf-var/fonts/pk/ljfour/public/bbding/bbding10.657pk" 1490734103 28028 0bdb43e27c381ee21eab0bc3a5dea13b ""
   "/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2015/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -38,6 +39,7 @@
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm" 1136768653 4408 25b74d011a4c66b7f212c0cc3c90061b ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm" 1136768653 2288 f478fc8fed18759effb59f3dad7f3084 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm" 1136768653 4640 532ca3305aad10cc01d769f3f91f1029 ""
+  "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/bbding/bbding10.tfm" 1220829924 584 35c3c56c2ca57268b3e46133b2da0876 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1136768653 1528 abec98dbc43e172678c11b3b9031252a ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -81,6 +83,8 @@
   "/usr/local/texlive/2015/texmf-dist/tex/latex/base/size11.clo" 1428932888 9195 b429d9ae04d88356fbd16a7b811e600f ""
   "/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1enc.dfu" 1428932888 7617 8f111f916836ef9e09db7ecbcd4e01d6 ""
   "/usr/local/texlive/2015/texmf-dist/tex/latex/base/utf8.def" 1428932888 6484 2098550b79b15e713b69d9c8845f4437 ""
+  "/usr/local/texlive/2015/texmf-dist/tex/latex/bbding/Uding.fd" 1220829924 855 c7d367b8febde87c7a39615c0372cee3 ""
+  "/usr/local/texlive/2015/texmf-dist/tex/latex/bbding/bbding.sty" 1220829924 7225 9b2f9a70c30e88d8bba0d20fcca8b94e ""
   "/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption.sty" 1368312746 65148 c61accbd2b9a5316d9be0887ec48d722 ""
   "/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption3.sty" 1368312746 62748 b02c0dc118f5f35146d37cec569e83b1 ""
   "/usr/local/texlive/2015/texmf-dist/tex/latex/eso-pic/eso-pic.sty" 1429660216 11681 6ffa66efb1c4c6392febac66513b8093 ""
@@ -131,10 +135,10 @@
   "issue-tracking.png" 1490646953 216166 26b95ea4fc10c0e732b8406dd71183c9 ""
   "java-uni.png" 1490609860 89592 ef6f075afd983f73e3635fd0986420d6 ""
   "l4proj.cls" 1490609860 2825 d698c6362cdc757b8ab1719dea98f0cc ""
-  "main.aux" 1490732527 8979 ffb4177578943d4f121ebfa1cedb250e ""
-  "main.bbl" 1490718267 3753 a067aa950aa95bbfa2dec1e17826c14e "bibtex main"
-  "main.tex" 1490732523 42216 26add08cda821be9c61cd23ed4201c73 ""
-  "main.toc" 1490732527 2444 54e69db0ef71ea260d0515d0f0452452 ""
+  "main.aux" 1490734750 9184 a117ead5f14796d68c05f191b5eb6a63 ""
+  "main.bbl" 1490734652 3753 a067aa950aa95bbfa2dec1e17826c14e "bibtex main"
+  "main.tex" 1490734744 44483 cc91a85a75b30d2eb4aa97f22ed0f33d ""
+  "main.toc" 1490734750 2444 1d8805b31a6656d6414be8ade7786248 ""
   "quicksort.jpg" 1490609862 13097 01166a616844a3ba59070192d43bf61a ""
   "recent-burndown.png" 1490611762 72274 244fd244a063dcc61df127cf12e50875 ""
   "stack-overflow-languages.png" 1490711685 151040 36db9782c924a906c019f0490f6d8856 ""
@@ -142,6 +146,6 @@
   "v8-benchmark.png" 1490717826 256221 0ed95d8f6c49664767eec7a178b4e519 ""
   (generated)
   "main.aux"
-  "main.pdf"
   "main.log"
   "main.toc"
+  "main.pdf"

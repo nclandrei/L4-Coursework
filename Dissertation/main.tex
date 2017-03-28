@@ -535,9 +535,37 @@ This screenshot shows how many options are available to the user and how powerfu
 features such as the possibility to create
 your own algorithm, animate it the way you want to, set any color for blocks and even draw manually.
 
+On the other hand, the other option that we considered was making an animator based on web tools. The first and obvious
+approach was to create a website using the very large number of libraries for drawing on the canvas and manipulating
+the DOM in general. Firstly, we began by investigating how popular JavaScript was among developers and if this was
+feasible after all. Here is a brand new survey from StackOverflow, one of the most comprehensive and useful resource repository for developers around
+the globe~\cite{stackoverflow-survey}.
 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.5]{stack-overflow-languages}
+    \caption{Most popular 18 programming languages in 2017.}
+    \label{fig:stack-overflow-languages}
+\end{figure}
+
+As it can be seen, JavaScript is with more than 50\% popular than its competitor Java. Also, when talking about concrete JavaScript libraries, there is a considerable amount published as open source. Other advantages for this approach were:
+
+\begin{itemize}
+    \item great reach to users as almost everyone has at least a browser installed on their machine
+    \item modern, state-of-the-art UI libraries that would make the experience pleasant for users
+\end{itemize}
+
+Weighing both options, we eventually decided to proceed with the web approach because our main goal was to make users, especially students who want to learn new algorithms, like using our animator. Web tools, as discussed previously, provided us with a variety of User Interface components that made our goal possible.
 
 \section{Electron}
+
+Thus, we ended up with using a web approach. There are many options available, ranging from university-specific algorithm animators to more general ones such as the previously mentioned VisuAlgo~\cite{visualgo}.
+
+However, one very important aspect that we were concerned about was the core underlying principle of the internet, which is that it requires a permanent internet connection. What if our users would not have access to internet a couple of days before an algorithmics exam? What if our potential user would want to play around with algorithms at his/her own pace without needing to have a wired or wireless connection? 
+
+Also, another thing we had to think about was UI and UX engineering. Having maybe too many resources available, we could have ended up with choosing one that would not fit a part of our users. 
+
+Therefore, the best approach would be to have an animator that is implemented using web tools but it can function as a standalone desktop application. 
 
 \section{Vis.js}
 

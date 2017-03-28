@@ -595,7 +595,7 @@ We can clearly observe that apart from the big spike when the framework became t
 
 Summing up, Electron was a natural choice after careful thinking about advantages and caveats and it proved to be a very productive framework that allowed an easy and simple workflow for the rest of the software development lifecycle.
 
-\section{Vis.js}
+\section{Drawing}
 
 The component that had the same importance as Electron was the engine behind manipulating the nodes and edges of tree/graph algorithms that we wanted to implement. Because of the large variety of JavaScript libraries available for playing with the canvas, we had a couple of choices to select from. This was a very lengthy process because many provided some features while others gave us other unique ones. 
 
@@ -618,9 +618,45 @@ We shall list them below, together with their pros and cons:
 \label{drawing-libraries}
 \end{table}
 
+These are the main candidates we have chosen: VisJS, Treant, D3, HTML5 Canvas and SigmaJS. 
+
+Let's start with Treant. This was a very compelling option because it had a very robust and easy to use Tree API: nodes
+and edges could be easily manipulated, as well as the layout was very flexible to suit the developer needs. However, as
+it can be seen in the table above, we did not have an out-of-the-box API for graphs. Therefore, this option became
+rather unfeasible.
+
+HTML5 Canvas is a component defined by W3 Consortium themselves and thus it's actively under development and heavily
+standardized. However, apart from continuous maintenance and new regular features, it is hard to pick up and it does
+not provide APIs specifically designed for graphs or trees which meant we needed to put too much effort in learning a
+new platform rather than focusing on actual implementation of the animations.
+
+D3 and SigmaJS are both very mature platforms that have a very large number of features for animating and drawing on
+the canvas. They were both viable candidates up until the end. However, the reason why we eventually chose VisJS
+is because it was the easiest to pick up and had out-of-the-box APIs for both graphs and trees. 
+
+Thus, choosing VisJS, we saw a rapid development workflow and an emphasis on simplicity due to the fact that the tools
+we were using were not standing in our way, but rather helped us to quickly implement the user stories.
+
+\section{Animation}
 
 
 \section{Material Design}
+
+We had a couple of main possiblities to choose from when designing the application's User Interface:
+
+\begin{itemize}
+    \item Material Design by Google
+    \item Bootstrap by Twitter
+    \item Pure CSS
+\end{itemize}
+
+There were others as well, such as Base~\cite{base-ui} or Simple Grid~\cite{simple-grid-ui}, but these were not specifically suitable for
+our purposes. Therefore, we shall analyze different benefits given by the 3 above mentioned platforms and why we
+eventually ended up with Material Design by Google.
+
+
+
+\subsection{Nuances}
 
 \section{Compromises}
 

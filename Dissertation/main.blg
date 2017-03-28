@@ -23,45 +23,45 @@ Name 1 in "Parker, Brenda, and Ian Mitchell" has a comma at the end for entry pa
 while executing---line 1090 of file plain.bst
 Name 1 in "Rößling, Guido, Markus Schüer, and Bernd Freisleben" has a comma at the end for entry animal-algo-animation
 while executing---line 1090 of file plain.bst
-You've used 24 entries,
+You've used 26 entries,
             2118 wiz_defined-function locations,
-            619 strings with 6634 characters,
-and the built_in function-call counts, 5601 in all, are:
-= -- 531
-> -- 210
+            627 strings with 6776 characters,
+and the built_in function-call counts, 6009 in all, are:
+= -- 569
+> -- 224
 < -- 0
-+ -- 86
-- -- 62
-* -- 258
-:= -- 983
-add.period$ -- 72
-call.type$ -- 24
-change.case$ -- 99
++ -- 92
+- -- 66
+* -- 268
+:= -- 1051
+add.period$ -- 78
+call.type$ -- 26
+change.case$ -- 107
 chr.to.int$ -- 0
-cite$ -- 24
-duplicate$ -- 226
-empty$ -- 520
-format.name$ -- 62
-if$ -- 1184
+cite$ -- 26
+duplicate$ -- 240
+empty$ -- 564
+format.name$ -- 66
+if$ -- 1274
 int.to.chr$ -- 0
-int.to.str$ -- 24
+int.to.str$ -- 26
 missing$ -- 19
-newline$ -- 123
-num.names$ -- 48
-pop$ -- 141
+newline$ -- 133
+num.names$ -- 52
+pop$ -- 157
 preamble$ -- 1
-purify$ -- 79
+purify$ -- 85
 quote$ -- 0
-skip$ -- 181
+skip$ -- 197
 stack$ -- 0
-substring$ -- 213
-swap$ -- 24
+substring$ -- 223
+swap$ -- 26
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 88
+type$ -- 96
 warning$ -- 0
-while$ -- 53
-width$ -- 26
-write$ -- 240
+while$ -- 57
+width$ -- 28
+write$ -- 258
 (There were 10 error messages)

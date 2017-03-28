@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{base-ui}
+Base.
+\newblock {Base Website}.
+\newblock \url{http://getbase.org}.
+
 \bibitem{extreme-programming}
 Kent Beck.
 \newblock {Embracing change with extreme programming.}
@@ -66,6 +71,11 @@ James Grenning.
 \newblock {Planning poker or how to avoid analysis paralysis while release
   planning.}
 \newblock {\em Renaissance Software Consulting}, 2002.
+
+\bibitem{simple-grid-ui}
+Simple Grid.
+\newblock {Simple Grid Website}.
+\newblock \url{http://thisisdallas.github.io/Simple-Grid}.
 
 \bibitem{visualgo}
 Steven et~al. Halim.

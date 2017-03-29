@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{airbnb-style-guide}
+Airbnb.
+\newblock {Airbnb JavaScript Code Style Guide}.
+\newblock \url{https://github.com/airbnb/javascript}.
+
 \bibitem{base-ui}
 Base.
 \newblock {Base Website}.
@@ -82,6 +87,11 @@ Steven et~al. Halim.
 \newblock {VisuAlgo Website}.
 \newblock \url{http://visualgo.net}.
 
+\bibitem{callback-hell}
+Callback Hell.
+\newblock {Callback Hell Website}.
+\newblock \url{http://callbackhell.com}.
+
 \bibitem{smart-requirements}
 Mike Mannion and Barry Keepence.
 \newblock {SMART Requirements.}
@@ -115,6 +125,11 @@ Brenda Parker and Ian Mitchell.
 \newblock {Effective methods for learning: a study in visualization.}
 \newblock {\em Journal of Computing Sciences in Colleges}, 22(2):176--182,
   2006.
+
+\bibitem{prettier}
+Prettier.
+\newblock {Prettier Github Page}.
+\newblock \url{https://github.com/prettier/prettier}.
 
 \bibitem{animal-algo-animation}
 Markus~Schüer Rößling, Guido and Bernd Freisleben.

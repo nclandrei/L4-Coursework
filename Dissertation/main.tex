@@ -778,6 +778,10 @@ In the following sections we will discuss among others about how the project was
 JavaScript shortcoming of not having multi-threading support, as well as how other various functionalities were put
 into place. We will conclude with talking about biggest issues faced and what lessons were learned. 
 
+\section{Algorithm Selection}
+
+
+
 \section{Project Structure}
 
 We have split our application into 3 main components, as in traditional website development: stylesheets, JavaScripts
@@ -940,24 +944,57 @@ the application since they opened it for the first time. Below a screenshot of t
 \begin{figure}[!ht]
     \centering
     \includegraphics[scale=0.3]{landing-page}
-    \caption{Landing page in Palgo.}
+    \caption{Landing page in the application.}
     \label{fig:landing-page}
 \end{figure}
 
+\pagebreak
+
 Last but not least, we believe that having a modern and attractive webpage where users can download the app and get to
-know some basic is essential, thus we have created a custom website where we host the releases and users can simply
-download and run Palgo with only a couple of clicks.
+know some basic information is essential, thus we have created a custom website where we host the releases and users can simply
+download and run Palgo with only a couple of clicks. This was a very nice feature voted for by many of our end users.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.3]{landing-page}
-    \caption{Landing page in Palgo.}
-    \label{fig:landing-page}
+    \includegraphics[scale=0.3]{palgo-website}
+    \caption{Palgo website hosted by GitHub.}
+    \label{fig:palgo-website}
 \end{figure}
 
 \section{Lessons Learned}
 
-\section{Issues Faced}
+One of the most important lessons learned was that web development, even though it might sound easy, is not like that at all.
+Because everything around us nowadays is web-based or it has something to do with it, there are a lot of technologies in
+various sub-fields that help developers solve certain problems. As discussed in the previous sections, we have struggled
+with many design decisions mainly because of the large palette of choices. Therefore, having to research and eventually
+learn many of them so that argumented comparisons could be made regarding which one is better was time consuming.
+However, once the developer possesses the basics, he/she can evolve and apply the fundamentals to learn any new
+technology much easier.
+
+Another lesson learned was that one needs to take very good care to not fall into the trap of "premature optimization".
+As we started the project back in first semester, I was very keen on implementing a large number of UI features such as
+stylish buttons or attractive fade-ins when the window content changed. However, these early iterations were designed
+for setting up the basics and implementing the algorithms, as well as animate them. Learning that optimizing prematurely
+can lead to wasted effort, I have changed my approach and started prioritizing our user stories more effectively.
+
+A third lesson I learned was that any JavaScript can fall in the "callback hell". This is such a common pattern among
+web developers that people created a website that specifically addresses this issue and gives advice on how to avoid
+it~\cite{callback-hell}. I have also fell in this trap but with advice taken from the website mentioned previously, I
+could easily refactor and follow the best practices promoted by industry leading developers.
+
+Another vital aspect I've learned throughout our software process was the importance of code style in JavaScript. Even
+though other programming languages promote a robust and consistent code style as well (e.g. Java, C), JavaScript is the
+most popular technology used thus it has a very widespread reach. Therefore, many styling guides have been created so
+that new developers would find the code easier to read and, subsequently, to understand. The formatter I have used throughout
+the whole project is a tool called Prettier~\cite{prettier} and the guide I used for reference is the one Airbnb have
+open sourced on GitHub (it is now one of the most popular projects on the platform with almost 50k
+stars~\cite{airbnb-style-guide}). This will ensure that if the project will gain contributors in the future their
+accommodation period with the codebase will be smooth and fast.
+
+Overall, I believe that this project was a real success and it was a great way to both learn new technologies as well as
+learn how to research into previous work and apply the best software engineering practices. I think that without
+following set rules, deadlines and good methodologies already proven successful in the industry, no project can ever
+succeed.
 
 %==============================================================================
 

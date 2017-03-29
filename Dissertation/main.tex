@@ -785,7 +785,7 @@ above. Here is the simple structure we opted for.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.6]{project-structure}
+    \includegraphics[scale=0.5]{project-structure}
     \caption{Project Structure as shown in Intellij IDEA.}
     \label{fig:project-structure}
 \end{figure}
@@ -796,7 +796,70 @@ Architecturally speaking, because we have opted for a Component Based approach, 
 reused. Therefore, the nodes animators for all algorithms as well as the codeline animators are generic and only
 adapted to the specific algo they are running for. 
 
+Also, we have also added in assets, vendor and fonts components. These are just static files that will be used to render fonts,
+add images to the HTML pages as well as provide some extra JS modules to the specific algorithm animators. 
+
+Last but not least, the package.json file is automated so that we can add the releases as easy as possible to the
+release-builds folder which will contain all executables for the 3 main operating system families: macOS, Windows and
+Linux.
+
 \section{JavaScript and Multi-Threading}
+
+This was the most important issue faced throughout the whole software process. Because I did not have previous
+experience with web applications that might require multi-threading support, I did not know if JavaScript provides this
+or not. We shall provide a code snippet first to better describe the problem and discuss on it afterwards.
+
+\begin{lstlisting}[language=Java, caption=Animation function used in Dijkstra's SP algorithm.]
+(function(ind) {
+      setTimeout(
+	function() {
+	  unHighlightAllCodeLines();
+	  highlightCodeLine(1);
+	  if (nodes[ind] === nodeRoot) {
+	    distances[nodes[ind].label] = 0;
+	  } else if (containsObject(nodes[ind], nodeRoot.adjacencyList)) {
+	    distances[nodes[ind].label] = getEdgeWeight(nodeRoot, nodes[ind]);
+	  } else {
+	    distances[nodes[ind].label] = Number.POSITIVE_INFINITY;
+	  }
+	  appendRowToTable(nodes[ind].label);
+	  setupDistance(nodes[ind].label, distances[nodes[ind].label]);
+	  if (ind > 0) {
+	    if (!containsObject(nodes[ind - 1], S)) {
+	      nodes[ind - 1].color = "#009688";
+	    } else {
+	      nodes[ind - 1].color = "#3f51b5";
+	    }
+	    unHighlightTableRow(nodes[ind - 1].label);
+	  }
+	  nodes[ind].color = "red";
+	  highlightTableRow(nodes[ind].label);
+	  network = rebuildNetwork(network, container, options, nodes);
+	},
+	2000 + 3000 * ind
+      );
+})(i);
+\end{lstlisting}
+
+As you can see above, this is a very complicated function which sets up initial distances to all nodes in a graph from
+the root - if they are adjacent, then the distance will be the weight of the edge; otherwise, the distance will be set
+to infinity. SetTimeout is a function that delays another function's execution until a specific point in time, thus we are sequencing
+multiple calls to this self-contained function based on the i index which is the variable used in the loop where
+this piece of code is defined. 
+
+This is the way all algorithm animations are implemented. However, the problem is as you can notice on lines 4, 5 or 21
+that we are also animating other components apart from the nodes in the same body. In other programming languages, such as Java, this
+could easily be done by using 2 threads which would split the work between themselves - one would deal with node
+animation, while the other could highlight and unhighlight codelines dynamically. However, JavaScript does not allow
+support for multi-threading so we had to resume to merging the 2 functionalities into one. Even though one might argue
+that along with HTML5 the W3C introduced Web Workers~\cite{web-worker}, these do not provide a solution to our problem
+because they allow only primitives and simple objects to be passed inside the running thread, while we have Nodes that
+can have other Nodes as children (which is a property of the Vis Node), thus creating circular dependencies.
+
+Therefore, this sort of complicated mathematical calculus had to be done (see line 27) in order to make sure the calls are invoked at
+the correct times and that they don't overlap. 
+
+Moreover, another type of issue occured when there were setTimeout invokations inside outer setTimeouts. 
 
 \section{JS Animation Engine}
 

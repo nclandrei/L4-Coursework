@@ -92,6 +92,12 @@ John Morris.
 \newblock {A toolkit for algorithm animation.}
 \newblock {\em Proceedings AEESEAP}, 2004.
 
+\bibitem{web-worker}
+Mozilla.
+\newblock {Mozilla Developer Network - Web Workers}.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API}.
+
 \bibitem{palmiter-elkerton}
 Susan Palmiter and Jay Elkerton.
 \newblock {An evaluation of animated demonstrations of learning computer-based
@@ -135,14 +141,14 @@ Velocity.js.
 \newblock {Velocity.js Website}.
 \newblock \url{http://velocityjs.org}.
 
-\bibitem{material-design}
-Velocity.js.
-\newblock {Velocity.js Website}.
-\newblock \url{http://velocityjs.org}.
-
 \bibitem{visjs}
 VisJS.
 \newblock {VisJs Website}.
 \newblock \url{http://visjs.org}.
+
+\bibitem{material-design}
+Federico Zivolo.
+\newblock {Material Design Bootstrap Website}.
+\newblock \url{http://fezvrasta.github.io/bootstrap-material-design}.
 
 \end{thebibliography}

@@ -639,6 +639,24 @@ we were using were not standing in our way, but rather helped us to quickly impl
 
 \section{Animation}
 
+After drawing, the next major issue we had to discuss was the actual animation part. We have researched many tools
+available and we ended up with basic set timeouts. One snippet for an animation looks something like this:
+
+\begin{lstlisting}[language=Java, caption=JavaScript snippet for creating an animation]
+setTimeout(
+  function() {
+    unHighlightAllCodeLines();
+    for (var k = 0; k < nodesArrayLength; k++) {
+      unHighlightTableCell(nodes[k].label);
+    }
+    resetWholeNetwork(network, container, options);
+  },
+  2000 + 3000 * nodesArrayLength + 13000 * nodesArrayLength - 1
+);
+\end{lstlisting}
+
+Even though the implementation details will be covered in the following chapter, we shall discuss here the importance
+and the reason why we decided to use this approach instead of others.
 
 \section{Material Design}
 
@@ -654,9 +672,46 @@ There were others as well, such as Base~\cite{base-ui} or Simple Grid~\cite{simp
 our purposes. Therefore, we shall analyze different benefits given by the 3 above mentioned platforms and why we
 eventually ended up with Material Design by Google.
 
+Below we shall present one of the most used and noticeable components to a user when he/she interacts with an
+application, which is the navigation bar.
 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.35]{bootstrap-navbar}
+    \caption{Bootstrap default navigation bar.}
+    \label{fig:bootstrap-navbar}
+\end{figure}
 
-\subsection{Nuances}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.35]{material-design-navbar}
+    \caption{Material Design navigation bar.}
+    \label{fig:material-design-navbar}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.35]{purecss-navbar}
+    \caption{Pure CSS default navigation bar.}
+    \label{fig:purecss-navbar}
+\end{figure}
+
+We can clearly notice a more colorful, natural and playful approach in the Material Design navigation bar. We have
+presented all 3 options to the level 4 students and they were all in favor of the Material Design UI for all components
+(more details on the results of these evaluations in Chapter~\ref{testing}, section Prototype Evaluation).
+
+Even though the Material Design components were invented by Google (which are also available on GitHub), we have opted for the ones open sourced by Federico
+Zivolo~\cite{material-design} because they are much more popular and there are more resources with which one can get
+accustomed quicker. 
+
+We have decided to use this approach in spite of the others because of several reasons:
+
+\begin{itemize}
+    \item Material Design has gained much more traction than the other frameworks since its inception
+    \item even though Pure CSS does not require any JavaScript dependencies (hence the name), it is very raw and it
+	requires a lot of tweaking before going into production
+    \item Bootstrap is the foundation of virtually every framework available but it is exactly that, a foundation, thus
+	it does not give the developer advanced features out-of-the-box
 
 \section{Compromises}
 

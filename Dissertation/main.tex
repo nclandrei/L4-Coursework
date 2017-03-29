@@ -760,10 +760,18 @@ is a screenshot taken while using VisuAlgo:
     \label{fig:play-pause-previous-next}
 \end{figure}
 
+This is a functionality desired by most of our users as well as Dr. Norman. However, due to the previous compromise we
+have stated (i.e. using setTimeouts for animating the algorithms), it was virtually impossible to mimmick these
+buttons.
+
 %==============================================================================
 
 \chapter{Implementation}
 \label{implementation}
+
+In the following sections we will discuss among others about how the project was actually implemented, how we overcame the
+JavaScript shortcoming of not having multi-threading support, as well as how other various functionalities were put
+into place. We will conclude with talking about biggest issues faced and what lessons were learned. 
 
 \section{Project Structure}
 

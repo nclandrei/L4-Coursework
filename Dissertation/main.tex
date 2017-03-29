@@ -741,6 +741,7 @@ We have decided to use this approach in spite of the others because of several r
 	requires a lot of tweaking before going into production
     \item Bootstrap is the foundation of virtually every framework available but it is exactly that, a foundation, thus
 	it does not give the developer advanced features out-of-the-box
+\end{itemize}
 
 \section{Compromises}
 
@@ -780,7 +781,7 @@ into place. We will conclude with talking about biggest issues faced and what le
 \section{Project Structure}
 
 We have split our application into 3 main components, as in traditional website development: stylesheets, JavaScripts
-and HTML5 pages. They were all coordinated by npm which is the node package manager~\cite{citation-here}. Essentially,
+and HTML5 pages. They were all coordinated by npm which is the node package manager~\cite{npm}. Essentially,
 npm is the equivalent of Maven or Gradle for Java projects and that is both a dependency manager and a build automation
 tool. Therefore, in npm we defined the name of the project and all sorts of metadata as well as the dependencies needed
 for building the app. As soon as all these were set, we started working on the three main categories of files mentioned
@@ -789,7 +790,7 @@ above. Here is the simple structure we opted for.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.5]{project-structure}
+    \includegraphics[scale=0.4]{project-structure}
     \caption{Project Structure as shown in Intellij IDEA.}
     \label{fig:project-structure}
 \end{figure}
@@ -912,8 +913,6 @@ for (let index = 0; index < steps; index++) {
 }
 \end{lstlisting}
 
-\pagebreak
-
 The for loop below the comment is only a part of the impose function, but for shortening the length as much as possible
 we have included what was necessary to demonstrate the issue mentioned above. 
 
@@ -925,6 +924,25 @@ inherited and it doesn't need to be included in the nested loop. After I realize
 and the animation would perform normal.
 
 \section{Extra Features}
+
+Both the potential users and the supervisor have requested that all algorithms should contain a random functionality
+could easily have a graph or tree to animate that did not require manual insertion and deletion. Therefore, every
+algorithm page has a random button which will automate the whole process of creating a Vis network.
+
+Also, for the Huffman encoding algorithm, we have also added an Input File button that can take a plain text file from
+the user's machine and, after parsing the document, execute the algorithm against that input. 
+
+Moreover, another feature implemented that was very popular was the landing page in the application - as
+the user opens the animator they will be presented with a carousel where they can interactively select what algorithm
+to see animated. Thus, we needed to place emphasis on this rather simple stylistic element so that users would enjoy
+the application since they opened it for the first time. Below a screenshot of the landing point is attached.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.3]{landing-page}
+    \caption{Landing page in Palgo.}
+    \label{fig:landing-page}
+\end{figure}
 
 \section{Lessons Learned}
 

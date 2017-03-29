@@ -98,6 +98,11 @@ Mozilla.
 \newblock
   \url{https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API}.
 
+\bibitem{npm}
+NPM.
+\newblock {NPM Website}.
+\newblock \url{http://npmjs.com}.
+
 \bibitem{palmiter-elkerton}
 Susan Palmiter and Jay Elkerton.
 \newblock {An evaluation of animated demonstrations of learning computer-based

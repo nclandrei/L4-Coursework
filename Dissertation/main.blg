@@ -3,6 +3,7 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: l4proj.bib
+Warning--I didn't find a database entry for "citation-here"
 Name 1 in "Parker, Brenda, and Ian Mitchell" has a comma at the end for entry parker-mitchell
 while executing---line 1049 of file plain.bst
 Name 1 in "Palmiter, Susan, and Jay Elkerton" has a comma at the end for entry palmiter-elkerton
@@ -25,7 +26,7 @@ Name 1 in "Rößling, Guido, Markus Schüer, and Bernd Freisleben" has a comma a
 while executing---line 1090 of file plain.bst
 You've used 28 entries,
             2118 wiz_defined-function locations,
-            632 strings with 6860 characters,
+            633 strings with 6873 characters,
 and the built_in function-call counts, 6417 in all, are:
 = -- 607
 > -- 238

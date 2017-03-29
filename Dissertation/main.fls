@@ -248,6 +248,8 @@ INPUT ./project-structure.png
 INPUT landing-page.png
 INPUT ./landing-page.png
 INPUT ./landing-page.png
+INPUT landing-page.png
+INPUT ./landing-page.png
 INPUT main.bbl
 INPUT main.bbl
 INPUT /usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1pcr.fd

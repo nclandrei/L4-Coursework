@@ -778,7 +778,23 @@ into place. We will conclude with talking about biggest issues faced and what le
 We have split our application into 3 main components, as in traditional website development: stylesheets, JavaScripts
 and HTML5 pages. They were all coordinated by npm which is the node package manager~\cite{citation-here}. Essentially,
 npm is the equivalent of Maven or Gradle for Java projects and that is both a dependency manager and a build automation
-tool.
+tool. Therefore, in npm we defined the name of the project and all sorts of metadata as well as the dependencies needed
+for building the app. As soon as all these were set, we started working on the three main categories of files mentioned
+above. Here is the simple structure we opted for.
+
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.6]{project-structure}
+    \caption{Project Structure as shown in Intellij IDEA.}
+    \label{fig:project-structure}
+\end{figure}
+
+\pagebreak
+
+Architecturally speaking, because we have opted for a Component Based approach, everything is built so that it can be
+reused. Therefore, the nodes animators for all algorithms as well as the codeline animators are generic and only
+adapted to the specific algo they are running for. 
 
 \section{JavaScript and Multi-Threading}
 

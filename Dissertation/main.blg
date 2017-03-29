@@ -3,7 +3,6 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: l4proj.bib
-Warning--I didn't find a database entry for "material-design"
 Name 1 in "Parker, Brenda, and Ian Mitchell" has a comma at the end for entry parker-mitchell
 while executing---line 1049 of file plain.bst
 Name 1 in "Palmiter, Susan, and Jay Elkerton" has a comma at the end for entry palmiter-elkerton
@@ -24,45 +23,45 @@ Name 1 in "Parker, Brenda, and Ian Mitchell" has a comma at the end for entry pa
 while executing---line 1090 of file plain.bst
 Name 1 in "Rößling, Guido, Markus Schüer, and Bernd Freisleben" has a comma at the end for entry animal-algo-animation
 while executing---line 1090 of file plain.bst
-You've used 26 entries,
+You've used 28 entries,
             2118 wiz_defined-function locations,
-            628 strings with 6791 characters,
-and the built_in function-call counts, 6009 in all, are:
-= -- 569
-> -- 224
+            632 strings with 6860 characters,
+and the built_in function-call counts, 6417 in all, are:
+= -- 607
+> -- 238
 < -- 0
-+ -- 92
-- -- 66
-* -- 268
-:= -- 1051
-add.period$ -- 78
-call.type$ -- 26
-change.case$ -- 107
++ -- 98
+- -- 70
+* -- 278
+:= -- 1119
+add.period$ -- 84
+call.type$ -- 28
+change.case$ -- 115
 chr.to.int$ -- 0
-cite$ -- 26
-duplicate$ -- 240
-empty$ -- 564
-format.name$ -- 66
-if$ -- 1274
+cite$ -- 28
+duplicate$ -- 254
+empty$ -- 608
+format.name$ -- 70
+if$ -- 1364
 int.to.chr$ -- 0
-int.to.str$ -- 26
+int.to.str$ -- 28
 missing$ -- 19
-newline$ -- 133
-num.names$ -- 52
-pop$ -- 157
+newline$ -- 143
+num.names$ -- 56
+pop$ -- 173
 preamble$ -- 1
-purify$ -- 85
+purify$ -- 91
 quote$ -- 0
-skip$ -- 197
+skip$ -- 213
 stack$ -- 0
-substring$ -- 223
-swap$ -- 26
+substring$ -- 233
+swap$ -- 28
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 96
+type$ -- 104
 warning$ -- 0
-while$ -- 57
-width$ -- 28
-write$ -- 258
+while$ -- 61
+width$ -- 30
+write$ -- 276
 (There were 10 error messages)

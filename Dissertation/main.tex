@@ -658,6 +658,31 @@ setTimeout(
 Even though the implementation details will be covered in the following chapter, we shall discuss here the importance
 and the reason why we decided to use this approach instead of others.
 
+Some libraries were already built to facilitate developers an easy path to animation, so why use plain JavaScript for
+accomplishing this? We have reviewed and discussed advantages and disadvantages for the following JS libraries:
+
+\begin{itemize}
+    \item Velocity JS
+    \item DOM JS Animation
+    \item JQuery Animation
+\end{itemize}
+
+Starting with Velocity JS as it is an actively developed library with more than 39 contributors on Github and almost
+700 commits~\cite{velocityjs}, what it primarily offers is transforms, loops, easings or color animation. This sounds
+promising, but the main problem in our case is that we are working with Vis Nodes in a tree or a graph, thus our components
+are JavaScript objects rendered in the canvas. Even more than that, we have circular dependencies, as the root of a tree can have children
+which in turn are Nodes themselves, so mixing the structure Vis JS imposes with the functionalities of Velocity JS was
+rather impossible.
+
+Also, another issue with using any of the 3 options (W3 DOM Animation, Jquery animate or Velocity) was that they are
+manipulating elements which are part of the DOM (Document Object Model), while in our project the elements are part of
+the canvas. Therefore only the canvas can be animated as a whole without being able to manipulate the elements inside.
+
+Having discussed all these caveats, we were left with no other choice than devise algorithms to animate our nodes and
+codelines using plain setTimeout calls throughout the project. Even though it was a compromise and it slowed
+drastically the workflow in the beginning, once we passed the steep learning curve, we were able to animate all the
+elements in short periods of time.
+
 \section{Material Design}
 
 We had a couple of main possiblities to choose from when designing the application's User Interface:
@@ -714,6 +739,9 @@ We have decided to use this approach in spite of the others because of several r
 	it does not give the developer advanced features out-of-the-box
 
 \section{Compromises}
+
+One of the compromises mentioned previously as well was that we had to use setTimeouts to animate our objects instead
+of mature, easy-to-grasp libraries.
 
 %==============================================================================
 

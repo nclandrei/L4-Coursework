@@ -741,7 +741,24 @@ We have decided to use this approach in spite of the others because of several r
 \section{Compromises}
 
 One of the compromises mentioned previously as well was that we had to use setTimeouts to animate our objects instead
-of mature, easy-to-grasp libraries.
+of mature, easy-to-grasp libraries. What the setTimeout function does is it sets the execution of the callback function
+provided at a specific time in the future. Because we had only a canvas and we couldn't manipulate nodes as regular DOM
+objects, all the node coloring or label changing was done using a chain of setTimeouts that, at the beginning of the
+algorithm (i.e. when the user presses the "Start Algorithm" button), they would have their exact time in the future
+when they got executed calculated. One example might be: color this node at millisecond 2600, change its left
+children's label to 2 at millisecond 3500 and finally highlight the codeline "set label to 2" at the same time, 3500.
+This was extremely hard to understand and master and the first iterations were quite slow. However, as time passed and
+I gained more experience with this technique, development became much easier.
+
+Another compromise that we needed to take was the lack of play/pause and previous/next buttons for the animator. Here
+is a screenshot taken while using VisuAlgo:
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.35]{play-pause-previous-next}
+    \caption{VisuAlgo play/pause/previous/next buttons for the animator.}
+    \label{fig:play-pause-previous-next}
+\end{figure}
 
 %==============================================================================
 

@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1490750580 "main.aux" "main.bbl" "main" 1490750695
+["bibtex main"] 1490754481 "main.aux" "main.bbl" "main" 1490754481
   "/usr/local/texlive/2015/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "l4proj.bib" 1490750218 6174 5e629bbcc846a051b0dd7511cc149a67 ""
-  "main.aux" 1490750629 10061 0124a51c5821eebdf16813abcdf85749 ""
+  "main.aux" 1490754479 10248 637a1cdff9f4d00967c04ff9c0636357 ""
   "main.bcf" 0 -1 0 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1490750695 "main.tex" "main.pdf" "main" 1490750695
+["pdflatex"] 1490754475 "main.tex" "main.pdf" "main" 1490754481
   "./UML_component_diagram.png" 1490657845 20565 4f16f7b5d9305f27441b4aa72e2ac3b4 ""
   "./algo-animator.png" 1490609862 298610 64e16d6d6998e82692bca4b8950cf614 ""
   "./algorithm.png" 1490609862 47442 31820362b5af71ca3783062985520115 ""
@@ -143,11 +143,12 @@
   "issue-tracking.png" 1490646953 216166 26b95ea4fc10c0e732b8406dd71183c9 ""
   "java-uni.png" 1490609860 89592 ef6f075afd983f73e3635fd0986420d6 ""
   "l4proj.cls" 1490609860 2825 d698c6362cdc757b8ab1719dea98f0cc ""
-  "main.aux" 1490750629 10061 0124a51c5821eebdf16813abcdf85749 ""
-  "main.bbl" 1490750580 4190 ed9ff232358a73a3f04b6b56e0bd6285 "bibtex main"
-  "main.tex" 1490750694 51037 dc1ea8a911ae1f2390ac61bd58f0a687 ""
-  "main.toc" 1490750629 2501 eed638cf1fd5b1a0fea6ba96a676ca6b ""
+  "main.aux" 1490754479 10248 637a1cdff9f4d00967c04ff9c0636357 ""
+  "main.bbl" 1490754456 4190 ed9ff232358a73a3f04b6b56e0bd6285 "bibtex main"
+  "main.tex" 1490754474 52275 88f0d0d579489248bd9275a504ba937f ""
+  "main.toc" 1490754479 2501 eed638cf1fd5b1a0fea6ba96a676ca6b ""
   "material-design-navbar.png" 1490745844 25081 54a1d9d9daff19a1b82aeb47695d3a7f ""
+  "play-pause-previous-next" 0 -1 0 ""
   "purecss-navbar.png" 1490745539 18569 d70e6c4c9923e92a337371cdf5e54e43 ""
   "quicksort.jpg" 1490609862 13097 01166a616844a3ba59070192d43bf61a ""
   "recent-burndown.png" 1490611762 72274 244fd244a063dcc61df127cf12e50875 ""

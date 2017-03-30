@@ -176,6 +176,11 @@ StackOverflow.
 \newblock {StackOverflow 2017 Survery}.
 \newblock \url{http://stackoverflow.com/insights/survey/2017#technology}.
 
+\bibitem{galant-github}
+Matt Stallman.
+\newblock {Galant GitHub Page}.
+\newblock \url{https://github.com/mfms-ncsu/galant}.
+
 \bibitem{galant}
 Matthias~F Stallmann.
 \newblock {Algorithm Animation with Galant.}

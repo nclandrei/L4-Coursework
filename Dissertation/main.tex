@@ -788,7 +788,17 @@ The algorithm selection was solely done during the supervisor meetings. We have 
     \item Breadth-First Search in a graph
     \item Heap insertion and deletion
     \item Dijkstra's Algorithm for Shortest Path
-    \item 
+    \item Prim-Jarnik Minimum Spanning Tree
+    \item Prim-Jarnik Dijkstra's Refinement Minimum Spanning Tree
+\end{itemize}
+
+These candidates were chosen because they are all among the most common and used algorithms and they are also very
+popular among university computer science courses. We have taken the codelines which would be animated from Dr.
+Norman's slides from the Algorithmics I class at University of Glasgow. Moreover, we also double checked them for proofness
+before going on the main pane of the application.
+
+They were translated from either pseudocode or Java to JavaScript which implied rather simple transformations as
+the languages don't have such divergent syntaxes. 
 
 \section{Project Structure}
 
@@ -799,15 +809,12 @@ tool. Therefore, in npm we defined the name of the project and all sorts of meta
 for building the app. As soon as all these were set, we started working on the three main categories of files mentioned
 above. Here is the simple structure we opted for.
 
-
 \begin{figure}[!ht]
     \centering
     \includegraphics[scale=0.4]{project-structure}
     \caption{Project Structure as shown in Intellij IDEA.}
     \label{fig:project-structure}
 \end{figure}
-
-\pagebreak
 
 Architecturally speaking, because we have opted for a Component Based approach, everything is built so that it can be
 reused. Therefore, the nodes animators for all algorithms as well as the codeline animators are generic and only
@@ -819,6 +826,53 @@ add images to the HTML pages as well as provide some extra JS modules to the spe
 Last but not least, the package.json file is automated so that we can add the releases as easy as possible to the
 release-builds folder which will contain all executables for the 3 main operating system families: macOS, Windows and
 Linux.
+
+\section{Animation Pipeline}
+
+After the user presses the Start Algorithm button there is a pipeline of processes that is happening "behind the
+scenes". We shall display that through a UML use case diagram.
+
+\pagebreak
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.3]{animation_uml_use_case_diagram}
+    \caption{UML Use Case Diagram showing application flow of events.}
+    \label{fig:animation_uml_use_case_diagram}
+\end{figure}
+
+As it can be seen, everything starts when the user presses the start algorithm button present on every page. From
+there, the event listener set to check if the user clicks the button is triggered (in the corresponding JavaScript
+file) and starts the 2 animation components. They are always in sync being set to execute at the same time using the
+setTimeout delay functionality (e.g. both do iteration x after 1000 milliseconds times x), thus giving the user
+concomitant output from both the nodes pane and the codelines pane. When they have executed their last iteration, they
+both stop and the whole canvas is reset to its original state. This is done again with a setTimeout call with the delay
+set as unit of time (usually 1000 milliseconds) times the total number of steps to complete the algorithm. The number
+of steps is either computed automatically (e.g. in Huffman tree construction we can directly calculate the total number
+of steps needed to complete the animation) or through running the algorithm in the background and returning the value.
+As we discussed previously, the V8 engine is extremely fast thus the execution of any of our algorithms is in terms of
+milliseconds, the delay being indistinguishable for the human eye. 
+
+One concern might arise and that is: even though executing the algorithm an unecessary extra time would not make the
+user notice any difference, why do it after all? Let's take the following example from the heap insertion algorithm:
+
+\begin{lstlisting}[language=Java, caption=Pseudocode for inserting a node in a heap.]
+insert item in new leaf node; 
+while (new_value not in root && new_value > parent_value) {
+    swap new_value with parent_value;
+}
+\end{lstlisting}
+
+As you can see here, we have a while loop, therefore we do not have an already known number of steps until the
+condition fails and we exit the loop (as we would generally have in a for loop). Here is the actual implementation for
+animating an insertion in a heap:
+
+\begin{lstlisting}[language=Java, caption=Pseudocode for inserting a node in a heap.]
+insert item in new leaf node; 
+while (new_value not in root && new_value > parent_value) {
+    swap new_value with parent_value;
+}
+\end{lstlisting}
 
 \section{JavaScript and Multi-Threading}
 

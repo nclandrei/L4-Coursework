@@ -1134,15 +1134,99 @@ project and what results we achieved.
 
 \section{Unit Testing}
 
-Unit testing is a
+Unit testing is a part of software testing in general that deals with individuals parts of the source code are tested
+to check if they perform as expected.
 
 JavaScript provides a large pool of frameworks to do unit testing. Even though they are quite different than what I was
 used to (e.g. JUnit, Mockito, PyUnit) from university coursework and work experience, the fundamentals stay exactly the
 same.
 
+For our purposes we decided that MochaJS~\cite{mocha} was a great fit because of several reasons:
+
+\begin{itemize}
+  \item flexible and implemented with simplicity in mind
+  \item runs on node.js which was already one of our powering engines, thus the integration was straightforward
+  \item promotes a very descriptive documentation when writing tests because it uses the "describe" and "it" keyword
+    which let the developer spot the failures easily
+  \item can integrate with various other frameworks such as should.js~\cite{shouldjs},
+    better-assert~\cite{better-assert} or chai~\cite{chai}
+\end{itemize}
+
+Through MochaJS we tested various animation and UI related components such as: do the buttons work properly, are
+algorithms correctly implemented in JS and give correct output or are codelines highlighted properly. However, in
+order to test Electron itself and see if the native features behave as expected we hooked up another component:
+Spectron~\cite{spectron}. It is a testing framework built by GitHub that uses ChromeDriver and WebDriverIO. 
+
+As we discussed previously, using Mocha was very similar to what Java unit testing frameworks provide, but Spectron is
+quite different. Here is an example of one unit test written using Spectron:
+
+\pagebreak
+
+\begin{lstlisting}[language=Java, caption=Spectron unit test which checks correct behaviour of the Electron window.]
+var Application = require('spectron').Application
+var assert = require('assert')
+
+describe('application launch', function () {
+  this.timeout(10000)
+
+  beforeEach(function () {
+    this.app = new Application({
+      path: 'release-builds/macOS/Palgo'
+    })
+    return this.app.start()
+  })
+  afterEach(function () {
+    if (this.app && this.app.isRunning()) {
+      return this.app.stop()
+    }
+  })
+  it('shows start screen', function () {
+    return this.app.client.getWindowCount().then(function (count) {
+      assert.equal(count, 1)
+    })
+  })
+})
+\end{lstlisting}
+
+This is a simple unit test that starts the executable on macOS and checks if the window actually starts or not -
+basically we are running a smoke test. Spectron was used mainly for checking if the application starts properly,
+closes gracefully and also if a regular user workflow would break it.
+
+Moreover, Spectron documentation promotes using MochaJS as the main testing framework to integrate with so our
+accommodation with the two was natural.
+
 \section{Integration Testing}
 
+In terms of integration testing we have configured a circle.yml file which is required by CircleCI where we specified
+that we want mocha to be our testing framework as well as the exact command how to run all the tests before merging
+the code into master. The pipeline we have set up is as follows:
+
+\begin{itemize}
+  \item start running all the tests running the mocha command (mocha was installed on the Linux server we have hooked
+    up with CircleCI)
+    \begin{itemize}
+      \item if all tests passes, merge it into master
+      \item if at least one fails, abort merge and send an email specifying what tests failed and why
+    \end{itemize}
+  \item publish statistics on the CircleCI website and a small indicator next to the latest commit on the GitHub page
+    showing the status of the build
+    (i.e. green if passed, red if it didn't)
+\end{itemize}
+
+This whole process ensured a smooth workflow and a continuous feedback on the status of our application and the
+changes we were making.
+
 \section{Prototype Evaluation}
+
+The evaluation process was undergone together with 16 Level 4 Computer Science students at University of Glasgow. We
+have asked them to complete a short form after using the application for about 20 minutes.
+
+We have provided the participants with a consent form where they were assured their whole input would be anonymous.
+Also we have told them that they could stop at any time if they felt uncomfortable or any other reason during the
+process.
+
+They were split into 2 groups of 8 people each and the first group was told to use Palgo for 10 minutes while the
+other group used Galant~\cite{galant}.
 
 \section{Results}
 

@@ -220,6 +220,9 @@ INPUT ./stack-overflow-languages.png
 INPUT paper_prototype.png
 INPUT ./paper_prototype.png
 INPUT ./paper_prototype.png
+INPUT high_fidelity_prototype.png
+INPUT ./high_fidelity_prototype.png
+INPUT ./high_fidelity_prototype.png
 INPUT v8-benchmark.png
 INPUT ./v8-benchmark.png
 INPUT ./v8-benchmark.png

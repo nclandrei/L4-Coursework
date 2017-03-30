@@ -864,17 +864,50 @@ while (new_value not in root && new_value > parent_value) {
 \end{lstlisting}
 
 As you can see here, we have a while loop, therefore we do not have an already known number of steps until the
-condition fails and we exit the loop (as we would generally have in a for loop). Here is the actual implementation for
+condition fails and we exit the loop (as we would generally have in a for loop). Here is part of the actual implementation for
 animating an insertion in a heap:
 
-\begin{lstlisting}[language=Java, caption=Pseudocode for inserting a node in a heap.]
-insert item in new leaf node; 
-while (new_value not in root && new_value > parent_value) {
-    swap new_value with parent_value;
+\begin{lstlisting}[language=Java, caption=Actual implementation for animating the insertion of a heap node.]
+const steps = getInsertSteps(node);
+for (let index = 0; index < steps; index++) {
+  (function(i) {
+    highlightHeapCodeLine("insert", 2);
+    arrayOfSetTimeouts.push(setTimeout(
+      function() {
+	if (prev) {
+	  prev.color = "#009688";
+	}
+	prev = cursor;
+	let tempLabel = cursor.label;
+	cursor.label = cursor.parent.label;
+	cursor.parent.label = tempLabel;
+	cursor.color = "red";
+	cursor.parent.color = "red";
+	cursor = cursor.parent;
+	network = rebuildHeap(nodes, edges);
+      },
+      1000 + i * 1000
+    ));
+  })(index);
 }
 \end{lstlisting}
 
-\section{JavaScript and Multi-Threading}
+We can see that we are first getting the number of steps (the constant variable steps) and then executing a for loop with the test condition being
+that index is smaller than steps. Then, we are passing index as a parameter to the self-invoking function inside the
+for loop. On line 19 you can observe how we are delaying that function using the parameter i which in turn is index
+from the outer loop. Imagine that we had a while loop instead of this and we started the algorithm animation. The first
+step was that as the interpreter would start fetching, reading and executing the source code, it would go into an
+infinite loop as soon as it hit the while (test-condition) line. This would happen because it wouldn't execute the
+inner code (i.e. swapping the new value with the parent value; this is because when a setTimeout is read by the
+interpreter, what is
+inside is never executed until that specific delay set by the developer), thus progressing towards meeting the condition and
+breaking the loop. However, in
+a for loop i would keep incrementing until it broke the test condition thus exitting the loop.
+
+On the other hand, we have implemented algorithms that do not require an extra execution, such as Dijkstra's
+Shortest Path. There we would just call the for loop directly and animate the 2 panes concomitantly with the algo.
+
+\section{JavaScript Multi-Threading}
 
 This was the most important issue faced throughout the whole software process. Because I did not have previous
 experience with web applications that might require multi-threading support, I did not know if JavaScript provides this

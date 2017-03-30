@@ -217,8 +217,9 @@ INPUT ./animal-algo-animator.png
 INPUT stack-overflow-languages.png
 INPUT ./stack-overflow-languages.png
 INPUT ./stack-overflow-languages.png
-INPUT stack-overflow-languages.png
-INPUT ./stack-overflow-languages.png
+INPUT paper_prototype.png
+INPUT ./paper_prototype.png
+INPUT ./paper_prototype.png
 INPUT v8-benchmark.png
 INPUT ./v8-benchmark.png
 INPUT ./v8-benchmark.png

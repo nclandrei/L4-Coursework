@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1490847700 "main.aux" "main.bbl" "main" 1490847700
+["bibtex main"] 1490852993 "main.aux" "main.bbl" "main" 1490852993
   "/usr/local/texlive/2015/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "l4proj.bib" 1490826134 6982 6196963f62bdf30557c73c577b9677f7 ""
-  "main.aux" 1490847698 11926 8f57e2ccb36ec0d1b0006271ccbbdf1b ""
+  "main.aux" 1490852991 11927 aceda18dc0e7067b004e344d2667fdb2 ""
   "main.bcf" 0 -1 0 ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1490847692 "main.tex" "main.pdf" "main" 1490847700
+["pdflatex"] 1490852983 "main.tex" "main.pdf" "main" 1490852993
   "./UML_component_diagram.png" 1490657845 20565 4f16f7b5d9305f27441b4aa72e2ac3b4 ""
   "./algo-animator.png" 1490609862 298610 64e16d6d6998e82692bca4b8950cf614 ""
   "./algorithm.png" 1490609862 47442 31820362b5af71ca3783062985520115 ""
@@ -28,6 +28,7 @@
   "./landing-page.png" 1490766742 950764 129bf56cc839086e26cad562ef2de829 ""
   "./material-design-navbar.png" 1490745844 25081 54a1d9d9daff19a1b82aeb47695d3a7f ""
   "./palgo-website.png" 1490824433 427664 d8ed78b83e46fbbe0c7a2ec204ff1803 ""
+  "./paper_prototype.png" 1490852832 11994801 0575e4a352ad468284c9d203bf5efdb2 ""
   "./play-pause-previous-next.png" 1490754417 152851 625514f2cb01dac7c3b73ee66a878a41 ""
   "./project-structure.png" 1490756530 129390 e1a781fbdbb00b89321d6eb82d188039 ""
   "./purecss-navbar.png" 1490745539 18569 d70e6c4c9923e92a337371cdf5e54e43 ""
@@ -150,12 +151,13 @@
   "java-uni.png" 1490609860 89592 ef6f075afd983f73e3635fd0986420d6 ""
   "l4proj.cls" 1490609860 2825 d698c6362cdc757b8ab1719dea98f0cc ""
   "landing-page.png" 1490766742 950764 129bf56cc839086e26cad562ef2de829 ""
-  "main.aux" 1490847698 11926 8f57e2ccb36ec0d1b0006271ccbbdf1b ""
-  "main.bbl" 1490847690 4860 35e5a36ab631d260fe64449b1ac3c946 "bibtex main"
-  "main.tex" 1490847691 70834 13e87a54176e0776a480fe7e80f406ac ""
-  "main.toc" 1490847698 2561 02eafa55223f9f8be705cc651342caaa ""
+  "main.aux" 1490852991 11927 aceda18dc0e7067b004e344d2667fdb2 ""
+  "main.bbl" 1490852959 4860 35e5a36ab631d260fe64449b1ac3c946 "bibtex main"
+  "main.tex" 1490852981 70815 4b30b706c156c4bbaf08212b85f07f9a ""
+  "main.toc" 1490852991 2561 b137228fcb883913be8bec8a7aae0fa1 ""
   "material-design-navbar.png" 1490745844 25081 54a1d9d9daff19a1b82aeb47695d3a7f ""
   "palgo-website.png" 1490824433 427664 d8ed78b83e46fbbe0c7a2ec204ff1803 ""
+  "paper_prototype.png" 1490852832 11994801 0575e4a352ad468284c9d203bf5efdb2 ""
   "play-pause-previous-next.png" 1490754417 152851 625514f2cb01dac7c3b73ee66a878a41 ""
   "project-structure.png" 1490756530 129390 e1a781fbdbb00b89321d6eb82d188039 ""
   "purecss-navbar.png" 1490745539 18569 d70e6c4c9923e92a337371cdf5e54e43 ""

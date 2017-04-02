@@ -329,34 +329,35 @@ smaller tasks to be implemented. In the end, we were left with user stories that
 
 \section{Requirements Gathering}
 
-As mentioned above, the requirements gathering was a continuous process that lasted from first week of 4th year up until the end of the project's development lifecycle. Not only that we had the weekly regular student-supervisor meetings were we could add or refine requirements, but there were also meetings with possible end users.
+As mentioned above, the requirements gathering was a continuous process that lasted from the first week of 4th year up until the end of the project's development lifecycle. Not only that we had the weekly regular student-supervisor meetings were we could add or refine requirements, but there were also meetings with possible end users.
 
 Every two or three weeks there were meetings scheduled with a couple of classmates from University of Glasgow's Computer Science course that would give continuous feedback after testing the newest version of the application. We met in one of the laboratories in Boyd Orr building where they were provided with an executable that could be run on their personal laptops. They were given around 15 minutes to try the features and, afterwards, they provided invaluable feedback without which the animator would not perform as efficiently as it does today.
 
 \section{Functional Requirements}
 
-Functional requirements target specific functionalities that the system should perform. They started with a couple of algorithms that needed to be animated. Then, functionalities such as current code line highlighting and specific button behaviors began to stack up. Eventually, we can categorize them as follows:
+Functional requirements target specific functionalities that the system should perform. They started with the algorithms that needed to be animated. Then, functionalities such as current code line highlighting and specific button behaviors began to stack up. Eventually, we can categorize them as follows:
 
 \begin{itemize}
-\item animate tree/graph depending on what the user chose to do (e.g. insert/delete node)
-\item highlight current code line for every algorithm
-\item define specific behavior for every button displayed on the UI
-\item each window interaction should perform as expected depending on the operating system the user is using the application on
+\item animate tree/graph depending on what the user chose to do (e.g.\ insert/delete node);
+\item highlight current code line for every algorithm;
+\item define specific behavior for every button displayed on the UI;
+\item each window interaction should perform as expected depending on the operating system the user is using the
+  application on;
 \end{itemize}
 
-Many smaller ones appeared along the software process, but the above mentioned are the main categories.
+Many smaller functional requirements appeared along the software process, but the above mentioned are the main categories.
 
 \section{Non-Functional Requirements}
 
 A non-functional requirement is a type of requirements that judges the system as a whole and how it operates rather than checking for specific criteria. The main non-functional requirements were rather set from the beginning. We decided to have an algorithm animator that would:
 
 \begin{itemize}
-\item be easy to use and let the users familiarize rapidly
-\item make users enjoy playing with the product
-\item be installed/fetched with ease
-\item allow end users to use it on any platform
-\item be efficient and not consume excessive resources
-\item be maintainable and scalable (i.e. let future possible contributors add algorithms easily)
+\item be easy to use and let the users familiarize rapidly;
+\item make users enjoy playing with the product;
+\item be installed/fetched with ease;
+\item allow end users to use it on any platform;
+\item be efficient and not consume excessive resources;
+\item be maintainable and scalable (i.e.\ let future possible contributors add algorithms easily).
 \end{itemize}
 
 %==============================================================================
@@ -365,17 +366,21 @@ A non-functional requirement is a type of requirements that judges the system as
 \label{agile-software-development}
 
 Good software practices are key to successful projects. We have followed Agile methodologies, especially what was
-taught last year in the Professional Software Development class, as well as through Ian Sommerville's ``Software Engineering" book~\cite{software-engineering}.
+taught last year in the Professional Software Development class, as well as through Ian Sommerville's ``Software
+Engineering'' book~\cite{software-engineering}.
 
 We eventually decided to follow an Extreme Programming path and we implemented the best advice taken from industry
 experts. Some of the key principles we implemented throughout the whole process are:
 \begin{itemize}
-    \item good planning strategy that would allow us to follow a schedule; our cost estimation efficiency improved with every iteration
-    \item frequent commits and releases that would generate continuous feedback from our potential end users
-    \item customer involvement (i.e. student meetings every couple of weeks as well as weekly student-supervisor meetings)
-    \item heavy refactoring as opportunity arose
-    \item emphasis on simplicity in design and implementation
-    \item tracking bugs and issues in general allowed us to be always informed and include necessary items for specific milestones so that the quality would always have high standards
+    \item good planning strategy that would allow us to follow a schedule; our cost estimation efficiency improved
+      with every iteration;
+    \item frequent commits and releases that would generate continuous feedback from our potential end users;
+    \item customer involvement (i.e. student meetings every few weeks as well as weekly student-supervisor
+      meetings);
+    \item heavy refactoring as opportunity arose;
+    \item emphasis on simplicity in design and implementation;
+    \item tracking bugs and issues in general allowed us to be always informed and include necessary items for
+      specific milestones so that the quality would always have high standards;
 \end{itemize}
 
 All these ensured a good workflow with results that could be remarked immediately. We believe that a major part of the
@@ -383,8 +388,8 @@ success of the project was embracing the above Agile methodologies.
 
 \section{Extreme Programming}
 
-We have followed the approach first coined by Kent Beck called Extreme Programming~\cite{extreme-programming}. It is an
-Agile technique through which good practices are most times pushed to ``extreme" levels. XP has proven to be very effective as many companies in the industry use it in their development lifecycle. Some principles it promotes which we have followed are:
+We have followed the approach first coined by Kent Beck called Extreme Programming(XP)~\cite{extreme-programming}. It is an
+Agile technique through which good practices are most times pushed to ``extreme'' levels. XP has proven to be very effective as many companies in the industry use it in their development lifecycle. Some principles it promotes which we have followed are:
 
 \begin{itemize}
 \item frequent releases based on requirements gathered incrementally in meetings (e.g. supervisor-student meetings)
@@ -393,20 +398,21 @@ Agile technique through which good practices are most times pushed to ``extreme"
 \item people over processes, which means collective ownership of the code as well as avoiding exhausting long working hours
 \end{itemize}
 
-Burndown charts are another great tool used by people using XP in their schedule to track down progress. You start off by defining the number of user stories you want to complete in an iteration and, then, divide that number by the number of days the sprint has (in our case it was 7 days). Therefore each day you should implement a certain number of user stories, constantly, such that at the end of the iteration you are left with none. That is the most productive outcome. Also, because this was a student project, we will count weekend days as working days.
+Burndown charts are another great tool used by people using XP in their schedule to track down progress. You start off by defining the number of user stories you want to complete in an iteration and, then, divide that number by the number of days the sprint has (in our case it was 7 days). Therefore each day you should implement a certain number of user stories such that at the end of the iteration you are left with none. That is the most productive outcome. Also, because this was a student project, we will count weekend days as working days.
 
-During the entire process we tried to monitor the progress and see how we are performing. Below you can see a burndown chart from one of the November weekly iterations.
+During the entire process we tried to monitor the progress and see how we are performing.
+Figure~\ref{fig:burndown-november} shows a burndown chart from one of the November weekly iterations.
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.6]{burndown}
 \caption{November iteration burndown chart.}
-\label{fig:burndown-february}
+\label{fig:burndown-november}
 \end{figure}
 
 As one can notice, there is quite a discrepancy between the desired number of user stories per day and what we actually
 completed. This was because of lack of consistency, shown in the graph between days 23 and 26, where there were no user
-stories finished. However, below is a burndown chart corresponding to one of the last iterations of the project.
+stories finished. However, Figure~\ref{fig:burndown-february} depicts a burndown chart corresponding to one of the last iterations of the project.
 
 \pagebreak
 
@@ -431,7 +437,7 @@ In our case we adapted the most effective Agile method, which is
 Planning Poker~\cite{planning-poker}. In this practice, all developers are given decks of cards and when a user story is brought up, every developer shows a card which has a value. That value will represent the number of units of work
 needed to complete the story. Then, after everyone shows their estimation, discussions emerge among the developers until a consensus is reached. In our situation, we did not use a deck of cards during the student-supervisor meetings, but we both estimated the number of days needed to implement a feature and, if our opinions diverged, we discussed until we had the same duration in mind.
 
-Below it can be observed how we kept track of all the user stories using Trello cards. We added the estimation in the
+It can be observed in Figure~\ref{fig:estimation} how we kept track of all the user stories using Trello cards. We added the estimation in the
 description, as well as a description using the popular format ``As a.../I want to.../So that..."~\cite{user-story-format} to always know the
 rationale behind every implemented feature.
 
@@ -465,7 +471,7 @@ after, the code would be pushed.
     \label{fig:circleci}
 \end{figure}
 
-As it can be seen above, there is a small green check (or a red x if the build did not pass) on the GitHub repository
+As it can be seen in Figure~\ref{fig:circleci}, there is a small green check (or a red cross if the build did not pass) on the GitHub repository
 of the project telling the developers if anything went wrong. This was a great asset to the development lifecycle,
 informing us whether we needed to add some bugs to our tracking system to be solved later or everything performed
 exactly as it should have.

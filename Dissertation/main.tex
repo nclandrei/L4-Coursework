@@ -897,6 +897,7 @@ npm is the equivalent of Maven or Gradle for Java projects and that is both a de
 tool. Therefore, in npm we defined the name of the project and all sorts of metadata as well as the dependencies needed
 for building the app. As soon as all these were set, we started working on the three main categories of files mentioned
 above. Figure~\ref{fig:project-structure} presents the simple structure we opted for.
+
 \begin{figure}[!ht]
     \centering
     \includegraphics[scale=0.4]{project-structure}
@@ -933,7 +934,7 @@ Figure~\ref{fig:animation_uml_use_case_diagram}.
 As it can be seen, everything starts when the user presses the start algorithm button present on every page. From
 there, the event listener set to check if the user clicks the button is triggered (in the corresponding JavaScript
 file) and starts the 2 animation components. They are always in sync being set to execute at the same time using the
-setTimeout delay functionality (e.g.\ both do iteration x after 1000 milliseconds times x), thus giving the user
+setTimeout delay functionality (e.g.\ both do iteration $x$ after 1000 milliseconds times $x$), thus giving the user
 concomitant output from both the nodes pane and the codelines pane. When they have executed their last iteration, they
 both stop and the whole canvas is reset to its original state. This is done again with a setTimeout call with the delay
 set as unit of time (usually 1000 milliseconds) times the total number of steps to complete the algorithm. The number
@@ -1045,7 +1046,7 @@ animation, while the other could highlight and unhighlight codelines dynamically
 support for multi-threading so we had to resume to merging the 2 functionalities into one. Even though one might argue
 that along with HTML5 the W3C introduced Web Workers~\cite{web-worker}, these do not provide a solution to our problem
 because they allow only primitives and simple objects to be passed inside the running thread, while we have Nodes that
-can have other Nodes as children (which is a property of the Vis Node), thus creating circular dependencies.
+can have other Nodes as children (which is a property of the Vis Node class), thus creating circular dependencies.
 
 Therefore, this sort of complex arithmetic had to be performed (see line 27) in order to make sure the calls are invoked at
 the correct times and that they do not overlap. 
@@ -1106,7 +1107,12 @@ As it can be observed, we have the call to the impose function (line 5) inside a
 after 3000 milliseconds, but inside the for loop every iteration will be invoked at 1000 milliseconds times index.
 Because of a lack of tutorials and resources on the web regarding such possible nested setTimeouts, I believed for a
 long time that the 1000 * $i$ should be replaced with 3000 + 1000 * $i$, but this was a big mistake because 3000 is
-inherited and it does not need to be included in the nested loop. After I realized that, the timings would not overlap
+inherited and it does not need to be included in the nested loop. After I realized that inner setTimeout delays are
+relative to the corresponding outer setTimeouts (e.g.\ outer setTimeout executes every 3000 milliseconds and the inner
+one executes every 3000 + the delay it is set to, but we do not need to specify the 3000 milliseconds in the delay
+parameter as it is
+inherited from the parent setTimeout; thus, in the inner setTimeout, setTimeout({...}, 3000 + $x$) becomes
+setTimeout({...}, $x$)), the timings would not overlap
 and the animation would perform normal.
 
 \section{Extra Features}
@@ -1331,8 +1337,7 @@ important achievement for our project because it showed how focus on simplicity,
 software engineering practices
 can produce an application of high quality that would indeed be enjoyed by end users. Even though most of the questions
 were related specifically to our implementation of the animator, we also introduced Galant as a point of reference and
-asked our participants to compare the two. The results were even more surprising as depicted in
-Figure~\ref{fig:questionnaire-2}
+asked our participants to compare the two. The results were even more surprising as depicted in Figure~\ref{fig:questionnaire-2}.
 
 \begin{figure}[!ht]
     \centering
@@ -1418,7 +1423,7 @@ Algorithmics I students, thus its reach will expand from that moment onwards.
 To begin with, I would like to thank Dr. Gethin Norman who was not only my supervisor but also a great team member. He
 has helped me with everything throughout the whole year and without his input and help Palgo would not exist today.
 
-Furthermore, I'd like to say thank you to every student who has participated during ``customer" meetings during the year
+Furthermore, I'd like to say thank you to every student who has participated during ``customer'' meetings during the year
 as well as to all the people who helped us with the evaluation at the end of the software process.
 
 Last but not least, I would like to thank every developer that has contributed even one source code line to the amazing open source projects

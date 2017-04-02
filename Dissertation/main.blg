@@ -3,6 +3,9 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: l4proj.bib
+Warning--I didn't find a database entry for "clojurescript"
+Warning--I didn't find a database entry for "react"
+Warning--I didn't find a database entry for "jsx"
 Name 1 in "Parker, Brenda, and Ian Mitchell" has a comma at the end for entry parker-mitchell
 while executing---line 1049 of file plain.bst
 Name 1 in "Palmiter, Susan, and Jay Elkerton" has a comma at the end for entry palmiter-elkerton
@@ -25,7 +28,7 @@ Name 1 in "Rößling, Guido, Markus Schüer, and Bernd Freisleben" has a comma a
 while executing---line 1090 of file plain.bst
 You've used 41 entries,
             2118 wiz_defined-function locations,
-            686 strings with 8034 characters,
+            689 strings with 8055 characters,
 and the built_in function-call counts, 9080 in all, are:
 = -- 854
 > -- 329

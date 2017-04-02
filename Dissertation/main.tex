@@ -168,7 +168,7 @@ The rest of the report will analyse the background of animators and why they wer
 \chapter{Background}
 \label{background}
 
-Firstly, we need to define an algorithm. We will use the above-mentioned definition taken from the Oxford
+As stated in the introduction, the first step is to define what an algorithm is. We will use the above-mentioned definition taken from the Oxford
 dictionary~\cite{oxford-dict}: ``A process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer". In our case, we will only relate to set of rules followed solely by computers. Thus, put simply, an algorithm is a set of steps defined by someone in order to solve some problem. As an algorithm can be written by anyone, there is no known number or catalog of them. However, the most important algorithms (e.g. Huffman tree encoding/decoding) are taught in any Computer Science course at universities around the globe.
 
 Having defined what an algorithm is, let's take an actual example - Dijkstra's algorithm for finding the shortest path between two nodes~\cite{dijkstra-shortest-path}, first published almost 60 years ago (the pseudocode was formally checked by Dr. Norman):
@@ -186,7 +186,10 @@ while (S != V) { // still vertices to add to S find v not in S with d(v) minimum
 }
 \end{lstlisting}
 
-As one might observe, this is not trivial to grasp. Therefore, many solutions have been created in order to help students and engineers in general understand them better. One such solution is a rather creative one, developed by students at Spatienta University, which tries to teach different sorting algorithms by dancing.
+As one might observe, this is not trivial to grasp. Therefore, many solutions have been created in order to help
+students and engineers in general understand them better. One such solution is a rather creative one, developed by
+students at Spatienta University, which tries to teach different sorting algorithms by dancing
+(Figure~\ref{fig:quicksort}).
 
 \pagebreak
 
@@ -197,20 +200,28 @@ As one might observe, this is not trivial to grasp. Therefore, many solutions ha
 \label{fig:quicksort}
 \end{figure}
 
-This was featured on many websites and gained enormous traction among computer science enthusiasts. However, a more traditional approach that is adopted formally in universities as well is the use of animators.
+This was featured on many websites and gained enormous traction among computer science enthusiasts. However, a more
+traditional approach that is adopted formally in universities as well is the use of animators and animation.
 
-Firstly, let's define what an animator is. Again, taking the definition from the Oxford dictionary~\cite{oxford-dict},
+Firstly, let us define what an animator is. Again, taking the definition from the Oxford dictionary~\cite{oxford-dict},
 it is ``a person who makes animated films". In our case, the person is the computer and the film is the sequence of steps required to produce an output after feeding input to an algorithm.
 
-Usually, most algorithm animators are divided into 2 sections: one side will contain the graphics in order to represent the data structures used (e.g. in graph traversal algorithms the nodes and edges comprising the graph will be drawn) while the other side will have the code lines, the actual rules the computer needs to follow in order to produce the desired output. In general the current code line that is executed at a certain moment is highlighted, while the data structure visualized (e.g. some box that represents an array's element) changes and the user can see the output visually and immediately, making a mental connection between the code line and the change it produces.
+Usually, algorithm animators are divided into 2 sections: one section will contain the graphics in order to represent the
+data structures used (e.g. in graph traversal algorithms the nodes and edges comprising the graph will be drawn) while
+the other will have the code lines, the actual rules the computer needs to follow in order to produce the desired
+output. The current code line that is executed at a certain moment is highlighted, while the data structure visualized (e.g. some box that represents an array's element) changes and the user can see the output visually and immediately, making a mental connection between the code line and the change it produces.
 
 But why an animator precisely? There are many studies that show visualization in any area can enhance learning
 capabilities drastically. Brenda Parker and Ian Mitchell's work~\cite{parker-mitchell} shows clearly how seeing the
 steps can greatly improve a student's understanding of what is happening ``behind the scenes". On the other hand, even if animations were proven to be generally useful and beneficial for the learner, the need for seeing algorithms animated declines over time, as the study shows.
 
-Another study by Susan Palmiter and Jay Elkerton~\cite{palmiter-elkerton} tried to find out which method was the most effective in learning new computer-based tasks. Even though animations for complex mechanisms were found not to be as effective as for some easier one (e.g. parallel programming vs. graph traversal), they are very helpful for the algorithms generally taught at university courses or used most often.
+Another study by Susan Palmiter and Jay Elkerton~\cite{palmiter-elkerton} tried to find out which method was the most
+effective in learning new computer-based tasks. Even though animations for complex mechanisms were found to be
+ineffective when compared to animations for easier algorithms (e.g. parallel programming vs. graph traversal), they were shown to be very helpful
+for understanding what is generally taught at university courses.
 
-Having discussed methods of learning new algorithms better and why animators are useful, we need to take a look at previous solutions developed by other people. Apart from John Morris' tool shown above, there are many other applications available, including Galant~\cite{galant} and the visualizer built by D. Galles~\cite{galles}.
+Having discussed methods of learning new algorithms better and why animators are useful, we need to take a look at
+previous solutions developed. Apart from John Morris' tool shown in Figure~\ref{fig:animator-toolkit}, there are many other applications available, including Galant~\cite{galant} and the visualizer built by D. Galles~\cite{galles}.
 
 \pagebreak
 

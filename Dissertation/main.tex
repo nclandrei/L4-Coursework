@@ -222,7 +222,6 @@ for understanding what is generally taught at university courses.
 
 Having discussed methods of learning new algorithms better and why animators are useful, we need to take a look at
 previous solutions developed. Apart from John Morris' tool shown in Figure~\ref{fig:animator-toolkit}, there are many other applications available, including Galant~\cite{galant} and the visualizer built by D. Galles~\cite{galles}.
-
 \pagebreak
 
 \begin{figure}[!ht]
@@ -232,14 +231,15 @@ previous solutions developed. Apart from John Morris' tool shown in Figure~\ref{
 \label{fig:galant}
 \end{figure}
 
-Here we can see one of the 2 main approaches of building an animator, which is a standalone JAR application. Thus, it is written completely in Java and, as the language is pre-installed on most electronic devices, it can run on the major operating systems families.
+In Figure~\ref{fig:galant} we can see one of the two main approaches for building an animator, which is a standalone JAR application. Thus, it is written completely in Java and, as the language is pre-installed on most electronic devices, it can run on the major operating systems.
 
 There are obvious advantages to this approach:
 \begin{itemize}
-	\item end product can run on a variety of machines with only one codebase
-	\item large number of Java libraries facilitate an easy development workflow
-    \item many tutorials and resources available
-    \item java is taught at most universities in introductory courses, making it easier for newcomers to create their own application rapidly
+	\item the end product can run on a variety of machines with only one codebase;
+	\item the large number of Java libraries facilitate an easy development workflow;
+    \item there are many tutorials and resources available;
+    \item Java is taught at most universities in introductory courses, making it easier for newcomers to create their
+      own application rapidly.
     	\begin{figure}[!ht]
 		\centering
 		\includegraphics[scale=0.8]{java-uni}
@@ -252,11 +252,14 @@ There are obvious advantages to this approach:
 
 However, there are also drawbacks:
 \begin{itemize}
-\item the most popular Java libraries for producing standalone graphical JAR applications output old-fashioned user interface
-\item the code for drawing on the canvas and animating in Java (using Swing or JavaFX) can become extremely verbose and unreadable
+\item the most popular Java libraries for producing standalone graphical JAR applications output old-fashioned user
+  interface;
+\item the code for drawing on the canvas and animating in Java (using Swing or JavaFX) can become extremely verbose
+  and unreadable.
 \end{itemize}
 
-On the other hand, we also have the web approach to building animators, one of them being D. Galles' application~\cite{galles}.
+The second main approach for building an animator is web-based, one of them being D. Galles'
+application~\cite{galles}. Figure ~\ref{fig:galles} shows a screenshot taken while using the application.
 
 \begin{figure}[!ht]
 \centering
@@ -265,14 +268,16 @@ On the other hand, we also have the web approach to building animators, one of t
 \label{fig:galles}
 \end{figure}
 
-Some advantages of this solution are the following:
+Some advantages of this web-based solution are the following:
 \begin{itemize}
-\item the developer can use a wide variety of JavaScript tools (e.g. drawing directly on HTML5 canvas, VisJs, SigmaJs) to draw and animate objects
-\item the app can have a very modern and responsive feel which can make users enjoy the product
-\item virtually all users have at least a browser installed on their machine, thus making the animator available to everyone
+\item the developer can use a wide variety of JavaScript tools (e.g. drawing directly on HTML5 canvas, VisJs, SigmaJs)
+  to draw and animate objects;
+\item the app can have a very modern and responsive feel which can make users enjoy the product;
+\item virtually all users have at least a browser installed on their machine, thus making the animator available to
+  everyone.
 \end{itemize}
 
-However, the main drawback is that it is still a website, thus it need to be hosted (which implies additional costs) and it cannot be reached by anyone at all times due to the fact that not everyone has constant Internet access.
+However, the main drawback is that it is still a website, thus it need to be hosted (which implies additional costs) and it cannot be reached by anyone at all times due to the fact that not everyone has constant internet access.
 
 We have covered all the necessary background and related work before diving into how Palgo was designed and implemented. We believe that our solution is a combination of the two main approaches listed above, merging the benefits of both into a single tool.
 

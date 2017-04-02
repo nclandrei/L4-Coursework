@@ -286,11 +286,12 @@ We have covered all the necessary background and related work before diving into
 \chapter{Requirements}
 \label{requirements}
 
-As for every software built with best practices, requirements need to be gathered, defined, analyzed and then prioritized. As we tried to follow an Agile structure, the requirements have changed every week through student-supervisor weekly as well as end user meet-ups.
+As for all other software built with best practices, requirements need to be gathered, defined, analyzed and then prioritized. As we tried to follow an Agile structure, the requirements have changed every week through student-supervisor weekly as well as end user meet-ups.
 
-We tried to keep the requirements SMART~\cite{smart-requirements}, which implies they are specific, measurable, attainable, realizable and time bounded. Thus, making them follow this well established format made the software development lifecycle much faster and cleaner.
+We tried to keep the requirements SMART~\cite{smart-requirements}, which implies they are specific, measurable,
+attainable, realizable and time bounded. Making the requirements follow this well established format made the software development lifecycle much faster and cleaner.
 
-Below is a screenshot from a Trello~\cite{trello} board used during one of the iterations (a separate board was used for tracking non-functional requirements as well).
+Figure~\ref{fig:trello-functional-requirements} shows a screenshot from a Trello~\cite{trello} board used during one of the iterations (a separate board was used for tracking non-functional requirements as well).
 
 \begin{figure}[!ht]
 \centering
@@ -299,16 +300,16 @@ Below is a screenshot from a Trello~\cite{trello} board used during one of the i
 \label{fig:trello-functional-requirements}
 \end{figure}
 
-The requirements followed a pipeline through which the requirement together with its rationale would get broken down
-into pieces continuously until user stories would be produced. One example of such a requirement would be: ``Show me a
-correct and easy-to-understand animation for the insert function in a heap data structure.". This would then be broken
-down in multiple user stories, such as ``Color current node that is inserted and add its label" and ``Highlight code line corresponding with changing the label".
+The requirements followed a pipeline through which they, together with their rationale, would get broken down
+into pieces continuously until user stories could be produced. One example of such a requirement is: ``Show me a
+correct and easy-to-understand animation for the insert function in a heap data structure.''. This would then be broken
+down in multiple user stories, such as ``Color the node that is inserted and add its label" and ``Highlight code line corresponding with changing the label".
 
 We also tried to follow the MoSCoW~\cite{moscow-requirements} guideline for prioritizing the requirements. The technique has proven to be very effective and it is adopted widely in industry, even though the paper is more than 20 years old. This facilitated a smooth workflow and concise goals to be targeted.
 
 \section{Problem Analysis}
 
-We have analyzed the problem systematically, devising it into multiple main questions to be answered:
+We have analyzed the problem systematically, dividing it into the following main questions:
 
 \begin{itemize}
 \item who are our target users?
@@ -317,11 +318,14 @@ We have analyzed the problem systematically, devising it into multiple main ques
 \item how would the main layout be structured?
 \end{itemize}
 
-During the analysis, we needed to take into account various factors, including how much experience with algorithms and computer science in general will our users have or what algorithms would need visualization the most. As previous animators built under the supervision of Dr. Norman are used for educational purposes in the level 3 Algorithmics I course, we believe that having mainly graph and tree algorithms would benefit the project the most. However, we tried to keep the structure simple and the codebase easy-to-maintain such that other families of algorithms will be straightforward to implement. Because we want to project to be continued in the open source space, users other than students can use the animator, thus we tried to keep the requirements more general.
+During the analysis, we needed to take into account various factors, including how much experience with algorithms and
+computer science in general will our users have and what algorithms would need visualization the most. As previous animators built under the supervision of Dr. Norman are used for educational purposes in the level 3 Algorithmics I course, we believe that having mainly graph and tree algorithms would benefit the project the most. However, we tried to keep the structure simple and the codebase easy-to-maintain such that other families of algorithms will be straightforward to implement. Because we want to project to be continued in the open source space, users other than students can use the animator, thus we tried to keep the requirements more general.
 
-Also, there was much discussion around whether to use a web or a desktop approach. For reasons explained above, we resumed to implementing a desktop application using the technologies mentioned in the subsequent chapters.
+Also, there was much discussion around whether to use a web or a desktop approach. For reasons explained above, we
+decided to implement a desktop application using the technologies mentioned in the subsequent chapters.
 
-We have gathered requirements and split them into functional and non-functional ones, dividing them further into smaller tasks to be implemented. At the end, we were left with user stories that could be translated directly into work tasks.
+We have gathered the requirements and split them into functional and non-functional ones, dividing them further into
+smaller tasks to be implemented. In the end, we were left with user stories that could be translated directly into work tasks.
 
 \section{Requirements Gathering}
 

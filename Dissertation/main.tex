@@ -826,11 +826,11 @@ accustomed quicker.
 We have decided to use this approach for several reasons:
 
 \begin{itemize}
-    \item Material Design has gained much more traction than the other frameworks since its inception
+    \item Material Design has gained much more traction than the other frameworks since its inception;
     \item even though Pure CSS does not require any JavaScript dependencies (hence the name), it is very raw and it
-	requires a lot of tweaking before going into production
+	requires a lot of tweaking before going into production;
     \item Bootstrap is the foundation of virtually every framework available but it is exactly that, a foundation, thus
-	it does not give the developer advanced features out-of-the-box
+	it does not give the developer advanced features out-of-the-box.
 \end{itemize}
 
 \section{Compromises}
@@ -845,8 +845,8 @@ children's label to 2 at millisecond 3500 and finally highlight the codeline ``s
 This was extremely hard to understand and master and the first iterations were quite slow. However, as time passed and
 I gained more experience with this technique, development became much easier.
 
-Another compromise that we needed to take was the lack of play/pause and previous/next buttons for the animator. Here
-is a screenshot taken while using VisuAlgo:
+Another compromise that we needed to take was the lack of play/pause and previous/next buttons for the animator.
+Figure~\ref{fig:play-pause-previous-next} presents a screenshot taken while using VisuAlgo.
 
 \begin{figure}[!ht]
     \centering
@@ -873,20 +873,19 @@ into place. We will conclude with talking about biggest issues faced and what le
 The algorithm selection was solely done during the supervisor meetings. We have come up with the following list:
 
 \begin{itemize}
-    \item Huffman tree construction
-    \item Depth-First Search in a graph
-    \item Breadth-First Search in a graph
-    \item Heap insertion and deletion
-    \item Dijkstra's Algorithm for Shortest Path
-    \item Prim-Jarnik Minimum Spanning Tree
-    \item Prim-Jarnik Dijkstra's Refinement Minimum Spanning Tree
+    \item Huffman tree construction;
+    \item Depth-First Search in a graph;
+    \item Breadth-First Search in a graph;
+    \item Heap insertion and deletion;
+    \item Dijkstra's Algorithm for Shortest Path;
+    \item Prim-Jarnik Minimum Spanning Tree;
+    \item Prim-Jarnik Dijkstra's Refinement Minimum Spanning Tree;
 \end{itemize}
 
 These candidates were chosen because they are all among the most common and used algorithms and they are also very
 popular among university computer science courses. We have taken the codelines which would be animated from Dr.
 Norman's slides from the Algorithmics I class at University of Glasgow. Moreover, we also double checked them for proofness
 before going on the main pane of the application.
-
 They were translated from either pseudocode or Java to JavaScript which implied rather simple transformations as
 the languages don't have such divergent syntaxes. 
 
@@ -897,8 +896,7 @@ and HTML5 pages. They were all coordinated by npm which is the node package mana
 npm is the equivalent of Maven or Gradle for Java projects and that is both a dependency manager and a build automation
 tool. Therefore, in npm we defined the name of the project and all sorts of metadata as well as the dependencies needed
 for building the app. As soon as all these were set, we started working on the three main categories of files mentioned
-above. Here is the simple structure we opted for.
-
+above. Figure~\ref{fig:project-structure} presents the simple structure we opted for.
 \begin{figure}[!ht]
     \centering
     \includegraphics[scale=0.4]{project-structure}
@@ -920,7 +918,8 @@ Linux.
 \section{Animation Pipeline}
 
 After the user presses the Start Algorithm button there is a pipeline of processes that is happening "behind the
-scenes". We shall display that through a UML use case diagram.
+scenes". We shall display that through a UML use case diagram shown in
+Figure~\ref{fig:animation_uml_use_case_diagram}.
 
 \pagebreak
 
@@ -934,11 +933,11 @@ scenes". We shall display that through a UML use case diagram.
 As it can be seen, everything starts when the user presses the start algorithm button present on every page. From
 there, the event listener set to check if the user clicks the button is triggered (in the corresponding JavaScript
 file) and starts the 2 animation components. They are always in sync being set to execute at the same time using the
-setTimeout delay functionality (e.g. both do iteration x after 1000 milliseconds times x), thus giving the user
+setTimeout delay functionality (e.g.\ both do iteration x after 1000 milliseconds times x), thus giving the user
 concomitant output from both the nodes pane and the codelines pane. When they have executed their last iteration, they
 both stop and the whole canvas is reset to its original state. This is done again with a setTimeout call with the delay
 set as unit of time (usually 1000 milliseconds) times the total number of steps to complete the algorithm. The number
-of steps is either computed automatically (e.g. in Huffman tree construction we can directly calculate the total number
+of steps is either computed automatically (e.g.\ in Huffman tree construction we can directly calculate the total number
 of steps needed to complete the animation) or through running the algorithm in the background and returning the value.
 As we discussed previously, the V8 engine is extremely fast thus the execution of any of our algorithms is in terms of
 milliseconds, the delay being indistinguishable for the human eye. 
@@ -1001,7 +1000,7 @@ Shortest Path. There we would just call the for loop directly and animate the 2 
 
 This was the most important issue faced throughout the whole software process. Because I did not have previous
 experience with web applications that might require multi-threading support, I did not know if JavaScript provides this
-or not. We shall provide a code snippet first to better describe the problem and discuss on it afterwards.
+or not. In the following listing we provide a code snippet first to better describe the problem and discuss on it afterwards.
 
 \begin{lstlisting}[language=Java, caption=Animation function used in Dijkstra's SP algorithm.]
 (function(ind) {
@@ -1033,10 +1032,10 @@ or not. We shall provide a code snippet first to better describe the problem and
 })(i);
 \end{lstlisting}
 
-As you can see above, this is a very complicated function which sets up initial distances to all nodes in a graph from
+As you can see in the code snippet, this is a very complicated function which sets up initial distances to all nodes in a graph from
 the root - if they are adjacent, then the distance will be the weight of the edge; otherwise, the distance will be set
 to infinity. SetTimeout is a function that delays another function's execution until a specific point in time, thus we are sequencing
-multiple calls to this self-contained function based on the i index which is the variable used in the loop where
+multiple calls to this self-contained function based on the $i$ index which is the variable used in the loop where
 this piece of code is defined. 
 
 This is the way all algorithm animations are implemented. However, the problem is as you can notice on lines 4, 5 or 21
@@ -1048,8 +1047,8 @@ that along with HTML5 the W3C introduced Web Workers~\cite{web-worker}, these do
 because they allow only primitives and simple objects to be passed inside the running thread, while we have Nodes that
 can have other Nodes as children (which is a property of the Vis Node), thus creating circular dependencies.
 
-Therefore, this sort of complicated mathematical calculus had to be done (see line 27) in order to make sure the calls are invoked at
-the correct times and that they don't overlap. 
+Therefore, this sort of complex arithmetic had to be performed (see line 27) in order to make sure the calls are invoked at
+the correct times and that they do not overlap. 
 
 Moreover, another type of issue occured when there were setTimeout invokations inside outer setTimeouts. One particular
 problem we faced was that if you call a setTimeout function inside another setTimeout, the time you set the inner one
@@ -1106,8 +1105,8 @@ we have included what was necessary to demonstrate the issue mentioned above.
 As it can be observed, we have the call to the impose function (line 5) inside a setTimeout. Thus, that will execute
 after 3000 milliseconds, but inside the for loop every iteration will be invoked at 1000 milliseconds times index.
 Because of a lack of tutorials and resources on the web regarding such possible nested setTimeouts, I believed for a
-long time that the 1000 * i should be replaced with 3000 + 1000 * i, but this was a big mistake because 3000 is
-inherited and it doesn't need to be included in the nested loop. After I realized that, the timings wouldn't overlap
+long time that the 1000 * $i$ should be replaced with 3000 + 1000 * $i$, but this was a big mistake because 3000 is
+inherited and it does not need to be included in the nested loop. After I realized that, the timings would not overlap
 and the animation would perform normal.
 
 \section{Extra Features}
@@ -1122,13 +1121,13 @@ the user's machine and, after parsing the document, execute the algorithm agains
 Moreover, another feature implemented that was very popular was the landing page in the application - as
 the user opens the animator they will be presented with a carousel where they can interactively select what algorithm
 to see animated. Thus, we needed to place emphasis on this rather simple stylistic element so that users would enjoy
-the application since they opened it for the first time. Below a screenshot of the landing point is attached.
+the application since they opened it for the first time. Figure~\ref{fig:landing-page} depicts a screenshot of the landing point.
 
 \begin{figure}[!ht]
-    \centering
-    \includegraphics[scale=0.3]{landing-page}
-    \caption{Landing page in the application.}
-    \label{fig:landing-page}
+\centering
+\includegraphics[scale=0.3]{landing-page}
+\caption{Landing page in the application.}
+\label{fig:landing-page}
 \end{figure}
 
 \pagebreak
@@ -1136,12 +1135,13 @@ the application since they opened it for the first time. Below a screenshot of t
 Last but not least, we believe that having a modern and attractive webpage where users can download the app and get to
 know some basic information is essential, thus we have created a custom website where we host the releases and users can simply
 download and run Palgo with only a couple of clicks. This was a very nice feature voted for by many of our end users.
+Figure~\ref{fig:palgo-website} shows a screenshot of the website.
 
 \begin{figure}[!ht]
-    \centering
-    \includegraphics[scale=0.3]{palgo-website}
-    \caption{Palgo website hosted by GitHub.}
-    \label{fig:palgo-website}
+\centering
+\includegraphics[scale=0.3]{palgo-website}
+\caption{Palgo website hosted by GitHub.}
+\label{fig:palgo-website}
 \end{figure}
 
 \section{Lessons Learned}
@@ -1200,12 +1200,12 @@ same.
 For our purposes we decided that MochaJS~\cite{mocha} was a great fit because of several reasons:
 
 \begin{itemize}
-  \item flexible and implemented with simplicity in mind
-  \item runs on node.js which was already one of our powering engines, thus the integration was straightforward
+  \item flexible and implemented with simplicity in mind;
+  \item runs on node.js which was already one of our powering engines, thus the integration was straightforward;
   \item promotes a very descriptive documentation when writing tests because it uses the "describe" and "it" keyword
-    which let the developer spot the failures easily
+    which let the developer spot the failures easily;
   \item can integrate with various other frameworks such as should.js~\cite{shouldjs},
-    better-assert~\cite{better-assert} or chai~\cite{chai}
+    better-assert~\cite{better-assert} or chai~\cite{chai};
 \end{itemize}
 
 Through MochaJS we tested various animation and UI related components such as: do the buttons work properly, are
@@ -1259,14 +1259,14 @@ the code into master. The pipeline we have set up is as follows:
 
 \begin{itemize}
   \item start running all the tests running the mocha command (mocha was installed on the Linux server we have hooked
-    up with CircleCI)
+    up with CircleCI);
     \begin{itemize}
-      \item if all tests passes, merge it into master
-      \item if at least one fails, abort merge and send an email specifying what tests failed and why
+      \item if all tests passes, merge it into master;
+      \item if at least one fails, abort merge and send an email specifying what tests failed and why;
     \end{itemize}
   \item publish statistics on the CircleCI website and a small indicator next to the latest commit on the GitHub page
     showing the status of the build
-    (i.e. green if passed, red if it didn't)
+    (i.e. green if passed, red if it didn't);
 \end{itemize}
 
 This whole process ensured a smooth workflow and a continuous feedback on the status of our application and the
@@ -1288,14 +1288,14 @@ animators and it is also under active developmenton GitHub~\cite{galant-github}.
 The set of tasks they had to complete in both Palgo and Galant was:
 
 \begin{itemize}
-  \item start Palgo
-  \item select Depth-First Search algorithm from the carousel
-  \item built a graph of 5 nodes, each being adjacent with at least another one
-  \item press start algorithm button
-  \item after it finished, press random button and observe the animations again
-  \item select Algorithms dropdown and go to Dijkstra's Shortest Path algorithm
-  \item repeat steps 3, 4 and 5
-  \item finally close the application through shortcut depending on the OS of choice or via the UI button
+  \item start Palgo;
+  \item select Depth-First Search algorithm from the carousel;
+  \item built a graph of 5 nodes, each being adjacent with at least another one;
+  \item press start algorithm button;
+  \item after it finished, press random button and observe the animations again;
+  \item select Algorithms dropdown and go to Dijkstra's Shortest Path algorithm;
+  \item repeat steps 3, 4 and 5;
+  \item finally close the application through shortcut depending on the OS of choice or via the UI button;
 \end{itemize}
 
 After each group completed the tasks they switched with their colleagues and performed all the above steps for the other
@@ -1316,8 +1316,8 @@ The full questionnaire can be found in the Appendix
 \section{Results}
 
 The results were astonishing! Neither of us believed that we would receive such great impressions from our users and
-even desire to contribute to the project. The first question we selected was: ``How did you find using Palgo?". Below is
-the feedback we received.
+even desire to contribute to the project. The first question we selected was: ``How did you find using Palgo?".
+Figure~\ref{fig:questionnaire-1} shows the feedback we received.
 
 \begin{figure}[!ht]
     \centering
@@ -1331,7 +1331,8 @@ important achievement for our project because it showed how focus on simplicity,
 software engineering practices
 can produce an application of high quality that would indeed be enjoyed by end users. Even though most of the questions
 were related specifically to our implementation of the animator, we also introduced Galant as a point of reference and
-asked our participants to compare the two. The results were even more surprising.
+asked our participants to compare the two. The results were even more surprising as depicted in
+Figure~\ref{fig:questionnaire-2}
 
 \begin{figure}[!ht]
     \centering
@@ -1363,7 +1364,7 @@ and many other technologies, Palgo wouldn't have existed today so we couldn't be
 that produced all this high quality software.
 
 Therefore, we would definitely proceed with hosting the project on GitHub and start to promote it on various platforms
-(e.g. social media, email within university students) so that more people would use it and, even better, contribute to
+(e.g.\ social media, email within university students) so that more people would use it and, even better, contribute to
 improving it.
 
 \section{Project Roadmap}

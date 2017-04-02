@@ -171,9 +171,12 @@ The rest of the report will analyse the background of animators and why they wer
 As stated in the introduction, the first step is to define what an algorithm is. We will use the above-mentioned definition taken from the Oxford
 dictionary~\cite{oxford-dict}: ``A process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer". In our case, we will only relate to set of rules followed solely by computers. Thus, put simply, an algorithm is a set of steps defined by someone in order to solve some problem. As an algorithm can be written by anyone, there is no known number or catalog of them. However, the most important algorithms (e.g. Huffman tree encoding/decoding) are taught in any Computer Science course at universities around the globe.
 
-Having defined what an algorithm is, let's take an actual example - Dijkstra's algorithm for finding the shortest path between two nodes~\cite{dijkstra-shortest-path}, first published almost 60 years ago (the pseudocode was formally checked by Dr. Norman):
+Having defined what an algorithm is, let's take an actual example - Dijkstra's algorithm for finding the shortest path
+between two nodes~\cite{dijkstra-shortest-path}, first published almost 60 years ago (the pseudocode was formally
+checked by Dr. Norman). Listing~\ref{dijkstra-pseudocode-snippet} presents the pseudocode for the algorithm.
 
-\begin{lstlisting}[language=Java, caption=Pseudocode for Dijkstra's shortest path algorithm]
+\begin{lstlisting}[language={Java}, label={dijkstra-pseudocode-snippet}, caption={Pseudocode for Dijkstra's shortest
+path algorithm.}]
 // S is set of vertices for which shortest path from u is known
 // d(w) represents length of a shortest path from u to w
 // passing only through vertices of S
@@ -733,9 +736,11 @@ we were using were not standing in our way, but rather helped us to quickly impl
 \section{Animation}
 
 After drawing, the next major issue we had to discuss was the actual animation part. We have researched many tools
-available and we ended up with basic set timeouts. One snippet for an animation looks something like this:
+available and we ended up with basic set timeouts. Listing~\ref{js-animation-snippet} depicts a code snippet used for
+animating the codelines followed by a reset of the whole graph to its initial state.
 
-\begin{lstlisting}[language=Java, caption=JavaScript snippet for creating an animation]
+\begin{lstlisting}[language={Java}, label={js-animation-snippet}, caption={JavaScript snippet for creating an
+animation.}]
 setTimeout(
   function() {
     unHighlightAllCodeLines();
@@ -767,7 +772,7 @@ are JavaScript objects rendered in the canvas. Even more than that, we have circ
 which in turn are Nodes themselves, so mixing the structure Vis JS imposes with the functionalities of Velocity JS was
 rather impossible.
 
-Also, another issue with using any of the 3 options (W3 DOM Animation, Jquery animate or Velocity) was that they are
+Also, an issue with using any of the 3 options (W3 DOM Animation, Jquery animate or Velocity) was that they are
 manipulating elements which are part of the DOM (Document Object Model), while in our project the elements are part of
 the canvas. Therefore only the canvas can be animated as a whole without being able to manipulate the elements inside.
 
@@ -944,9 +949,10 @@ As we discussed previously, the V8 engine is extremely fast thus the execution o
 milliseconds, the delay being indistinguishable for the human eye. 
 
 One concern might arise and that is: even though executing the algorithm an unecessary extra time would not make the
-user notice any difference, why do it after all? Let's take the following example from the heap insertion algorithm:
+user notice any difference, why do it after all? Let's take the following example from the heap insertion algorithm
+(Listing~\ref{insert_heap}).
 
-\begin{lstlisting}[language=Java, caption=Pseudocode for inserting a node in a heap.]
+\begin{lstlisting}[language={Java}, label={insert_heap},caption={Pseudocode for inserting a node in a heap.}]
 insert item in new leaf node; 
 while (new_value not in root && new_value > parent_value) {
     swap new_value with parent_value;
@@ -954,10 +960,12 @@ while (new_value not in root && new_value > parent_value) {
 \end{lstlisting}
 
 As you can see here, we have a while loop, therefore we do not have an already known number of steps until the
-condition fails and we exit the loop (as we would generally have in a for loop). Here is part of the actual implementation for
-animating an insertion in a heap:
+condition fails and we exit the loop (as we would generally have in a for loop). Listing~\ref{javascript-insert-heap}
+shows a part of the actual implementation for
+animating an insertion in a heap.
 
-\begin{lstlisting}[language=Java, caption=Actual implementation for animating the insertion of a heap node.]
+\begin{lstlisting}[language={Java}, label={javascript-insert-heap}, caption={Actual implementation for animating the
+insertion of a heap node.}]
 const steps = getInsertSteps(node);
 for (let index = 0; index < steps; index++) {
   (function(i) {
@@ -1001,9 +1009,11 @@ Shortest Path. There we would just call the for loop directly and animate the 2 
 
 This was the most important issue faced throughout the whole software process. Because I did not have previous
 experience with web applications that might require multi-threading support, I did not know if JavaScript provides this
-or not. In the following listing we provide a code snippet first to better describe the problem and discuss on it afterwards.
+or not. In Listing~\ref{dijkstra-animation} we provide a code snippet first to better describe the problem and discuss
+on it afterwards.
 
-\begin{lstlisting}[language=Java, caption=Animation function used in Dijkstra's SP algorithm.]
+\begin{lstlisting}[language={Java}, label={dijkstra-animation},caption={Animation function used in Dijkstra's SP
+algorithm.}]
 (function(ind) {
       setTimeout(
 	function() {
@@ -1053,10 +1063,10 @@ the correct times and that they do not overlap.
 
 Moreover, another type of issue occured when there were setTimeout invokations inside outer setTimeouts. One particular
 problem we faced was that if you call a setTimeout function inside another setTimeout, the time you set the inner one
-to execute at is relative to the time the outer one will be invoked. Let's provide an example for a better
-visualization.
+to execute at is relative to the time the outer one will be invoked. Listing~\ref{nested-settimeouts} provides an example for a better
+visualization. aaa
 
-\begin{lstlisting}[language=Java, caption=Heap animation that uses nested setTimeouts.]
+\begin{lstlisting}[language={Java}, label={nested-settimeouts}, caption={Heap animation that uses nested setTimeouts.}]
 setTimeout(
     function() {
       unHighlightHeapCodeLine("delete", 1);
@@ -1131,7 +1141,7 @@ the application since they opened it for the first time. Figure~\ref{fig:landing
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[scale=0.3]{landing-page}
+\includegraphics[scale=0.2]{landing-page}
 \caption{Landing page in the application.}
 \label{fig:landing-page}
 \end{figure}
@@ -1220,11 +1230,12 @@ order to test Electron itself and see if the native features behave as expected 
 Spectron~\cite{spectron}. It is a testing framework built by GitHub that uses ChromeDriver and WebDriverIO. 
 
 As we discussed previously, using Mocha was very similar to what Java unit testing frameworks provide, but Spectron is
-quite different. Here is an example of one unit test written using Spectron:
+quite different. Listing~\ref{spectron-unit-test} is an example of one unit test written using Spectron.
 
 \pagebreak
 
-\begin{lstlisting}[language=Java, caption=Spectron unit test which checks correct behaviour of the Electron window.]
+\begin{lstlisting}[language={Java}, label={spectron-unit-test}, caption={Spectron unit test which checks correct behaviour of the Electron
+window.}]
 var Application = require('spectron').Application
 var assert = require('assert')
 

@@ -1,11 +1,13 @@
 \documentclass{l4proj}
 
+\usepackage{amsfonts}
 \usepackage{url}
 \usepackage{fancyvrb}
 \usepackage{caption}
 \usepackage{placeins}
 \usepackage[final]{pdfpages}
 \usepackage[utf8]{inputenc}
+\usepackage{textcomp}
 \usepackage{listings}
 \usepackage{color}
 \usepackage{bbding}
@@ -31,8 +33,9 @@
     showtabs=false,
     tabsize=2
 }
-
 \lstset{style=code-style}
+
+\newcommand{\gethin}[1]{\marginpar{\footnotesize \color{red} {\bf Gethin:} \textsf{#1}}}
 
 \begin{document}
 \title{Palgo - Algorithm Animator}
@@ -41,12 +44,12 @@
 
 \begin{abstract}
 Understanding algorithms is both very common and hard for students and developers in general,
-regardless of their level of expertise. Even the fundamental ones, such as Dijkstra's algorithm
-for finding the shortest path between two nodes in a graph, are quite complicated to grasp. Many
-studies show that visualizing an algorithm and its steps enhance understanding it much easier. In
+regardless of their level of expertise. Even fundamental algorithms, such as Dijkstra's algorithm
+for finding the shortest path between two vertices in a graph, are quite complicated to grasp. Many
+studies show that visualizing an algorithm and its steps enhance understanding. In
 this report, we will present an Algorithm Animator built specifically for solving this problem
-in a modern, responsive and efficient manner. Among others, we will also show why certain design decisions, implementation choices and
-evaluation results make this tool a viable option for software engineers when it comes to learning different kinds of
+in a modern, responsive and efficient manner. We will also show why certain design decisions, implementation choices and
+evaluation results make this tool a viable option for students and software engineers when it comes to learning different kinds of
 algorithms.
 \end{abstract}
 
@@ -68,40 +71,38 @@ The starting point of this report should be defining what an algorithm is.
 \end{figure}
 
 As we can see in Figure~\ref{fig:algorithm}, it is a ``process or set of rules'' followed when trying to solve a
-problem. Even if it sounds easy in theory, reading code lines and then understanding what steps are necessary for
-the machine to perform in order to generate the expected output is rather complex and hard for a human being to
-comprehend especially if the algorithm presented is complex. In a study conducted by Cristopher D. Hundhausen et al.~\cite{av}, it was
-proven that even though algorithm visualisation is not the ``perfect'' solution, it is definitely effective in teaching students and experienced developers.
+problem. Even if it sounds easy in theory, reading lines of code and then understanding what steps are necessary for
+a machine to perform to generate the expected output is rather complex and hard for a human being to
+comprehend especially if the algorithm presented is complex. In a study conducted by Christopher D. Hundhausen et al.~\cite{av}, it was
+proven that even though algorithm visualisation is not the ``perfect'' solution, it is definitely effective in teaching students and experienced developers how algorithms work.
 
-There are many tools out there that already provide an animator of algorithms, however one thing was a key factor in deciding
+There are many tools out there that already provide animations of algorithms, however one thing was a key factor in deciding
 how to proceed with planning the whole software process: there are barely any standalone applications. Even though one
-can find many websites which let people visualise algorithms' steps (e.g. a good example is VisuAlgo~\cite{visualgo}), this is not such a viable solution as the user cannot use the application whenever they want to, an Internet connection being required.
+can find many websites which let people visualise algorithms' steps (e.g. a good example is VisuAlgo~\cite{visualgo}), this is not such a viable solution as the user cannot use the application whenever they want to, as an Internet connection is required.
 
-Therefore, the plan was to create an app that can be run offline and would feel natural to the user regardless of the operating system of choice. There are many Java implementations (i.e. resulting in jar executables), but one of the main drawbacks is the lack of proper GUI tools that can build native-feeling applications.
-
-As such, the decision was made to use the Electron framework~\cite{electron} originally built by the team behind the Atom text editor.
+Therefore, the plan was to create an app that can run offline and would feel natural to the user regardless of the operating system of choice. There are many Java implementations (i.e. resulting in jar executables), but one of the main drawbacks of using Java is the lack of proper GUI tools that can build native-feeling applications. As such, the decision was made to use the Electron framework~\cite{electron} originally built by the team behind the Atom text editor.
 This framework uses only web tools to generate executables for the three main OS families (i.e. macOS, Windows and Linux) that provide the user with a native, modern and responsive feel.
 
-The planning was made using the best agile practices~\cite{agile-methodologies}, eventually deciding on following a variation of XP programming. Designing and coming up with an architectural plan was a major milestone to be reached as it took a considerable amount of time to be put in place. However, as it will be discussed in future chapters, the implementation of the animation engine was a crucial and time consuming challenge that required the highest amount of effort.
+The planning was made using the best agile practices~\cite{agile-methodologies}, eventually deciding on following a variation of XP programming. Designing an architectural plan was a major milestone to be reached as it took a considerable amount of time to be put in place. However, as discussed in future chapters, the implementation of the animation engine was a crucial and time consuming challenge that required the highest amount of effort.
 
-The report also presents how the app was tested in many various ways, as well as how it was evaluated using potential
-end users. In the end, we shall discuss about the roadmap of the project, the importance of the open source community
-for Palgo as well as some final thoughts and lessons learned throughout the process.
+The report also presents how the application was tested in various ways, as well as how it was evaluated using potential
+end users. Finally, we shall discuss the roadmap of the project, the importance of the open source community
+for Palgo as well as some final thoughts and lessons learned during the process.
 
 \section{Aims}
 
-The goals of the project were set and subsequently refined throughout many project meetings, as well as meeting with some fellow classmates to get feedback along the way.
+The goals of the project were set and subsequently refined during many project meetings, as well as meeting with fellow classmates to get feedback along the way.
 
 The main aims of the Algorithm Animator, however, have always been:
 \begin{itemize}
 	\item Create an efficient and easy-to-use animator.
 	\item Make the animator a cross-platform application that would run natively on the main operating system families: macOS, Windows and Linux.
-	\item Provide a user-friendly interface that would make the user want to enjoy the product.
-	\item Create at least 5-6 fully functional algorithms.
+	\item Provide a user-friendly interface that would make the user enjoy using the product.
+	\item Create at least 5-6 fully functional algorithm animations.
 	\item Make the application scalable and easy to maintain.
 	\item Test all functionality and ensure quality above quantity.
 	\item Evaluate the product throughout the software process to meet acceptance criteria.
-	\item Build a roadmap that would allow the animator grow even after the level 4 project has finished.
+	\item Build a roadmap that would allow the animator to grow even after the level 4 project has finished.
 \end{itemize}
 
 \section{Motivation}
@@ -110,9 +111,9 @@ Even if we have previously mentioned that visualising algorithms is one of the b
 
 One such motivation is the increasing demand of software engineers throughout industry as well as the rise in level of expertise. Developers, and students in particular, will benefit tremendously from a good grasp on how to implement correct and optimal algorithms when applying for a new job. Thus, an algorithm animator would be a good component in one's tool belt.
 
-Another major aspect was the opportunity to create a modern tool that would make users enjoy working with it. At the
+Another major aspect was the opportunity to create a modern application that users would enjoy using. At the
 moment, one of the most popular animator toolkits is the one presented in John Morris' paper~\cite{animator-toolkit}.
-Figure~\ref{fig:animator-toolkit} depicts a screenshot taken while using the app. \newpage
+Figure~\ref{fig:animator-toolkit} depicts a screenshot taken while using this toolkit. \newpage
 
 \begin{figure}[!ht]
 \centering
@@ -121,11 +122,9 @@ Figure~\ref{fig:animator-toolkit} depicts a screenshot taken while using the app
 \label{fig:animator-toolkit}
 \end{figure}
 
-It was written in Java, which comes with certain advantages: multi-threading support, enhanced familiarity due to
+This toolkit was written in Java, which comes with certain advantages: multi-threading support, enhanced familiarity due to
 university coursework and projects etc. However, the lack of proper graphical user interface components makes this a
-not so viable option for regular users when adopting it. 
-
-On the other hand, Figure~\ref{fig:palgo} shows our proposal to solve these shortcomings.
+not so viable option for regular users when adopting it. On the other hand, Figure~\ref{fig:palgo} shows our proposal to solve these shortcomings.
 
 \begin{figure}[!ht]
 \centering
@@ -134,24 +133,24 @@ On the other hand, Figure~\ref{fig:palgo} shows our proposal to solve these shor
 \label{fig:palgo}
 \end{figure}
 
-We can see a clear difference between the two and why one might choose the latter option due to familiarity (native feel) and easy-to-use user interface.
+We can see a clear difference between the two figures and why one might choose the latter option due to familiarity (native feel) and easy-to-use user interface.
 
 \section{Contributions}
 
-This report serves to deliver certain main contributions:
+This report serves to deliver the following contributions.
 
 \begin{itemize}
-	\item Shows the whole software development lifecycle of an algorithm animator.
-	\item Presents various technologies used to build native and modern desktop apps~\cite{electron}~\cite{visjs}
-	\item Provides a brief overview of current animators available and background knowledge on their benefits and efficiency in teaching.
+	\item Describe the whole software development lifecycle of an algorithm animator.
+	\item Present the various technologies used to build native and modern desktop apps~\cite{electron}~\cite{visjs}
+	\item Provide a brief overview of current animators available and background knowledge on their benefits and efficiency in teaching.
 \end{itemize}
 
 
 \section{Report Content}
-The rest of the report will analyse the background of animators and why they were proven useful, as well as cover all the steps in gathering requirements, designing, implementing, testing and evaluating the tool.
+The remainder of the report will analyse the background of animators and why they were proven useful, as well as cover all the steps in gathering requirements, designing, implementing, testing and evaluating the tool.
 
 \begin{itemize}
-\item Chapter~\ref{background} covers work related to the purpose of algorithm animators and why they are useful
+\item Chapter~\ref{background} covers work related to the purpose of algorithm animators and why they are useful.
 \item Chapter~\ref{requirements} goes into how the problem was analysed and what requirements were gathered through
 	project meetings and discussions with Algorithmics students.
 \item Chapter~\ref{agile-software-development} shows the steps undertaken to follow the best agile methodology principles.
@@ -172,7 +171,7 @@ As stated in the introduction, the first step is to define what an algorithm is.
 dictionary~\cite{oxford-dict}: ``A process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer". In our case, we will only relate to set of rules followed solely by computers. Thus, put simply, an algorithm is a set of steps defined by someone in order to solve some problem. As an algorithm can be written by anyone, there is no known number or catalog of them. However, the most important algorithms (e.g. Huffman tree encoding/decoding) are taught in any Computer Science course at universities around the globe.
 
 Having defined what an algorithm is, let's take an actual example - Dijkstra's algorithm for finding the shortest path
-between two nodes~\cite{dijkstra-shortest-path}, first published almost 60 years ago (the pseudocode was formally
+between two vertices of a graph~\cite{dijkstra-shortest-path}, first published almost 60 years ago (the pseudocode was formally
 checked by Dr. Norman). Listing~\ref{dijkstra-pseudocode-snippet} presents the pseudocode for the algorithm.
 
 \begin{lstlisting}[language={Java}, label={dijkstra-pseudocode-snippet}, caption={Pseudocode for Dijkstra's shortest
@@ -210,13 +209,13 @@ Firstly, let us define what an animator is. Again, taking the definition from th
 it is ``a person who makes animated films". In our case, the person is the computer and the film is the sequence of steps required to produce an output after feeding input to an algorithm.
 
 Usually, algorithm animators are divided into 2 sections: one section will contain the graphics in order to represent the
-data structures used (e.g. in graph traversal algorithms the nodes and edges comprising the graph will be drawn) while
+data structures used (e.g. in graph traversal algorithms the vertices and edges comprising the graph will be drawn) while
 the other will have the code lines, the actual rules the computer needs to follow in order to produce the desired
-output. The current code line that is executed at a certain moment is highlighted, while the data structure visualized (e.g. some box that represents an array's element) changes and the user can see the output visually and immediately, making a mental connection between the code line and the change it produces.
+output. \gethin{can you have a figure demonstrating the division} The current code line that is executed at a certain moment is highlighted, while the data structure visualized (e.g. some box that represents an array's element) changes and the user can see the output visually and immediately, making a mental connection between the code line and the change it produces.
 
 But why an animator precisely? There are many studies that show visualization in any area can enhance learning
 capabilities drastically. Brenda Parker and Ian Mitchell's work~\cite{parker-mitchell} shows clearly how seeing the
-steps can greatly improve a student's understanding of what is happening ``behind the scenes". On the other hand, even if animations were proven to be generally useful and beneficial for the learner, the need for seeing algorithms animated declines over time, as the study shows.
+steps can greatly improve a student's understanding of what is happening ``behind the scenes". On the other hand, even if animations were proven to be generally useful and beneficial for the learner, the study shows the need for visualising algorithms animated declines over time.
 
 Another study by Susan Palmiter and Jay Elkerton~\cite{palmiter-elkerton} tried to find out which method was the most
 effective in learning new computer-based tasks. Even though animations for complex mechanisms were found to be
@@ -251,9 +250,10 @@ There are obvious advantages to this approach:
 		\end{figure}
 \end{itemize}
 
+\gethin{figure \ref{fig:java-uni} is not referenced in the text}
 \pagebreak
 
-However, there are also drawbacks:
+However, there are also drawbacks to creating a standalone JAR application:
 \begin{itemize}
 \item the most popular Java libraries for producing standalone graphical JAR applications output old-fashioned user
   interface;
@@ -262,7 +262,7 @@ However, there are also drawbacks:
 \end{itemize}
 
 The second main approach for building an animator is web-based, one of them being D. Galles'
-application~\cite{galles}. Figure ~\ref{fig:galles} shows a screenshot taken while using the application.
+application~\cite{galles}. Figure ~\ref{fig:galles} shows a screenshot taken while using this application.
 
 \begin{figure}[!ht]
 \centering
@@ -271,16 +271,16 @@ application~\cite{galles}. Figure ~\ref{fig:galles} shows a screenshot taken whi
 \label{fig:galles}
 \end{figure}
 
-Some advantages of this web-based solution are the following:
+The main advantages of a web-based approach are  that:
 \begin{itemize}
-\item the developer can use a wide variety of JavaScript tools (e.g. drawing directly on HTML5 canvas, VisJs, SigmaJs)
+\item the developer can use a wide variety of JavaScript tools (e.g. drawing directly on HTML5 canvas, VisJs and SigmaJs)
   to draw and animate objects;
-\item the app can have a very modern and responsive feel which can make users enjoy the product;
+\item the application can have a very moxdern and responsive feel which can enhance users enjoyment the product;
 \item virtually all users have at least a browser installed on their machine, thus making the animator available to
   everyone.
 \end{itemize}
 
-However, the main drawback is that it is still a website, thus it need to be hosted (which implies additional costs) and it cannot be reached by anyone at all times due to the fact that not everyone has constant internet access.
+However, the main drawback is that it is still a website, thus it need to be hosted (which implies additional costs) and it cannot be reached by everyone at all times due to the fact that not everyone has constant internet access.
 
 We have covered all the necessary background and related work before diving into how Palgo was designed and implemented. We believe that our solution is a combination of the two main approaches listed above, merging the benefits of both into a single tool.
 
@@ -289,7 +289,7 @@ We have covered all the necessary background and related work before diving into
 \chapter{Requirements}
 \label{requirements}
 
-As for all other software built with best practices, requirements need to be gathered, defined, analyzed and then prioritized. As we tried to follow an Agile structure, the requirements have changed every week through student-supervisor weekly as well as end user meet-ups.
+As for all other software built with best practices, requirements need to be gathered, defined, analyzed and then prioritized. As we tried to follow an Agile structure, the requirements changed every week through student-supervisor weekly meetings, as well as end user meet-ups.
 
 We tried to keep the requirements SMART~\cite{smart-requirements}, which implies they are specific, measurable,
 attainable, realizable and time bounded. Making the requirements follow this well established format made the software development lifecycle much faster and cleaner.
@@ -306,9 +306,9 @@ Figure~\ref{fig:trello-functional-requirements} shows a screenshot from a Trello
 The requirements followed a pipeline through which they, together with their rationale, would get broken down
 into pieces continuously until user stories could be produced. One example of such a requirement is: ``Show me a
 correct and easy-to-understand animation for the insert function in a heap data structure.''. This would then be broken
-down in multiple user stories, such as ``Color the node that is inserted and add its label" and ``Highlight code line corresponding with changing the label".
+down in multiple user stories, such as ``Colour the node that is inserted and add its label" and ``Highlight code line corresponding with changing the label".
 
-We also tried to follow the MoSCoW~\cite{moscow-requirements} guideline for prioritizing the requirements. The technique has proven to be very effective and it is adopted widely in industry, even though the paper is more than 20 years old. This facilitated a smooth workflow and concise goals to be targeted.
+We also tried to follow the MoSCoW~\cite{moscow-requirements} guideline for prioritizing the requirements. The technique has proven to be very effective and it is adopted widely in industry, even though the approach is more than 20 years old. This facilitated a smooth workflow and concise goals to be targeted.
 
 \section{Problem Analysis}
 
@@ -322,19 +322,17 @@ We have analyzed the problem systematically, dividing it into the following main
 \end{itemize}
 
 During the analysis, we needed to take into account various factors, including how much experience with algorithms and
-computer science in general will our users have and what algorithms would need visualization the most. As previous animators built under the supervision of Dr. Norman are used for educational purposes in the level 3 Algorithmics I course, we believe that having mainly graph and tree algorithms would benefit the project the most. However, we tried to keep the structure simple and the codebase easy-to-maintain such that other families of algorithms will be straightforward to implement. Because we want to project to be continued in the open source space, users other than students can use the animator, thus we tried to keep the requirements more general.
+computer science in general will our users have and what algorithms would need visualization the most. As previous animators built under the supervision of Dr. Norman are used for educational purposes in the level 3 Algorithmics I course, we believe that having mainly graph and tree algorithms would benefit the project the most. However, we tried to keep the structure simple and the codebase easy-to-maintain so that other families of algorithms will be straightforward to implement. Because we want to project to be continued in the open source space, users other than students can use the animator, thus we tried to keep the requirements more general.
 
 Also, there was much discussion around whether to use a web or a desktop approach. For reasons explained above, we
 decided to implement a desktop application using the technologies mentioned in the subsequent chapters.
 
-We have gathered the requirements and split them into functional and non-functional ones, dividing them further into
+We have gathered the requirements and split them into functional and non-functional, then dividing them further into
 smaller tasks to be implemented. In the end, we were left with user stories that could be translated directly into work tasks.
 
 \section{Requirements Gathering}
 
-As mentioned above, the requirements gathering was a continuous process that lasted from the first week of 4th year up until the end of the project's development lifecycle. Not only that we had the weekly regular student-supervisor meetings were we could add or refine requirements, but there were also meetings with possible end users.
-
-Every two or three weeks there were meetings scheduled with a couple of classmates from University of Glasgow's Computer Science course that would give continuous feedback after testing the newest version of the application. We met in one of the laboratories in Boyd Orr building where they were provided with an executable that could be run on their personal laptops. They were given around 15 minutes to try the features and, afterwards, they provided invaluable feedback without which the animator would not perform as efficiently as it does today.
+As mentioned above, the requirements gathering was a continuous process that lasted from the first week of 4th year up until the end of the project's development lifecycle. Not only were there the regular weekly student-supervisor meetings where we could add or refine requirements, but there were also meetings with possible end users. More precisely, every two or three weeks there were meetings scheduled with a few classmates from University of Glasgow's Computer Science course that would give continuous feedback after testing the newest version of the application. The meetings were held in one of the laboratories in the Boyd Orr building where the classmates were provided with an executable that could be run on their personal laptops. They were given around 15 minutes to try the features and, afterwards, they provided invaluable feedback without which the animator would not perform as efficiently as it does today.
 
 \section{Functional Requirements}
 
@@ -368,8 +366,7 @@ A non-functional requirement is a type of requirements that judges the system as
 \chapter{Agile Software Development}
 \label{agile-software-development}
 
-Good software practices are key to successful projects. We have followed Agile methodologies, especially what was
-taught last year in the Professional Software Development class, as well as through Ian Sommerville's ``Software
+Good software practices are key to successful projects. We have followed Agile methodologies, in particular, the methodogies that were taught last year in the Professional Software Development class, as well as through Ian Sommerville's ``Software
 Engineering'' book~\cite{software-engineering}.
 
 We eventually decided to follow an Extreme Programming path and we implemented the best advice taken from industry
@@ -383,25 +380,25 @@ experts. Some of the key principles we implemented throughout the whole process 
     \item heavy refactoring as opportunity arose;
     \item emphasis on simplicity in design and implementation;
     \item tracking bugs and issues in general allowed us to be always informed and include necessary items for
-      specific milestones so that the quality would always have high standards;
+      specific milestones so that the quality would always have high standards.
 \end{itemize}
 
-All these ensured a good workflow with results that could be remarked immediately. We believe that a major part of the
-success of the project was embracing the above Agile methodologies.
+These principles ensured a good workflow with results that could be remarked immediately. \gethin{not sure what you mean by ``remarked''} We believe that a major part of the
+success of the project was embracing above Agile methodologies.
 
 \section{Extreme Programming}
 
-We have followed the approach first coined by Kent Beck called Extreme Programming(XP)~\cite{extreme-programming}. It is an
-Agile technique through which good practices are most times pushed to ``extreme'' levels. XP has proven to be very effective as many companies in the industry use it in their development lifecycle. Some principles it promotes which we have followed are:
+We have followed the approach first coined by Kent Beck called Extreme Programming (XP)~\cite{extreme-programming}. It is an
+Agile technique through which good practices are pushed to ``extreme'' levels. XP has proven to be very effective as many companies use it in their development lifecycle. Principles it promotes that we have followed include:
 
 \begin{itemize}
 \item frequent releases based on requirements gathered incrementally in meetings (e.g. supervisor-student meetings)
-\item constant refactoring to promote simplicity
-\item customer involvement throughout the whole process (i.e. getting feedback every 2-3 weeks from students that might use the application)
-\item people over processes, which means collective ownership of the code as well as avoiding exhausting long working hours
+\item constant refactoring to promote simplicity;
+\item customer involvement throughout the whole process (i.e. getting feedback every 2-3 weeks from students that might use the application);
+\item people over processes, which means collective ownership of the code as well as avoiding exhausting long working hours.
 \end{itemize}
 
-Burndown charts are another great tool used by people using XP in their schedule to track down progress. You start off by defining the number of user stories you want to complete in an iteration and, then, divide that number by the number of days the sprint has (in our case it was 7 days). Therefore each day you should implement a certain number of user stories such that at the end of the iteration you are left with none. That is the most productive outcome. Also, because this was a student project, we will count weekend days as working days.
+Burndown charts are another great tool used by developers using XP in their schedule to track progress. You start off by defining the number of user stories you want to complete in an iteration and, then, divide that number by the number of days the sprint has (in our case it was 7 days). Therefore each day you should implement a certain number of user stories such that at the end of the iteration you are left with none. That is the most productive outcome. Also, because this was a student project, we will count weekend days as working days.
 
 During the entire process we tried to monitor the progress and see how we are performing.
 Figure~\ref{fig:burndown-november} shows a burndown chart from one of the November weekly iterations.
@@ -426,7 +423,7 @@ stories finished. However, Figure~\ref{fig:burndown-february} depicts a burndown
 \label{fig:burndown-february}
 \end{figure}
 
-There are noticeable difference between the 2 iterations: firstly, we started with fewer user stories to be completed in the latter sprint which was much more feasible to finish and it didn't make us work extra hours (like in the first burndown chart example), thus violating one of the extreme programing principles. Moreover, there was only a slight discrepancy from the schedule on March 3rd where there were no user stories completed. However, this is relatively minor and we believe that for a two people project, this was an amazing achievement that could only be reached gradually.
+There are noticeable difference between the 2 iterations: firstly, we started with fewer user stories to be completed in the latter sprint which was much more feasible to finish and it did not make us work extra hours (like in the first burndown chart example), thus violating one of the extreme programing principles. Moreover, there was only a slight discrepancy from the schedule on March 3rd where there were no user stories completed. However, this is relatively minor and we believe that for a two people project, this was an amazing achievement that could only be reached gradually.
 
 Summing up, following all the good practices of XP has brought us great benefits and a working schedule that allowed us to implement all the requirements gathered in user and supervisor meetings.
 
@@ -441,7 +438,7 @@ Planning Poker~\cite{planning-poker}. In this practice, all developers are given
 needed to complete the story. Then, after everyone shows their estimation, discussions emerge among the developers until a consensus is reached. In our situation, we did not use a deck of cards during the student-supervisor meetings, but we both estimated the number of days needed to implement a feature and, if our opinions diverged, we discussed until we had the same duration in mind.
 
 It can be observed in Figure~\ref{fig:estimation} how we kept track of all the user stories using Trello cards. We added the estimation in the
-description, as well as a description using the popular format ``As a.../I want to.../So that..."~\cite{user-story-format} to always know the
+description, as well as a description using the popular format ``As a $\dots$/I want to $\dots$/So that $\dots$"~\cite{user-story-format} to always know the
 rationale behind every implemented feature.
 
 \pagebreak
@@ -458,13 +455,13 @@ much faster and the user story cost estimations became more accurate.
 
 \section{Continuous Integration}
 
-We have used another great tool heavily promoted by Agile methodologies which is Continuous Integration. CI means
+We have used another tool heavily promoted by Agile methodologies which is Continuous Integration (CI). CI means
 merging all working copies of everyone who is developing on the project to a shared mainline multiple times a
-day~\cite{continuous-integration}. This is an amazing tool for checking that the builds do not break regardless of the
+day~\cite{continuous-integration}. This is a very useful tool for checking that the builds do not break regardless of the
 changes made and that quality is of primary importance.
 
 In our case, we have used CircleCI~\cite{circleci} as the tool for CI. It was configured such that after every
-commit, the code would be merged into the main branch, tested to see it everything is working as expetec and, only
+commit, the code would be merged into the main branch, tested to see it everything is working as expected and, only
 after, the code would be pushed.
 
 \begin{figure}[!ht]
@@ -474,15 +471,15 @@ after, the code would be pushed.
     \label{fig:circleci}
 \end{figure}
 
-As it can be seen in Figure~\ref{fig:circleci}, there is a small green check (or a red cross if the build did not pass) on the GitHub repository
-of the project telling the developers if anything went wrong. This was a great asset to the development lifecycle,
-informing us whether we needed to add some bugs to our tracking system to be solved later or everything performed
+As it can be seen in Figure~\ref{fig:circleci}, there is a small green check on the GitHub repository
+of the project telling the developers that the build worked as expected (there would be a red cross in cases when the build did not work as expected). This was a great asset to the development lifecycle,
+informing us whether we needed to add bugs to our tracking system to be solved later or if everything performed
 exactly as it should have.
 
-Not only that we applied continuous integration to our workflow, but we also used it properly: as
+Not only did we applied continuous integration to our workflow, but we also used it properly: as
 mentioned above, the definition of CI means the developers should push their local changes to the main repository
-multiple times a day. Every day of development meant multiple commits and multiple pushes such that we made sure the
-builds were all passing and that our code was not broken.
+multiple times a day. Every day of development meant multiple commits and multiple pushes so that we made sure the
+builds were all passing and the code was not broken.
 
 \begin{figure}[!ht]
     \centering
@@ -491,8 +488,7 @@ builds were all passing and that our code was not broken.
     \label{fig:commits-week}
 \end{figure}
 
-Figure~\ref{fig:commits-week} shows the commit frequency per week for the last 10 iterations. As it can be observed, apart from first week when
-the university semester just started, the number of commits was very high every sprint, thus following the practice of
+Figure~\ref{fig:commits-week} shows the commit frequency per week for the last 10 iterations. As it can be observed, apart from first week which corresponds with the first week of the University semester, the number of commits was very high for every sprint, thus following the practice of
 committing and testing the quality of our product often.
 
 \section{Issues \& Bug Tracking}
@@ -503,15 +499,14 @@ functionality not working properly or wanted features. This was a very useful pr
 promoted continuous feedback on changes from potential end users, thus implementing the Agile manifesto properly.
 
 Talking about actual implementation, we have kept a custom database on GitHub in order to be always up-to-date with what
-is going on and spots where we lack quality and efficiency. We have made use of the custom labels GitHub already provides,
+is going on and allow us to spot where we lack quality and efficiency. We have made use of the custom labels GitHub already provides,
 among which the most used ones have been:
 
 \begin{itemize}
-    \item bug - here we marked flaws in the system (or the students who have been providing constant feedback);
-    \item enhancement - we added here the features most wanted by our users or by ourselves; this was refined from the
+    \item \emph{bug} -- here we marked flaws in the system (or the students who have been providing constant feedback);
+    \item \emph{enhancement} -- we added here the features most wanted by our users or by ourselves; this was refined from the
 	requirements gatherings previously mentioned that ended up as multiple user stories eventually;
-    \item question - these were marked for research purposes - one example might be: can we change the shape of nodes
-	dynamically as the algorithm animation makes progress?
+    \item \emph{question} - -these were marked for research purposes - one example might be: can we change the shape of vertices of a graph dynamically as the algorithm animation makes progress?
 \end{itemize}
 
 As an example, Figure~\ref{fig:issue-tracking} shows how issues were continuously tracked throughout the software process.
@@ -541,8 +536,8 @@ our purposes. In the end, we will also discuss compromises that needed to be tak
 \section{Architecture}
 
 Because we would have a wide variety of users (students, experienced developers, university lecturers, enthusiasts) one
-needs to take into account a range of different perspectives. Therefore, architectural design and focus on simplicity is vital to the success of every software. We have tried to use UML
-diagrams in order to visualize the system as well as possible before proceeding with the implementation.
+needs to take into account a range of different perspectives. Therefore, architectural design and focus on simplicity is vital to the success of every software. \gethin{I do not get therefore at the start of this sentence} We have used UML
+diagrams in order to visualize the system as well as possible before proceeding with the implementation. \gethin{add reference to UML diagrams and say something about why they were chosen?}
 
 Figure~\ref{fig:uml-component-diagram} shows our final candidate for the component diagram.
 
@@ -556,8 +551,8 @@ Figure~\ref{fig:uml-component-diagram} shows our final candidate for the compone
 It can be noticed that our approach was rather simplistic - after the user hits the start algorithm button, the main
 component is the Electron window. This is, in fact, the native window generated by the framework which contains the
 application. As we will see in the subsequent sections, Electron uses web tools to generate the output, thus we start rendering on
-our HTML page the animation. This will be composed out of 2 components: the node manipulator which will color, move,
-hide and change the nodes in the graph or tree, while the codeline highlighter will handle the animation of the
+our HTML page the animation. \gethin{previous sentence needs rewording as does not make sense} This will be composed out of 2 components: the node manipulator which will colour, move,
+hide and change the vertices of the graph or tree, while the codeline highlighter will handle the animation of the
 algorithm's codelines. They will execute concomitantly and generate output immediately in the window.
 
 Therefore, our architectural style of choice is component-based: every algorithm is a component itself and they all
@@ -585,12 +580,12 @@ development, the latest release dating back to 5th of September 2016.
 
 The screenshot in Figure~\ref{fig:animal-algo-animator} shows how many options are available to the user and how powerful the application is, providing
 features such as the possibility to create
-your own algorithm, animate it the way you want to, set any color for blocks and even draw manually.
+your own algorithm, animate it the way you want to, set any colour for blocks and even draw manually.
 
 On the other hand, the other option that we considered was making an animator based on web tools. The first and obvious
 approach was to create a website using the very large number of libraries for drawing on the canvas and manipulating
-the DOM in general. Firstly, we began by investigating how popular JavaScript was among developers and if this was
-feasible after all. Figure~\ref{fig:stack-overflow-languages} presents a brand new survey from StackOverflow, one of the most comprehensive and useful resource repository for developers around
+the Document Object Model (DOM) in general. Firstly, we began by investigating how popular JavaScript was among developers and if this was
+feasible after all. Figure~\ref{fig:stack-overflow-languages} presents a recent survey from StackOverflow, one of the most comprehensive and useful resource repository for developers around
 the globe~\cite{stackoverflow-survey}.
 
 \begin{figure}[!ht]
@@ -600,20 +595,20 @@ the globe~\cite{stackoverflow-survey}.
     \label{fig:stack-overflow-languages}
 \end{figure}
 
-As it can be seen, JavaScript is almost twice more popular than its competitor Java. Also, when talking about concrete JavaScript libraries, there is a considerable amount published as open source. Other advantages for this approach were:
+As it can be seen, JavaScript is almost twice as popular as its competitor Java. Also, when talking about concrete JavaScript libraries, there is a considerable amount published as open source. Other advantages for this approach were:
 
 \begin{itemize}
     \item great reach to users as almost everyone has at least a browser installed on their machine;
-    \item modern, state-of-the-art UI libraries that would make the experience pleasant for users;
+    \item modern, state-of-the-art UI libraries that would make the experience pleasant for users.
 \end{itemize}
 
-Weighing both options, we eventually decided to proceed with the web approach because our main goal was to make users, especially students who want to learn new algorithms, like using our animator. Web tools, as discussed previously, provided us with a variety of User Interface components that made our goal possible.
+Weighing both options, we eventually decided to proceed with the web approach because our main goal was to make users, especially students who want to learn new algorithms, enjoy using our animator. Web tools, as discussed previously, provided us with a variety of User Interface components that made our goal possible.
 
 \section{Prototyping}
 
 Following Agile methodologies implied that we would involve the potential customers during the whole process in order
-to get continuous feedback. Therefore, we have developed low fidelity prototypes in the early iterations (i.e.
-paper-based) and eventually high fidelity ones somewhere after January (mainly using Omnigraffle~\cite{omnigraffle}).
+to get continuous feedback. Therefore, we developed low fidelity prototypes in the early iterations (i.e.
+paper-based) and eventually high fidelity ones (mainly using Omnigraffle~\cite{omnigraffle}).
 
 Figure~\ref{fig:paper_prototype} presents one of the early paper drawings that could give our users an idea of how the animator might look
 like.
@@ -625,8 +620,8 @@ like.
     \label{fig:paper_prototype}
 \end{figure}
 
-As you can notice, the prototype is very basic but we wanted to give the end users a rough outline of how the app will
-look like. Mostly, it resembles what Palgo looks like in the latest version, especially the layout of the 2 animation
+As you can notice, the prototype is very basic but we wanted to give the end users a rough outline of how the application will
+look like. Mostly, it resembles what Palgo looks like in the latest version, especially the layout of the two animation
 panes as well as the position of the logo.
 
 However, as iterations passed, we started building high fidelity prototypes and we used more mature tools to wireframe
@@ -640,14 +635,13 @@ late January.
     \label{fig:high_fidelity_prototype}
 \end{figure}
 
-We soon afterwards started showing only the app without the need of wireframing anymore as the animator began to be
+We soon afterwards started demonstrating the application itsself without the need of wireframing, as the animator began to be
 mature enough and provide a minimum of functionalities that could give the testers a better idea of how everything
 works compared to a simple image that we showed to them.
 
 As it can be seen from the first paper prototype up to the higher fidelity ones the design we came up with was very
-similar to the one the app has nowadays. However, the buttons were moved from the right hand side to the left because
-of the users' feedback - they requested that they would be below the bar with the logo so that there would be a cleaner
-UI where the elements could be more easily distinguishable. Also they requested to remove the search bar as they found
+similar to the one the application has nowadays. However, the buttons were moved from the right hand side to the left because
+of the users' feedback - they requested that they should be below the bar with the logo so that the UI would be cleaner with the elements more easily distinguished. Also they requested to remove the search bar as they found
 it useless except if the number of algorithms grew considerably and a dropdown would have ruined best UI/UX practices.
 
 \section{Electron}
@@ -658,11 +652,11 @@ However, one very important aspect that we were concerned about was the core und
 
 Also, another thing we had to think about was UI and UX engineering. Having maybe too many resources available, we could have ended up with choosing one that would not fit a part of our users. How can we make sure that the framework we would decide on will make all users feel familiar?
 
-Therefore, the best approach would be to have an animator that is implemented using web tools but it can function as a standalone desktop application. Thus, by being native, it would make all users feel familiar in any their operating system of choice. At this point, we had to research different alternatives to create cross-platform native apps with web tools. The one that was most popular and had the largest library of resources was Electron, which we chose in the end.
+Therefore, the best approach would be to have an animator that is implemented using web tools but can function as a standalone desktop application. Thus, by being native, it would make all users feel familiar in any their operating system of choice. At this point, we had to research different alternatives to create cross-platform native applications with web tools. The one that was most popular and had the largest library of resources was Electron, which we chose in the end.
 
 Electron is a framework built by engineers at GitHub and then released as an open source project on their platform. It is in fact a Chromium backend that serves webpages inside windows which act as native regardless of the platform of choice. Therefore, the developer can use any web tools available to develop his/her applications benefiting at the same time from features such as system calls.
 
-Because it is using Chromium under the hood, we are automatically taking advantage of using the V8 engine~\cite{v8-chrome} which powers the Google Chrome browser. Efficiency was primordial to us and such we wanted to check if such a candidate would produce exptected output in a reasonable time, so we checked benchmarks available for various JavaScript engines.
+Because it is uses Chromium under the hood, we are automatically taking advantage of the V8 engine~\cite{v8-chrome} which powers the Google Chrome browser. Efficiency was primordial to us and such we wanted to check if such a candidate would produce exptected output in a reasonable time, so we checked benchmarks available for various JavaScript engines.
 
 \begin{figure}[!ht]
     \centering
@@ -672,10 +666,10 @@ Because it is using Chromium under the hood, we are automatically taking advanta
 \end{figure}
 
 Figure~\ref{fig:v8-benchmark} shows benchmarks for various JavaScript engines including jsc, Ion and V8. As we can see in the
-figure, V8 ranks extremely good, being at the lowest points of execution times starting almost from its inception.
+figure, V8 ranks extremely highly, being at the lowest points of execution times starting almost from its inception.
 
-The other very important aspect was to see if Electron had enough resources, tutorials or demo applications such that
-the development workflow would be smooth.
+The other very important aspect was to see if Electron had enough resources, tutorials or demo applications to allow the
+the development workflow to be smooth.
 We ran a query on Google Trends among other platforms to check how popular it was.
 Figure~\ref{fig:google-trends-electron} presents the results.
 
@@ -688,13 +682,13 @@ Figure~\ref{fig:google-trends-electron} presents the results.
 
 We can clearly observe that apart from the big spike when the framework became the underlying engine behind many
 important desktop apps such as Slack towards the end of 2015, Electron has had an constant ascension throughout the
-years. Also, researching the internet for resources, we could find many tutorials and demo applications where we could draw inspiration from.
+years. Also, researching the internet for resources, we found many tutorials and demo applications from which we could draw inspiration.
 
 Summing up, Electron was a natural choice after careful thinking about advantages and caveats and it proved to be a very productive framework that allowed an easy and simple workflow for the rest of the software development lifecycle.
 
 \section{Drawing}
 
-The component that had the same importance as Electron was the engine behind manipulating the nodes and edges of tree/graph algorithms that we wanted to implement. Because of the large variety of JavaScript libraries available for playing with the canvas, we had a couple of choices to select from. This was a very lengthy process because many provided some features while others gave us other unique ones. 
+The component that had the same importance as Electron was the engine behind manipulating the vertices and edges of trees and graphs as trees and graphs were the focus of the algorithms to animate. Because of the large variety of JavaScript libraries available for playing with the canvas, we had a couple of choices to select from. This was a very lengthy process because many provided some features while others gave us other unique ones. 
 
 Table~\ref{drawing-libraries} presents the libraries together with their pros and cons.
 
@@ -703,11 +697,11 @@ Table~\ref{drawing-libraries} presents the libraries together with their pros an
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|c|c|c|c|c|c|}
     \hline
-    & \multicolumn{1}{l|}{Nodes Manipulation} & \multicolumn{1}{l|}{Edges Manipulation} & \multicolumn{1}{l|}{Tree API} & \multicolumn{1}{l|}{Graph API} & \multicolumn{1}{l|}{Actively Maintained} & \multicolumn{1}{l|}{Easy Pick-Up} \\ \hline
+    & \multicolumn{1}{l|}{Vertex Manipulation} & \multicolumn{1}{l|}{Edges Manipulation} & \multicolumn{1}{l|}{Tree API} & \multicolumn{1}{l|}{Graph API} & \multicolumn{1}{l|}{Actively Maintained} & \multicolumn{1}{l|}{Easy Pick-Up} \\ \hline
     Treant       & \Checkmark                                       & \Checkmark                                       & \Checkmark                             & x                              & x                                        & \Checkmark                                 \\ \hline
     Vis JS       & \Checkmark                                       & \Checkmark                                       & \Checkmark                             & \Checkmark                              & \Checkmark                         &            \Checkmark                                 \\ \hline
     Sigma Js     & \Checkmark                                       & \Checkmark                                       & \Checkmark                             & \Checkmark                              & \Checkmark                                        & x                                 \\ \hline
-    HTML5 Canvas & x                                       & x                                       & x                             & x                              & \Checkmark                                        & x                                 \\ \hline
+    HTML5 Canvas & x                                       & x                                       & x                            & x                              & \Checkmark                                        & x                                 \\ \hline
     D3           & \Checkmark                                       & \Checkmark                                       & x                             & x                              & \Checkmark                                        & x                                 \\ \hline
 \end{tabular}%
 }
@@ -715,9 +709,7 @@ Table~\ref{drawing-libraries} presents the libraries together with their pros an
 \label{drawing-libraries}
 \end{table}
 
-These are the main candidates we have chosen: VisJS, Treant, D3, HTML5 Canvas and SigmaJS. 
-
-Let's start with Treant. This was a very compelling option because it had a very robust and easy to use Tree API: nodes
+As shown in the figure, the main candidates we have chosen for the drawing libraries are VisJS, Treant, D3, HTML5 Canvas and SigmaJS. Let us start with Treant. This was a very compelling option because it had a very robust and easy to use Tree API: vertices
 and edges could be easily manipulated, as well as the layout was very flexible to suit the developer needs. However, as
 it can be seen in the table above, we did not have an out-of-the-box API for graphs. Therefore, this option became unfeasible.
 
@@ -728,9 +720,7 @@ new platform rather than focusing on actual implementation of the animations.
 
 D3 and SigmaJS are both very mature platforms that have a very large number of features for animating and drawing on
 the canvas. They were both viable candidates up until the end. However, the reason why we eventually chose VisJS
-is because it was the easiest to pick up and had out-of-the-box APIs for both graphs and trees. 
-
-Thus, choosing VisJS, we saw a rapid development workflow and an emphasis on simplicity due to the fact that the tools
+is because it was the easiest to pick up and had out-of-the-box APIs for both graphs and trees. Thus, choosing VisJS, we saw a rapid development workflow and an emphasis on simplicity due to the fact that the tools
 we were using were not standing in our way, but rather helped us to quickly implement the user stories.
 
 \section{Animation}
@@ -754,27 +744,25 @@ setTimeout(
 \end{lstlisting}
 
 Even though the implementation details will be covered in the following chapter, we shall discuss here the importance
-and the reason why we decided to use this approach instead of others.
-
-Some libraries were already built to facilitate developers an easy path to animation, so why use plain JavaScript for
-accomplishing this? We have reviewed and discussed advantages and disadvantages for the following JS libraries:
+and the reason why we decided to use this approach instead of others. Some libraries were already built to facilitate developers an easy path to animation, so why use plain JavaScript for
+accomplishing this? We have reviewed and discussed advantages and disadvantages for the following JS libraries for animation:
 
 \begin{itemize}
     \item Velocity JS;
     \item DOM JS Animation;
-    \item JQuery Animation;
+    \item JQuery Animation.
 \end{itemize}
 
 Starting with Velocity JS as it is an actively developed library with more than 39 contributors on Github and almost
-700 commits~\cite{velocityjs}, what it primarily offers is transforms, loops, easings or color animation. This sounds
+700 commits~\cite{velocityjs}, what it primarily offers is transforms, loops, easings and colour animation. This sounds
 promising, but the main problem in our case is that we are working with Vis Nodes in a tree or a graph, thus our components
 are JavaScript objects rendered in the canvas. Even more than that, we have circular dependencies, as the root of a tree can have children
 which in turn are Nodes themselves, so mixing the structure Vis JS imposes with the functionalities of Velocity JS was
-rather impossible.
+rather impossible. \gethin{the circular dependency is not clear from what you have said}
 
-Also, an issue with using any of the 3 options (W3 DOM Animation, Jquery animate or Velocity) was that they are
+Also, an issue with using any of the 3 options was that they are
 manipulating elements which are part of the DOM (Document Object Model), while in our project the elements are part of
-the canvas. Therefore only the canvas can be animated as a whole without being able to manipulate the elements inside.
+the canvas. Therefore only the canvas could be animated as a whole without being able to manipulate the individual elements inside.
 
 Having discussed all these caveats, we were left with no other choice than devise algorithms to animate our nodes and
 codelines using plain setTimeout calls throughout the project. Even though it was a compromise and it slowed
@@ -786,9 +774,9 @@ elements in short periods of time.
 We had a couple of main possiblities to choose from when designing the application's User Interface:
 
 \begin{itemize}
-    \item Material Design by Google
-    \item Bootstrap by Twitter
-    \item Pure CSS
+    \item Material Design by Google;
+    \item Bootstrap by Twitter;
+    \item Pure CSS.
 \end{itemize}
 
 There were others as well, such as Base~\cite{base-ui} or Simple Grid~\cite{simple-grid-ui}, but these were not specifically suitable for
@@ -796,7 +784,7 @@ our purposes. Therefore, we shall analyze different benefits given by the 3 abov
 eventually ended up with Material Design by Google.
 
 In Figures~\ref{fig:bootstrap-navbar},~\ref{fig:material-design-navbar} and~\ref{fig:purecss-navbar} we shall present
-different design approaches for one of the most used and noticeable components to a user when he/she interacts with an
+different design approaches for one of the most used and noticeable components to a user when they interact with an
 application, which is the navigation bar.
 
 \begin{figure}[!ht]
@@ -820,13 +808,13 @@ application, which is the navigation bar.
     \label{fig:purecss-navbar}
 \end{figure}
 
-We can clearly notice a more colorful, natural and playful approach in the Material Design navigation bar. We have
+We can clearly notice a more colourful, natural and playful approach in the Material Design navigation bar. We have
 presented all 3 options to the level 4 students and they were all in favor of the Material Design UI for all components
 (more details on the results of these evaluations in Chapter~\ref{testing}, section Prototype Evaluation).
 
 Even though the Material Design components were invented by Google (which are also available on GitHub), we have opted for the ones open sourced by Federico
 Zivolo~\cite{material-design} because they are much more popular and there are more resources with which one can get
-accustomed quicker. 
+accustomed to faster. 
 
 We have decided to use this approach for several reasons:
 
@@ -842,15 +830,15 @@ We have decided to use this approach for several reasons:
 
 One of the compromises mentioned previously as well was that we had to use setTimeouts to animate our objects instead
 of mature, easy-to-grasp libraries. What the setTimeout function does is it sets the execution of the callback function
-provided at a specific time in the future. Because we had only a canvas and we couldn't manipulate nodes as regular DOM
-objects, all the node coloring or label changing was done using a chain of setTimeouts that, at the beginning of the
-algorithm (i.e. when the user presses the ``Start Algorithm" button), they would have their exact time in the future
-when they got executed calculated. One example might be: color this node at millisecond 2600, change its left
+provided at a specific time in the future. Because we had only a canvas and we could not manipulate vertices as regular DOM
+objects, all the vertex colouring and label changing was done using a chain of setTimeouts that, at the beginning of the
+algorithm (i.e. when the user presses the ``Start Algorithm" button), they would have their exact time calculated as to
+when they got executed. One example is: colour this vertex at millisecond 2600, change its left
 children's label to 2 at millisecond 3500 and finally highlight the codeline ``set label to 2" at the same time, 3500.
 This was extremely hard to understand and master and the first iterations were quite slow. However, as time passed and
 I gained more experience with this technique, development became much easier.
 
-Another compromise that we needed to take was the lack of play/pause and previous/next buttons for the animator.
+Another compromise that we needed to take was the lack of play/pause, previous and next buttons for the animator.
 Figure~\ref{fig:play-pause-previous-next} presents a screenshot taken while using VisuAlgo.
 
 \begin{figure}[!ht]
@@ -869,36 +857,34 @@ buttons.
 \chapter{Implementation}
 \label{implementation}
 
-In the following sections we will discuss among others about how the project was actually implemented, how we overcame the
+In this chapter we will discuss how the project was actually implemented, how we overcame the
 JavaScript shortcoming of not having multi-threading support, as well as how other various functionalities were put
-into place. We will conclude with talking about biggest issues faced and what lessons were learned. 
+into place. We will conclude by talking about the main issues faced and what lessons were learned. 
 
 \section{Algorithm Selection}
 
-The algorithm selection was solely done during the supervisor meetings. We have come up with the following list:
+The algorithm selection was solely done during the supervisor meetings. We have come up with the following list of algorithms:
 
 \begin{itemize}
     \item Huffman tree construction;
+    \item Heap insertion and deletion;
     \item Depth-First Search in a graph;
     \item Breadth-First Search in a graph;
-    \item Heap insertion and deletion;
-    \item Dijkstra's Algorithm for Shortest Path;
-    \item Prim-Jarnik Minimum Spanning Tree;
-    \item Prim-Jarnik Dijkstra's Refinement Minimum Spanning Tree;
+    \item Dijkstra's Shortest Path;
+    \item Prim-Jarnik's Minimum Spanning Tree;
+    \item Dijkstra's Refinement of Prim-Jarnik's Minimum Spanning Tree.
 \end{itemize}
 
 These candidates were chosen because they are all among the most common and used algorithms and they are also very
 popular among university computer science courses. We have taken the codelines which would be animated from Dr.
-Norman's slides from the Algorithmics I class at University of Glasgow. Moreover, we also double checked them for proofness
-before going on the main pane of the application.
-They were translated from either pseudocode or Java to JavaScript which implied rather simple transformations as
-the languages don't have such divergent syntaxes. 
+Norman's slides from the Algorithmics I class at University of Glasgow. Moreover, we also double checked them for correctness. They were translated from either pseudocode or Java to JavaScript which implied rather simple transformations as
+the languages do not have such divergent syntaxes. 
 
 \section{Project Structure}
 
 We have split our application into 3 main components, as in traditional website development: stylesheets, JavaScripts
 and HTML5 pages. They were all coordinated by npm which is the node package manager~\cite{npm}. Essentially,
-npm is the equivalent of Maven or Gradle for Java projects and that is both a dependency manager and a build automation
+npm is the equivalent of Maven or Gradle for Java projects and  is both a dependency manager and a build automation
 tool. Therefore, in npm we defined the name of the project and all sorts of metadata as well as the dependencies needed
 for building the app. As soon as all these were set, we started working on the three main categories of files mentioned
 above. Figure~\ref{fig:project-structure} presents the simple structure we opted for.
@@ -911,8 +897,8 @@ above. Figure~\ref{fig:project-structure} presents the simple structure we opted
 \end{figure}
 
 Architecturally speaking, because we have opted for a Component Based approach, everything is built so that it can be
-reused. Therefore, the nodes animators for all algorithms as well as the codeline animators are generic and only
-adapted to the specific algo they are running for. 
+reused. Therefore, the nodes animators for all algorithms, as well as the codeline animators, are generic and only
+adapted to the specific algorithm. 
 
 Also, we have also added in assets, vendor and fonts components. These are just static files that will be used to render fonts,
 add images to the HTML pages as well as provide some extra JS modules to the specific algorithm animators. 
@@ -923,8 +909,8 @@ Linux.
 
 \section{Animation Pipeline}
 
-After the user presses the Start Algorithm button there is a pipeline of processes that is happening "behind the
-scenes". We shall display that through a UML use case diagram shown in
+After the user presses the Start Algorithm button there is a pipeline of processes that run ``behind the
+scenes". This pipeline is display in the UML use case diagram shown in
 Figure~\ref{fig:animation_uml_use_case_diagram}.
 
 \pagebreak
@@ -937,10 +923,9 @@ Figure~\ref{fig:animation_uml_use_case_diagram}.
 \end{figure}
 
 As it can be seen, everything starts when the user presses the start algorithm button present on every page. From
-there, the event listener set to check if the user clicks the button is triggered (in the corresponding JavaScript
-file) and starts the 2 animation components. They are always in sync being set to execute at the same time using the
-setTimeout delay functionality (e.g.\ both do iteration $x$ after 1000 milliseconds times $x$), thus giving the user
-concomitant output from both the nodes pane and the codelines pane. When they have executed their last iteration, they
+there, the event listener is set to check if the user clicks the button (in the corresponding JavaScript
+file) and starts the 2 animation components. The two components are always in sync being set to execute at the same time using the setTimeout delay functionality (e.g.\ both do iteration $x$ after 1000 milliseconds multiplied by $x$), thus giving the user
+synchronous output from the nodes pane and codelines pane. When they have executed their last iteration, they
 both stop and the whole canvas is reset to its original state. This is done again with a setTimeout call with the delay
 set as unit of time (usually 1000 milliseconds) times the total number of steps to complete the algorithm. The number
 of steps is either computed automatically (e.g.\ in Huffman tree construction we can directly calculate the total number
@@ -948,14 +933,14 @@ of steps needed to complete the animation) or through running the algorithm in t
 As we discussed previously, the V8 engine is extremely fast thus the execution of any of our algorithms is in terms of
 milliseconds, the delay being indistinguishable for the human eye. 
 
-One concern might arise and that is: even though executing the algorithm an unecessary extra time would not make the
+One concern might arise and that is: even though executing the algorithm an unnecessary extra time would not make the
 user notice any difference, why do it after all? Let's take the following example from the heap insertion algorithm
 (Listing~\ref{insert_heap}).
 
 \begin{lstlisting}[language={Java}, label={insert_heap},caption={Pseudocode for inserting a node in a heap.}]
 insert item in new leaf node; 
 while (new_value not in root && new_value > parent_value) {
-    swap new_value with parent_value;
+    swap new_value with parent_value;
 }
 \end{lstlisting}
 
@@ -992,18 +977,18 @@ for (let index = 0; index < steps; index++) {
 
 We can see that we are first getting the number of steps (the constant variable steps) and then executing a for loop with the test condition being
 that index is smaller than steps. Then, we are passing index as a parameter to the self-invoking function inside the
-for loop. On line 19 you can observe how we are delaying that function using the parameter i which in turn is index
+for loop. On line 19 you can observe how we are delaying that function using the parameter $i$ which in turn is index
 from the outer loop. Imagine that we had a while loop instead of this and we started the algorithm animation. The first
 step was that as the interpreter would start fetching, reading and executing the source code, it would go into an
-infinite loop as soon as it hit the while (test-condition) line. This would happen because it wouldn't execute the
+infinite loop as soon as it hit the while (test-condition) line. This would happen because it would not execute the
 inner code (i.e. swapping the new value with the parent value; this is because when a setTimeout is read by the
 interpreter, what is
 inside is never executed until that specific delay set by the developer), thus progressing towards meeting the condition and
 breaking the loop. However, in
-a for loop i would keep incrementing until it broke the test condition thus exitting the loop.
+a for loop $i$ is incremented until it breaks the test condition and the loop is exited.
 
 On the other hand, we have implemented algorithms that do not require an extra execution, such as Dijkstra's
-Shortest Path. There we would just call the for loop directly and animate the 2 panes concomitantly with the algo.
+Shortest Path. There we would just call the for loop directly and animate the 2 panes synchronously.
 
 \section{JavaScript Multi-Threading}
 
@@ -1043,7 +1028,7 @@ algorithm.}]
 })(i);
 \end{lstlisting}
 
-As you can see in the code snippet, this is a very complicated function which sets up initial distances to all nodes in a graph from
+As you can see in the code snippet, this is a very complicated function which sets up initial distances to all vertices in a graph from
 the root - if they are adjacent, then the distance will be the weight of the edge; otherwise, the distance will be set
 to infinity. SetTimeout is a function that delays another function's execution until a specific point in time, thus we are sequencing
 multiple calls to this self-contained function based on the $i$ index which is the variable used in the loop where
@@ -1059,12 +1044,12 @@ because they allow only primitives and simple objects to be passed inside the ru
 can have other Nodes as children (which is a property of the Vis Node class), thus creating circular dependencies.
 
 Therefore, this sort of complex arithmetic had to be performed (see line 27) in order to make sure the calls are invoked at
-the correct times and that they do not overlap. 
+the correct times and that they do not overlap.  \gethin{are you sure you mean line 27?}
 
 Moreover, another type of issue occured when there were setTimeout invokations inside outer setTimeouts. One particular
 problem we faced was that if you call a setTimeout function inside another setTimeout, the time you set the inner one
 to execute at is relative to the time the outer one will be invoked. Listing~\ref{nested-settimeouts} provides an example for a better
-visualization. aaa
+visualization.
 
 \begin{lstlisting}[language={Java}, label={nested-settimeouts}, caption={Heap animation that uses nested setTimeouts.}]
 setTimeout(
@@ -1121,9 +1106,9 @@ inherited and it does not need to be included in the nested loop. After I realiz
 relative to the corresponding outer setTimeouts (e.g.\ outer setTimeout executes every 3000 milliseconds and the inner
 one executes every 3000 + the delay it is set to, but we do not need to specify the 3000 milliseconds in the delay
 parameter as it is
-inherited from the parent setTimeout; thus, in the inner setTimeout, setTimeout({...}, 3000 + $x$) becomes
-setTimeout({...}, $x$)), the timings would not overlap
-and the animation would perform normal.
+inherited from the parent setTimeout; thus, in the inner setTimeout, setTimeout({$\dots$}, 3000 + $x$) becomes
+setTimeout({$\dots$}, $x$)), the timings would not overlap
+and the animation would perform as required.
 
 \section{Extra Features}
 
@@ -1148,7 +1133,7 @@ the application since they opened it for the first time. Figure~\ref{fig:landing
 
 \pagebreak
 
-Last but not least, we believe that having a modern and attractive webpage where users can download the app and get to
+Last but not least, we believe that having a modern and attractive webpage where users can download the application and get to
 know some basic information is essential, thus we have created a custom website where we host the releases and users can simply
 download and run Palgo with only a couple of clicks. This was a very nice feature voted for by many of our end users.
 Figure~\ref{fig:palgo-website} shows a screenshot of the website.
@@ -1167,27 +1152,27 @@ Because everything around us nowadays is web-based or it has something to do wit
 various sub-fields that help developers solve certain problems. As discussed in the previous sections, we have struggled
 with many design decisions mainly because of the large palette of choices. Therefore, having to research and eventually
 learn many of them so that argumented comparisons could be made regarding which one is better was time consuming.
-However, once the developer possesses the basics, he/she can evolve and apply the fundamentals to learn any new
-technology much easier.
+However, once the developer possesses the basics, they can evolve and apply the fundamentals to learn any new
+technology with ease.
 
-Another lesson learned was that one needs to take very good care to not fall into the trap of "premature optimization".
+Another lesson learned was that one needs to take very good care to not fall into the trap of ``premature optimization".
 As we started the project back in first semester, I was very keen on implementing a large number of UI features such as
 stylish buttons or attractive fade-ins when the window content changed. However, these early iterations were designed
 for setting up the basics and implementing the algorithms, as well as animate them. Learning that optimizing prematurely
 can lead to wasted effort, I have changed my approach and started prioritizing our user stories more effectively.
 
-A third lesson I learned was that any JavaScript can fall in the "callback hell". This is such a common pattern among
+A third lesson I learned was that any JavaScript can fall in the ``callback hell". This is such a common pattern among
 web developers that people created a website that specifically addresses this issue and gives advice on how to avoid
 it~\cite{callback-hell}. I have also fell in this trap but with advice taken from the website mentioned previously, I
 could easily refactor and follow the best practices promoted by industry leading developers.
 
-Another vital aspect I've learned throughout our software process was the importance of code style in JavaScript. Even
+Another vital aspect I have learned throughout this software process was the importance of code style in JavaScript. Even
 though other programming languages promote a robust and consistent code style as well (e.g. Java, C), JavaScript is the
-most popular technology used thus it has a very widespread reach. Therefore, many styling guides have been created so
-that new developers would find the code easier to read and, subsequently, to understand. The formatter I have used throughout
+most popular technology used, and thus it has a very widespread reach. Therefore, many styling guides have been created so
+that new developers would find code easier to read and, subsequently, to understand. The format I have used throughout
 the whole project is a tool called Prettier~\cite{prettier} and the guide I used for reference is the one Airbnb have
-open sourced on GitHub (it is now one of the most popular projects on the platform with almost 50k
-stars~\cite{airbnb-style-guide}). This will ensure that if the project will gain contributors in the future their
+open sourced on GitHub (it is now one of the most popular projects on the platform with almost 50,000
+stars~\cite{airbnb-style-guide}). This will ensure that if the project gains contributors in the future, then their
 accommodation period with the codebase will be smooth and fast.
 
 Overall, I believe that this project was a real success and it was a great way to both learn new technologies as well as
@@ -1213,18 +1198,18 @@ JavaScript provides a large pool of frameworks to do unit testing. Even though t
 used to (e.g. JUnit, Mockito, PyUnit) from university coursework and work experience, the fundamentals stay exactly the
 same.
 
-For our purposes we decided that MochaJS~\cite{mocha} was a great fit because of several reasons:
+For our purposes we decided that MochaJS~\cite{mocha} was a great fit for the following reasons:
 
 \begin{itemize}
   \item flexible and implemented with simplicity in mind;
   \item runs on node.js which was already one of our powering engines, thus the integration was straightforward;
-  \item promotes a very descriptive documentation when writing tests because it uses the "describe" and "it" keyword
+  \item promotes a very descriptive documentation when writing tests because it uses the ``describe" and ``it" keyword
     which let the developer spot the failures easily;
   \item can integrate with various other frameworks such as should.js~\cite{shouldjs},
-    better-assert~\cite{better-assert} or chai~\cite{chai};
+    better-assert~\cite{better-assert} and chai~\cite{chai}.
 \end{itemize}
 
-Through MochaJS we tested various animation and UI related components such as: do the buttons work properly, are
+Through MochaJS we tested various animation and UI related components such as do the buttons work properly, are
 algorithms correctly implemented in JS and give correct output or are codelines highlighted properly. However, in
 order to test Electron itself and see if the native features behave as expected we hooked up another component:
 Spectron~\cite{spectron}. It is a testing framework built by GitHub that uses ChromeDriver and WebDriverIO. 
@@ -1275,15 +1260,12 @@ that we want mocha to be our testing framework as well as the exact command how 
 the code into master. The pipeline we have set up is as follows:
 
 \begin{itemize}
-  \item start running all the tests running the mocha command (mocha was installed on the Linux server we have hooked
+  \item start running all the tests by running the mocha command (mocha was installed on the Linux server we have hooked
     up with CircleCI);
-    \begin{itemize}
-      \item if all tests passes, merge it into master;
-      \item if at least one fails, abort merge and send an email specifying what tests failed and why;
-    \end{itemize}
+    \item if all tests passes, merge it into master, else (i.e. at least one test fails) abort merge and send an email specifying what tests failed and why;
   \item publish statistics on the CircleCI website and a small indicator next to the latest commit on the GitHub page
     showing the status of the build
-    (i.e. green if passed, red if it didn't);
+    (i.e. green if passed, red if it did not).
 \end{itemize}
 
 This whole process ensured a smooth workflow and a continuous feedback on the status of our application and the
@@ -1292,21 +1274,21 @@ changes we were making.
 \section{Prototype Evaluation}
 
 The evaluation process was undergone together with 16 Level 4 Computer Science students at University of Glasgow. We
-have asked them to complete a short form after using the application for about 20 minutes.
+have asked them to complete a short form after using the application for approximately 20 minutes.
 
-We have provided the participants with a consent form where they were assured their whole input would be anonymous.
+We provided the participants with a consent form where they were assured their whole input would be anonymous.
 Also we have told them that they could stop at any time if they felt uncomfortable or any other reason during the
 process.
 
-They were split into 2 groups of 8 people each and the first group was told to use Palgo for 10 minutes while the
+The participants were split into 2 groups of 8 people each and the first group was told to use Palgo for 10 minutes while the
 other group used Galant~\cite{galant}. We chose Galant because it is one of the most recently implemented algorithm
-animators and it is also under active developmenton GitHub~\cite{galant-github}.
+animators and it is also under active developmenton on GitHub~\cite{galant-github}.
 
-The set of tasks they had to complete in both Palgo and Galant was:
+The set of tasks they had to complete in both Palgo and Galant were:
 
 \begin{itemize}
-  \item start Palgo;
-  \item select Depth-First Search algorithm from the carousel;
+  \item start Palgo or Galant;
+  \item select Depth-First Search algorithm;
   \item built a graph of 5 nodes, each being adjacent with at least another one;
   \item press start algorithm button;
   \item after it finished, press random button and observe the animations again;
@@ -1316,8 +1298,8 @@ The set of tasks they had to complete in both Palgo and Galant was:
 \end{itemize}
 
 After each group completed the tasks they switched with their colleagues and performed all the above steps for the other
-animator. At the end of the evaluation trial we ran a questionaire (a Google form) with multiple questions regarding how
-they found the two applications overall, what did they like/dislike and what did they thought should be improved in
+animator. At the end of the evaluation trial we ran a questionaire (a Google form) regarding how
+they found the two applications overall, what did they like/dislike and what they thought could be improved in
 Palgo. 
 
 We have used the best approaches in designing the questionnaire by getting expert advice from Dr. Oppengeim's book
@@ -1328,11 +1310,11 @@ kept the questionnaire short so that the users would not get exhausted after alr
 the 2 applications. Overall, everyone seemed satisfied with our evaluation and no one experienced any problems throughout the process.
 
 We have collected all results via Google Forms' built-in functionality and they will be presented in the next section.
-The full questionnaire can be found in the Appendix
+The full questionnaire can be found in the Appendix. \gethin{make sure you have added the form to the appendix}
 
 \section{Results}
 
-The results were astonishing! Neither of us believed that we would receive such great impressions from our users and
+The results were astonishing as I did not believe that the application would receive such great impressions from the participants and
 even desire to contribute to the project. The first question we selected was: ``How did you find using Palgo?".
 Figure~\ref{fig:questionnaire-1} shows the feedback we received.
 
@@ -1343,7 +1325,7 @@ Figure~\ref{fig:questionnaire-1} shows the feedback we received.
     \label{fig:questionnaire-1}
 \end{figure}
 
-As it can be observed, there wasn't even one response apart from ``Enjoyable" and ``Very Enjoyable". This was an
+As it can be observed, all responses were either ``Enjoyable" or ``Very Enjoyable". This was an
 important achievement for our project because it showed how focus on simplicity, efficiency and state-of-the-art
 software engineering practices
 can produce an application of high quality that would indeed be enjoyed by end users. Even though most of the questions
@@ -1357,7 +1339,7 @@ asked our participants to compare the two. The results were even more surprising
     \label{fig:questionnaire-2}
 \end{figure}
 
-15 out of 16 participants preferred Palgo instead of Galant even though the latter is a tool being actively under
+15 out of 16 participants preferred Palgo over Galant even though the latter is a tool being actively under
 development for almost 3 years.
 
 Summing up our findings, we can happily say that the evaluation proved that our project has been a real success with an
@@ -1374,9 +1356,9 @@ not least, acknowledgements.
 
 \section{Open Source}
 
-Open Source is one of the main engines behind the whole software world. Virtually every developer uses OS projects in
-their day-to-day workflow and many of them contribute back to this amazing community. Without Electron, Vis.JS, MochaJS
-and many other technologies, Palgo wouldn't have existed today so we couldn't be more grateful to the great community
+Open Source is one of the main engines behind the whole software world. Virtually every developer uses open source projects in
+their day-to-day workflow and many of them contribute to this amazing community. Without Electron, Vis.JS, MochaJS
+and many other technologies, Palgo would not exist today so we could not be more grateful to the great community
 that produced all this high quality software.
 
 Therefore, we would definitely proceed with hosting the project on GitHub and start to promote it on various platforms
@@ -1386,28 +1368,28 @@ improving it.
 \section{Project Roadmap}
 
 Future work is vital for the project as the application is yet to be fully finished. We have divided these plans into
-the following categories:
+the following categories.
 
 \begin{itemize}
-  \item change the JavaScript code into ClojureScript~\cite{clojurescript} - this is because ClojureScript is an
+  \item Change the JavaScript code into ClojureScript~\cite{clojurescript} - this is because ClojureScript is an
     amazing functional programming language which puts emphasis on immutability and a pure functional style; we
     believe that this would benefit us in the long term through a more concise and simple approach to implementing new
-    algorithms
-  \item modify codebase to include React~\cite{react} - React is a technology built by Facebook which basically adds a
-    new virtual DOM (hooks it at some point on the actual DOM) and focuses on reusability of components; moreover, it
+    algorithms.
+  \item Modify the codebase to include React~\cite{react} - React is a technology built by Facebook which basically adds a
+    new virtual DOM (hooks it at some point on the actual DOM) and focuses on reusability of components. Moreover, it
     uses JSX~\cite{jsx} which is a mixture of JavaScript and HTML5, thus you can create your whole page through pure
-    JS; 
-  \item as previously mentioned, we will keep the project open source on GitHub and try to add more collaborators so
-    that people can contribute to Palgo and add in both new features and algorithms to be animated;
-  \item even though we have mentioned in Chapter~\ref{background} about related work to more complex algorithms (e.g.
+    JS;.
+  \item As previously mentioned, we will keep the project open source on GitHub and try to add more collaborators so
+    that people can contribute to Palgo and add in both new features and algorithms to be animated.
+  \item Even though we have mentioned in Chapter~\ref{background} about related work to more complex algorithms (e.g.
     parallel computing) and how there is virtually no animator that can show such algorithms, we will try to explore
-    the opportunity and see if we can actually add them to Palgo in the future;
+    the opportunity and see if we can actually add them to Palgo in the future.
   \item I have already began negotiations with some Computer Science teachers from home (Romania) to consider adding
     Palgo as a teaching tool in their classes; if there will be people who agree to the idea we will add Romanian
-    localization and maintain both languages from that point onwards;
-  \item having discussed with Dr. Norman about possible outcomes for Palgo we have also talked about the idea of
-    proposing the application as a starting point for students that will take the "Algorithm Animator" project next
-    year; this way we can make sure we will have collaborators to help us continue our work;
+    localization and maintain both languages from that point onwards.
+  \item Having discussed with Dr. Norman about possible outcomes for Palgo we have also talked about the idea of
+    proposing the application as a starting point for students that will take the ``Algorithm Animator" project next
+    year; this way we can make sure we will have collaborators to help us continue our work.
 \end{itemize}
 
 Because I have grown to be attached to the application the last point that the reader needs to get from this
@@ -1421,9 +1403,9 @@ software engineering practices in real
 world. I have learned how to use many tools that I did not know about beforehand such as MochaJS or Electron. Also, I
 have researched and found out best approaches to write clean and simple code that would be easy to maintain and scale. 
 
-Moreover, applying what we have learned both last year in PSD and this year in ASEP was both fun and hard to master.
-Theoretically speaking, nothing seems hard, but when you put it in practice you realize you didn't know that much about
-those techniques. This was a valuable lesson I was given during this project.
+Moreover, applying what we have learned both last year in Professional Software Development and this year in Advanced Software Engineering Practices was both fun and hard to master.
+Theoretically speaking, nothing seems hard, but when you put it in practice you realize you did not know that much about
+the techniques. This was a valuable lesson I was given during this project.
 
 In the end, I do believe that Palgo will not ``die" because I will begin to promote it and continue to develop it even
 further. Also, after discussions with Dr. Norman, the project will be included as a resource on the Moodle page for
@@ -1438,7 +1420,7 @@ Furthermore, I'd like to say thank you to every student who has participated dur
 as well as to all the people who helped us with the evaluation at the end of the software process.
 
 Last but not least, I would like to thank every developer that has contributed even one source code line to the amazing open source projects
-we have used throughout our algorithm animator. Without them Palgo wouldn't look and perform the way it does in
+we have used throughout our algorithm animator. Without them Palgo would not look and perform the way it does in
 the final release.
 
 %==============================================================================

@@ -3,68 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: l4proj.bib
-Warning--I didn't find a database entry for "clojurescript"
-Warning--I didn't find a database entry for "react"
-Warning--I didn't find a database entry for "jsx"
-Name 1 in "Parker, Brenda, and Ian Mitchell" has a comma at the end for entry parker-mitchell
-while executing---line 1049 of file plain.bst
-Name 1 in "Palmiter, Susan, and Jay Elkerton" has a comma at the end for entry palmiter-elkerton
-while executing---line 1049 of file plain.bst
-Name 1 in "Mannion, Mike, and Barry Keepence" has a comma at the end for entry smart-requirements
-while executing---line 1049 of file plain.bst
-Name 1 in "Clegg, Dai, and Richard Barker" has a comma at the end for entry moscow-requirements
-while executing---line 1049 of file plain.bst
-Name 1 in "Rößling, Guido, Markus Schüer, and Bernd Freisleben" has a comma at the end for entry animal-algo-animation
-while executing---line 1049 of file plain.bst
-Name 1 in "Clegg, Dai, and Richard Barker" has a comma at the end for entry moscow-requirements
-while executing---line 1090 of file plain.bst
-Name 1 in "Mannion, Mike, and Barry Keepence" has a comma at the end for entry smart-requirements
-while executing---line 1090 of file plain.bst
-Name 1 in "Palmiter, Susan, and Jay Elkerton" has a comma at the end for entry palmiter-elkerton
-while executing---line 1090 of file plain.bst
-Name 1 in "Parker, Brenda, and Ian Mitchell" has a comma at the end for entry parker-mitchell
-while executing---line 1090 of file plain.bst
-Name 1 in "Rößling, Guido, Markus Schüer, and Bernd Freisleben" has a comma at the end for entry animal-algo-animation
-while executing---line 1090 of file plain.bst
-You've used 41 entries,
+You've used 44 entries,
             2118 wiz_defined-function locations,
-            689 strings with 8055 characters,
-and the built_in function-call counts, 9080 in all, are:
-= -- 854
-> -- 329
+            698 strings with 8210 characters,
+and the built_in function-call counts, 9754 in all, are:
+= -- 915
+> -- 360
 < -- 0
-+ -- 137
-- -- 96
-* -- 346
-:= -- 1565
-add.period$ -- 123
-call.type$ -- 41
-change.case$ -- 166
++ -- 150
+- -- 106
+* -- 371
+:= -- 1679
+add.period$ -- 132
+call.type$ -- 44
+change.case$ -- 180
 chr.to.int$ -- 0
-cite$ -- 41
-duplicate$ -- 350
-empty$ -- 894
-format.name$ -- 96
-if$ -- 1950
+cite$ -- 44
+duplicate$ -- 371
+empty$ -- 960
+format.name$ -- 106
+if$ -- 2095
 int.to.chr$ -- 0
-int.to.str$ -- 41
+int.to.str$ -- 44
 missing$ -- 21
-newline$ -- 208
-num.names$ -- 82
-pop$ -- 277
+newline$ -- 223
+num.names$ -- 88
+pop$ -- 303
 preamble$ -- 1
-purify$ -- 130
+purify$ -- 141
 quote$ -- 0
-skip$ -- 315
+skip$ -- 337
 stack$ -- 0
-substring$ -- 298
-swap$ -- 41
+substring$ -- 313
+swap$ -- 44
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 154
+type$ -- 166
 warning$ -- 0
-while$ -- 87
-width$ -- 43
-write$ -- 394
-(There were 10 error messages)
+while$ -- 93
+width$ -- 46
+write$ -- 421

@@ -211,7 +211,16 @@ it is ``a person who makes animated films". In our case, the person is the compu
 Usually, algorithm animators are divided into 2 sections: one section will contain the graphics in order to represent the
 data structures used (e.g. in graph traversal algorithms the vertices and edges comprising the graph will be drawn) while
 the other will have the code lines, the actual rules the computer needs to follow in order to produce the desired
-output. \gethin{can you have a figure demonstrating the division} The current code line that is executed at a certain moment is highlighted, while the data structure visualized (e.g. some box that represents an array's element) changes and the user can see the output visually and immediately, making a mental connection between the code line and the change it produces.
+output. The current code line that is executed at a certain moment is highlighted, while the data structure visualized
+(e.g. some box that represents an array's element) changes and the user can see the output visually and immediately,
+making a mental connection between the code line and the change it produces. Figure~\ref{fig:animation-panes} will present the two animation sections we have used in Palgo. 
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.3]{animation-panes}
+\caption{Sorting algorithms learning through Hungarian folk dancing.}
+\label{fig:animation-panes}
+\end{figure}
 
 But why an animator precisely? There are many studies that show visualization in any area can enhance learning
 capabilities drastically. Brenda Parker and Ian Mitchell's work~\cite{parker-mitchell} shows clearly how seeing the
@@ -224,7 +233,6 @@ for understanding what is generally taught at university courses.
 
 Having discussed methods of learning new algorithms better and why animators are useful, we need to take a look at
 previous solutions developed. Apart from John Morris' tool shown in Figure~\ref{fig:animator-toolkit}, there are many other applications available, including Galant~\cite{galant} and the visualizer built by D. Galles~\cite{galles}.
-\pagebreak
 
 \begin{figure}[!ht]
 \centering
@@ -241,7 +249,8 @@ There are obvious advantages to this approach:
 	\item the large number of Java libraries facilitate an easy development workflow;
     \item there are many tutorials and resources available;
     \item Java is taught at most universities in introductory courses, making it easier for newcomers to create their
-      own application rapidly.
+      own application rapidly; Figure~\ref{fig:java-uni} shows the most taught programming languages at the top 39 U.S.
+      Computer Science departments.
     	\begin{figure}[!ht]
 		\centering
 		\includegraphics[scale=0.8]{java-uni}
@@ -250,7 +259,6 @@ There are obvious advantages to this approach:
 		\end{figure}
 \end{itemize}
 
-\gethin{figure \ref{fig:java-uni} is not referenced in the text}
 \pagebreak
 
 However, there are also drawbacks to creating a standalone JAR application:

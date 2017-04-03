@@ -12,7 +12,7 @@ Base.
 
 \bibitem{extreme-programming}
 Kent Beck.
-\newblock {Embracing change with extreme programming.}
+\newblock {Embracing change with extreme programming}.
 \newblock {\em Computer}, 32(10):70--77, 1999.
 
 \bibitem{better-assert}
@@ -22,7 +22,7 @@ better assert.
 
 \bibitem{continuous-integration}
 Grady Booch.
-\newblock {\em {Object Oriented Design: With Applications.}}
+\newblock {\em {Object Oriented Design: With Applications}}.
 \newblock Benjamin/Cummings, 1991.
 
 \bibitem{chai}
@@ -43,18 +43,18 @@ CircleCI.
 
 \bibitem{moscow-requirements}
 Dai Clegg and Richard Barker.
-\newblock {\em {Case method fast-track: a RAD approach.}}
+\newblock {\em {Case method fast-track: a RAD approach}}.
 \newblock Addison-Wesley Longman Publishing Co., Inc, 1994.
+
+\bibitem{clojurescript}
+ClojureScript.
+\newblock {ClojureScript Website}.
+\newblock \url{https://clojurescript.org}.
 
 \bibitem{user-story-format}
 Connextra.
 \newblock {Connextra User Story 2001: ConnextraStoryCard}.
 \newblock \url{https://en.wikipedia.org/wiki/User_story#cite_note-connextra-4}.
-
-\bibitem{av}
-Sarah A.~Douglas Cristopher D.~Hundhausen and John~T. Stasko.
-\newblock {A Meta-Study of Algorithm Visualization E¡ectiveness}.
-\newblock {\em Journal of Visual Languages and Computing}, 13:259--290, 2002.
 
 \bibitem{oxford-dict}
 Oxford Dictionaries.
@@ -70,6 +70,11 @@ E.~W. Dijkstra.
 Electron.
 \newblock {Electron Website}.
 \newblock \url{https://electron.atom.io}.
+
+\bibitem{react}
+Facebook.
+\newblock {React Website}.
+\newblock \url{https://facebook.github.io/react}.
 
 \bibitem{galles}
 David Galles.
@@ -89,7 +94,7 @@ Google.
 \bibitem{planning-poker}
 James Grenning.
 \newblock {Planning poker or how to avoid analysis paralysis while release
-  planning.}
+  planning}.
 \newblock {\em Renaissance Software Consulting}, 2002.
 
 \bibitem{simple-grid-ui}
@@ -107,9 +112,19 @@ Callback Hell.
 \newblock {Callback Hell Website}.
 \newblock \url{http://callbackhell.com}.
 
+\bibitem{av}
+Cristopher~D. Hundhausen, Sarah~A. Douglas, and John~T. Stasko.
+\newblock {A Meta-Study of Algorithm Visualization Effectiveness}.
+\newblock {\em Journal of Visual Languages and Computing}, 13:259--290, 2002.
+
+\bibitem{jsx}
+JSX.
+\newblock {JSX Website}.
+\newblock \url{https://jsx.github.io}.
+
 \bibitem{smart-requirements}
 Mike Mannion and Barry Keepence.
-\newblock {SMART Requirements.}
+\newblock {SMART Requirements}.
 \newblock {\em ACM SIGSOFT Software Engineering Notes}, 20(2):42--47, 1995.
 
 \bibitem{mocha}
@@ -119,7 +134,7 @@ MochaJS.
 
 \bibitem{animator-toolkit}
 John Morris.
-\newblock {A toolkit for algorithm animation.}
+\newblock {A toolkit for algorithm animation}.
 \newblock {\em Proceedings AEESEAP}, 2004.
 
 \bibitem{web-worker}
@@ -140,19 +155,19 @@ Omnigroup.
 
 \bibitem{questionnaire-design}
 Abraham~Naftali Oppenheim.
-\newblock {\em {Questionnaire design, interviewing and attitude measurement.}}
+\newblock {\em {Questionnaire design, interviewing and attitude measurement}}.
 \newblock Bloomsbury Publishing, 2000.
 
 \bibitem{palmiter-elkerton}
 Susan Palmiter and Jay Elkerton.
 \newblock {An evaluation of animated demonstrations of learning computer-based
-  tasks.}
+  tasks}.
 \newblock {\em Proceedings of the SIGCHI conference on Human Factors in
   Computing Systems}, 1991.
 
 \bibitem{parker-mitchell}
 Brenda Parker and Ian Mitchell.
-\newblock {Effective methods for learning: a study in visualization.}
+\newblock {Effective methods for learning: a study in visualization}.
 \newblock {\em Journal of Computing Sciences in Colleges}, 22(2):176--182,
   2006.
 
@@ -162,8 +177,8 @@ Prettier.
 \newblock \url{https://github.com/prettier/prettier}.
 
 \bibitem{animal-algo-animation}
-Markus~Schüer Rößling, Guido and Bernd Freisleben.
-\newblock {The ANIMAL algorithm animation tool.}
+Guido Rößling, Markus Schüer, and Bernd Freisleben.
+\newblock {The ANIMAL algorithm animation tool}.
 \newblock {\em ACM SIGCSE Bulletin}, 32(3), 2000.
 
 \bibitem{shouldjs}
@@ -173,7 +188,7 @@ ShouldJS.
 
 \bibitem{software-engineering}
 Ian Sommerville.
-\newblock {\em {Software Engineering.}}
+\newblock {\em {Software Engineering}}.
 \newblock Pearson, 2015.
 
 \bibitem{stackoverflow-survey}
@@ -188,7 +203,7 @@ Matt Stallman.
 
 \bibitem{galant}
 Matthias~F Stallmann.
-\newblock {Algorithm Animation with Galant.}
+\newblock {Algorithm Animation with Galant}.
 \newblock {\em IEEE Computer Graphics and Applications}, 37(1), 2017.
 
 \bibitem{trello}

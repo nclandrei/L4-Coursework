@@ -34,8 +34,6 @@
 }
 \lstset{style=code-style}
 
-\newcommand{\gethin}[1]{\marginpar{\footnotesize \color{red} {\bf Gethin:} \textsf{#1}}}
-
 \begin{document}
 \title{Palgo - Algorithm Animator}
 \author{Andrei-Mihai Nicolae}
@@ -1315,12 +1313,12 @@ kept the questionnaire short so that the users would not get exhausted after alr
 the 2 applications. Overall, everyone seemed satisfied with our evaluation and no one experienced any problems throughout the process.
 
 We have collected all results via Google Forms' built-in functionality and they will be presented in the next section.
-The full questionnaire can be found in the Appendix. \gethin{make sure you have added the form to the appendix}
+The full questionnaire can be found in the Appendix.
 
 \section{Results}
 
 The results were astonishing as I did not believe that the application would receive such great impressions from the participants and
-even desire to contribute to the project. The first question we selected was: ``How did you find using Palgo?".
+even desire to contribute to the project (see Appendix for complete results). The first question we selected was: ``How did you find using Palgo?".
 Figure~\ref{fig:questionnaire-1} shows the feedback we received.
 
 \begin{figure}[!ht]
@@ -1428,10 +1426,24 @@ Last but not least, I would like to thank every developer that has contributed e
 we have used throughout our algorithm animator. Without them Palgo would not look and perform the way it does in
 the final release.
 
-%==============================================================================
+%%%%%%%%%%%%%%%%
+%              %
+%  APPENDICES  %
+%              %
+%%%%%%%%%%%%%%%%
 
-\appendix
-\section{Appendix A}
+\begin{appendices}
+  \chapter{Evaluation Questionnaire}
+  \label{evaluation-questionnaire}
+  \includepdf[pages=-, pagecommand={}, width=\textwidth]{palgo-evaluation-form.pdf}
+  \chapter{Evaluation Feedback}
+  \label{evaluation-feedback}
+  \includepdf[pages=-, pagecommand={}, width=\textwidth]{palgo-evaluation-responses.pdf}
+\end{appendices}
+
+%%%%%%%%%%%%%%%%%%%%
+%   BIBLIOGRAPHY   %
+%%%%%%%%%%%%%%%%%%%%
 
 \bibliographystyle{plain}
 \bibliography{l4proj}

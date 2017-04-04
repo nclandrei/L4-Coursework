@@ -913,11 +913,11 @@ Linux.
 \section{Drawing using Vis.Js}
 
 Because we would work with algorithms on trees and graphs, drawing nodes and edges easily was a major part in our
-implementation process. Moreover, we needed to implement some sort of User Interface through which the user could add
+implementation process. Moreover, we needed to add some sort of User Interface through which the user could insert
 nodes and edges, change labels, mark nodes as root etc. Therefore, we decided to use Vis.Js~\cite{visjs} which is an
 actively developed JavaScript library distributed as open source.
 
-Vis has an out-of-the-box API for various use cases including networks (i.e.\ \graphs/trees), charts,
+Vis has an out-of-the-box API for various use cases including networks (i.e.\ graphs/trees), charts,
 timelines and datasets. The network was of interest to us because it provides functions that can add a node to the
 data structure (in this section data structure will be equivalent with graph or tree, depending on the algorithm), add
 edges, manipulate any component of the data structure as well as redraw any object on the canvas. 
@@ -926,9 +926,9 @@ We first start by defining a Vis.Network object in the JavaScript file associate
 the three main components:
 
 \begin{itemize}
-  \item container - this will be the ``div'' in the HTML file of the algorithm attached to the DOM;
+  \item container - this will be the ``div'' in the HTML file that will represent the canvas;
   \item data - an object composed of two properties, ``nodes'' and ``edges'', which are two arrays containing the
-    nodes and edges of the data structure (every node and edge in these properties are objects of types Node or Edge
+    nodes and edges of the data structure (every node and edge in these properties are objects of type Node or Edge
     already provided by Vis or some custom class defined by the developer);
   \item options - here the developer specifies what properties the whole network will have; some examples might be:
     \begin{itemize}
@@ -939,13 +939,12 @@ the three main components:
     \end{itemize}
 \end{itemize}
 
-Having a Vis.Network object instantiated we can start adding nodes and edges and refresh the view by
-calling the redraw method that the Network class provides. 
+Having a Vis.Network object instantiated we can start adding nodes and edges and refresh the view by calling the redraw method that the Network class provides. Canvas manipulation can be performed via two approaches: using the toolbar
+Palgo provides or during the animation using custom functions we implemented. 
 
-Figure~\ref{fig:palgo-toolbar} shows a modified version of the toolbar Vis has already implemented for node and edge
+Firstly, let us discuss how we implemented the custom toolbars. Figure~\ref{fig:palgo-toolbar} shows a modified version
+of the toolbar Vis provides for node and edge
 manipulation.
-
-\pagebreak
 
 \begin{figure}[!ht]
 \centering
@@ -981,27 +980,39 @@ addNode: function(nodeData, callback) {
 
 Even though this toolbar is used on most algorithms, the Huffman Tree construction has no toolbar because the user will simply input a string through the keyboard or via a file after which the tree will be built, while the Heap Insertion/Deletion has specific buttons added in the main UI of the application (see Figure~\ref{fig:heap-toolbar}) so that they are more noticeable.
 
+\pagebreak
+
 \begin{figure}[!ht]
-    \centering
-    \includegraphics[scale=0.3]{heap-toolbar}
-    \caption{Heap insertion/deletion buttons attached to the main UI toolbar.}
-    \label{fig:heap-toolbar}
+\centering
+\includegraphics[scale=0.3]{heap-toolbar}
+\caption{Heap insertion/deletion buttons attached to the main UI toolbar.}
+\label{fig:heap-toolbar}
 \end{figure}
 
-We have discussed how we draw objects when the user manipulates the toolbar, but how do we actually draw objects during
-the animation? 
+We have discussed how we draw objects when the user manipulates the toolbar, but how do we draw objects during animation? 
 
- Listing~\ref{dijkstra-redraw} presents a code snippet that will illustrate this process.
+ Listing~\ref{prim-jarnik-redraw} presents a code snippet that will illustrate this process.
 
-\begin{lstlisting}[language={Java}, label={dijkstra-redraw},caption={Network redraw in Dijkstra's algorithm.}]
-nodes[nodesArrayLength - 1].color = "#009688";
-minNode.color = "red";
-network = rebuildNetwork(network, container, options, nodes);
+\begin{lstlisting}[language={Java}, label={prim-jarnik-redraw},caption={Network redraw in Prim-Jarnik Minimum Spanning Tree.}]
+setTimeout(
+  function() {
+    q.color = "red"; // q is a node in the tree
+    network = rebuildNetwork(network, container, options, nodes);
+  },
+  2000
+);
 \end{lstlisting}
 
-As we can see on lines 1 and 2, we edit the colors of two nodes and then call the rebuildNetwork function that will
-refresh the view. Usually, we invoke rebuildNetwork throughout the animation process whenever we want to attract the
-user's attention on the current node 
+Because this is part of the animation, we included our update to the Network inside a setTimeout which will be executed
+after 2000 milliseconds. As we can see on line 7, we have a node ``q'' (which is a member of the ``nodes'' array) and we change its color to
+``red'' (the same process can be applied to edges). Afterwards, we call the ``rebuildNetwork'' function to change the ``network'' object. Inside the redraw function of the Network, we check if
+there are any changes in the nodes and edges arrays and, if so, we apply them. In the end, the view is refreshed and
+the user can instantly see the updated graph/tree and focus his/her attention on what current step of the algorithm is
+executed (in the case presented in Listing~\ref{prim-jarnik-review}, adding the node to the minimum spanning tree). As
+objects are drawn on the canvas, the current codeline that is executed is also highlighted so that the user can create a mental association between the two for easier understanding of the algorithm.
+
+This process is used throughout all algorithms and it proved to be an intuitive and easy implementation due to Vis'
+out-of-the-box API and extensive documentation.
 
 \section{Animation Pipeline}
 

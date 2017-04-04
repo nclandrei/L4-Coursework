@@ -914,19 +914,100 @@ Linux.
 
 Because we would work with algorithms on trees and graphs, drawing nodes and edges easily was a major part in our
 implementation process. Moreover, we needed to implement some sort of User Interface through which the user could add
-nodes and edges, change labels, mark nodes as root etc. Therefore, we decided to use Vis.Js\cite{visjs} which is an
+nodes and edges, change labels, mark nodes as root etc. Therefore, we decided to use Vis.Js~\cite{visjs} which is an
 actively developed JavaScript library distributed as open source.
 
-Vis has an out-of-the-box API for various use cases including networks (i.e. graphs/trees), charts,
-timelines and datasets. The network one was of e
+Vis has an out-of-the-box API for various use cases including networks (i.e.\ \graphs/trees), charts,
+timelines and datasets. The network was of interest to us because it provides functions that can add a node to the
+data structure (in this section data structure will be equivalent with graph or tree, depending on the algorithm), add
+edges, manipulate any component of the data structure as well as redraw any object on the canvas. 
+
+We first start by defining a Vis.Network object in the JavaScript file associated with the algorithm where we select
+the three main components:
+
+\begin{itemize}
+  \item container - this will be the ``div'' in the HTML file of the algorithm attached to the DOM;
+  \item data - an object composed of two properties, ``nodes'' and ``edges'', which are two arrays containing the
+    nodes and edges of the data structure (every node and edge in these properties are objects of types Node or Edge
+    already provided by Vis or some custom class defined by the developer);
+  \item options - here the developer specifies what properties the whole network will have; some examples might be:
+    \begin{itemize}
+      \item make the tree parent centralized;
+      \item make all new nodes hidden by default;
+      \item when the user clicks ``Edit Node'' on the toolbar shown in Figure~\ref{fig:palgo-toolbar} call a custom
+	function written by the developer to handle the event.
+    \end{itemize}
+\end{itemize}
+
+Having a Vis.Network object instantiated we can start adding nodes and edges and refresh the view by
+calling the redraw method that the Network class provides. 
+
+Figure~\ref{fig:palgo-toolbar} shows a modified version of the toolbar Vis has already implemented for node and edge
+manipulation.
+
+\pagebreak
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.5]{palgo-toolbar}
+\caption{Our modified version of Vis node/edge manipulation toolbar.}
+\label{fig:palgo-toolbar}
+\end{figure}
+
+Through the component presented in Figure~\ref{fig:palgo-toolbar}, the user can simply click a button and the
+corresponding
+event listener attached to the ``options'' property of the Network will be triggered. Listing~\ref{toolbar-insertion} shows an example of this implementation.
+
+\begin{lstlisting}[language={Java}, label={toolbar-insertion},caption={Custom event listener that adds node to the
+graph when the user clicks the ``Add Node'' button.}]
+addNode: function(nodeData, callback) {
+  if (network.body.nodes === {}) {
+    inc = 1;
+  } else {
+    inc++;
+  }
+  nodeData.root = false;
+  nodeData.label = inc;
+  nodeData.color = "#009688";
+  nodeData.font = {
+    color: "#fff"
+  };
+  nodeData.visited = false;
+  nodeData.adjacencyList = [];
+  nodeData.predecessor = null;
+  callback(nodeData);
+}
+\end{lstlisting}
+
+Even though this toolbar is used on most algorithms, the Huffman Tree construction has no toolbar because the user will simply input a string through the keyboard or via a file after which the tree will be built, while the Heap Insertion/Deletion has specific buttons added in the main UI of the application (see Figure~\ref{fig:heap-toolbar}) so that they are more noticeable.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.3]{heap-toolbar}
+    \caption{Heap insertion/deletion buttons attached to the main UI toolbar.}
+    \label{fig:heap-toolbar}
+\end{figure}
+
+We have discussed how we draw objects when the user manipulates the toolbar, but how do we actually draw objects during
+the animation? 
+
+ Listing~\ref{dijkstra-redraw} presents a code snippet that will illustrate this process.
+
+\begin{lstlisting}[language={Java}, label={dijkstra-redraw},caption={Network redraw in Dijkstra's algorithm.}]
+nodes[nodesArrayLength - 1].color = "#009688";
+minNode.color = "red";
+network = rebuildNetwork(network, container, options, nodes);
+\end{lstlisting}
+
+As we can see on lines 1 and 2, we edit the colors of two nodes and then call the rebuildNetwork function that will
+refresh the view. Usually, we invoke rebuildNetwork throughout the animation process whenever we want to attract the
+user's attention on the current node 
 
 \section{Animation Pipeline}
 
 After the user presses the Start Algorithm button there is a pipeline of processes that run ``behind the
 scenes". This pipeline is display in the UML use case diagram shown in
 Figure~\ref{fig:animation_uml_use_case_diagram}.
-
-\pagebreak
 
 \begin{figure}[!ht]
     \centering

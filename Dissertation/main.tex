@@ -1,5 +1,4 @@
 \documentclass{l4proj}
-
 \usepackage{amsfonts}
 \usepackage{url}
 \usepackage{fancyvrb}
@@ -765,16 +764,10 @@ accomplishing this? We have reviewed and discussed advantages and disadvantages 
     \item JQuery Animation.
 \end{itemize}
 
-Starting with Velocity JS as it is an actively developed library with more than 39 contributors on Github and almost
-700 commits~\cite{velocityjs}, what it primarily offers is transforms, loops, easings and colour animation. This sounds
-promising, but the main problem in our case is that we are working with Vis Nodes in a tree or a graph, thus our components
-are JavaScript objects rendered in the canvas. Even more than that, we have circular dependencies, as the root of a tree can have children
-which in turn are Nodes themselves, so mixing the structure Vis JS imposes with the functionalities of Velocity JS was
-rather impossible. \gethin{the circular dependency is not clear from what you have said}
-
-Also, an issue with using any of the 3 options was that they are
-manipulating elements which are part of the DOM (Document Object Model), while in our project the elements are part of
-the canvas. Therefore only the canvas could be animated as a whole without being able to manipulate the individual elements inside.
+Unfortunately, we had to give up all these options because the main issue with using any of them was that they are
+manipulating elements which are part of the DOM (Document Object Model), while in our project the elements (i.e. nodes
+in the tree/graph) are part of
+the canvas, thus they are not individual components of the DOM. Therefore only the canvas could be animated as a whole without being able to manipulate the individual elements inside.
 
 Having discussed all these caveats, we were left with no other choice than devise algorithms to animate our nodes and
 codelines using plain setTimeout calls throughout the project. Even though it was a compromise and it slowed
@@ -1055,8 +1048,8 @@ that along with HTML5 the W3C introduced Web Workers~\cite{web-worker}, these do
 because they allow only primitives and simple objects to be passed inside the running thread, while we have Nodes that
 can have other Nodes as children (which is a property of the Vis Node class), thus creating circular dependencies.
 
-Therefore, this sort of complex arithmetic had to be performed (see line 27) in order to make sure the calls are invoked at
-the correct times and that they do not overlap.  \gethin{are you sure you mean line 27?}
+Therefore, this sort of complex arithmetic had to be performed (see line 26) in order to make sure the calls are invoked at
+the correct times and that they do not overlap.
 
 Moreover, another type of issue occured when there were setTimeout invokations inside outer setTimeouts. One particular
 problem we faced was that if you call a setTimeout function inside another setTimeout, the time you set the inner one
@@ -1438,6 +1431,7 @@ the final release.
 %==============================================================================
 
 \appendix
+\section{Appendix A}
 
 \bibliographystyle{plain}
 \bibliography{l4proj}

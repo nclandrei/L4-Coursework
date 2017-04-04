@@ -910,6 +910,16 @@ Last but not least, the package.json file is automated so that we can add the re
 release-builds folder which will contain all executables for the 3 main operating system families: macOS, Windows and
 Linux.
 
+\section{Drawing using Vis.Js}
+
+Because we would work with algorithms on trees and graphs, drawing nodes and edges easily was a major part in our
+implementation process. Moreover, we needed to implement some sort of User Interface through which the user could add
+nodes and edges, change labels, mark nodes as root etc. Therefore, we decided to use Vis.Js\cite{visjs} which is an
+actively developed JavaScript library distributed as open source.
+
+Vis has an out-of-the-box API for various use cases including networks (i.e. graphs/trees), charts,
+timelines and datasets. The network one was of e
+
 \section{Animation Pipeline}
 
 After the user presses the Start Algorithm button there is a pipeline of processes that run ``behind the

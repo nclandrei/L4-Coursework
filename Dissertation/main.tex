@@ -248,15 +248,16 @@ There are obvious advantages to this approach:
 	\item the end product can run on a variety of machines with only one codebase;
 	\item the large number of Java libraries facilitate an easy development workflow;
     \item there are many tutorials and resources available;
-    \item Java is taught at most universities in introductory courses, making it easier for newcomers to create their
-      own application rapidly; Figure~\ref{fig:java-uni} shows the most taught programming languages at the top 39 U.S.
-      Computer Science departments.
-    	\begin{figure}[!ht]
-		\centering
-		\includegraphics[scale=0.8]{java-uni}
-		\caption{Languages used in introductory courses at top US universities.}
-		\label{fig:java-uni}
-		\end{figure}
+    \item Java is taught at most universities, making it easier for newcomers to create their
+      own application rapidly; Figure~\ref{fig:java-uni} shows what programming languages are preferred for teaching in
+      introductory courses at prestigious Computer Science departments in the U.S.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.8]{java-uni}
+\caption{Languages used in introductory courses at top US universities.}
+\label{fig:java-uni}
+\end{figure}
 \end{itemize}
 
 \pagebreak
@@ -270,7 +271,7 @@ However, there are also drawbacks to creating a standalone JAR application:
 \end{itemize}
 
 The second main approach for building an animator is web-based, one of them being D. Galles'
-application~\cite{galles}. Figure ~\ref{fig:galles} shows a screenshot taken while using this application.
+application~\cite{galles}. Figure~\ref{fig:galles} shows a screenshot taken while using this application.
 
 \begin{figure}[!ht]
 \centering
@@ -391,7 +392,7 @@ experts. Some of the key principles we implemented throughout the whole process 
       specific milestones so that the quality would always have high standards.
 \end{itemize}
 
-These principles ensured a good workflow with results that could be remarked immediately. \gethin{not sure what you mean by ``remarked''} We believe that a major part of the
+These principles ensured a good workflow with promising results that were immediately noticed. We believe that a major part of the
 success of the project was embracing above Agile methodologies.
 
 \section{Extreme Programming}
@@ -400,9 +401,9 @@ We have followed the approach first coined by Kent Beck called Extreme Programmi
 Agile technique through which good practices are pushed to ``extreme'' levels. XP has proven to be very effective as many companies use it in their development lifecycle. Principles it promotes that we have followed include:
 
 \begin{itemize}
-\item frequent releases based on requirements gathered incrementally in meetings (e.g. supervisor-student meetings)
+\item frequent releases based on requirements gathered incrementally in meetings (e.g.\ supervisor-student meetings)
 \item constant refactoring to promote simplicity;
-\item customer involvement throughout the whole process (i.e. getting feedback every 2-3 weeks from students that might use the application);
+\item customer involvement throughout the whole process (i.e.\ getting feedback every 2-3 weeks from students that might use the application);
 \item people over processes, which means collective ownership of the code as well as avoiding exhausting long working hours.
 \end{itemize}
 
@@ -543,23 +544,26 @@ our purposes. In the end, we will also discuss compromises that needed to be tak
 
 \section{Architecture}
 
-Because we would have a wide variety of users (students, experienced developers, university lecturers, enthusiasts) one
-needs to take into account a range of different perspectives. Therefore, architectural design and focus on simplicity is vital to the success of every software. \gethin{I do not get therefore at the start of this sentence} We have used UML
-diagrams in order to visualize the system as well as possible before proceeding with the implementation. \gethin{add reference to UML diagrams and say something about why they were chosen?}
+Architectural design and focus on simplicity is vital to the success of every software. UML (i.e. Unified Modelling
+Language) is a modelling language used in the field of software engineering that became the standard way in industry to
+visualize the design of a system. After extensive research we have found that even though the misuse of UML can lead to
+serious potential issues~\cite{boeing-uml-issue}, designing the right amount through the use of diagrams will
+definitely improve the entire workflow~\cite{uml-success-stories}.
 
-Figure~\ref{fig:uml-component-diagram} shows our final candidate for the component diagram.
+Thus, we have decided to use UML diagrams~\cite{uml-diagrams-book} (as examples see Figures~\ref{fig:uml-component-diagram} and~\ref{fig:animation_uml_use_case_diagram}) in order to visualize Palgo as well as possible before proceeding with the implementation. 
+
+Figure~\ref{fig:uml-component-diagram} shows our final candidate for the UML component diagram. asdsad
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.5]{UML_component_diagram}
+    \includegraphics[scale=0.45]{UML_component_diagram}
     \caption{UML component diagram.}
     \label{fig:uml-component-diagram}
 \end{figure}
 
 It can be noticed that our approach was rather simplistic - after the user hits the start algorithm button, the main
-component is the Electron window. This is, in fact, the native window generated by the framework which contains the
-application. As we will see in the subsequent sections, Electron uses web tools to generate the output, thus we start rendering on
-our HTML page the animation. \gethin{previous sentence needs rewording as does not make sense} This will be composed out of 2 components: the node manipulator which will colour, move,
+component is the Electron window. This is, in fact, the native window generated by the framework which contains the application. As we will see in the subsequent sections, Electron makes use of web tools (i.e. CSS, HTML5 and JavaScript) to animate the objects on the
+canvas. The algorithm animation will be made out of 2 components: the node manipulator which will colour, move,
 hide and change the vertices of the graph or tree, while the codeline highlighter will handle the animation of the
 algorithm's codelines. They will execute concomitantly and generate output immediately in the window.
 
@@ -576,7 +580,7 @@ language used the most for university coursework, thus there was comfort in choo
 
 Also, there are many projects available that were of interest. The one we studied closely before deciding on whether to
 choose Java or not as the primary language behind our animator was ANIMAL~\cite{animal-algo-animation}, one of the most popular tools on the
-web. Even though the paper published by Rößling et al. is almost 20 years old, the animator is still actively under
+web. Even though the paper published by Rößling et al.\ is almost 20 years old, the animator is still actively under
 development, the latest release dating back to 5th of September 2016.
 
 \begin{figure}[!ht]

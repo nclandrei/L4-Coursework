@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1491261860 "main.aux" "main.bbl" "main" 1491261980
+["bibtex main"] 1491264349 "main.aux" "main.bbl" "main" 1491264563
   "/usr/local/texlive/2015/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "l4proj.bib" 1491230674 7721 6695bc2919c4c520d205e43784ed695a ""
-  "main.aux" 1491261979 13667 828a5ad14eca53690666279d4ba97af5 ""
+  "l4proj.bib" 1491263960 8256 76478b4d7155ab19422e3a75442c2f50 ""
+  "main.aux" 1491264563 13852 a4b9bfd681ee7192c23956a5f039cef5 ""
   "main.bcf" 0 -1 0 ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1491261971 "main.tex" "main.pdf" "main" 1491261980
+["pdflatex"] 1491264554 "main.tex" "main.pdf" "main" 1491264563
   "./UML_component_diagram.png" 1490657845 20565 4f16f7b5d9305f27441b4aa72e2ac3b4 ""
   "./algo-animator.png" 1490609862 298610 64e16d6d6998e82692bca4b8950cf614 ""
   "./algorithm.png" 1490609862 47442 31820362b5af71ca3783062985520115 ""
@@ -182,10 +182,10 @@
   "java-uni.png" 1490609860 89592 ef6f075afd983f73e3635fd0986420d6 ""
   "l4proj.cls" 1490609860 2825 d698c6362cdc757b8ab1719dea98f0cc ""
   "landing-page.png" 1490766742 950764 129bf56cc839086e26cad562ef2de829 ""
-  "main.aux" 1491261979 13667 828a5ad14eca53690666279d4ba97af5 ""
-  "main.bbl" 1491261860 6133 c2ccef0cc02ad018675299bac3801e95 "bibtex main"
-  "main.tex" 1491261977 89255 3871faa576969657e68efd06e6c93c3e ""
-  "main.toc" 1491261979 2562 3c98603ad15f655f1e9e756ce5be2bdb ""
+  "main.aux" 1491264563 13852 a4b9bfd681ee7192c23956a5f039cef5 ""
+  "main.bbl" 1491264349 6519 a0291f3edde9f5a79ff22c5cce62fc57 "bibtex main"
+  "main.tex" 1491264554 89429 74f4734c549e48494ebef5b9067722c4 ""
+  "main.toc" 1491264563 2562 4182686cbe2b1c7f7491023aee93ddf7 ""
   "material-design-navbar.png" 1490745844 25081 54a1d9d9daff19a1b82aeb47695d3a7f ""
   "palgo-website.png" 1490824433 427664 d8ed78b83e46fbbe0c7a2ec204ff1803 ""
   "paper_prototype.png" 1490852832 11994801 0575e4a352ad468284c9d203bf5efdb2 ""
@@ -200,7 +200,7 @@
   "trello-functional-requirements.png" 1490609860 466837 b48f8b1c01c27cc39ae72937a32cbf05 ""
   "v8-benchmark.png" 1490717826 256221 0ed95d8f6c49664767eec7a178b4e519 ""
   (generated)
-  "main.log"
+  "main.toc"
   "main.aux"
   "main.pdf"
-  "main.toc"
+  "main.log"

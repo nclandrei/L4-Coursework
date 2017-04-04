@@ -15,6 +15,11 @@ Kent Beck.
 \newblock {Embracing change with extreme programming}.
 \newblock {\em Computer}, 32(10):70--77, 1999.
 
+\bibitem{boeing-uml-issue}
+Alex~E Bell.
+\newblock {Death by UML fever.}
+\newblock {\em Queue}, 2(1), 2004.
+
 \bibitem{better-assert}
 better assert.
 \newblock {better-assert GitHub Page}.
@@ -24,6 +29,11 @@ better assert.
 Grady Booch.
 \newblock {\em {Object Oriented Design: With Applications}}.
 \newblock Benjamin/Cummings, 1991.
+
+\bibitem{uml-diagrams-book}
+Grady Booch.
+\newblock {\em {The unified modeling language user guide}}.
+\newblock Pearson Education India, 2005.
 
 \bibitem{chai}
 ChaiJS.
@@ -210,6 +220,11 @@ Matthias~F Stallmann.
 Trello.
 \newblock {Trello Website}.
 \newblock \url{https://trello.com}.
+
+\bibitem{uml-success-stories}
+UML.
+\newblock {UML Success Stories}.
+\newblock \url{http://www.uml.org/uml_success_stories/index.htm}.
 
 \bibitem{velocityjs}
 Velocity.js.

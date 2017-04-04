@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1491302391 "main.aux" "main.bbl" "main" 1491302401
+["bibtex main"] 1491303327 "main.aux" "main.bbl" "main" 1491303354
   "/usr/local/texlive/2015/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "l4proj.bib" 1491263960 8256 76478b4d7155ab19422e3a75442c2f50 ""
-  "main.aux" 1491302400 15111 8186719f3c194e252c01b38b09174348 ""
+  "main.aux" 1491303354 15490 45b24a689982e5bccc8d342b2e837e39 ""
   "main.bcf" 0 -1 0 ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1491302391 "main.tex" "main.pdf" "main" 1491302401
+["pdflatex"] 1491303345 "main.tex" "main.pdf" "main" 1491303354
   "./UML_component_diagram.png" 1490657845 20565 4f16f7b5d9305f27441b4aa72e2ac3b4 ""
   "./algo-animator.png" 1490609862 298610 64e16d6d6998e82692bca4b8950cf614 ""
   "./algorithm.png" 1490609862 47442 31820362b5af71ca3783062985520115 ""
@@ -19,6 +19,7 @@
   "./burndown.png" 1490611046 79840 0f2f07fbf3625cff80ddf91818ce7253 ""
   "./circleci.png" 1490619176 138249 d2cc2510d00e8fdd612298110c4276eb ""
   "./commits-week.png" 1490620112 152090 14d5d3d3e35f91ac1df6b1ca97415588 ""
+  "./edge-weight-modal.png" 1491303145 267095 f3b4d4e8ff4d696ecd2658cdc7050cdc ""
   "./estimation.png" 1490650348 154449 dc7f8fa7f90daf260e00aa799d236cc2 ""
   "./galant.png" 1490609862 2016909 946d3fb372f20bae60df3d705176e6c2 ""
   "./galles.png" 1490609860 256425 94ba76d7eb3b8f89ff5397096201d4b9 ""
@@ -171,6 +172,7 @@
   "burndown.png" 1490611046 79840 0f2f07fbf3625cff80ddf91818ce7253 ""
   "circleci.png" 1490619176 138249 d2cc2510d00e8fdd612298110c4276eb ""
   "commits-week.png" 1490620112 152090 14d5d3d3e35f91ac1df6b1ca97415588 ""
+  "edge-weight-modal.png" 1491303145 267095 f3b4d4e8ff4d696ecd2658cdc7050cdc ""
   "estimation.png" 1490650348 154449 dc7f8fa7f90daf260e00aa799d236cc2 ""
   "galant.png" 1490609862 2016909 946d3fb372f20bae60df3d705176e6c2 ""
   "galles.png" 1490609860 256425 94ba76d7eb3b8f89ff5397096201d4b9 ""
@@ -182,10 +184,10 @@
   "java-uni.png" 1490609860 89592 ef6f075afd983f73e3635fd0986420d6 ""
   "l4proj.cls" 1490609860 2825 d698c6362cdc757b8ab1719dea98f0cc ""
   "landing-page.png" 1490766742 950764 129bf56cc839086e26cad562ef2de829 ""
-  "main.aux" 1491302400 15111 8186719f3c194e252c01b38b09174348 ""
-  "main.bbl" 1491302391 6412 adad069735978ed52ab47f5812a7f425 "bibtex main"
-  "main.tex" 1491302381 96129 e0dd1638940df0c878032e629924efd2 ""
-  "main.toc" 1491302400 2802 a82c9fc614e6a1384f06667fe784cc2e ""
+  "main.aux" 1491303354 15490 45b24a689982e5bccc8d342b2e837e39 ""
+  "main.bbl" 1491303327 6412 adad069735978ed52ab47f5812a7f425 "bibtex main"
+  "main.tex" 1491303346 97389 e81739d82eaf9db82f914cad4ec1fb7b ""
+  "main.toc" 1491303354 2802 b31e2d58ac6e8345902d9464339e1e86 ""
   "material-design-navbar.png" 1490745844 25081 54a1d9d9daff19a1b82aeb47695d3a7f ""
   "palgo-evaluation-form.pdf" 1491266803 43480 09037b20d9dfcb8ec0183a241c52496e ""
   "palgo-evaluation-responses.pdf" 1491267742 115851 6607d432833cd7380e6fdd953f021b0d ""

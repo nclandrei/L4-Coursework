@@ -978,9 +978,38 @@ addNode: function(nodeData, callback) {
 }
 \end{lstlisting}
 
+It can be noticed that this function will set up a node and then invoking ``callback(nodeData)'' will immediately add it to the
+graph/tree. However, there are event listeners that need to take input from the user such as the edge's weight. Listing~\ref{custom-event-listener} shows an example of this implementation.
+
+\begin{lstlisting}[language={Java}, label={custom-event-listener},caption={Custom edge insertion event listener for Dijkstra's Shortest Path algorithm.}]
+addEdge: function(data, callback) {
+  if ($("#directed-chechbox").prop("checked")) {
+    data.arrows = {};
+    data.arrows.to = true;
+  }
+  if (data.from === data.to) {
+    const r = confirm("Do you want to connect the node to itself?");
+    if (r === true) {
+      callback(null);
+      return;
+    }
+  }
+  editEdgeCustom(network, data, callback);
+}
+\end{lstlisting}
+
+When invoking ``editEdgeCustom'', the user is presented with a modal inside Palgo where he/she can add the weight and
+either save the changes or cancel the process. Figure~\ref{fig:edge-weight-modal} shows this functionality in action.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.3]{edge-weight-modal}
+\caption{Edge insertion modal for Dijkstra's Shortest Path algorithm.}
+\label{fig:edge-weight-modal}
+\end{figure}
+
 Even though this toolbar is used on most algorithms, the Huffman Tree construction has no toolbar because the user will simply input a string through the keyboard or via a file after which the tree will be built, while the Heap Insertion/Deletion has specific buttons added in the main UI of the application (see Figure~\ref{fig:heap-toolbar}) so that they are more noticeable.
 
-\pagebreak
 
 \begin{figure}[!ht]
 \centering
@@ -1008,7 +1037,7 @@ after 2000 milliseconds. As we can see on line 7, we have a node ``q'' (which is
 ``red'' (the same process can be applied to edges). Afterwards, we call the ``rebuildNetwork'' function to change the ``network'' object. Inside the redraw function of the Network, we check if
 there are any changes in the nodes and edges arrays and, if so, we apply them. In the end, the view is refreshed and
 the user can instantly see the updated graph/tree and focus his/her attention on what current step of the algorithm is
-executed (in the case presented in Listing~\ref{prim-jarnik-review}, adding the node to the minimum spanning tree). As
+executed (in the case presented in Listing~\ref{prim-jarnik-redraw}, adding the node to the minimum spanning tree). As
 objects are drawn on the canvas, the current codeline that is executed is also highlighted so that the user can create a mental association between the two for easier understanding of the algorithm.
 
 This process is used throughout all algorithms and it proved to be an intuitive and easy implementation due to Vis'
@@ -1235,8 +1264,6 @@ the application since they opened it for the first time. Figure~\ref{fig:landing
 \caption{Landing page in the application.}
 \label{fig:landing-page}
 \end{figure}
-
-\pagebreak
 
 Last but not least, we believe that having a modern and attractive webpage where users can download the application and get to
 know some basic information is essential, thus we have created a custom website where we host the releases and users can simply
